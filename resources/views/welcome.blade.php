@@ -1,277 +1,4408 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Jobpilot is job portal laravel script designed to create, manage and publish jobs posts. Companies can create their profile and publish jobs posts. Candidate can apply job posts.">
+    <meta property="og:image" content="https://jobpilot.lomeyolabs.com/frontend/assets/images/jobpilot.png">
+    <title>Welcome To Jobpilot - Jobpilot</title>
+    <link rel="icon" type="image/png" href="https://jobpilot.lomeyolabs.com/frontend/assets/images/logo/fav.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="preload"
+        as="style">
+    <link rel="stylesheet" href="https://jobpilot.lomeyolabs.com/frontend/assets/css/free-guide.css">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
 
-        <!-- Styles / Scripts -->
-        @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-            @vite(['resources/css/app.css', 'resources/js/app.js'])
-        @else
-            <style>
-                /*! tailwindcss v4.0.7 | MIT License | https://tailwindcss.com */@layer theme{:root,:host{--font-sans:'Instrument Sans',ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--font-serif:ui-serif,Georgia,Cambria,"Times New Roman",Times,serif;--font-mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;--color-red-50:oklch(.971 .013 17.38);--color-red-100:oklch(.936 .032 17.717);--color-red-200:oklch(.885 .062 18.334);--color-red-300:oklch(.808 .114 19.571);--color-red-400:oklch(.704 .191 22.216);--color-red-500:oklch(.637 .237 25.331);--color-red-600:oklch(.577 .245 27.325);--color-red-700:oklch(.505 .213 27.518);--color-red-800:oklch(.444 .177 26.899);--color-red-900:oklch(.396 .141 25.723);--color-red-950:oklch(.258 .092 26.042);--color-orange-50:oklch(.98 .016 73.684);--color-orange-100:oklch(.954 .038 75.164);--color-orange-200:oklch(.901 .076 70.697);--color-orange-300:oklch(.837 .128 66.29);--color-orange-400:oklch(.75 .183 55.934);--color-orange-500:oklch(.705 .213 47.604);--color-orange-600:oklch(.646 .222 41.116);--color-orange-700:oklch(.553 .195 38.402);--color-orange-800:oklch(.47 .157 37.304);--color-orange-900:oklch(.408 .123 38.172);--color-orange-950:oklch(.266 .079 36.259);--color-amber-50:oklch(.987 .022 95.277);--color-amber-100:oklch(.962 .059 95.617);--color-amber-200:oklch(.924 .12 95.746);--color-amber-300:oklch(.879 .169 91.605);--color-amber-400:oklch(.828 .189 84.429);--color-amber-500:oklch(.769 .188 70.08);--color-amber-600:oklch(.666 .179 58.318);--color-amber-700:oklch(.555 .163 48.998);--color-amber-800:oklch(.473 .137 46.201);--color-amber-900:oklch(.414 .112 45.904);--color-amber-950:oklch(.279 .077 45.635);--color-yellow-50:oklch(.987 .026 102.212);--color-yellow-100:oklch(.973 .071 103.193);--color-yellow-200:oklch(.945 .129 101.54);--color-yellow-300:oklch(.905 .182 98.111);--color-yellow-400:oklch(.852 .199 91.936);--color-yellow-500:oklch(.795 .184 86.047);--color-yellow-600:oklch(.681 .162 75.834);--color-yellow-700:oklch(.554 .135 66.442);--color-yellow-800:oklch(.476 .114 61.907);--color-yellow-900:oklch(.421 .095 57.708);--color-yellow-950:oklch(.286 .066 53.813);--color-lime-50:oklch(.986 .031 120.757);--color-lime-100:oklch(.967 .067 122.328);--color-lime-200:oklch(.938 .127 124.321);--color-lime-300:oklch(.897 .196 126.665);--color-lime-400:oklch(.841 .238 128.85);--color-lime-500:oklch(.768 .233 130.85);--color-lime-600:oklch(.648 .2 131.684);--color-lime-700:oklch(.532 .157 131.589);--color-lime-800:oklch(.453 .124 130.933);--color-lime-900:oklch(.405 .101 131.063);--color-lime-950:oklch(.274 .072 132.109);--color-green-50:oklch(.982 .018 155.826);--color-green-100:oklch(.962 .044 156.743);--color-green-200:oklch(.925 .084 155.995);--color-green-300:oklch(.871 .15 154.449);--color-green-400:oklch(.792 .209 151.711);--color-green-500:oklch(.723 .219 149.579);--color-green-600:oklch(.627 .194 149.214);--color-green-700:oklch(.527 .154 150.069);--color-green-800:oklch(.448 .119 151.328);--color-green-900:oklch(.393 .095 152.535);--color-green-950:oklch(.266 .065 152.934);--color-emerald-50:oklch(.979 .021 166.113);--color-emerald-100:oklch(.95 .052 163.051);--color-emerald-200:oklch(.905 .093 164.15);--color-emerald-300:oklch(.845 .143 164.978);--color-emerald-400:oklch(.765 .177 163.223);--color-emerald-500:oklch(.696 .17 162.48);--color-emerald-600:oklch(.596 .145 163.225);--color-emerald-700:oklch(.508 .118 165.612);--color-emerald-800:oklch(.432 .095 166.913);--color-emerald-900:oklch(.378 .077 168.94);--color-emerald-950:oklch(.262 .051 172.552);--color-teal-50:oklch(.984 .014 180.72);--color-teal-100:oklch(.953 .051 180.801);--color-teal-200:oklch(.91 .096 180.426);--color-teal-300:oklch(.855 .138 181.071);--color-teal-400:oklch(.777 .152 181.912);--color-teal-500:oklch(.704 .14 182.503);--color-teal-600:oklch(.6 .118 184.704);--color-teal-700:oklch(.511 .096 186.391);--color-teal-800:oklch(.437 .078 188.216);--color-teal-900:oklch(.386 .063 188.416);--color-teal-950:oklch(.277 .046 192.524);--color-cyan-50:oklch(.984 .019 200.873);--color-cyan-100:oklch(.956 .045 203.388);--color-cyan-200:oklch(.917 .08 205.041);--color-cyan-300:oklch(.865 .127 207.078);--color-cyan-400:oklch(.789 .154 211.53);--color-cyan-500:oklch(.715 .143 215.221);--color-cyan-600:oklch(.609 .126 221.723);--color-cyan-700:oklch(.52 .105 223.128);--color-cyan-800:oklch(.45 .085 224.283);--color-cyan-900:oklch(.398 .07 227.392);--color-cyan-950:oklch(.302 .056 229.695);--color-sky-50:oklch(.977 .013 236.62);--color-sky-100:oklch(.951 .026 236.824);--color-sky-200:oklch(.901 .058 230.902);--color-sky-300:oklch(.828 .111 230.318);--color-sky-400:oklch(.746 .16 232.661);--color-sky-500:oklch(.685 .169 237.323);--color-sky-600:oklch(.588 .158 241.966);--color-sky-700:oklch(.5 .134 242.749);--color-sky-800:oklch(.443 .11 240.79);--color-sky-900:oklch(.391 .09 240.876);--color-sky-950:oklch(.293 .066 243.157);--color-blue-50:oklch(.97 .014 254.604);--color-blue-100:oklch(.932 .032 255.585);--color-blue-200:oklch(.882 .059 254.128);--color-blue-300:oklch(.809 .105 251.813);--color-blue-400:oklch(.707 .165 254.624);--color-blue-500:oklch(.623 .214 259.815);--color-blue-600:oklch(.546 .245 262.881);--color-blue-700:oklch(.488 .243 264.376);--color-blue-800:oklch(.424 .199 265.638);--color-blue-900:oklch(.379 .146 265.522);--color-blue-950:oklch(.282 .091 267.935);--color-indigo-50:oklch(.962 .018 272.314);--color-indigo-100:oklch(.93 .034 272.788);--color-indigo-200:oklch(.87 .065 274.039);--color-indigo-300:oklch(.785 .115 274.713);--color-indigo-400:oklch(.673 .182 276.935);--color-indigo-500:oklch(.585 .233 277.117);--color-indigo-600:oklch(.511 .262 276.966);--color-indigo-700:oklch(.457 .24 277.023);--color-indigo-800:oklch(.398 .195 277.366);--color-indigo-900:oklch(.359 .144 278.697);--color-indigo-950:oklch(.257 .09 281.288);--color-violet-50:oklch(.969 .016 293.756);--color-violet-100:oklch(.943 .029 294.588);--color-violet-200:oklch(.894 .057 293.283);--color-violet-300:oklch(.811 .111 293.571);--color-violet-400:oklch(.702 .183 293.541);--color-violet-500:oklch(.606 .25 292.717);--color-violet-600:oklch(.541 .281 293.009);--color-violet-700:oklch(.491 .27 292.581);--color-violet-800:oklch(.432 .232 292.759);--color-violet-900:oklch(.38 .189 293.745);--color-violet-950:oklch(.283 .141 291.089);--color-purple-50:oklch(.977 .014 308.299);--color-purple-100:oklch(.946 .033 307.174);--color-purple-200:oklch(.902 .063 306.703);--color-purple-300:oklch(.827 .119 306.383);--color-purple-400:oklch(.714 .203 305.504);--color-purple-500:oklch(.627 .265 303.9);--color-purple-600:oklch(.558 .288 302.321);--color-purple-700:oklch(.496 .265 301.924);--color-purple-800:oklch(.438 .218 303.724);--color-purple-900:oklch(.381 .176 304.987);--color-purple-950:oklch(.291 .149 302.717);--color-fuchsia-50:oklch(.977 .017 320.058);--color-fuchsia-100:oklch(.952 .037 318.852);--color-fuchsia-200:oklch(.903 .076 319.62);--color-fuchsia-300:oklch(.833 .145 321.434);--color-fuchsia-400:oklch(.74 .238 322.16);--color-fuchsia-500:oklch(.667 .295 322.15);--color-fuchsia-600:oklch(.591 .293 322.896);--color-fuchsia-700:oklch(.518 .253 323.949);--color-fuchsia-800:oklch(.452 .211 324.591);--color-fuchsia-900:oklch(.401 .17 325.612);--color-fuchsia-950:oklch(.293 .136 325.661);--color-pink-50:oklch(.971 .014 343.198);--color-pink-100:oklch(.948 .028 342.258);--color-pink-200:oklch(.899 .061 343.231);--color-pink-300:oklch(.823 .12 346.018);--color-pink-400:oklch(.718 .202 349.761);--color-pink-500:oklch(.656 .241 354.308);--color-pink-600:oklch(.592 .249 .584);--color-pink-700:oklch(.525 .223 3.958);--color-pink-800:oklch(.459 .187 3.815);--color-pink-900:oklch(.408 .153 2.432);--color-pink-950:oklch(.284 .109 3.907);--color-rose-50:oklch(.969 .015 12.422);--color-rose-100:oklch(.941 .03 12.58);--color-rose-200:oklch(.892 .058 10.001);--color-rose-300:oklch(.81 .117 11.638);--color-rose-400:oklch(.712 .194 13.428);--color-rose-500:oklch(.645 .246 16.439);--color-rose-600:oklch(.586 .253 17.585);--color-rose-700:oklch(.514 .222 16.935);--color-rose-800:oklch(.455 .188 13.697);--color-rose-900:oklch(.41 .159 10.272);--color-rose-950:oklch(.271 .105 12.094);--color-slate-50:oklch(.984 .003 247.858);--color-slate-100:oklch(.968 .007 247.896);--color-slate-200:oklch(.929 .013 255.508);--color-slate-300:oklch(.869 .022 252.894);--color-slate-400:oklch(.704 .04 256.788);--color-slate-500:oklch(.554 .046 257.417);--color-slate-600:oklch(.446 .043 257.281);--color-slate-700:oklch(.372 .044 257.287);--color-slate-800:oklch(.279 .041 260.031);--color-slate-900:oklch(.208 .042 265.755);--color-slate-950:oklch(.129 .042 264.695);--color-gray-50:oklch(.985 .002 247.839);--color-gray-100:oklch(.967 .003 264.542);--color-gray-200:oklch(.928 .006 264.531);--color-gray-300:oklch(.872 .01 258.338);--color-gray-400:oklch(.707 .022 261.325);--color-gray-500:oklch(.551 .027 264.364);--color-gray-600:oklch(.446 .03 256.802);--color-gray-700:oklch(.373 .034 259.733);--color-gray-800:oklch(.278 .033 256.848);--color-gray-900:oklch(.21 .034 264.665);--color-gray-950:oklch(.13 .028 261.692);--color-zinc-50:oklch(.985 0 0);--color-zinc-100:oklch(.967 .001 286.375);--color-zinc-200:oklch(.92 .004 286.32);--color-zinc-300:oklch(.871 .006 286.286);--color-zinc-400:oklch(.705 .015 286.067);--color-zinc-500:oklch(.552 .016 285.938);--color-zinc-600:oklch(.442 .017 285.786);--color-zinc-700:oklch(.37 .013 285.805);--color-zinc-800:oklch(.274 .006 286.033);--color-zinc-900:oklch(.21 .006 285.885);--color-zinc-950:oklch(.141 .005 285.823);--color-neutral-50:oklch(.985 0 0);--color-neutral-100:oklch(.97 0 0);--color-neutral-200:oklch(.922 0 0);--color-neutral-300:oklch(.87 0 0);--color-neutral-400:oklch(.708 0 0);--color-neutral-500:oklch(.556 0 0);--color-neutral-600:oklch(.439 0 0);--color-neutral-700:oklch(.371 0 0);--color-neutral-800:oklch(.269 0 0);--color-neutral-900:oklch(.205 0 0);--color-neutral-950:oklch(.145 0 0);--color-stone-50:oklch(.985 .001 106.423);--color-stone-100:oklch(.97 .001 106.424);--color-stone-200:oklch(.923 .003 48.717);--color-stone-300:oklch(.869 .005 56.366);--color-stone-400:oklch(.709 .01 56.259);--color-stone-500:oklch(.553 .013 58.071);--color-stone-600:oklch(.444 .011 73.639);--color-stone-700:oklch(.374 .01 67.558);--color-stone-800:oklch(.268 .007 34.298);--color-stone-900:oklch(.216 .006 56.043);--color-stone-950:oklch(.147 .004 49.25);--color-black:#000;--color-white:#fff;--spacing:.25rem;--breakpoint-sm:40rem;--breakpoint-md:48rem;--breakpoint-lg:64rem;--breakpoint-xl:80rem;--breakpoint-2xl:96rem;--container-3xs:16rem;--container-2xs:18rem;--container-xs:20rem;--container-sm:24rem;--container-md:28rem;--container-lg:32rem;--container-xl:36rem;--container-2xl:42rem;--container-3xl:48rem;--container-4xl:56rem;--container-5xl:64rem;--container-6xl:72rem;--container-7xl:80rem;--text-xs:.75rem;--text-xs--line-height:calc(1/.75);--text-sm:.875rem;--text-sm--line-height:calc(1.25/.875);--text-base:1rem;--text-base--line-height: 1.5 ;--text-lg:1.125rem;--text-lg--line-height:calc(1.75/1.125);--text-xl:1.25rem;--text-xl--line-height:calc(1.75/1.25);--text-2xl:1.5rem;--text-2xl--line-height:calc(2/1.5);--text-3xl:1.875rem;--text-3xl--line-height: 1.2 ;--text-4xl:2.25rem;--text-4xl--line-height:calc(2.5/2.25);--text-5xl:3rem;--text-5xl--line-height:1;--text-6xl:3.75rem;--text-6xl--line-height:1;--text-7xl:4.5rem;--text-7xl--line-height:1;--text-8xl:6rem;--text-8xl--line-height:1;--text-9xl:8rem;--text-9xl--line-height:1;--font-weight-thin:100;--font-weight-extralight:200;--font-weight-light:300;--font-weight-normal:400;--font-weight-medium:500;--font-weight-semibold:600;--font-weight-bold:700;--font-weight-extrabold:800;--font-weight-black:900;--tracking-tighter:-.05em;--tracking-tight:-.025em;--tracking-normal:0em;--tracking-wide:.025em;--tracking-wider:.05em;--tracking-widest:.1em;--leading-tight:1.25;--leading-snug:1.375;--leading-normal:1.5;--leading-relaxed:1.625;--leading-loose:2;--radius-xs:.125rem;--radius-sm:.25rem;--radius-md:.375rem;--radius-lg:.5rem;--radius-xl:.75rem;--radius-2xl:1rem;--radius-3xl:1.5rem;--radius-4xl:2rem;--shadow-2xs:0 1px #0000000d;--shadow-xs:0 1px 2px 0 #0000000d;--shadow-sm:0 1px 3px 0 #0000001a,0 1px 2px -1px #0000001a;--shadow-md:0 4px 6px -1px #0000001a,0 2px 4px -2px #0000001a;--shadow-lg:0 10px 15px -3px #0000001a,0 4px 6px -4px #0000001a;--shadow-xl:0 20px 25px -5px #0000001a,0 8px 10px -6px #0000001a;--shadow-2xl:0 25px 50px -12px #00000040;--inset-shadow-2xs:inset 0 1px #0000000d;--inset-shadow-xs:inset 0 1px 1px #0000000d;--inset-shadow-sm:inset 0 2px 4px #0000000d;--drop-shadow-xs:0 1px 1px #0000000d;--drop-shadow-sm:0 1px 2px #00000026;--drop-shadow-md:0 3px 3px #0000001f;--drop-shadow-lg:0 4px 4px #00000026;--drop-shadow-xl:0 9px 7px #0000001a;--drop-shadow-2xl:0 25px 25px #00000026;--ease-in:cubic-bezier(.4,0,1,1);--ease-out:cubic-bezier(0,0,.2,1);--ease-in-out:cubic-bezier(.4,0,.2,1);--animate-spin:spin 1s linear infinite;--animate-ping:ping 1s cubic-bezier(0,0,.2,1)infinite;--animate-pulse:pulse 2s cubic-bezier(.4,0,.6,1)infinite;--animate-bounce:bounce 1s infinite;--blur-xs:4px;--blur-sm:8px;--blur-md:12px;--blur-lg:16px;--blur-xl:24px;--blur-2xl:40px;--blur-3xl:64px;--perspective-dramatic:100px;--perspective-near:300px;--perspective-normal:500px;--perspective-midrange:800px;--perspective-distant:1200px;--aspect-video:16/9;--default-transition-duration:.15s;--default-transition-timing-function:cubic-bezier(.4,0,.2,1);--default-font-family:var(--font-sans);--default-font-feature-settings:var(--font-sans--font-feature-settings);--default-font-variation-settings:var(--font-sans--font-variation-settings);--default-mono-font-family:var(--font-mono);--default-mono-font-feature-settings:var(--font-mono--font-feature-settings);--default-mono-font-variation-settings:var(--font-mono--font-variation-settings)}}@layer base{*,:after,:before,::backdrop{box-sizing:border-box;border:0 solid;margin:0;padding:0}::file-selector-button{box-sizing:border-box;border:0 solid;margin:0;padding:0}html,:host{-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;line-height:1.5;font-family:var(--default-font-family,ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji");font-feature-settings:var(--default-font-feature-settings,normal);font-variation-settings:var(--default-font-variation-settings,normal);-webkit-tap-highlight-color:transparent}body{line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;-webkit-text-decoration:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,samp,pre{font-family:var(--default-mono-font-family,ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace);font-feature-settings:var(--default-mono-font-feature-settings,normal);font-variation-settings:var(--default-mono-font-variation-settings,normal);font-size:1em}small{font-size:80%}sub,sup{vertical-align:baseline;font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}:-moz-focusring{outline:auto}progress{vertical-align:baseline}summary{display:list-item}ol,ul,menu{list-style:none}img,svg,video,canvas,audio,iframe,embed,object{vertical-align:middle;display:block}img,video{max-width:100%;height:auto}button,input,select,optgroup,textarea{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}::file-selector-button{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}:where(select:is([multiple],[size])) optgroup{font-weight:bolder}:where(select:is([multiple],[size])) optgroup option{padding-inline-start:20px}::file-selector-button{margin-inline-end:4px}::placeholder{opacity:1;color:color-mix(in oklab,currentColor 50%,transparent)}textarea{resize:vertical}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-date-and-time-value{min-height:1lh;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-datetime-edit{padding-block:0}::-webkit-datetime-edit-year-field{padding-block:0}::-webkit-datetime-edit-month-field{padding-block:0}::-webkit-datetime-edit-day-field{padding-block:0}::-webkit-datetime-edit-hour-field{padding-block:0}::-webkit-datetime-edit-minute-field{padding-block:0}::-webkit-datetime-edit-second-field{padding-block:0}::-webkit-datetime-edit-millisecond-field{padding-block:0}::-webkit-datetime-edit-meridiem-field{padding-block:0}:-moz-ui-invalid{box-shadow:none}button,input:where([type=button],[type=reset],[type=submit]){-webkit-appearance:button;-moz-appearance:button;appearance:button}::file-selector-button{-webkit-appearance:button;-moz-appearance:button;appearance:button}::-webkit-inner-spin-button{height:auto}::-webkit-outer-spin-button{height:auto}[hidden]:where(:not([hidden=until-found])){display:none!important}}@layer components;@layer utilities{.absolute{position:absolute}.relative{position:relative}.static{position:static}.inset-0{inset:calc(var(--spacing)*0)}.-mt-\[4\.9rem\]{margin-top:-4.9rem}.-mb-px{margin-bottom:-1px}.mb-1{margin-bottom:calc(var(--spacing)*1)}.mb-2{margin-bottom:calc(var(--spacing)*2)}.mb-4{margin-bottom:calc(var(--spacing)*4)}.mb-6{margin-bottom:calc(var(--spacing)*6)}.-ml-8{margin-left:calc(var(--spacing)*-8)}.flex{display:flex}.hidden{display:none}.inline-block{display:inline-block}.inline-flex{display:inline-flex}.table{display:table}.aspect-\[335\/376\]{aspect-ratio:335/376}.h-1{height:calc(var(--spacing)*1)}.h-1\.5{height:calc(var(--spacing)*1.5)}.h-2{height:calc(var(--spacing)*2)}.h-2\.5{height:calc(var(--spacing)*2.5)}.h-3{height:calc(var(--spacing)*3)}.h-3\.5{height:calc(var(--spacing)*3.5)}.h-14{height:calc(var(--spacing)*14)}.h-14\.5{height:calc(var(--spacing)*14.5)}.min-h-screen{min-height:100vh}.w-1{width:calc(var(--spacing)*1)}.w-1\.5{width:calc(var(--spacing)*1.5)}.w-2{width:calc(var(--spacing)*2)}.w-2\.5{width:calc(var(--spacing)*2.5)}.w-3{width:calc(var(--spacing)*3)}.w-3\.5{width:calc(var(--spacing)*3.5)}.w-\[448px\]{width:448px}.w-full{width:100%}.max-w-\[335px\]{max-width:335px}.max-w-none{max-width:none}.flex-1{flex:1}.shrink-0{flex-shrink:0}.translate-y-0{--tw-translate-y:calc(var(--spacing)*0);translate:var(--tw-translate-x)var(--tw-translate-y)}.transform{transform:var(--tw-rotate-x)var(--tw-rotate-y)var(--tw-rotate-z)var(--tw-skew-x)var(--tw-skew-y)}.flex-col{flex-direction:column}.flex-col-reverse{flex-direction:column-reverse}.items-center{align-items:center}.justify-center{justify-content:center}.justify-end{justify-content:flex-end}.gap-3{gap:calc(var(--spacing)*3)}.gap-4{gap:calc(var(--spacing)*4)}:where(.space-x-1>:not(:last-child)){--tw-space-x-reverse:0;margin-inline-start:calc(calc(var(--spacing)*1)*var(--tw-space-x-reverse));margin-inline-end:calc(calc(var(--spacing)*1)*calc(1 - var(--tw-space-x-reverse)))}.overflow-hidden{overflow:hidden}.rounded-full{border-radius:3.40282e38px}.rounded-sm{border-radius:var(--radius-sm)}.rounded-t-lg{border-top-left-radius:var(--radius-lg);border-top-right-radius:var(--radius-lg)}.rounded-br-lg{border-bottom-right-radius:var(--radius-lg)}.rounded-bl-lg{border-bottom-left-radius:var(--radius-lg)}.border{border-style:var(--tw-border-style);border-width:1px}.border-\[\#19140035\]{border-color:#19140035}.border-\[\#e3e3e0\]{border-color:#e3e3e0}.border-black{border-color:var(--color-black)}.border-transparent{border-color:#0000}.bg-\[\#1b1b18\]{background-color:#1b1b18}.bg-\[\#FDFDFC\]{background-color:#fdfdfc}.bg-\[\#dbdbd7\]{background-color:#dbdbd7}.bg-\[\#fff2f2\]{background-color:#fff2f2}.bg-white{background-color:var(--color-white)}.p-6{padding:calc(var(--spacing)*6)}.px-5{padding-inline:calc(var(--spacing)*5)}.py-1{padding-block:calc(var(--spacing)*1)}.py-1\.5{padding-block:calc(var(--spacing)*1.5)}.py-2{padding-block:calc(var(--spacing)*2)}.pb-12{padding-bottom:calc(var(--spacing)*12)}.text-sm{font-size:var(--text-sm);line-height:var(--tw-leading,var(--text-sm--line-height))}.text-\[13px\]{font-size:13px}.leading-\[20px\]{--tw-leading:20px;line-height:20px}.leading-normal{--tw-leading:var(--leading-normal);line-height:var(--leading-normal)}.font-medium{--tw-font-weight:var(--font-weight-medium);font-weight:var(--font-weight-medium)}.text-\[\#1b1b18\]{color:#1b1b18}.text-\[\#706f6c\]{color:#706f6c}.text-\[\#F53003\],.text-\[\#f53003\]{color:#f53003}.text-white{color:var(--color-white)}.underline{text-decoration-line:underline}.underline-offset-4{text-underline-offset:4px}.opacity-100{opacity:1}.shadow-\[0px_0px_1px_0px_rgba\(0\,0\,0\,0\.03\)\,0px_1px_2px_0px_rgba\(0\,0\,0\,0\.06\)\]{--tw-shadow:0px 0px 1px 0px var(--tw-shadow-color,#00000008),0px 1px 2px 0px var(--tw-shadow-color,#0000000f);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.shadow-\[inset_0px_0px_0px_1px_rgba\(26\,26\,0\,0\.16\)\]{--tw-shadow:inset 0px 0px 0px 1px var(--tw-shadow-color,#1a1a0029);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.\!filter{filter:var(--tw-blur,)var(--tw-brightness,)var(--tw-contrast,)var(--tw-grayscale,)var(--tw-hue-rotate,)var(--tw-invert,)var(--tw-saturate,)var(--tw-sepia,)var(--tw-drop-shadow,)!important}.filter{filter:var(--tw-blur,)var(--tw-brightness,)var(--tw-contrast,)var(--tw-grayscale,)var(--tw-hue-rotate,)var(--tw-invert,)var(--tw-saturate,)var(--tw-sepia,)var(--tw-drop-shadow,)}.transition-all{transition-property:all;transition-timing-function:var(--tw-ease,var(--default-transition-timing-function));transition-duration:var(--tw-duration,var(--default-transition-duration))}.transition-opacity{transition-property:opacity;transition-timing-function:var(--tw-ease,var(--default-transition-timing-function));transition-duration:var(--tw-duration,var(--default-transition-duration))}.delay-300{transition-delay:.3s}.duration-750{--tw-duration:.75s;transition-duration:.75s}.not-has-\[nav\]\:hidden:not(:has(:is(nav))){display:none}.before\:absolute:before{content:var(--tw-content);position:absolute}.before\:top-0:before{content:var(--tw-content);top:calc(var(--spacing)*0)}.before\:top-1\/2:before{content:var(--tw-content);top:50%}.before\:bottom-0:before{content:var(--tw-content);bottom:calc(var(--spacing)*0)}.before\:bottom-1\/2:before{content:var(--tw-content);bottom:50%}.before\:left-\[0\.4rem\]:before{content:var(--tw-content);left:.4rem}.before\:border-l:before{content:var(--tw-content);border-left-style:var(--tw-border-style);border-left-width:1px}.before\:border-\[\#e3e3e0\]:before{content:var(--tw-content);border-color:#e3e3e0}@media (hover:hover){.hover\:border-\[\#1915014a\]:hover{border-color:#1915014a}.hover\:border-\[\#19140035\]:hover{border-color:#19140035}.hover\:border-black:hover{border-color:var(--color-black)}.hover\:bg-black:hover{background-color:var(--color-black)}}@media (width>=64rem){.lg\:-mt-\[6\.6rem\]{margin-top:-6.6rem}.lg\:mb-0{margin-bottom:calc(var(--spacing)*0)}.lg\:mb-6{margin-bottom:calc(var(--spacing)*6)}.lg\:-ml-px{margin-left:-1px}.lg\:ml-0{margin-left:calc(var(--spacing)*0)}.lg\:block{display:block}.lg\:aspect-auto{aspect-ratio:auto}.lg\:w-\[438px\]{width:438px}.lg\:max-w-4xl{max-width:var(--container-4xl)}.lg\:grow{flex-grow:1}.lg\:flex-row{flex-direction:row}.lg\:justify-center{justify-content:center}.lg\:rounded-t-none{border-top-left-radius:0;border-top-right-radius:0}.lg\:rounded-tl-lg{border-top-left-radius:var(--radius-lg)}.lg\:rounded-r-lg{border-top-right-radius:var(--radius-lg);border-bottom-right-radius:var(--radius-lg)}.lg\:rounded-br-none{border-bottom-right-radius:0}.lg\:p-8{padding:calc(var(--spacing)*8)}.lg\:p-20{padding:calc(var(--spacing)*20)}}@media (prefers-color-scheme:dark){.dark\:block{display:block}.dark\:hidden{display:none}.dark\:border-\[\#3E3E3A\]{border-color:#3e3e3a}.dark\:border-\[\#eeeeec\]{border-color:#eeeeec}.dark\:bg-\[\#0a0a0a\]{background-color:#0a0a0a}.dark\:bg-\[\#1D0002\]{background-color:#1d0002}.dark\:bg-\[\#3E3E3A\]{background-color:#3e3e3a}.dark\:bg-\[\#161615\]{background-color:#161615}.dark\:bg-\[\#eeeeec\]{background-color:#eeeeec}.dark\:text-\[\#1C1C1A\]{color:#1c1c1a}.dark\:text-\[\#A1A09A\]{color:#a1a09a}.dark\:text-\[\#EDEDEC\]{color:#ededec}.dark\:text-\[\#F61500\]{color:#f61500}.dark\:text-\[\#FF4433\]{color:#f43}.dark\:shadow-\[inset_0px_0px_0px_1px_\#fffaed2d\]{--tw-shadow:inset 0px 0px 0px 1px var(--tw-shadow-color,#fffaed2d);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.dark\:before\:border-\[\#3E3E3A\]:before{content:var(--tw-content);border-color:#3e3e3a}@media (hover:hover){.dark\:hover\:border-\[\#3E3E3A\]:hover{border-color:#3e3e3a}.dark\:hover\:border-\[\#62605b\]:hover{border-color:#62605b}.dark\:hover\:border-white:hover{border-color:var(--color-white)}.dark\:hover\:bg-white:hover{background-color:var(--color-white)}}}@starting-style{.starting\:translate-y-4{--tw-translate-y:calc(var(--spacing)*4);translate:var(--tw-translate-x)var(--tw-translate-y)}}@starting-style{.starting\:translate-y-6{--tw-translate-y:calc(var(--spacing)*6);translate:var(--tw-translate-x)var(--tw-translate-y)}}@starting-style{.starting\:opacity-0{opacity:0}}}@keyframes spin{to{transform:rotate(360deg)}}@keyframes ping{75%,to{opacity:0;transform:scale(2)}}@keyframes pulse{50%{opacity:.5}}@keyframes bounce{0%,to{animation-timing-function:cubic-bezier(.8,0,1,1);transform:translateY(-25%)}50%{animation-timing-function:cubic-bezier(0,0,.2,1);transform:none}}@property --tw-translate-x{syntax:"*";inherits:false;initial-value:0}@property --tw-translate-y{syntax:"*";inherits:false;initial-value:0}@property --tw-translate-z{syntax:"*";inherits:false;initial-value:0}@property --tw-rotate-x{syntax:"*";inherits:false;initial-value:rotateX(0)}@property --tw-rotate-y{syntax:"*";inherits:false;initial-value:rotateY(0)}@property --tw-rotate-z{syntax:"*";inherits:false;initial-value:rotateZ(0)}@property --tw-skew-x{syntax:"*";inherits:false;initial-value:skewX(0)}@property --tw-skew-y{syntax:"*";inherits:false;initial-value:skewY(0)}@property --tw-space-x-reverse{syntax:"*";inherits:false;initial-value:0}@property --tw-border-style{syntax:"*";inherits:false;initial-value:solid}@property --tw-leading{syntax:"*";inherits:false}@property --tw-font-weight{syntax:"*";inherits:false}@property --tw-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-shadow-color{syntax:"*";inherits:false}@property --tw-inset-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-inset-shadow-color{syntax:"*";inherits:false}@property --tw-ring-color{syntax:"*";inherits:false}@property --tw-ring-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-inset-ring-color{syntax:"*";inherits:false}@property --tw-inset-ring-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-ring-inset{syntax:"*";inherits:false}@property --tw-ring-offset-width{syntax:"<length>";inherits:false;initial-value:0}@property --tw-ring-offset-color{syntax:"*";inherits:false;initial-value:#fff}@property --tw-ring-offset-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-blur{syntax:"*";inherits:false}@property --tw-brightness{syntax:"*";inherits:false}@property --tw-contrast{syntax:"*";inherits:false}@property --tw-grayscale{syntax:"*";inherits:false}@property --tw-hue-rotate{syntax:"*";inherits:false}@property --tw-invert{syntax:"*";inherits:false}@property --tw-opacity{syntax:"*";inherits:false}@property --tw-saturate{syntax:"*";inherits:false}@property --tw-sepia{syntax:"*";inherits:false}@property --tw-drop-shadow{syntax:"*";inherits:false}@property --tw-duration{syntax:"*";inherits:false}@property --tw-content{syntax:"*";inherits:false;initial-value:""}
-            </style>
-        @endif
-    </head>
-    <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
-        <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
-            @if (Route::has('login'))
-                <nav class="flex items-center justify-end gap-4">
-                    @auth
-                        <a
-                            href="{{ url('/dashboard') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
-                        >
-                            Dashboard
-                        </a>
-                    @else
-                        <a
-                            href="{{ route('login') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-[#1b1b18] border border-transparent hover:border-[#19140035] dark:hover:border-[#3E3E3A] rounded-sm text-sm leading-normal"
-                        >
-                            Log in
-                        </a>
+    <link rel="preload" as="style" href="https://jobpilot.lomeyolabs.com/build/assets/app.d36a4fa8.css" />
+    <link rel="preload" as="style" href="https://jobpilot.lomeyolabs.com/build/assets/public.a3988153.css" />
+    <link rel="stylesheet" href="https://jobpilot.lomeyolabs.com/build/assets/app.d36a4fa8.css"
+        data-navigate-track="reload" />
+    <link rel="stylesheet" href="https://jobpilot.lomeyolabs.com/build/assets/public.a3988153.css"
+        data-navigate-track="reload" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
 
-                        @if (Route::has('register'))
-                            <a
-                                href="{{ route('register') }}"
-                                class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
-                                Register
-                            </a>
-                        @endif
-                    @endauth
-                </nav>
-            @endif
-        </header>
-        <div class="flex items-center justify-center w-full transition-opacity opacity-100 duration-750 lg:grow starting:opacity-0">
-            <main class="flex max-w-[335px] w-full flex-col-reverse lg:max-w-4xl lg:flex-row">
-                <div class="text-[13px] leading-[20px] flex-1 p-6 pb-12 lg:p-20 bg-white dark:bg-[#161615] dark:text-[#EDEDEC] shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d] rounded-bl-lg rounded-br-lg lg:rounded-tl-lg lg:rounded-br-none">
-                    <h1 class="mb-1 font-medium">Let's get started</h1>
-                    <p class="mb-2 text-[#706f6c] dark:text-[#A1A09A]">Laravel has an incredibly rich ecosystem. <br>We suggest starting with the following.</p>
-                    <ul class="flex flex-col mb-4 lg:mb-6">
-                        <li class="flex items-center gap-4 py-2 relative before:border-l before:border-[#e3e3e0] dark:before:border-[#3E3E3A] before:top-1/2 before:bottom-0 before:left-[0.4rem] before:absolute">
-                            <span class="relative py-1 bg-white dark:bg-[#161615]">
-                                <span class="flex items-center justify-center rounded-full bg-[#FDFDFC] dark:bg-[#161615] shadow-[0px_0px_1px_0px_rgba(0,0,0,0.03),0px_1px_2px_0px_rgba(0,0,0,0.06)] w-3.5 h-3.5 border dark:border-[#3E3E3A] border-[#e3e3e0]">
-                                    <span class="rounded-full bg-[#dbdbd7] dark:bg-[#3E3E3A] w-1.5 h-1.5"></span>
-                                </span>
-                            </span>
-                            <span>
-                                Read the
-                                <a href="https://laravel.com/docs" target="_blank" class="inline-flex items-center space-x-1 font-medium underline underline-offset-4 text-[#f53003] dark:text-[#FF4433] ml-1">
-                                    <span>Documentation</span>
-                                    <svg
-                                        width="10"
-                                        height="11"
-                                        viewBox="0 0 10 11"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        class="w-2.5 h-2.5"
-                                    >
+    <!-- PWA Meta Theme color and link Start  -->
+    <!-- PWA Meta Theme color and link End -->
+
+    <style>
+        :root {
+            --primary-500: #0A65CC !important;
+            --primary-600: #0851a4 !important;
+            --primary-200: #b6d1f0 !important;
+            --primary-100: #cee1f5 !important;
+            --primary-50: #eef5fc !important;
+            --gray-20: #fbfcfe !important;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://jobpilot.lomeyolabs.com/backend/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://jobpilot.lomeyolabs.com/frontend/plugins/leaflet/autocomplete.min.css">
+    <style>
+        .mymap {
+            width: 100%;
+            min-height: 300px;
+            /* border-radius: 12px; */
+        }
+
+        .p-half {
+            padding: 1px;
+        }
+
+        .mapClass {
+            border: 1px solid transparent;
+            margin-top: 15px;
+            border-radius: 4px 0 0 4px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            height: 35px;
+            outline: none;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        #searchInput {
+            font-family: 'Roboto';
+            background-color: #fff;
+            font-size: 16px;
+            text-overflow: ellipsis;
+            margin-left: 16px;
+            font-weight: 400;
+            padding: 0 11px 0 13px;
+        }
+
+        #searchInput:focus {
+            border-color: #4d90fe;
+        }
+
+        #searchInput {
+            width: 100%;
+        }
+
+        @media (max-width: 991px) {
+            .jobsearchBox .fromGroup.banner-select {
+                width: auto !important;
+            }
+
+            #searchInput {
+                padding-left: 36px !important;
+                margin: 0px !important;
+            }
+        }
+    </style>
+
+    <style>
+        span.select2-container--default .select2-selection--single {
+            border: none !important;
+        }
+
+        span.select2-selection.select2-selection--single {
+            outline: none;
+        }
+
+        .marginleft {
+            margin-left: 10px !important;
+        }
+    </style>
+
+
+
+
+
+</head>
+
+<body dir="ltr">
+    <input type="hidden" value="AW" id="current_country_code">
+    <input type="hidden" id="auth_user" value="">
+    <input type="hidden" id="auth_user_id" value="0">
+
+
+    <header class="header rt-fixed-top">
+        <script>
+            function changeSearchSelections() {
+                var job_search_url = "https://jobpilot.lomeyolabs.com/jobs";
+                var candidate_search_url = "https://jobpilot.lomeyolabs.com/candidates";
+                var company_search_url = "https://jobpilot.lomeyolabs.com/employers";
+                var search_selection = $("#headerSearchs").val();
+
+                if (search_selection == 'job') {
+                    $(".header-search-form").attr('action', job_search_url);
+                } else if (search_selection == 'candidate') {
+                    $(".header-search-form").attr('action', candidate_search_url);
+                } else if (search_selection == 'company') {
+                    $(".header-search-form").attr('action', company_search_url);
+                }
+            }
+        </script>
+        <div class="n-header">
+            <div class="n-header--top relative">
+                <div class="container tw-px-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="n-header--top__left main-menu">
+                            <div
+                                class="mbl-top d-flex align-items-center justify-content-between container position-relative d-lg-none">
+                                <div class="d-flex align-items-center">
+                                    <a href="https://jobpilot.lomeyolabs.com" class="brand-logo">
+                                        <img src="https://jobpilot.lomeyolabs.com/frontend/assets/images/logo/logo.svg"
+                                            alt="logo">
+                                    </a>
+                                </div>
+
+                                <div class="">
+                                    <div class="d-flex align-items-center ">
+                                        <div class="search-icon d-lg-none tw-text-white">
+                                            <svg id="mblSearchIcon" width="24" height="24" viewBox="0 0 24 24"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+                                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path d="M20.9999 21L16.6499 16.65" stroke="currentColor"
+                                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </div>
+                                        <div class="mblTogglesearch bg-primary-500 rounded">
+                                            <form action="https://jobpilot.lomeyolabs.com/jobs" method="GET"
+                                                id="search-form"
+                                                class="shadow px-md-5 py-md-3 p-3 !tw-bg-white rounded w-sm-75 w-100">
+                                                <div class="form-item">
+                                                    <input name="keyword" class="search-input w-100" type="text"
+                                                        placeholder="Job Title, Keyword" value=""
+                                                        id="mobile_search_input">
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <a href="https://jobpilot.lomeyolabs.com/company/create/job"
+                                                    class="btn btn-primary text-white"
+                                                    style="padding:12px 24px !important;">Post Job
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container">
+                                <ul class="menu-active-classes">
+                                    <li class="menu-item">
+                                        <a href="/" class="text-primary active">
+                                            Home
+                                        </a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="/jobs" class="">
+                                            Find Job
+                                        </a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="/candidates" class="">
+                                            Candidates
+                                        </a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="/employers" class="">
+                                            Companies
+                                        </a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="/posts" class="">
+                                            Blog
+                                        </a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="/plans" class="">
+                                            Pricing
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="xs:tw-hidden tw-mt-6 mbl-bottom">
+                                <div class="container">
+                                    <div class="contact-info">
+                                        <a class="text-gray-900" href="tel:319-555-0115">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M14.9454 3.75C16.2169 4.09194 17.3761 4.76196 18.3071 5.69294C19.2381 6.62392 19.9081 7.78319 20.25 9.05462"
+                                                    stroke="#18191C" stroke-width="1.5" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path
+                                                    d="M14.1687 6.64849C14.9316 6.85366 15.6271 7.25567 16.1857 7.81426C16.7443 8.37285 17.1463 9.06841 17.3515 9.83127"
+                                                    stroke="#18191C" stroke-width="1.5" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path
+                                                    d="M8.66965 11.7014C9.44762 13.2919 10.7369 14.5753 12.3309 15.346C12.4475 15.4013 12.5765 15.4253 12.7052 15.4155C12.8339 15.4058 12.9579 15.3627 13.0648 15.2905L15.4119 13.7254C15.5157 13.6562 15.6352 13.614 15.7594 13.6026C15.8837 13.5911 16.0088 13.6109 16.1235 13.6601L20.5144 15.5419C20.6636 15.6053 20.7881 15.7154 20.8693 15.8557C20.9504 15.996 20.9838 16.1588 20.9643 16.3197C20.8255 17.4057 20.2956 18.4039 19.4739 19.1274C18.6521 19.8508 17.5948 20.2499 16.5 20.25C13.1185 20.25 9.87548 18.9067 7.48439 16.5156C5.0933 14.1245 3.75 10.8815 3.75 7.5C3.75006 6.40516 4.14918 5.34789 4.87264 4.52613C5.5961 3.70438 6.59428 3.17451 7.68028 3.03572C7.84117 3.01625 8.00403 3.04959 8.14432 3.13073C8.28461 3.21186 8.39473 3.33639 8.4581 3.48555L10.3416 7.88035C10.3903 7.99403 10.4101 8.11799 10.3994 8.24119C10.3886 8.3644 10.3475 8.48302 10.2798 8.5865L8.72011 10.9696C8.64912 11.0768 8.60716 11.2006 8.59831 11.3289C8.58947 11.4571 8.61405 11.5855 8.66965 11.7014V11.7014Z"
+                                                    stroke="#18191C" stroke-width="1.5" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                            319-555-0115
+                                        </a>
+                                    </div>
+                                    <div class="dropdown dropup">
+                                        <button
+                                            class="btn tw-flex tw-w-full tw-justify-between tw-px-0 dropdown-toggle"
+                                            type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                            USD
+                                        </button>
+                                        <ul class="dropdown-menu tw-p-2" aria-labelledby="dropdownMenuButton1">
+                                            <li id="lang-dropdown-item">
+                                                <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                                    href="https://jobpilot.lomeyolabs.com/changeCurrency/INR">
+                                                    INR
+                                                </a>
+                                            </li>
+                                            <li id="lang-dropdown-item">
+                                                <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                                    href="https://jobpilot.lomeyolabs.com/changeCurrency/AUD">
+                                                    AUD
+                                                </a>
+                                            </li>
+                                            <li id="lang-dropdown-item">
+                                                <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                                    href="https://jobpilot.lomeyolabs.com/changeCurrency/EUR">
+                                                    EUR
+                                                </a>
+                                            </li>
+                                            <li id="lang-dropdown-item">
+                                                <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                                    href="https://jobpilot.lomeyolabs.com/changeCurrency/BDT">
+                                                    BDT
+                                                </a>
+                                            </li>
+                                            <li id="lang-dropdown-item">
+                                                <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                                    href="https://jobpilot.lomeyolabs.com/changeCurrency/IDR">
+                                                    IDR
+                                                </a>
+                                            </li>
+                                            <li id="lang-dropdown-item">
+                                                <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                                    href="https://jobpilot.lomeyolabs.com/changeCurrency/PKR">
+                                                    PKR
+                                                </a>
+                                            </li>
+                                            <li id="lang-dropdown-item">
+                                                <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                                    href="https://jobpilot.lomeyolabs.com/changeCurrency/NGN">
+                                                    NGN
+                                                </a>
+                                            </li>
+                                            <li id="lang-dropdown-item">
+                                                <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                                    href="https://jobpilot.lomeyolabs.com/changeCurrency/EGP">
+                                                    EGP
+                                                </a>
+                                            </li>
+                                            <li id="lang-dropdown-item">
+                                                <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                                    href="https://jobpilot.lomeyolabs.com/changeCurrency/TRY">
+                                                    TRY
+                                                </a>
+                                            </li>
+                                            <li id="lang-dropdown-item">
+                                                <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                                    href="https://jobpilot.lomeyolabs.com/changeCurrency/PHP">
+                                                    PHP
+                                                </a>
+                                            </li>
+                                            <li id="lang-dropdown-item">
+                                                <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                                    href="https://jobpilot.lomeyolabs.com/changeCurrency/KES">
+                                                    KES
+                                                </a>
+                                            </li>
+                                            <li id="lang-dropdown-item">
+                                                <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                                    href="https://jobpilot.lomeyolabs.com/changeCurrency/NPR">
+                                                    NPR
+                                                </a>
+                                            </li>
+                                            <li id="lang-dropdown-item">
+                                                <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                                    href="https://jobpilot.lomeyolabs.com/changeCurrency/GBP">
+                                                    GBP
+                                                </a>
+                                            </li>
+                                            <li id="lang-dropdown-item">
+                                                <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                                    href="https://jobpilot.lomeyolabs.com/changeCurrency/VND">
+                                                    VND
+                                                </a>
+                                            </li>
+                                            <li id="lang-dropdown-item">
+                                                <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                                    href="https://jobpilot.lomeyolabs.com/changeCurrency/BRL">
+                                                    BRL
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="n-header--top__right d-flex align-items-center tw-px-3">
+                            <div class="contact-info xs:tw-inline-flex tw-hidden">
+                                <a class="text-gray-900" href="tel:319-555-0115">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
                                         <path
-                                            d="M7.70833 6.95834V2.79167H3.54167M2.5 8L7.5 3.00001"
-                                            stroke="currentColor"
-                                            stroke-linecap="square"
-                                        />
-                                    </svg>
-                                </a>
-                            </span>
-                        </li>
-                        <li class="flex items-center gap-4 py-2 relative before:border-l before:border-[#e3e3e0] dark:before:border-[#3E3E3A] before:bottom-1/2 before:top-0 before:left-[0.4rem] before:absolute">
-                            <span class="relative py-1 bg-white dark:bg-[#161615]">
-                                <span class="flex items-center justify-center rounded-full bg-[#FDFDFC] dark:bg-[#161615] shadow-[0px_0px_1px_0px_rgba(0,0,0,0.03),0px_1px_2px_0px_rgba(0,0,0,0.06)] w-3.5 h-3.5 border dark:border-[#3E3E3A] border-[#e3e3e0]">
-                                    <span class="rounded-full bg-[#dbdbd7] dark:bg-[#3E3E3A] w-1.5 h-1.5"></span>
-                                </span>
-                            </span>
-                            <span>
-                                Watch video tutorials at
-                                <a href="https://laracasts.com" target="_blank" class="inline-flex items-center space-x-1 font-medium underline underline-offset-4 text-[#f53003] dark:text-[#FF4433] ml-1">
-                                    <span>Laracasts</span>
-                                    <svg
-                                        width="10"
-                                        height="11"
-                                        viewBox="0 0 10 11"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        class="w-2.5 h-2.5"
-                                    >
+                                            d="M14.9454 3.75C16.2169 4.09194 17.3761 4.76196 18.3071 5.69294C19.2381 6.62392 19.9081 7.78319 20.25 9.05462"
+                                            stroke="#18191C" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
                                         <path
-                                            d="M7.70833 6.95834V2.79167H3.54167M2.5 8L7.5 3.00001"
-                                            stroke="currentColor"
-                                            stroke-linecap="square"
-                                        />
+                                            d="M14.1687 6.64849C14.9316 6.85366 15.6271 7.25567 16.1857 7.81426C16.7443 8.37285 17.1463 9.06841 17.3515 9.83127"
+                                            stroke="#18191C" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M8.66965 11.7014C9.44762 13.2919 10.7369 14.5753 12.3309 15.346C12.4475 15.4013 12.5765 15.4253 12.7052 15.4155C12.8339 15.4058 12.9579 15.3627 13.0648 15.2905L15.4119 13.7254C15.5157 13.6562 15.6352 13.614 15.7594 13.6026C15.8837 13.5911 16.0088 13.6109 16.1235 13.6601L20.5144 15.5419C20.6636 15.6053 20.7881 15.7154 20.8693 15.8557C20.9504 15.996 20.9838 16.1588 20.9643 16.3197C20.8255 17.4057 20.2956 18.4039 19.4739 19.1274C18.6521 19.8508 17.5948 20.2499 16.5 20.25C13.1185 20.25 9.87548 18.9067 7.48439 16.5156C5.0933 14.1245 3.75 10.8815 3.75 7.5C3.75006 6.40516 4.14918 5.34789 4.87264 4.52613C5.5961 3.70438 6.59428 3.17451 7.68028 3.03572C7.84117 3.01625 8.00403 3.04959 8.14432 3.13073C8.28461 3.21186 8.39473 3.33639 8.4581 3.48555L10.3416 7.88035C10.3903 7.99403 10.4101 8.11799 10.3994 8.24119C10.3886 8.3644 10.3475 8.48302 10.2798 8.5865L8.72011 10.9696C8.64912 11.0768 8.60716 11.2006 8.59831 11.3289C8.58947 11.4571 8.61405 11.5855 8.66965 11.7014V11.7014Z"
+                                            stroke="#18191C" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
                                     </svg>
+                                    319-555-0115
                                 </a>
-                            </span>
-                        </li>
-                    </ul>
-                    <ul class="flex gap-3 text-sm leading-normal">
-                        <li>
-                            <a href="https://cloud.laravel.com" target="_blank" class="inline-block dark:bg-[#eeeeec] dark:border-[#eeeeec] dark:text-[#1C1C1A] dark:hover:bg-white dark:hover:border-white hover:bg-black hover:border-black px-5 py-1.5 bg-[#1b1b18] rounded-sm border border-black text-white text-sm leading-normal">
-                                Deploy now
+                            </div>
+                            <div class="dropdown">
+                                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="flag-icon flag-icon-gb"></i>
+                                    English
+                                </button>
+                                <ul class="dropdown-menu mx-height-300 overflow-auto tw-p-2"
+                                    aria-labelledby="dropdownMenuButton1">
+                                    <li id="lang-dropdown-item">
+                                        <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                            href="https://jobpilot.lomeyolabs.com/change-language/bn">
+                                            <i class="flag-icon flag-icon-bd tw-me-2.5"></i>
+                                            Bengali
+                                        </a>
+                                    </li>
+                                    <li id="lang-dropdown-item">
+                                        <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                            href="https://jobpilot.lomeyolabs.com/change-language/hi">
+                                            <i class="flag-icon flag-icon-in tw-me-2.5"></i>
+                                            Hindi
+                                        </a>
+                                    </li>
+                                    <li id="lang-dropdown-item">
+                                        <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                            href="https://jobpilot.lomeyolabs.com/change-language/fr">
+                                            <i class="flag-icon flag-icon-fr tw-me-2.5"></i>
+                                            French
+                                        </a>
+                                    </li>
+                                    <li id="lang-dropdown-item">
+                                        <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                            href="https://jobpilot.lomeyolabs.com/change-language/es">
+                                            <i class="flag-icon flag-icon-es tw-me-2.5"></i>
+                                            Spanish
+                                        </a>
+                                    </li>
+                                    <li id="lang-dropdown-item">
+                                        <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                            href="https://jobpilot.lomeyolabs.com/change-language/id">
+                                            <i class="flag-icon flag-icon-id tw-me-2.5"></i>
+                                            Indonesian
+                                        </a>
+                                    </li>
+                                    <li id="lang-dropdown-item">
+                                        <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                            href="https://jobpilot.lomeyolabs.com/change-language/de">
+                                            <i class="flag-icon flag-icon-de tw-me-2.5"></i>
+                                            German
+                                        </a>
+                                    </li>
+                                    <li id="lang-dropdown-item">
+                                        <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                            href="https://jobpilot.lomeyolabs.com/change-language/ar">
+                                            <i class="flag-icon flag-icon-sa tw-me-2.5"></i>
+                                            Arabic
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="dropdown xs:tw-inline-flex tw-hidden">
+                                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    USD
+                                </button>
+                                <ul class="dropdown-menu mx-height-300 overflow-auto tw-p-2"
+                                    aria-labelledby="dropdownMenuButton1">
+                                    <li id="lang-dropdown-item">
+                                        <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                            href="https://jobpilot.lomeyolabs.com/changeCurrency/INR">
+                                            INR
+                                        </a>
+                                    </li>
+                                    <li id="lang-dropdown-item">
+                                        <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                            href="https://jobpilot.lomeyolabs.com/changeCurrency/AUD">
+                                            AUD
+                                        </a>
+                                    </li>
+                                    <li id="lang-dropdown-item">
+                                        <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                            href="https://jobpilot.lomeyolabs.com/changeCurrency/EUR">
+                                            EUR
+                                        </a>
+                                    </li>
+                                    <li id="lang-dropdown-item">
+                                        <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                            href="https://jobpilot.lomeyolabs.com/changeCurrency/BDT">
+                                            BDT
+                                        </a>
+                                    </li>
+                                    <li id="lang-dropdown-item">
+                                        <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                            href="https://jobpilot.lomeyolabs.com/changeCurrency/IDR">
+                                            IDR
+                                        </a>
+                                    </li>
+                                    <li id="lang-dropdown-item">
+                                        <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                            href="https://jobpilot.lomeyolabs.com/changeCurrency/PKR">
+                                            PKR
+                                        </a>
+                                    </li>
+                                    <li id="lang-dropdown-item">
+                                        <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                            href="https://jobpilot.lomeyolabs.com/changeCurrency/NGN">
+                                            NGN
+                                        </a>
+                                    </li>
+                                    <li id="lang-dropdown-item">
+                                        <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                            href="https://jobpilot.lomeyolabs.com/changeCurrency/EGP">
+                                            EGP
+                                        </a>
+                                    </li>
+                                    <li id="lang-dropdown-item">
+                                        <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                            href="https://jobpilot.lomeyolabs.com/changeCurrency/TRY">
+                                            TRY
+                                        </a>
+                                    </li>
+                                    <li id="lang-dropdown-item">
+                                        <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                            href="https://jobpilot.lomeyolabs.com/changeCurrency/PHP">
+                                            PHP
+                                        </a>
+                                    </li>
+                                    <li id="lang-dropdown-item">
+                                        <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                            href="https://jobpilot.lomeyolabs.com/changeCurrency/KES">
+                                            KES
+                                        </a>
+                                    </li>
+                                    <li id="lang-dropdown-item">
+                                        <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                            href="https://jobpilot.lomeyolabs.com/changeCurrency/NPR">
+                                            NPR
+                                        </a>
+                                    </li>
+                                    <li id="lang-dropdown-item">
+                                        <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                            href="https://jobpilot.lomeyolabs.com/changeCurrency/GBP">
+                                            GBP
+                                        </a>
+                                    </li>
+                                    <li id="lang-dropdown-item">
+                                        <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                            href="https://jobpilot.lomeyolabs.com/changeCurrency/VND">
+                                            VND
+                                        </a>
+                                    </li>
+                                    <li id="lang-dropdown-item">
+                                        <a class="dropdown-item hover:tw-bg-[#F1F2F4] hover:tw-rounded-[4px]"
+                                            href="https://jobpilot.lomeyolabs.com/changeCurrency/BRL">
+                                            BRL
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mobile-menu">
+                            <div class="menu-click tw-pe-3">
+                                <button class="effect1">
+                                    <span></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Header top -->
+            <div class="n-header--bottom">
+                <div class="container position-relative">
+                    <div class="d-flex flex-wrap  tw-gap-2 tw-items-center">
+                        <div class="n-header--bottom__left d-flex align-items-center">
+                            <a href="https://jobpilot.lomeyolabs.com" class="brand-logo">
+                                <img src="https://jobpilot.lomeyolabs.com/frontend/assets/images/logo/logo.svg"
+                                    alt="logo">
                             </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="bg-[#fff2f2] dark:bg-[#1D0002] relative lg:-ml-px -mb-px lg:mb-0 rounded-t-lg lg:rounded-t-none lg:rounded-r-lg aspect-[335/376] lg:aspect-auto w-full lg:w-[438px] shrink-0 overflow-hidden">
-                    {{-- Laravel Logo --}}
-                    <svg class="w-full text-[#F53003] dark:text-[#F61500] transition-all translate-y-0 opacity-100 max-w-none duration-750 starting:opacity-0 starting:translate-y-6" viewBox="0 0 438 104" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M17.2036 -3H0V102.197H49.5189V86.7187H17.2036V-3Z" fill="currentColor" />
-                        <path d="M110.256 41.6337C108.061 38.1275 104.945 35.3731 100.905 33.3681C96.8667 31.3647 92.8016 30.3618 88.7131 30.3618C83.4247 30.3618 78.5885 31.3389 74.201 33.2923C69.8111 35.2456 66.0474 37.928 62.9059 41.3333C59.7643 44.7401 57.3198 48.6726 55.5754 53.1293C53.8287 57.589 52.9572 62.274 52.9572 67.1813C52.9572 72.1925 53.8287 76.8995 55.5754 81.3069C57.3191 85.7173 59.7636 89.6241 62.9059 93.0293C66.0474 96.4361 69.8119 99.1155 74.201 101.069C78.5885 103.022 83.4247 103.999 88.7131 103.999C92.8016 103.999 96.8667 102.997 100.905 100.994C104.945 98.9911 108.061 96.2359 110.256 92.7282V102.195H126.563V32.1642H110.256V41.6337ZM108.76 75.7472C107.762 78.4531 106.366 80.8078 104.572 82.8112C102.776 84.8161 100.606 86.4183 98.0637 87.6206C95.5202 88.823 92.7004 89.4238 89.6103 89.4238C86.5178 89.4238 83.7252 88.823 81.2324 87.6206C78.7388 86.4183 76.5949 84.8161 74.7998 82.8112C73.004 80.8078 71.6319 78.4531 70.6856 75.7472C69.7356 73.0421 69.2644 70.1868 69.2644 67.1821C69.2644 64.1758 69.7356 61.3205 70.6856 58.6154C71.6319 55.9102 73.004 53.5571 74.7998 51.5522C76.5949 49.5495 78.738 47.9451 81.2324 46.7427C83.7252 45.5404 86.5178 44.9396 89.6103 44.9396C92.7012 44.9396 95.5202 45.5404 98.0637 46.7427C100.606 47.9451 102.776 49.5487 104.572 51.5522C106.367 53.5571 107.762 55.9102 108.76 58.6154C109.756 61.3205 110.256 64.1758 110.256 67.1821C110.256 70.1868 109.756 73.0421 108.76 75.7472Z" fill="currentColor" />
-                        <path d="M242.805 41.6337C240.611 38.1275 237.494 35.3731 233.455 33.3681C229.416 31.3647 225.351 30.3618 221.262 30.3618C215.974 30.3618 211.138 31.3389 206.75 33.2923C202.36 35.2456 198.597 37.928 195.455 41.3333C192.314 44.7401 189.869 48.6726 188.125 53.1293C186.378 57.589 185.507 62.274 185.507 67.1813C185.507 72.1925 186.378 76.8995 188.125 81.3069C189.868 85.7173 192.313 89.6241 195.455 93.0293C198.597 96.4361 202.361 99.1155 206.75 101.069C211.138 103.022 215.974 103.999 221.262 103.999C225.351 103.999 229.416 102.997 233.455 100.994C237.494 98.9911 240.611 96.2359 242.805 92.7282V102.195H259.112V32.1642H242.805V41.6337ZM241.31 75.7472C240.312 78.4531 238.916 80.8078 237.122 82.8112C235.326 84.8161 233.156 86.4183 230.614 87.6206C228.07 88.823 225.251 89.4238 222.16 89.4238C219.068 89.4238 216.275 88.823 213.782 87.6206C211.289 86.4183 209.145 84.8161 207.35 82.8112C205.554 80.8078 204.182 78.4531 203.236 75.7472C202.286 73.0421 201.814 70.1868 201.814 67.1821C201.814 64.1758 202.286 61.3205 203.236 58.6154C204.182 55.9102 205.554 53.5571 207.35 51.5522C209.145 49.5495 211.288 47.9451 213.782 46.7427C216.275 45.5404 219.068 44.9396 222.16 44.9396C225.251 44.9396 228.07 45.5404 230.614 46.7427C233.156 47.9451 235.326 49.5487 237.122 51.5522C238.917 53.5571 240.312 55.9102 241.31 58.6154C242.306 61.3205 242.806 64.1758 242.806 67.1821C242.805 70.1868 242.305 73.0421 241.31 75.7472Z" fill="currentColor" />
-                        <path d="M438 -3H421.694V102.197H438V-3Z" fill="currentColor" />
-                        <path d="M139.43 102.197H155.735V48.2834H183.712V32.1665H139.43V102.197Z" fill="currentColor" />
-                        <path d="M324.49 32.1665L303.995 85.794L283.498 32.1665H266.983L293.748 102.197H314.242L341.006 32.1665H324.49Z" fill="currentColor" />
-                        <path d="M376.571 30.3656C356.603 30.3656 340.797 46.8497 340.797 67.1828C340.797 89.6597 356.094 104 378.661 104C391.29 104 399.354 99.1488 409.206 88.5848L398.189 80.0226C398.183 80.031 389.874 90.9895 377.468 90.9895C363.048 90.9895 356.977 79.3111 356.977 73.269H411.075C413.917 50.1328 398.775 30.3656 376.571 30.3656ZM357.02 61.0967C357.145 59.7487 359.023 43.3761 376.442 43.3761C393.861 43.3761 395.978 59.7464 396.099 61.0967H357.02Z" fill="currentColor" />
-                    </svg>
 
-                    {{-- Light Mode 12 SVG --}}
-                    <svg class="w-[448px] max-w-none relative -mt-[4.9rem] -ml-8 lg:ml-0 lg:-mt-[6.6rem] dark:hidden" viewBox="0 0 440 376" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g class="transition-all delay-300 translate-y-0 opacity-100 duration-750 starting:opacity-0 starting:translate-y-4">
-                            <path d="M188.263 355.73L188.595 355.73C195.441 348.845 205.766 339.761 219.569 328.477C232.93 317.193 242.978 308.205 249.714 301.511C256.34 294.626 260.867 287.358 263.296 279.708C265.725 272.058 264.565 264.121 259.816 255.896C254.516 246.716 247.062 239.352 237.454 233.805C227.957 228.067 217.908 225.198 207.307 225.198C196.927 225.197 190.136 227.97 186.934 233.516C183.621 238.872 184.726 246.331 190.247 255.894L125.647 255.891C116.371 239.825 112.395 225.481 113.72 212.858C115.265 200.235 121.559 190.481 132.602 183.596C143.754 176.52 158.607 172.982 177.159 172.983C196.594 172.984 215.863 176.523 234.968 183.6C253.961 190.486 271.299 200.241 286.98 212.864C302.661 225.488 315.14 239.833 324.416 255.899C333.03 270.817 336.841 283.918 335.847 295.203C335.075 306.487 331.376 316.336 324.75 324.751C318.346 333.167 308.408 343.494 294.936 355.734L377.094 355.737L405.917 405.656L217.087 405.649L188.263 355.73Z" fill="black" />
-                            <path d="M9.11884 226.339L-13.7396 226.338L-42.7286 176.132L43.0733 176.135L175.595 405.649L112.651 405.647L9.11884 226.339Z" fill="black" />
-                            <path d="M188.263 355.73L188.595 355.73C195.441 348.845 205.766 339.761 219.569 328.477C232.93 317.193 242.978 308.205 249.714 301.511C256.34 294.626 260.867 287.358 263.296 279.708C265.725 272.058 264.565 264.121 259.816 255.896C254.516 246.716 247.062 239.352 237.454 233.805C227.957 228.067 217.908 225.198 207.307 225.198C196.927 225.197 190.136 227.97 186.934 233.516C183.621 238.872 184.726 246.331 190.247 255.894L125.647 255.891C116.371 239.825 112.395 225.481 113.72 212.858C115.265 200.235 121.559 190.481 132.602 183.596C143.754 176.52 158.607 172.982 177.159 172.983C196.594 172.984 215.863 176.523 234.968 183.6C253.961 190.486 271.299 200.241 286.98 212.864C302.661 225.488 315.14 239.833 324.416 255.899C333.03 270.817 336.841 283.918 335.847 295.203C335.075 306.487 331.376 316.336 324.75 324.751C318.346 333.167 308.408 343.494 294.936 355.734L377.094 355.737L405.917 405.656L217.087 405.649L188.263 355.73Z" stroke="#1B1B18" stroke-width="1" />
-                            <path d="M9.11884 226.339L-13.7396 226.338L-42.7286 176.132L43.0733 176.135L175.595 405.649L112.651 405.647L9.11884 226.339Z" stroke="#1B1B18" stroke-width="1" />
-                            <path d="M204.592 327.449L204.923 327.449C211.769 320.564 222.094 311.479 235.897 300.196C249.258 288.912 259.306 279.923 266.042 273.23C272.668 266.345 277.195 259.077 279.624 251.427C282.053 243.777 280.893 235.839 276.145 227.615C270.844 218.435 263.39 211.071 253.782 205.524C244.285 199.786 234.236 196.917 223.635 196.916C213.255 196.916 206.464 199.689 203.262 205.235C199.949 210.59 201.054 218.049 206.575 227.612L141.975 227.61C132.699 211.544 128.723 197.2 130.048 184.577C131.593 171.954 137.887 162.2 148.93 155.315C160.083 148.239 174.935 144.701 193.487 144.702C212.922 144.703 232.192 148.242 251.296 155.319C270.289 162.205 287.627 171.96 303.308 184.583C318.989 197.207 331.468 211.552 340.745 227.618C349.358 242.536 353.169 255.637 352.175 266.921C351.403 278.205 347.704 288.055 341.078 296.47C334.674 304.885 324.736 315.213 311.264 327.453L393.422 327.456L422.246 377.375L233.415 377.368L204.592 327.449Z" fill="#F8B803" />
-                            <path d="M25.447 198.058L2.58852 198.057L-26.4005 147.851L59.4015 147.854L191.923 377.368L128.979 377.365L25.447 198.058Z" fill="#F8B803" />
-                            <path d="M204.592 327.449L204.923 327.449C211.769 320.564 222.094 311.479 235.897 300.196C249.258 288.912 259.306 279.923 266.042 273.23C272.668 266.345 277.195 259.077 279.624 251.427C282.053 243.777 280.893 235.839 276.145 227.615C270.844 218.435 263.39 211.071 253.782 205.524C244.285 199.786 234.236 196.917 223.635 196.916C213.255 196.916 206.464 199.689 203.262 205.235C199.949 210.59 201.054 218.049 206.575 227.612L141.975 227.61C132.699 211.544 128.723 197.2 130.048 184.577C131.593 171.954 137.887 162.2 148.93 155.315C160.083 148.239 174.935 144.701 193.487 144.702C212.922 144.703 232.192 148.242 251.296 155.319C270.289 162.205 287.627 171.96 303.308 184.583C318.989 197.207 331.468 211.552 340.745 227.618C349.358 242.536 353.169 255.637 352.175 266.921C351.403 278.205 347.704 288.055 341.078 296.47C334.674 304.885 324.736 315.213 311.264 327.453L393.422 327.456L422.246 377.375L233.415 377.368L204.592 327.449Z" stroke="#1B1B18" stroke-width="1" />
-                            <path d="M25.447 198.058L2.58852 198.057L-26.4005 147.851L59.4015 147.854L191.923 377.368L128.979 377.365L25.447 198.058Z" stroke="#1B1B18" stroke-width="1" />
-                        </g>
-                        <g style="mix-blend-mode: hard-light" class="transition-all delay-300 translate-y-0 opacity-100 duration-750 starting:opacity-0 starting:translate-y-4">
-                            <path d="M217.342 305.363L217.673 305.363C224.519 298.478 234.844 289.393 248.647 278.11C262.008 266.826 272.056 257.837 278.792 251.144C285.418 244.259 289.945 236.991 292.374 229.341C294.803 221.691 293.643 213.753 288.895 205.529C283.594 196.349 276.14 188.985 266.532 183.438C257.035 177.7 246.986 174.831 236.385 174.83C226.005 174.83 219.214 177.603 216.012 183.149C212.699 188.504 213.804 195.963 219.325 205.527L154.725 205.524C145.449 189.458 141.473 175.114 142.798 162.491C144.343 149.868 150.637 140.114 161.68 133.229C172.833 126.153 187.685 122.615 206.237 122.616C225.672 122.617 244.942 126.156 264.046 133.233C283.039 140.119 300.377 149.874 316.058 162.497C331.739 175.121 344.218 189.466 353.495 205.532C362.108 220.45 365.919 233.551 364.925 244.835C364.153 256.12 360.454 265.969 353.828 274.384C347.424 282.799 337.486 293.127 324.014 305.367L406.172 305.37L434.996 355.289L246.165 355.282L217.342 305.363Z" fill="#F0ACB8" />
-                            <path d="M38.197 175.972L15.3385 175.971L-13.6505 125.765L72.1515 125.768L204.673 355.282L141.729 355.279L38.197 175.972Z" fill="#F0ACB8" />
-                            <path d="M217.342 305.363L217.673 305.363C224.519 298.478 234.844 289.393 248.647 278.11C262.008 266.826 272.056 257.837 278.792 251.144C285.418 244.259 289.945 236.991 292.374 229.341C294.803 221.691 293.643 213.753 288.895 205.529C283.594 196.349 276.14 188.985 266.532 183.438C257.035 177.7 246.986 174.831 236.385 174.83C226.005 174.83 219.214 177.603 216.012 183.149C212.699 188.504 213.804 195.963 219.325 205.527L154.725 205.524C145.449 189.458 141.473 175.114 142.798 162.491C144.343 149.868 150.637 140.114 161.68 133.229C172.833 126.153 187.685 122.615 206.237 122.616C225.672 122.617 244.942 126.156 264.046 133.233C283.039 140.119 300.377 149.874 316.058 162.497C331.739 175.121 344.218 189.466 353.495 205.532C362.108 220.45 365.919 233.551 364.925 244.835C364.153 256.12 360.454 265.969 353.828 274.384C347.424 282.799 337.486 293.127 324.014 305.367L406.172 305.37L434.996 355.289L246.165 355.282L217.342 305.363Z" stroke="#1B1B18" stroke-width="1" />
-                            <path d="M38.197 175.972L15.3385 175.971L-13.6505 125.765L72.1515 125.768L204.673 355.282L141.729 355.279L38.197 175.972Z" stroke="#1B1B18" stroke-width="1" />
-                        </g>
-                        <g style="mix-blend-mode: plus-darker" class="transition-all delay-300 translate-y-0 opacity-100 duration-750 starting:opacity-0 starting:translate-y-4">
-                            <path d="M230.951 281.792L231.282 281.793C238.128 274.907 248.453 265.823 262.256 254.539C275.617 243.256 285.666 234.267 292.402 227.573C299.027 220.688 303.554 213.421 305.983 205.771C308.412 198.12 307.253 190.183 302.504 181.959C297.203 172.778 289.749 165.415 280.142 159.868C270.645 154.13 260.596 151.26 249.995 151.26C239.615 151.26 232.823 154.033 229.621 159.579C226.309 164.934 227.413 172.393 232.935 181.956L168.335 181.954C159.058 165.888 155.082 151.543 156.407 138.92C157.953 126.298 164.247 116.544 175.289 109.659C186.442 102.583 201.294 99.045 219.846 99.0457C239.281 99.0464 258.551 102.585 277.655 109.663C296.649 116.549 313.986 126.303 329.667 138.927C345.349 151.551 357.827 165.895 367.104 181.961C375.718 196.88 379.528 209.981 378.535 221.265C377.762 232.549 374.063 242.399 367.438 250.814C361.033 259.229 351.095 269.557 337.624 281.796L419.782 281.8L448.605 331.719L259.774 331.712L230.951 281.792Z" fill="#F3BEC7" />
-                            <path d="M51.8063 152.402L28.9479 152.401L-0.0411453 102.195L85.7608 102.198L218.282 331.711L155.339 331.709L51.8063 152.402Z" fill="#F3BEC7" />
-                            <path d="M230.951 281.792L231.282 281.793C238.128 274.907 248.453 265.823 262.256 254.539C275.617 243.256 285.666 234.267 292.402 227.573C299.027 220.688 303.554 213.421 305.983 205.771C308.412 198.12 307.253 190.183 302.504 181.959C297.203 172.778 289.749 165.415 280.142 159.868C270.645 154.13 260.596 151.26 249.995 151.26C239.615 151.26 232.823 154.033 229.621 159.579C226.309 164.934 227.413 172.393 232.935 181.956L168.335 181.954C159.058 165.888 155.082 151.543 156.407 138.92C157.953 126.298 164.247 116.544 175.289 109.659C186.442 102.583 201.294 99.045 219.846 99.0457C239.281 99.0464 258.551 102.585 277.655 109.663C296.649 116.549 313.986 126.303 329.667 138.927C345.349 151.551 357.827 165.895 367.104 181.961C375.718 196.88 379.528 209.981 378.535 221.265C377.762 232.549 374.063 242.399 367.438 250.814C361.033 259.229 351.095 269.557 337.624 281.796L419.782 281.8L448.605 331.719L259.774 331.712L230.951 281.792Z" stroke="#1B1B18" stroke-width="1" />
-                            <path d="M51.8063 152.402L28.9479 152.401L-0.0411453 102.195L85.7608 102.198L218.282 331.711L155.339 331.709L51.8063 152.402Z" stroke="#1B1B18" stroke-width="1" />
-                        </g>
-                        <g class="transition-all delay-300 translate-y-0 opacity-100 duration-750 starting:opacity-0 starting:translate-y-4">
-                            <path d="M188.467 355.363L188.798 355.363C195.644 348.478 205.969 339.393 219.772 328.11C233.133 316.826 243.181 307.837 249.917 301.144C253.696 297.217 256.792 293.166 259.205 288.991C261.024 285.845 262.455 282.628 263.499 279.341C265.928 271.691 264.768 263.753 260.02 255.529C254.719 246.349 247.265 238.985 237.657 233.438C228.16 227.7 218.111 224.831 207.51 224.83C197.13 224.83 190.339 227.603 187.137 233.149C183.824 238.504 184.929 245.963 190.45 255.527L125.851 255.524C116.574 239.458 112.598 225.114 113.923 212.491C114.615 206.836 116.261 201.756 118.859 197.253C122.061 191.704 126.709 187.03 132.805 183.229C143.958 176.153 158.81 172.615 177.362 172.616C196.797 172.617 216.067 176.156 235.171 183.233C254.164 190.119 271.502 199.874 287.183 212.497C302.864 225.121 315.343 239.466 324.62 255.532C333.233 270.45 337.044 283.551 336.05 294.835C335.46 303.459 333.16 311.245 329.151 318.194C327.915 320.337 326.515 322.4 324.953 324.384C318.549 332.799 308.611 343.127 295.139 355.367L377.297 355.37L406.121 405.289L217.29 405.282L188.467 355.363Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M9.32197 225.972L-13.5365 225.971L-42.5255 175.765L43.2765 175.768L175.798 405.282L112.854 405.279L9.32197 225.972Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M345.247 111.915C329.566 99.2919 312.229 89.5371 293.235 82.6512L235.167 183.228C254.161 190.114 271.498 199.869 287.179 212.492L345.247 111.915Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M382.686 154.964C373.41 138.898 360.931 124.553 345.25 111.93L287.182 212.506C302.863 225.13 315.342 239.475 324.618 255.541L382.686 154.964Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M293.243 82.6472C274.139 75.57 254.869 72.031 235.434 72.0303L177.366 172.607C196.801 172.608 216.071 176.147 235.175 183.224L293.243 82.6472Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M394.118 194.257C395.112 182.973 391.301 169.872 382.688 154.953L324.619 255.53C333.233 270.448 337.044 283.55 336.05 294.834L394.118 194.257Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M235.432 72.0311C216.88 72.0304 202.027 75.5681 190.875 82.6442L132.806 183.221C143.959 176.145 158.812 172.607 177.363 172.608L235.432 72.0311Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M265.59 124.25C276.191 124.251 286.24 127.12 295.737 132.858L237.669 233.435C228.172 227.697 218.123 224.828 207.522 224.827L265.59 124.25Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M295.719 132.859C305.326 138.406 312.78 145.77 318.081 154.95L260.013 255.527C254.712 246.347 247.258 238.983 237.651 233.436L295.719 132.859Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M387.218 217.608C391.227 210.66 393.527 202.874 394.117 194.25L336.049 294.827C335.459 303.451 333.159 311.237 329.15 318.185L387.218 217.608Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M245.211 132.577C248.413 127.03 255.204 124.257 265.584 124.258L207.516 224.835C197.136 224.834 190.345 227.607 187.143 233.154L245.211 132.577Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M318.094 154.945C322.842 163.17 324.002 171.107 321.573 178.757L263.505 279.334C265.934 271.684 264.774 263.746 260.026 255.522L318.094 154.945Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M176.925 96.6737C180.127 91.1249 184.776 86.4503 190.871 82.6499L132.803 183.227C126.708 187.027 122.059 191.702 118.857 197.25L176.925 96.6737Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M387.226 217.606C385.989 219.749 384.59 221.813 383.028 223.797L324.96 324.373C326.522 322.39 327.921 320.326 329.157 318.183L387.226 217.606Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M317.269 188.408C319.087 185.262 320.519 182.045 321.562 178.758L263.494 279.335C262.451 282.622 261.019 285.839 259.201 288.985L317.269 188.408Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M245.208 132.573C241.895 137.928 243 145.387 248.522 154.95L190.454 255.527C184.932 245.964 183.827 238.505 187.14 233.15L245.208 132.573Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M176.93 96.6719C174.331 101.175 172.686 106.255 171.993 111.91L113.925 212.487C114.618 206.831 116.263 201.752 118.862 197.249L176.93 96.6719Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M317.266 188.413C314.853 192.589 311.757 196.64 307.978 200.566L249.91 301.143C253.689 297.216 256.785 293.166 259.198 288.99L317.266 188.413Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M464.198 304.708L435.375 254.789L377.307 355.366L406.13 405.285L464.198 304.708Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M353.209 254.787C366.68 242.548 376.618 232.22 383.023 223.805L324.955 324.382C318.55 332.797 308.612 343.124 295.141 355.364L353.209 254.787Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M435.37 254.787L353.212 254.784L295.144 355.361L377.302 355.364L435.37 254.787Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M183.921 154.947L248.521 154.95L190.453 255.527L125.853 255.524L183.921 154.947Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M171.992 111.914C170.668 124.537 174.643 138.881 183.92 154.947L125.852 255.524C116.575 239.458 112.599 225.114 113.924 212.491L171.992 111.914Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M307.987 200.562C301.251 207.256 291.203 216.244 277.842 227.528L219.774 328.105C233.135 316.821 243.183 307.832 249.919 301.139L307.987 200.562Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M15.5469 75.1797L44.5359 125.386L-13.5321 225.963L-42.5212 175.756L15.5469 75.1797Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M277.836 227.536C264.033 238.82 253.708 247.904 246.862 254.789L188.794 355.366C195.64 348.481 205.965 339.397 219.768 328.113L277.836 227.536Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M275.358 304.706L464.189 304.713L406.12 405.29L217.29 405.283L275.358 304.706Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M44.5279 125.39L67.3864 125.39L9.31834 225.967L-13.5401 225.966L44.5279 125.39Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M101.341 75.1911L233.863 304.705L175.795 405.282L43.2733 175.768L101.341 75.1911ZM15.5431 75.19L-42.525 175.767L43.277 175.77L101.345 75.1932L15.5431 75.19Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M246.866 254.784L246.534 254.784L188.466 355.361L188.798 355.361L246.866 254.784Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M246.539 254.781L275.362 304.701L217.294 405.277L188.471 355.358L246.539 254.781Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M67.3906 125.391L170.923 304.698L112.855 405.275L9.32257 225.967L67.3906 125.391Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                            <path d="M170.921 304.699L233.865 304.701L175.797 405.278L112.853 405.276L170.921 304.699Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="bevel" />
-                        </g>
-                        <g style="mix-blend-mode: hard-light" class="transition-all delay-300 translate-y-0 opacity-100 duration-750 starting:opacity-0 starting:translate-y-4">
-                            <path d="M246.544 254.79L246.875 254.79C253.722 247.905 264.046 238.82 277.849 227.537C291.21 216.253 301.259 207.264 307.995 200.57C314.62 193.685 319.147 186.418 321.577 178.768C324.006 171.117 322.846 163.18 318.097 154.956C312.796 145.775 305.342 138.412 295.735 132.865C286.238 127.127 276.189 124.258 265.588 124.257C255.208 124.257 248.416 127.03 245.214 132.576C241.902 137.931 243.006 145.39 248.528 154.953L183.928 154.951C174.652 138.885 170.676 124.541 172 111.918C173.546 99.2946 179.84 89.5408 190.882 82.6559C202.035 75.5798 216.887 72.0421 235.439 72.0428C254.874 72.0435 274.144 75.5825 293.248 82.6598C312.242 89.5457 329.579 99.3005 345.261 111.924C360.942 124.548 373.421 138.892 382.697 154.958C391.311 169.877 395.121 182.978 394.128 194.262C393.355 205.546 389.656 215.396 383.031 223.811C376.627 232.226 366.688 242.554 353.217 254.794L435.375 254.797L464.198 304.716L275.367 304.709L246.544 254.79Z" fill="#F0ACB8" />
-                            <path d="M246.544 254.79L246.875 254.79C253.722 247.905 264.046 238.82 277.849 227.537C291.21 216.253 301.259 207.264 307.995 200.57C314.62 193.685 319.147 186.418 321.577 178.768C324.006 171.117 322.846 163.18 318.097 154.956C312.796 145.775 305.342 138.412 295.735 132.865C286.238 127.127 276.189 124.258 265.588 124.257C255.208 124.257 248.416 127.03 245.214 132.576C241.902 137.931 243.006 145.39 248.528 154.953L183.928 154.951C174.652 138.885 170.676 124.541 172 111.918C173.546 99.2946 179.84 89.5408 190.882 82.6559C202.035 75.5798 216.887 72.0421 235.439 72.0428C254.874 72.0435 274.144 75.5825 293.248 82.6598C312.242 89.5457 329.579 99.3005 345.261 111.924C360.942 124.548 373.421 138.892 382.697 154.958C391.311 169.877 395.121 182.978 394.128 194.262C393.355 205.546 389.656 215.396 383.031 223.811C376.627 232.226 366.688 242.554 353.217 254.794L435.375 254.797L464.198 304.716L275.367 304.709L246.544 254.79Z" stroke="#1B1B18" stroke-width="1" stroke-linejoin="round" />
-                        </g>
-                        <g style="mix-blend-mode: hard-light" class="transition-all delay-300 translate-y-0 opacity-100 duration-750 starting:opacity-0 starting:translate-y-4">
-                            <path d="M67.41 125.402L44.5515 125.401L15.5625 75.1953L101.364 75.1985L233.886 304.712L170.942 304.71L67.41 125.402Z" fill="#F0ACB8" />
-                            <path d="M67.41 125.402L44.5515 125.401L15.5625 75.1953L101.364 75.1985L233.886 304.712L170.942 304.71L67.41 125.402Z" stroke="#1B1B18" stroke-width="1" />
-                        </g>
-                    </svg>
 
-                    {{-- Dark Mode 12 SVG --}}
-                    <svg class="w-[448px] max-w-none relative -mt-[4.9rem] -ml-8 lg:ml-0 lg:-mt-[6.6rem] hidden dark:block" viewBox="0 0 440 376" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g class="transition-all delay-300 translate-y-0 opacity-100 duration-750 starting:opacity-0 starting:translate-y-4">
-                            <path d="M188.263 355.73L188.595 355.73C195.441 348.845 205.766 339.761 219.569 328.477C232.93 317.193 242.978 308.205 249.714 301.511C256.34 294.626 260.867 287.358 263.296 279.708C265.725 272.058 264.565 264.121 259.816 255.896C254.516 246.716 247.062 239.352 237.454 233.805C227.957 228.067 217.908 225.198 207.307 225.198C196.927 225.197 190.136 227.97 186.934 233.516C183.621 238.872 184.726 246.331 190.247 255.894L125.647 255.891C116.371 239.825 112.395 225.481 113.72 212.858C115.265 200.235 121.559 190.481 132.602 183.596C143.754 176.52 158.607 172.982 177.159 172.983C196.594 172.984 215.863 176.523 234.968 183.6C253.961 190.486 271.299 200.241 286.98 212.864C302.661 225.488 315.14 239.833 324.416 255.899C333.03 270.817 336.841 283.918 335.847 295.203C335.075 306.487 331.376 316.336 324.75 324.751C318.346 333.167 308.408 343.494 294.936 355.734L377.094 355.737L405.917 405.656L217.087 405.649L188.263 355.73Z" fill="black"/>
-                            <path d="M9.11884 226.339L-13.7396 226.338L-42.7286 176.132L43.0733 176.135L175.595 405.649L112.651 405.647L9.11884 226.339Z" fill="black"/>
-                            <path d="M188.263 355.73L188.595 355.73C195.441 348.845 205.766 339.761 219.569 328.477C232.93 317.193 242.978 308.205 249.714 301.511C256.34 294.626 260.867 287.358 263.296 279.708C265.725 272.058 264.565 264.121 259.816 255.896C254.516 246.716 247.062 239.352 237.454 233.805C227.957 228.067 217.908 225.198 207.307 225.198C196.927 225.197 190.136 227.97 186.934 233.516C183.621 238.872 184.726 246.331 190.247 255.894L125.647 255.891C116.371 239.825 112.395 225.481 113.72 212.858C115.265 200.235 121.559 190.481 132.602 183.596C143.754 176.52 158.607 172.982 177.159 172.983C196.594 172.984 215.863 176.523 234.968 183.6C253.961 190.486 271.299 200.241 286.98 212.864C302.661 225.488 315.14 239.833 324.416 255.899C333.03 270.817 336.841 283.918 335.847 295.203C335.075 306.487 331.376 316.336 324.75 324.751C318.346 333.167 308.408 343.494 294.936 355.734L377.094 355.737L405.917 405.656L217.087 405.649L188.263 355.73Z" stroke="#FF750F" stroke-width="1"/>
-                            <path d="M9.11884 226.339L-13.7396 226.338L-42.7286 176.132L43.0733 176.135L175.595 405.649L112.651 405.647L9.11884 226.339Z" stroke="#FF750F" stroke-width="1"/>
-                            <path d="M204.592 327.449L204.923 327.449C211.769 320.564 222.094 311.479 235.897 300.196C249.258 288.912 259.306 279.923 266.042 273.23C272.668 266.345 277.195 259.077 279.624 251.427C282.053 243.777 280.893 235.839 276.145 227.615C270.844 218.435 263.39 211.071 253.782 205.524C244.285 199.786 234.236 196.917 223.635 196.916C213.255 196.916 206.464 199.689 203.262 205.235C199.949 210.59 201.054 218.049 206.575 227.612L141.975 227.61C132.699 211.544 128.723 197.2 130.048 184.577C131.593 171.954 137.887 162.2 148.93 155.315C160.083 148.239 174.935 144.701 193.487 144.702C212.922 144.703 232.192 148.242 251.296 155.319C270.289 162.205 287.627 171.96 303.308 184.583C318.989 197.207 331.468 211.552 340.745 227.618C349.358 242.536 353.169 255.637 352.175 266.921C351.403 278.205 347.704 288.055 341.078 296.47C334.674 304.885 324.736 315.213 311.264 327.453L393.422 327.456L422.246 377.375L233.415 377.368L204.592 327.449Z" fill="#391800"/>
-                            <path d="M25.447 198.058L2.58852 198.057L-26.4005 147.851L59.4015 147.854L191.923 377.368L128.979 377.365L25.447 198.058Z" fill="#391800"/>
-                            <path d="M204.592 327.449L204.923 327.449C211.769 320.564 222.094 311.479 235.897 300.196C249.258 288.912 259.306 279.923 266.042 273.23C272.668 266.345 277.195 259.077 279.624 251.427C282.053 243.777 280.893 235.839 276.145 227.615C270.844 218.435 263.39 211.071 253.782 205.524C244.285 199.786 234.236 196.917 223.635 196.916C213.255 196.916 206.464 199.689 203.262 205.235C199.949 210.59 201.054 218.049 206.575 227.612L141.975 227.61C132.699 211.544 128.723 197.2 130.048 184.577C131.593 171.954 137.887 162.2 148.93 155.315C160.083 148.239 174.935 144.701 193.487 144.702C212.922 144.703 232.192 148.242 251.296 155.319C270.289 162.205 287.627 171.96 303.308 184.583C318.989 197.207 331.468 211.552 340.745 227.618C349.358 242.536 353.169 255.637 352.175 266.921C351.403 278.205 347.704 288.055 341.078 296.47C334.674 304.885 324.736 315.213 311.264 327.453L393.422 327.456L422.246 377.375L233.415 377.368L204.592 327.449Z" stroke="#FF750F" stroke-width="1"/>
-                            <path d="M25.447 198.058L2.58852 198.057L-26.4005 147.851L59.4015 147.854L191.923 377.368L128.979 377.365L25.447 198.058Z" stroke="#FF750F" stroke-width="1"/>
-                        </g>
-                        <g class="transition-all delay-300 translate-y-0 opacity-100 duration-750 starting:opacity-0 starting:translate-y-4" style="mix-blend-mode:hard-light">
-                            <path d="M217.342 305.363L217.673 305.363C224.519 298.478 234.844 289.393 248.647 278.11C262.008 266.826 272.056 257.837 278.792 251.144C285.418 244.259 289.945 236.991 292.374 229.341C294.803 221.691 293.643 213.753 288.895 205.529C283.594 196.349 276.14 188.985 266.532 183.438C257.035 177.7 246.986 174.831 236.385 174.83C226.005 174.83 219.214 177.603 216.012 183.149C212.699 188.504 213.804 195.963 219.325 205.527L154.725 205.524C145.449 189.458 141.473 175.114 142.798 162.491C144.343 149.868 150.637 140.114 161.68 133.229C172.833 126.153 187.685 122.615 206.237 122.616C225.672 122.617 244.942 126.156 264.046 133.233C283.039 140.119 300.377 149.874 316.058 162.497C331.739 175.121 344.218 189.466 353.495 205.532C362.108 220.45 365.919 233.551 364.925 244.835C364.153 256.12 360.454 265.969 353.828 274.384C347.424 282.799 337.486 293.127 324.014 305.367L406.172 305.37L434.996 355.289L246.165 355.282L217.342 305.363Z" fill="#733000"/>
-                            <path d="M38.197 175.972L15.3385 175.971L-13.6505 125.765L72.1515 125.768L204.673 355.282L141.729 355.279L38.197 175.972Z" fill="#733000"/>
-                            <path d="M217.342 305.363L217.673 305.363C224.519 298.478 234.844 289.393 248.647 278.11C262.008 266.826 272.056 257.837 278.792 251.144C285.418 244.259 289.945 236.991 292.374 229.341C294.803 221.691 293.643 213.753 288.895 205.529C283.594 196.349 276.14 188.985 266.532 183.438C257.035 177.7 246.986 174.831 236.385 174.83C226.005 174.83 219.214 177.603 216.012 183.149C212.699 188.504 213.804 195.963 219.325 205.527L154.725 205.524C145.449 189.458 141.473 175.114 142.798 162.491C144.343 149.868 150.637 140.114 161.68 133.229C172.833 126.153 187.685 122.615 206.237 122.616C225.672 122.617 244.942 126.156 264.046 133.233C283.039 140.119 300.377 149.874 316.058 162.497C331.739 175.121 344.218 189.466 353.495 205.532C362.108 220.45 365.919 233.551 364.925 244.835C364.153 256.12 360.454 265.969 353.828 274.384C347.424 282.799 337.486 293.127 324.014 305.367L406.172 305.37L434.996 355.289L246.165 355.282L217.342 305.363Z" stroke="#FF750F" stroke-width="1"/>
-                            <path d="M38.197 175.972L15.3385 175.971L-13.6505 125.765L72.1515 125.768L204.673 355.282L141.729 355.279L38.197 175.972Z" stroke="#FF750F" stroke-width="1"/>
-                        </g>
-                        <g class="transition-all delay-300 translate-y-0 opacity-100 duration-750 starting:opacity-0 starting:translate-y-4">
-                            <path d="M217.342 305.363L217.673 305.363C224.519 298.478 234.844 289.393 248.647 278.11C262.008 266.826 272.056 257.837 278.792 251.144C285.418 244.259 289.945 236.991 292.374 229.341C294.803 221.691 293.643 213.753 288.895 205.529C283.594 196.349 276.14 188.985 266.532 183.438C257.035 177.7 246.986 174.831 236.385 174.83C226.005 174.83 219.214 177.603 216.012 183.149C212.699 188.504 213.804 195.963 219.325 205.527L154.726 205.524C145.449 189.458 141.473 175.114 142.798 162.491C144.343 149.868 150.637 140.114 161.68 133.229C172.833 126.153 187.685 122.615 206.237 122.616C225.672 122.617 244.942 126.156 264.046 133.233C283.039 140.119 300.377 149.874 316.058 162.497C331.739 175.121 344.218 189.466 353.495 205.532C362.108 220.45 365.919 233.551 364.925 244.835C364.153 256.12 360.454 265.969 353.828 274.384C347.424 282.799 337.486 293.127 324.014 305.367L406.172 305.37L434.996 355.289L246.165 355.282L217.342 305.363Z" stroke="#FF750F" stroke-width="1"/>
-                            <path d="M38.197 175.972L15.3385 175.971L-13.6505 125.765L72.1515 125.768L204.673 355.282L141.729 355.279L38.197 175.972Z" stroke="#FF750F" stroke-width="1"/>
-                        </g>
-                        <g class="transition-all delay-300 translate-y-0 opacity-100 duration-750 starting:opacity-0 starting:translate-y-4">
-                            <path d="M188.467 355.363L188.798 355.363C195.644 348.478 205.969 339.393 219.772 328.11C233.133 316.826 243.181 307.837 249.917 301.144C253.696 297.217 256.792 293.166 259.205 288.991C261.024 285.845 262.455 282.628 263.499 279.341C265.928 271.691 264.768 263.753 260.02 255.529C254.719 246.349 247.265 238.985 237.657 233.438C228.16 227.7 218.111 224.831 207.51 224.83C197.13 224.83 190.339 227.603 187.137 233.149C183.824 238.504 184.929 245.963 190.45 255.527L125.851 255.524C116.574 239.458 112.598 225.114 113.923 212.491C114.615 206.836 116.261 201.756 118.859 197.253C122.061 191.704 126.709 187.03 132.805 183.229C143.958 176.153 158.81 172.615 177.362 172.616C196.797 172.617 216.067 176.156 235.171 183.233C254.164 190.119 271.502 199.874 287.183 212.497C302.864 225.121 315.343 239.466 324.62 255.532C333.233 270.45 337.044 283.551 336.05 294.835C335.46 303.459 333.16 311.245 329.151 318.194C327.915 320.337 326.515 322.4 324.953 324.384C318.549 332.799 308.611 343.127 295.139 355.367L377.297 355.37L406.121 405.289L217.29 405.282L188.467 355.363Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M9.32197 225.972L-13.5365 225.971L-42.5255 175.765L43.2765 175.768L175.798 405.282L112.854 405.279L9.32197 225.972Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M345.247 111.915C329.566 99.2919 312.229 89.5371 293.235 82.6512L235.167 183.228C254.161 190.114 271.498 199.869 287.179 212.492L345.247 111.915Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M382.686 154.964C373.41 138.898 360.931 124.553 345.25 111.93L287.182 212.506C302.863 225.13 315.342 239.475 324.618 255.541L382.686 154.964Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M293.243 82.6472C274.139 75.57 254.869 72.031 235.434 72.0303L177.366 172.607C196.801 172.608 216.071 176.147 235.175 183.224L293.243 82.6472Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M394.118 194.257C395.112 182.973 391.301 169.872 382.688 154.953L324.619 255.53C333.233 270.448 337.044 283.55 336.05 294.834L394.118 194.257Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M235.432 72.0311C216.88 72.0304 202.027 75.5681 190.875 82.6442L132.806 183.221C143.959 176.145 158.812 172.607 177.363 172.608L235.432 72.0311Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M265.59 124.25C276.191 124.251 286.24 127.12 295.737 132.858L237.669 233.435C228.172 227.697 218.123 224.828 207.522 224.827L265.59 124.25Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M295.719 132.859C305.326 138.406 312.78 145.77 318.081 154.95L260.013 255.527C254.712 246.347 247.258 238.983 237.651 233.436L295.719 132.859Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M387.218 217.608C391.227 210.66 393.527 202.874 394.117 194.25L336.049 294.827C335.459 303.451 333.159 311.237 329.15 318.185L387.218 217.608Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M245.211 132.577C248.413 127.03 255.204 124.257 265.584 124.258L207.516 224.835C197.136 224.834 190.345 227.607 187.143 233.154L245.211 132.577Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M318.094 154.945C322.842 163.17 324.002 171.107 321.573 178.757L263.505 279.334C265.934 271.684 264.774 263.746 260.026 255.522L318.094 154.945Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M176.925 96.6737C180.127 91.1249 184.776 86.4503 190.871 82.6499L132.803 183.227C126.708 187.027 122.059 191.702 118.857 197.25L176.925 96.6737Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M387.226 217.606C385.989 219.749 384.59 221.813 383.028 223.797L324.96 324.373C326.522 322.39 327.921 320.326 329.157 318.183L387.226 217.606Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M317.269 188.408C319.087 185.262 320.519 182.045 321.562 178.758L263.494 279.335C262.451 282.622 261.019 285.839 259.201 288.985L317.269 188.408Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M245.208 132.573C241.895 137.928 243 145.387 248.522 154.95L190.454 255.527C184.932 245.964 183.827 238.505 187.14 233.15L245.208 132.573Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M176.93 96.6719C174.331 101.175 172.686 106.255 171.993 111.91L113.925 212.487C114.618 206.831 116.263 201.752 118.862 197.249L176.93 96.6719Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M317.266 188.413C314.853 192.589 311.757 196.64 307.978 200.566L249.91 301.143C253.689 297.216 256.785 293.166 259.198 288.99L317.266 188.413Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M464.198 304.708L435.375 254.789L377.307 355.366L406.13 405.285L464.198 304.708Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M353.209 254.787C366.68 242.548 376.618 232.22 383.023 223.805L324.955 324.382C318.55 332.797 308.612 343.124 295.141 355.364L353.209 254.787Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M435.37 254.787L353.212 254.784L295.144 355.361L377.302 355.364L435.37 254.787Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M183.921 154.947L248.521 154.95L190.453 255.527L125.853 255.524L183.921 154.947Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M171.992 111.914C170.668 124.537 174.643 138.881 183.92 154.947L125.852 255.524C116.575 239.458 112.599 225.114 113.924 212.491L171.992 111.914Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M307.987 200.562C301.251 207.256 291.203 216.244 277.842 227.528L219.774 328.105C233.135 316.821 243.183 307.832 249.919 301.139L307.987 200.562Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M15.5469 75.1797L44.5359 125.386L-13.5321 225.963L-42.5212 175.756L15.5469 75.1797Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M277.836 227.536C264.033 238.82 253.708 247.904 246.862 254.789L188.794 355.366C195.64 348.481 205.965 339.397 219.768 328.113L277.836 227.536Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M275.358 304.706L464.189 304.713L406.12 405.29L217.29 405.283L275.358 304.706Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M44.5279 125.39L67.3864 125.39L9.31834 225.967L-13.5401 225.966L44.5279 125.39Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M101.341 75.1911L233.863 304.705L175.795 405.282L43.2733 175.768L101.341 75.1911ZM15.5431 75.19L-42.525 175.767L43.277 175.77L101.345 75.1932L15.5431 75.19Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M246.866 254.784L246.534 254.784L188.466 355.361L188.798 355.361L246.866 254.784Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M246.539 254.781L275.362 304.701L217.294 405.277L188.471 355.358L246.539 254.781Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M67.3906 125.391L170.923 304.698L112.855 405.275L9.32257 225.967L67.3906 125.391Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                            <path d="M170.921 304.699L233.865 304.701L175.797 405.278L112.853 405.276L170.921 304.699Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="bevel"/>
-                        </g>
-                        <g class="transition-all delay-300 translate-y-0 opacity-100 duration-750 starting:opacity-0 starting:translate-y-4" style="mix-blend-mode:hard-light">
-                            <path d="M246.544 254.79L246.875 254.79C253.722 247.905 264.046 238.82 277.849 227.537C291.21 216.253 301.259 207.264 307.995 200.57C314.62 193.685 319.147 186.418 321.577 178.768C324.006 171.117 322.846 163.18 318.097 154.956C312.796 145.775 305.342 138.412 295.735 132.865C286.238 127.127 276.189 124.258 265.588 124.257C255.208 124.257 248.416 127.03 245.214 132.576C241.902 137.931 243.006 145.39 248.528 154.953L183.928 154.951C174.652 138.885 170.676 124.541 172 111.918C173.546 99.2946 179.84 89.5408 190.882 82.6559C202.035 75.5798 216.887 72.0421 235.439 72.0428C254.874 72.0435 274.144 75.5825 293.248 82.6598C312.242 89.5457 329.579 99.3005 345.261 111.924C360.942 124.548 373.421 138.892 382.697 154.958C391.311 169.877 395.121 182.978 394.128 194.262C393.355 205.546 389.656 215.396 383.031 223.811C376.627 232.226 366.688 242.554 353.217 254.794L435.375 254.797L464.198 304.716L275.367 304.709L246.544 254.79Z" fill="#4B0600"/>
-                            <path d="M246.544 254.79L246.875 254.79C253.722 247.905 264.046 238.82 277.849 227.537C291.21 216.253 301.259 207.264 307.995 200.57C314.62 193.685 319.147 186.418 321.577 178.768C324.006 171.117 322.846 163.18 318.097 154.956C312.796 145.775 305.342 138.412 295.735 132.865C286.238 127.127 276.189 124.258 265.588 124.257C255.208 124.257 248.416 127.03 245.214 132.576C241.902 137.931 243.006 145.39 248.528 154.953L183.928 154.951C174.652 138.885 170.676 124.541 172 111.918C173.546 99.2946 179.84 89.5408 190.882 82.6559C202.035 75.5798 216.887 72.0421 235.439 72.0428C254.874 72.0435 274.144 75.5825 293.248 82.6598C312.242 89.5457 329.579 99.3005 345.261 111.924C360.942 124.548 373.421 138.892 382.697 154.958C391.311 169.877 395.121 182.978 394.128 194.262C393.355 205.546 389.656 215.396 383.031 223.811C376.627 232.226 366.688 242.554 353.217 254.794L435.375 254.797L464.198 304.716L275.367 304.709L246.544 254.79Z" stroke="#FF750F" stroke-width="1" stroke-linejoin="round"/>
-                        </g>
-                        <g class="transition-all delay-300 translate-y-0 opacity-100 duration-750 starting:opacity-0 starting:translate-y-4" style="mix-blend-mode:hard-light">
-                            <path d="M67.41 125.402L44.5515 125.401L15.5625 75.1953L101.364 75.1985L233.886 304.712L170.942 304.71L67.41 125.402Z" fill="#4B0600"/>
-                            <path d="M67.41 125.402L44.5515 125.401L15.5625 75.1953L101.364 75.1985L233.886 304.712L170.942 304.71L67.41 125.402Z" stroke="#FF750F" stroke-width="1"/>
-                        </g>
-                    </svg>
-                    <div class="absolute inset-0 rounded-t-lg lg:rounded-t-none lg:rounded-r-lg shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d]"></div>
+                            <form action="https://jobpilot.lomeyolabs.com/jobs" method="GET" id="search-form"
+                                class="mx-width-300 header-search-form d-lg-block d-none">
+                                <div class="search-box">
+                                    <select id="headerSearchs" onclick="changeSearchSelections()" class="form-select"
+                                        aria-label="Default select example">
+                                        <option value="job">Jobs</option>
+                                        <option value="candidate">Candidate
+                                        </option>
+                                        <option value="company">Company</option>
+                                    </select>
+                                    <div class="d-flex flex-column flex-md-row align-items-center tw-ps-3">
+                                        <svg class="searcbox-searchicon" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+                                                stroke="#0A65CC" stroke-width="1.5" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path d="M21 20.9999L16.65 16.6499" stroke="#0A65CC" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        <input name="keyword" class="search-input" type="text"
+                                            placeholder="Job Title, Keyword" value="" id="global_search">
+                                    </div>
+
+                                    <span id="autocomplete_job_results"></span>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="n-header--bottom__right">
+                            <div class="d-flex align-items-center ">
+                                <div class="search-icon tw-ml-2 d-lg-none !tw-cursor-pointer">
+                                    <span>
+                                        <svg id="searchIcon" width="24" height="24" viewBox="0 0 24 24"
+                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+                                                stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path d="M20.9999 21L16.6499 16.65" stroke="#FFFFFF" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="togglesearch">
+                                    <form action="https://jobpilot.lomeyolabs.com/jobs" method="GET"
+                                        id="search-form"
+                                        class="shadow px-md-5 py-md-3 p-3 !tw-bg-white rounded w-sm-75 w-100">
+
+                                        <div class="search-box form-item position-relative">
+                                            <svg class="" width="24" height="24" viewBox="0 0 24 24"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+                                                    stroke="#0A65CC" stroke-width="1.5" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path d="M21 20.9999L16.65 16.6499" stroke="#0A65CC"
+                                                    stroke-width="1.5" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                            <input name="keyword" class="search-input w-100" type="text"
+                                                placeholder="Job Title, Keyword" value="" id="search_input">
+
+                                        </div>
+                                    </form>
+                                </div>
+                              <div class="auth-buttons">
+                                    <a href="{{ route('login') }}" class="btn btn-outline">Log In</a>
+                                    <a href="{{ route('register') }}" class="btn btn-primary">Sign Up Free</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </main>
+            </div>
+            <div class="rt-mobile-menu-overlay"></div>
+            <div class="sidebar-overlay"></div>
         </div>
+    </header>
 
-        @if (Route::has('login'))
-            <div class="h-14.5 hidden lg:block"></div>
-        @endif
-    </body>
+
+    <!-- google adsense area -->
+    <!-- google adsense area end -->
+    <section class="banner-section">
+        <div class="rt-single-banner5">
+            <div class="container position-parent">
+                <div class="row">
+                    <div class="col-xl-6">
+                        <div class="banner-content5" id="banner-section">
+                            <div class="mx-727" data-aos-duration="1000">
+                                <h1 class="text-gray-900 rt-mb-24">
+                                    Discover Your Perfect Job: Matching Your Interests and Skills
+                                </h1>
+                                <div class="f-size-18 text-gray-600 rt-mb-30">
+                                    Unlock Your Potential, Embrace Your Future.
+                                </div>
+                            </div>
+                            <form action="https://jobpilot.lomeyolabs.com/jobs" method="GET" id="job_search_form">
+                                <div class="jobsearchBox d-flex flex-column flex-md-row bg-gray-10 input-transparent rt-mb-24"
+                                    data-aos="fadeinup" data-aos-duration="400" data-aos-delay="50">
+                                    <div class="flex-grow-1 fromGroup has-icon">
+                                        <input id="index_search" name="keyword" type="text"
+                                            placeholder="Job Title, Keyword" value="" autocomplete="off"
+                                            class="text-gray-900">
+                                        <div class="icon-badge">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+                                                    stroke="var(--primary-500)" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M20.9999 21L16.6499 16.65" stroke="var(--primary-500)"
+                                                    stroke-width="1.5" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </div>
+                                        <span id="autocomplete_index_job_results"></span>
+                                    </div>
+                                    <input type="hidden" name="lat" id="lat" value="">
+                                    <input type="hidden" name="long" id="long" value="">
+
+                                    <div class="flex-grow-1 fromGroup has-icon banner-select no-border">
+                                        <input name="long" class="leaf_lon" type="hidden">
+                                        <input name="lat" class="leaf_lat" type="hidden">
+                                        <input type="text" id="leaflet_search" placeholder="Enter Location"
+                                            name="location" value="" autocomplete="off" class="text-gray-900">
+                                        <div class="icon-badge">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z"
+                                                    stroke="#0A65CC" stroke-width="1.5" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path
+                                                    d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z"
+                                                    stroke="#0A65CC" stroke-width="1.5" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="flex-grow-0">
+                                        <button type="submit" class="btn btn-primary d-block d-md-inline-block ">Find
+                                            Job Now</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="f-size-14 banner-quciks-links " data-aos="" data-aos-duration="1000"
+                                data-aos-delay="500">
+                                <span class="text-gray-700">Suggestion: </span>
+                                <a href="https://jobpilot.lomeyolabs.com/jobs/category/designcreative">
+                                    Design/Creative ,
+                                </a>
+                                <a href="https://jobpilot.lomeyolabs.com/jobs/category/drivingmotor-technician">
+                                    Driving/Motor Technician ,
+                                </a>
+                                <a href="https://jobpilot.lomeyolabs.com/jobs/category/it-telecommunication">
+                                    IT &amp; Telecommunication ,
+                                </a>
+                                <a href="https://jobpilot.lomeyolabs.com/jobs/category/hospitality-travel-tourism">
+                                    Hospitality/ Travel/ Tourism
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 d-flex align-items-center">
+                        <div class="banner-mockup d-none d-xl-block w-100 text-right">
+                            <div class="addimg-1 position-parent video-btn-center">
+                                <svg width="492" height="382" viewBox="0 0 492 382" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_1647_31253)">
+                                        <path
+                                            d="M349.41 59.3053C349.484 60.4436 349.52 61.582 349.594 62.6836C349.594 62.9039 349.741 63.1976 349.999 63.1976C380.974 67.4572 412.207 63.8586 443.292 63.932C452.085 63.932 460.84 64.2625 469.596 65.1071C469.817 65.1438 470.074 64.9235 470.111 64.7032C470.405 63.1976 470.736 61.6921 471.031 60.1866C471.178 59.4889 470.111 59.1952 469.964 59.8928C469.669 61.3984 469.338 62.9039 469.044 64.4094C469.228 64.2625 469.412 64.1524 469.559 64.0055C438.768 60.9944 407.866 64.7766 377.001 64.1156C368.061 63.932 359.122 63.3445 350.256 62.1328C350.403 62.3164 350.514 62.5 350.661 62.6468C350.587 61.5085 350.55 60.3702 350.477 59.2686C350.477 58.6076 349.373 58.6076 349.41 59.3053Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M350.33 59.8561C381.452 59.8561 412.611 59.8561 443.734 59.8561C452.563 59.8561 461.392 59.8561 470.221 59.8561C470.92 59.8561 470.92 58.7545 470.221 58.7545C439.099 58.7545 407.939 58.7545 376.817 58.7545C367.988 58.7545 359.159 58.7545 350.33 58.7545C349.631 58.7545 349.631 59.8561 350.33 59.8561Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M357.025 58.9748C357.945 45.7923 358.717 32.5732 359.858 19.4274C360.005 17.7016 360.189 16.0125 360.483 14.3234C360.593 13.6991 360.63 12.4139 360.998 11.8998C361.476 11.2389 362.506 11.2389 363.242 11.1287C364.934 10.835 367.767 9.80681 368.944 11.5326C369.275 12.0467 369.349 13.1116 369.459 13.7358C369.68 14.8374 369.827 15.939 369.937 17.0406C370.526 23.5033 369.68 30.0762 369.202 36.5389C368.65 44.0298 368.098 51.5207 367.546 59.0115C367.509 59.7092 368.613 59.7092 368.65 59.0115C369.459 48.2893 370.342 37.6038 371.004 26.8816C371.299 21.9611 371.446 16.9305 370.232 12.0834C369.901 10.7248 369.386 9.58649 367.841 9.43961C365.486 9.25601 362.764 10.0638 360.483 10.5412C360.299 10.5779 360.152 10.7615 360.115 10.9084C358.165 18.5094 358.239 26.698 357.687 34.4826C357.099 42.6344 356.547 50.823 355.958 58.9748C355.885 59.6725 356.988 59.6725 357.025 58.9748Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M370.71 25.8167C375.198 37.0897 379.944 48.2526 384.91 59.3053C385.204 59.9663 386.161 59.3787 385.866 58.7545C380.937 47.7752 376.228 36.6858 371.777 25.523C371.519 24.862 370.452 25.1558 370.71 25.8167Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M371.667 19.9048C372.586 17.2977 375.419 15.8656 378.068 16.6C378.767 16.7836 379.061 15.7187 378.362 15.5351C375.125 14.6171 371.703 16.4531 370.6 19.611C370.379 20.3087 371.446 20.5658 371.667 19.9048Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M378.068 16.8203C385.352 30.9208 392.599 45.0579 399.883 59.1584C400.214 59.7826 401.171 59.2318 400.839 58.6076C393.555 44.5071 386.308 30.37 379.024 16.2695C378.693 15.6086 377.737 16.1594 378.068 16.8203Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M397.234 7.34656C398.411 24.4213 399.588 41.4961 400.729 58.5709C400.766 59.2686 401.869 59.2686 401.832 58.5709C400.655 41.4961 399.478 24.4213 398.338 7.34656C398.301 6.64888 397.197 6.64888 397.234 7.34656Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M398.191 7.93409C400.067 6.24498 402.605 6.24498 404.96 6.6489C405.916 6.79578 406.946 6.97938 407.866 7.30986C409.558 7.9341 409.301 9.47633 409.374 10.9819C409.595 16.2328 409.779 21.4838 410 26.7347C410.404 37.3468 410.846 47.9956 411.25 58.6076C411.287 59.3053 412.391 59.3053 412.354 58.6076C411.839 45.9025 411.361 33.1974 410.846 20.529C410.735 17.3711 410.588 14.1765 410.478 11.0186C410.404 9.40289 410.625 7.42001 408.933 6.53874C407.167 5.62074 404.445 5.29026 402.458 5.32698C400.545 5.3637 398.853 5.87778 397.455 7.16297C396.903 7.60361 397.676 8.41145 398.191 7.93409Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M378.95 16.1961C382.445 16.4164 385.867 17.4446 389.214 18.3993C392.304 19.2806 395.321 20.3822 397.933 22.2916C398.522 22.6955 399.073 21.7408 398.485 21.3369C395.763 19.3907 392.672 18.2524 389.472 17.3344C386.014 16.343 382.519 15.3515 378.914 15.0945C378.215 15.021 378.215 16.1226 378.95 16.1961Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M410.662 14.2499C412.28 13.846 414.083 13.4421 415.775 13.7726C418.277 14.2867 418.792 16.4899 418.902 18.7298C419.086 23.2463 419.16 27.7262 419.27 32.2427C419.491 41.1289 419.601 50.0152 419.638 58.9014C419.638 59.5991 420.742 59.5991 420.742 58.9014C420.705 48.2893 420.558 37.714 420.263 27.1386C420.19 24.5682 420.116 22.0346 420.043 19.4642C419.969 17.7751 420.006 15.9023 418.976 14.4703C417.063 11.7897 413.127 12.4507 410.404 13.1483C409.668 13.3687 409.963 14.4335 410.662 14.2499Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M418.718 8.44817C418.718 11.753 418.718 15.021 418.718 18.3258C418.718 19.0235 419.822 19.0235 419.822 18.3258C419.822 15.021 419.822 11.753 419.822 8.44817C419.822 7.75049 418.718 7.75049 418.718 8.44817Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M420.337 8.85208C420.631 8.96224 420.962 9.0724 421.256 9.18256C421.293 9.4396 421.33 9.69665 421.367 9.9904C421.44 10.5779 421.44 11.2022 421.514 11.8264C421.587 12.7811 421.661 13.7726 421.735 14.7273C421.882 16.7836 421.992 18.8766 422.102 20.9329C422.36 25.1925 422.544 29.452 422.691 33.7115C423.022 42.1203 423.133 50.5292 423.133 58.9381C423.133 59.6358 424.236 59.6358 424.236 58.9381C424.236 48.4729 424.015 37.971 423.537 27.5058C423.28 22.4017 422.985 17.2977 422.618 12.1936C422.544 10.9451 422.765 8.66849 421.624 7.78721C420.852 7.19969 419.785 7.42001 419.38 8.30129C419.123 8.96224 420.042 9.51304 420.337 8.85208Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M366.112 64.7031C367.252 66.6125 368.356 69.4767 370.195 70.8353C371.998 72.194 374.205 70.9822 376.192 71.6799C376.854 71.9002 377.148 70.8353 376.486 70.615C374.72 69.9908 372.66 70.9822 371.078 69.9908C369.275 68.8892 368.135 65.9149 367.068 64.1156C366.7 63.5281 365.744 64.0789 366.112 64.7031Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M377.663 65.1805C377.516 67.0899 376.927 68.8158 375.971 70.4315C375.603 71.0557 376.559 71.6065 376.927 70.9823C378.031 69.183 378.62 67.2368 378.767 65.1805C378.84 64.4828 377.737 64.4828 377.663 65.1805Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M374.536 66.0984C374.867 67.7876 375.198 69.4767 375.566 71.1658C375.713 71.8635 376.78 71.5697 376.633 70.8721C376.302 69.1829 375.971 67.4938 375.603 65.8047C375.456 65.107 374.389 65.4008 374.536 66.0984Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M375.86 66.0618C375.934 66.0618 376.008 66.0985 376.081 66.1352C376.192 66.3555 376.191 66.5758 376.155 66.7961C376.118 67.0532 376.008 67.3102 375.934 67.5673C375.787 68.0813 375.75 68.5587 375.897 69.0728C376.118 69.7705 377.074 69.4767 376.964 68.779C376.78 67.7876 376.927 66.7961 377.332 65.8782C376.964 65.8414 376.596 65.768 376.265 65.7313C376.155 66.8696 376.081 68.0446 375.971 69.1829C375.897 69.8806 377.001 69.8806 377.074 69.1829C377.185 68.0446 377.258 66.8696 377.369 65.7313C377.442 65.0703 376.486 65.0703 376.302 65.5844C375.824 66.7227 375.75 67.8977 375.934 69.0728C376.302 68.9626 376.633 68.8892 377.001 68.779C376.67 67.6774 377.957 66.3188 376.854 65.3274C376.191 64.7398 375.125 64.9602 374.867 65.8047C374.573 66.4657 375.64 66.7594 375.86 66.0618Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M433.507 58.0201C433.176 56.6615 433.029 55.3395 433.139 53.9442C432.955 54.1278 432.771 54.3114 432.587 54.495C439.099 54.1645 445.61 53.7606 452.122 53.6137C455.396 53.5403 458.67 53.5403 461.944 53.6137C462.68 53.6137 463.415 53.6504 464.114 53.6504C464.85 53.6871 466.358 53.4301 467.021 53.7606C468.492 54.4583 467.867 57.2857 467.867 58.5709C467.867 59.2686 468.97 59.2686 468.97 58.5709C468.97 56.8451 469.853 53.1731 467.499 52.6957C465.88 52.3652 463.967 52.5488 462.312 52.5121C460.252 52.4754 458.192 52.4387 456.131 52.4754C448.296 52.5121 440.46 52.9895 432.587 53.3934C432.293 53.3934 432.035 53.6504 432.035 53.9442C431.962 55.4497 432.072 56.8818 432.477 58.3139C432.587 59.0115 433.654 58.7178 433.507 58.0201Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M437.59 46.9674C438.032 48.987 438.363 51.0066 438.51 53.0629C438.547 53.7606 439.65 53.7606 439.614 53.0629C439.466 50.8964 439.135 48.7667 438.657 46.6737C438.51 46.0127 437.443 46.3065 437.59 46.9674Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M438.326 47.6651C442.777 47.2979 447.229 46.8939 451.68 47.0775C455.874 47.2611 460.104 48.6198 464.298 48.1791C464.114 47.9955 463.93 47.8119 463.746 47.6283C463.599 49.5745 463.82 51.4105 464.445 53.2832C464.666 53.9442 465.733 53.6504 465.512 52.9895C464.924 51.2269 464.703 49.5011 464.85 47.6283C464.887 47.3346 464.593 47.0408 464.298 47.0775C460.104 47.4815 455.874 46.1228 451.68 45.9759C447.229 45.7923 442.741 46.1963 438.326 46.5635C437.627 46.6002 437.627 47.7018 438.326 47.6651Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M400.876 161.607C400.876 163.149 400.876 164.655 400.876 166.197C400.876 166.895 401.98 166.895 401.98 166.197C401.98 164.655 401.98 163.149 401.98 161.607C401.98 160.909 400.876 160.909 400.876 161.607Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M401.428 161.24C430.049 161.24 458.67 161.24 487.291 161.24C487.99 161.24 487.99 160.138 487.291 160.138C458.67 160.138 430.049 160.138 401.428 160.138C400.692 160.138 400.692 161.24 401.428 161.24Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M402.311 166.307C430.49 166.307 458.633 166.307 486.813 166.307C487.512 166.307 487.512 165.206 486.813 165.206C458.633 165.206 430.49 165.206 402.311 165.206C401.612 165.206 401.612 166.307 402.311 166.307Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M486.739 161.607C486.739 162.672 486.739 163.737 486.739 164.802C486.739 165.499 487.842 165.499 487.842 164.802C487.842 163.737 487.842 162.672 487.842 161.607C487.842 160.909 486.739 160.909 486.739 161.607Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M409.374 149.232C410.33 153.015 411.213 156.833 411.949 160.652C412.096 161.35 413.163 161.056 413.016 160.359C412.28 156.54 411.434 152.721 410.441 148.939C410.257 148.241 409.19 148.535 409.374 149.232Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M428.504 148.902C427.621 152.684 426.885 156.466 426.333 160.285C426.223 160.983 427.29 161.277 427.4 160.579C427.952 156.76 428.688 152.941 429.571 149.196C429.718 148.498 428.651 148.204 428.504 148.902Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M406.358 147.176C406.431 149.086 409.301 148.939 410.699 149.012C413.862 149.159 417.063 148.682 420.227 148.498C421.808 148.388 423.39 148.351 424.972 148.498C426.26 148.608 427.658 149.049 428.909 148.792C430.306 148.498 431.189 147.176 430.38 145.891C430.012 145.303 429.056 145.854 429.424 146.442C430.454 148.168 426.959 147.617 426.628 147.58C425.855 147.47 425.046 147.396 424.273 147.36C422.471 147.25 420.631 147.36 418.829 147.507C417.651 147.58 407.498 148.792 407.461 147.176C407.461 146.442 406.358 146.442 406.358 147.176Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M407.645 147.029C406.983 144.973 412.685 145.193 413.641 145.156C415.334 145.083 417.063 145.01 418.755 144.936C419.675 144.899 429.239 144.642 428.982 145.34C428.761 146.001 429.828 146.295 430.049 145.634C431.152 142.366 419.196 143.798 417.651 143.871C414.782 143.981 411.581 143.724 408.785 144.275C407.314 144.569 406.063 145.671 406.578 147.286C406.799 147.984 407.866 147.69 407.645 147.029Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M412.538 143.981C410.846 143.21 409.337 142.109 408.16 140.713C407.682 140.126 404.297 135.242 406.284 134.948C406.615 134.912 406.799 134.398 406.615 134.141C405.548 132.598 405.107 130.615 404.555 128.853C403.929 126.943 403.341 125.034 402.715 123.161C402.605 122.757 402.421 122.39 402.348 121.986C402.164 121.215 402.053 121.215 402.973 121.142C403.966 121.068 404.481 121.839 405.144 122.5C406.394 123.749 407.498 125.107 408.491 126.54C412.207 131.901 414.267 138.216 415.812 144.496C415.996 145.193 417.063 144.899 416.879 144.202C414.892 136.197 411.986 127.972 406.1 121.913C405.291 121.068 403.746 119.122 402.384 119.342C401.354 119.526 401.06 120.628 401.134 121.546C401.281 123.602 402.384 125.842 403.047 127.825C403.782 130.101 404.261 132.745 405.659 134.728C405.769 134.471 405.879 134.177 405.99 133.92C403.562 134.287 404.96 137.666 405.622 138.988C407.02 141.668 409.264 143.724 411.986 145.01C412.611 145.23 413.163 144.275 412.538 143.981Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M413.789 133.92C413.678 129.257 413.568 124.41 415.15 119.967C415.922 117.8 417.1 115.854 418.461 114.018C418.792 113.541 419.16 112.77 419.675 112.476C420.043 111.888 420.594 111.815 421.293 112.292C422.176 112.072 422.618 112.292 422.618 112.953C423.059 113.945 422.912 115.634 422.912 116.662C422.912 119.122 422.323 121.399 421.735 123.749C421.514 124.557 421.33 125.401 421.404 126.209C421.477 127.164 421.992 127.898 422.25 128.779C422.986 131.276 421.698 133.847 420.815 136.123C419.932 138.51 419.013 140.897 418.13 143.321C417.872 143.981 418.939 144.275 419.197 143.614C420.374 140.456 421.625 137.335 422.728 134.141C423.501 131.901 423.869 129.954 422.986 127.751C421.808 124.777 423.685 121.435 423.942 118.388C424.089 116.405 424.42 113.027 423.133 111.264C420.337 107.408 415.886 115.634 415.003 117.47C412.501 122.61 412.538 128.375 412.685 133.957C412.722 134.655 413.825 134.655 413.789 133.92Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M404.518 124.887C408.16 129.991 410.331 136.123 412.869 141.815C413.163 142.476 414.12 141.888 413.825 141.264C411.324 135.536 409.117 129.44 405.475 124.336C405.07 123.749 404.114 124.3 404.518 124.887Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M414.672 122.28C414.819 124.226 415.481 125.952 416.695 127.457C417.136 128.008 417.909 127.237 417.468 126.686C416.474 125.401 415.886 123.896 415.775 122.28C415.739 121.582 414.635 121.582 414.672 122.28Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M419.675 122.023C420.558 120.701 421.477 119.379 422.36 118.057C422.765 117.47 421.808 116.919 421.404 117.506C420.521 118.828 419.601 120.15 418.718 121.472C418.35 122.06 419.307 122.61 419.675 122.023Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M430.637 121.289C429.718 122.757 428.393 123.896 427.179 125.071C425.855 126.319 424.531 127.604 423.206 128.853C422.691 129.33 423.464 130.138 423.979 129.624C426.517 127.2 429.718 124.85 431.594 121.839C431.962 121.252 431.005 120.701 430.637 121.289Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M430.159 122.757C430.233 124.704 433.47 128.302 430.968 129.477C430.637 129.661 430.637 130.101 430.858 130.358C431.704 131.387 431.152 132.929 431.042 134.141C430.931 135.499 431.042 136.858 430.674 138.18C430.012 140.713 427.657 142.219 425.56 143.541C424.972 143.908 425.524 144.863 426.112 144.496C428.651 142.88 431.263 141.044 431.851 137.886C432.145 136.197 432.145 134.434 432.293 132.745C432.44 131.533 432.403 130.579 431.594 129.624C431.557 129.918 431.52 130.212 431.483 130.505C434.978 128.853 431.299 125.107 431.226 122.831C431.226 122.06 430.122 122.06 430.159 122.757Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M428.393 128.155C425.855 132.231 423.684 136.491 421.882 140.97C421.624 141.631 422.691 141.925 422.949 141.264C424.714 136.895 426.848 132.708 429.35 128.706C429.718 128.082 428.761 127.531 428.393 128.155Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M411.324 156.76C412.796 158.743 414.819 160.102 417.247 160.616C417.946 160.762 418.24 159.698 417.541 159.551C415.408 159.11 413.568 157.972 412.281 156.209C411.876 155.658 410.92 156.209 411.324 156.76Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M410.699 152.243C414.488 155.144 418.498 159.294 423.353 160.285C424.052 160.432 424.347 159.367 423.648 159.22C418.939 158.266 414.966 154.116 411.25 151.289C410.699 150.848 410.147 151.803 410.699 152.243Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M413.605 149.453C415.886 151.325 418.093 153.235 420.411 155.034C421.404 155.805 422.434 156.54 423.648 157.017C424.788 157.494 426.002 157.715 427.032 158.449C427.621 158.853 428.173 157.898 427.584 157.494C426.775 156.944 425.965 156.687 425.083 156.356C423.574 155.842 422.36 155.144 421.11 154.153C418.829 152.39 416.621 150.518 414.414 148.682C413.826 148.241 413.053 149.012 413.605 149.453Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M419.638 148.939C421.771 151.142 424.347 152.758 427.29 153.712C427.952 153.933 428.246 152.868 427.584 152.647C424.825 151.729 422.434 150.224 420.41 148.131C419.932 147.653 419.123 148.425 419.638 148.939Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M446.714 159.624C446.493 159.037 446.162 158.266 446.199 157.641C446.346 156.026 447.449 155.879 448.516 155.695C450.061 155.401 451.68 155.365 453.262 155.365C455.947 155.328 458.67 155.548 461.355 155.658C464.041 155.732 466.689 155.585 469.375 155.365C470.479 155.255 472.428 154.814 473.495 155.181C474.599 155.585 474.893 156.136 474.93 157.164C474.967 157.972 474.967 158.78 475.003 159.624C475.04 160.322 476.144 160.322 476.107 159.624C476.07 158.376 476.438 156.173 475.813 154.997C475.224 153.969 473.863 154.079 472.833 154.079C468.639 154.079 464.556 154.704 460.325 154.52C456.426 154.373 452.489 154.043 448.627 154.63C445.463 155.108 444.653 157.054 445.72 159.991C445.867 160.579 446.934 160.285 446.714 159.624Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M454.513 153.712C454.807 153.051 455.064 152.39 455.359 151.729C455.69 151.693 456.021 151.656 456.352 151.583C456.793 151.546 457.198 151.582 457.639 151.546C458.596 151.546 459.516 151.509 460.472 151.509C462.495 151.472 464.482 151.472 466.505 151.436C468.382 151.399 470.295 151.399 472.171 151.362C472.649 151.362 473.127 151.362 473.605 151.325C474.194 151.325 474.378 151.179 474.562 151.619C474.783 152.17 474.378 153.712 474.304 154.3C474.231 154.997 475.335 154.997 475.408 154.3C475.482 153.419 476.033 151.583 475.592 150.775C475.224 150.114 474.672 150.224 473.937 150.224C470.405 150.224 466.836 150.334 463.305 150.371C461.649 150.407 459.994 150.407 458.338 150.444C457.088 150.444 455.543 150.297 454.402 150.885C453.078 151.583 452.452 153.382 453.74 154.447C454.292 154.924 455.064 154.153 454.513 153.712Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M462.091 149.232C461.134 147.947 465.144 148.094 465.402 148.057C466.285 147.984 469.301 147.433 468.713 149.416C468.492 150.114 469.559 150.371 469.779 149.71C470.037 148.829 469.743 148.021 469.044 147.433C467.83 146.442 466.321 146.919 464.887 146.993C463.746 147.029 462.385 146.662 461.465 147.543C460.803 148.131 460.619 149.049 461.134 149.783C461.576 150.334 462.532 149.783 462.091 149.232Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M405.805 167.115C407.203 169.024 408.859 170.603 410.808 171.925C411.397 172.329 411.949 171.375 411.36 170.971C409.594 169.759 408.012 168.29 406.762 166.528C406.32 165.977 405.364 166.528 405.805 167.115Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M410.661 171.558C411.875 171.558 413.089 171.558 414.303 171.558C415.002 171.558 416.143 171.742 416.768 171.411C417.246 171.154 417.394 170.567 417.614 170.126C418.203 168.951 418.902 167.849 419.711 166.785C420.153 166.234 419.38 165.463 418.939 166.013C418.534 166.491 418.166 167.005 417.798 167.519C417.357 168.217 417.062 169.208 416.547 169.832C415.517 171.044 412.17 170.493 410.661 170.457C409.962 170.457 409.962 171.558 410.661 171.558Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M414.745 167.042C415.039 168.143 415.334 169.281 415.665 170.383C415.849 171.081 416.916 170.787 416.732 170.089C416.437 168.988 416.143 167.849 415.812 166.748C415.628 166.05 414.561 166.344 414.745 167.042Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M459.589 166.858C460.178 168.07 460.803 169.245 461.576 170.346C461.981 170.934 462.496 171.852 463.195 172.182C463.93 172.55 464.96 172.256 465.696 172.182C467.02 172.035 468.345 171.925 469.669 171.778C470.368 171.705 470.368 170.603 469.669 170.677C468.786 170.75 467.903 170.86 467.02 170.934C466.248 171.007 465.108 171.338 464.372 171.191C462.459 170.824 461.282 167.813 460.546 166.27C460.215 165.646 459.258 166.197 459.589 166.858Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M469.706 165.94C469.265 167.519 469.044 169.135 469.081 170.75C469.118 171.448 470.221 171.448 470.184 170.75C470.148 169.208 470.332 167.703 470.736 166.234C470.957 165.573 469.89 165.279 469.706 165.94Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M470.184 171.301C471.656 169.906 473.054 168.437 474.415 166.931C474.893 166.417 474.121 165.61 473.642 166.16C472.281 167.666 470.883 169.135 469.412 170.53C468.897 171.007 469.669 171.778 470.184 171.301Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M233.933 59.3053C233.933 69.6603 233.933 79.9786 233.933 90.3336C233.933 91.0313 235.037 91.0313 235.037 90.3336C235.037 79.9786 235.037 69.6603 235.037 59.3053C235.037 58.6076 233.933 58.6076 233.933 59.3053Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M234.816 91.1782C247.949 91.1782 261.119 91.1782 274.252 91.1782C274.951 91.1782 274.951 90.0766 274.252 90.0766C261.119 90.0766 247.949 90.0766 234.816 90.0766C234.08 90.0766 234.08 91.1782 234.816 91.1782Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M234.816 59.8561C247.581 59.8561 260.31 59.8561 273.075 59.8561C273.774 59.8561 273.774 58.7545 273.075 58.7545C260.31 58.7545 247.581 58.7545 234.816 58.7545C234.08 58.7545 234.08 59.8561 234.816 59.8561Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M273.076 59.3053C273.076 69.6603 273.076 79.9786 273.076 90.3336C273.076 91.0313 274.179 91.0313 274.179 90.3336C274.179 79.9786 274.179 69.6603 274.179 59.3053C274.179 58.6076 273.076 58.6076 273.076 59.3053Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M254.461 58.3873C254.424 57.9099 254.497 57.4693 254.718 57.0287C254.828 56.7716 255.27 56.1107 255.527 56.2943C255.822 56.4779 255.932 57.3224 255.969 57.6162C256.079 58.167 256.079 58.7178 256.006 59.2686C255.932 59.9662 257.036 59.9662 257.109 59.2686C257.183 58.3138 257.109 57.3591 256.778 56.4411C256.557 55.8536 256.263 55.1559 255.564 55.0825C254.056 54.8989 253.283 57.2122 253.357 58.3506C253.394 59.1217 254.497 59.1217 254.461 58.3873Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M236.03 62.8671C236.03 71.1291 236.03 79.3544 236.03 87.6164C236.03 88.314 237.134 88.314 237.134 87.6164C237.134 79.3544 237.134 71.1291 237.134 62.8671C237.134 62.1695 236.03 62.1695 236.03 62.8671Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M236.582 88.1672C248.133 88.1672 259.685 88.1672 271.236 88.1672C271.935 88.1672 271.935 87.0656 271.236 87.0656C259.685 87.0656 248.133 87.0656 236.582 87.0656C235.883 87.0656 235.883 88.1672 236.582 88.1672Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M272.119 87.3226C272.119 79.0606 272.119 70.8353 272.119 62.5733C272.119 61.8757 271.015 61.8757 271.015 62.5733C271.015 70.8353 271.015 79.0606 271.015 87.3226C271.015 88.057 272.119 88.057 272.119 87.3226Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M236.876 63.7117C248.023 63.7117 259.17 63.7117 270.353 63.7117C271.052 63.7117 271.052 62.6101 270.353 62.6101C259.206 62.6101 248.06 62.6101 236.876 62.6101C236.177 62.6101 236.177 63.7117 236.876 63.7117Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M237.06 82.3287C241.364 81.0435 245.742 79.9052 250.009 81.888C253.063 83.3201 255.711 85.4866 259.133 86.1108C259.832 86.221 260.126 85.1928 259.427 85.046C255.527 84.3116 252.584 81.4841 248.869 80.2356C244.859 78.9137 240.665 80.0888 236.766 81.2638C236.103 81.4841 236.398 82.549 237.06 82.3287Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M251.407 81.7045C256.668 79.8685 262.149 79.2075 267.667 79.7583C268.366 79.8318 268.366 78.7302 267.667 78.6567C262.039 78.1059 256.447 78.7669 251.113 80.6396C250.451 80.8966 250.745 81.9615 251.407 81.7045Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M252.547 73.1854C252.143 72.4878 252.253 71.4596 252.952 70.9822C253.577 70.5416 254.571 70.7252 255.012 71.3127C255.454 71.9369 255.196 72.9284 254.497 73.2956C253.688 73.6995 252.768 72.9284 252.768 72.1205C252.768 71.4229 251.665 71.4229 251.665 72.1205C251.628 73.5893 253.136 74.8378 254.608 74.4339C255.969 74.0667 256.704 72.3409 256.116 71.0924C255.527 69.7705 253.761 69.2931 252.511 69.9541C251.15 70.6885 250.818 72.4877 251.554 73.7729C251.959 74.3605 252.879 73.8097 252.547 73.1854Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M431.741 64.6297C433.065 66.3922 433.323 68.779 434.942 70.3212C436.45 71.79 438.252 71.5697 440.092 70.9088C440.754 70.6884 440.46 69.6236 439.798 69.8439C438.804 70.1744 437.664 70.5416 436.634 70.1376C435.751 69.7704 435.162 68.9626 434.721 68.1181C434.022 66.7594 433.617 65.2906 432.697 64.0421C432.256 63.4913 431.3 64.0421 431.741 64.6297Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M439.945 70.4681C441.71 68.9626 443.255 67.2368 444.58 65.3273C444.984 64.7398 444.028 64.189 443.623 64.7765C442.373 66.6125 440.864 68.2649 439.172 69.697C438.62 70.1377 439.393 70.9455 439.945 70.4681Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M437.259 64.2258C437.774 65.4375 437.995 66.686 437.958 67.9712C437.921 68.6689 439.025 68.6689 439.062 67.9712C439.099 66.4657 438.804 65.0336 438.216 63.675C437.958 63.014 437.002 63.5648 437.259 64.2258Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M407.792 207.874C407.792 212.758 407.792 217.678 407.792 222.562C407.792 223.26 408.896 223.26 408.896 222.562C408.896 217.678 408.896 212.758 408.896 207.874C408.896 207.176 407.792 207.176 407.792 207.874Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M394.365 224.582C407.351 224.582 420.374 224.582 433.36 224.582C434.059 224.582 434.059 223.48 433.36 223.48C420.374 223.48 407.351 223.48 394.365 223.48C393.666 223.48 393.666 224.582 394.365 224.582Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M415.517 225.5C415.517 228.547 415.517 231.632 415.517 234.68C415.517 235.377 416.621 235.377 416.621 234.68C416.621 231.632 416.621 228.547 416.621 225.5C416.621 224.802 415.517 224.802 415.517 225.5Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M393.997 236.332C405.511 236.332 417.063 236.332 428.577 236.332C429.276 236.332 429.276 235.231 428.577 235.231C417.063 235.231 405.511 235.231 393.997 235.231C393.298 235.231 393.298 236.332 393.997 236.332Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M402.642 237.25C402.642 239.563 402.642 241.914 402.642 244.227C402.642 244.925 403.745 244.925 403.745 244.227C403.745 241.914 403.745 239.563 403.745 237.25C403.745 236.552 402.642 236.552 402.642 237.25Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M406.321 59.4522C406.321 57.9099 406.026 55.9638 406.321 54.4583C406.725 52.3285 409.705 52.7324 411.434 52.6223C412.133 52.5856 412.133 51.484 411.434 51.5207C410.036 51.5941 408.565 51.5941 407.167 51.8144C406.541 51.9246 405.989 52.1082 405.622 52.659C405.18 53.3199 405.254 54.2379 405.254 55.0091C405.254 56.4779 405.254 57.9834 405.254 59.4522C405.217 60.1866 406.321 60.1866 406.321 59.4522Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M399.846 18.436C403.194 17.518 406.541 17.7383 409.742 19.0235C410.404 19.2806 410.698 18.2157 410.036 17.9586C406.652 16.6 403.083 16.4164 399.552 17.3711C398.853 17.5914 399.147 18.6563 399.846 18.436Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M398.485 15.1312C401.428 13.1116 404.96 12.7444 408.271 14.0663C408.933 14.3234 409.227 13.2585 408.565 13.0015C405.033 11.5694 401.06 12.01 397.933 14.1765C397.345 14.5804 397.896 15.5351 398.485 15.1312Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M386.529 34.3725C385.351 35.1803 383.107 36.2452 382.776 37.7874C382.629 38.5953 382.997 39.3297 383.291 40.0641C383.806 41.3493 384.321 42.6345 384.873 43.9196C387.007 48.9503 389.398 53.8708 392.047 58.6443C392.378 59.2686 393.334 58.7178 393.003 58.0935C390.98 54.4216 389.104 50.6761 387.375 46.8572C386.455 44.8376 385.572 42.7813 384.763 40.725C384.285 39.5133 383.622 38.4484 384.505 37.1999C385.02 36.4655 386.345 35.8413 387.117 35.3272C387.669 34.9233 387.117 33.9685 386.529 34.3725Z"
+                                            fill="#C8CCD1" />
+                                        <path
+                                            d="M231.837 214.337C228.82 216.577 225.178 220.175 223.854 225.316C222.897 229.135 223.817 231.375 223.486 236.295C223.265 239.71 222.382 244.521 219.549 250.249C213.112 248.927 202.296 247.642 189.531 250.579C181.915 252.342 175.809 255.096 171.321 257.593C172.02 258.034 172.976 258.548 174.19 258.878C181.069 260.751 188.317 254.986 188.537 255.39C188.758 255.757 180.444 259.649 180.885 263.028C181.18 265.304 185.263 266.516 189.494 267.801C193.062 268.866 196.447 269.894 200.972 269.38C207.189 268.682 211.493 265.561 213.406 263.946C215.245 264.864 217.968 266.075 221.389 267.14C227.679 269.05 236.361 271.693 242.137 268.095C245.889 265.745 247.03 260.237 249.164 249.294C251.739 235.965 252.953 229.282 249.495 223.811C244.97 216.503 235.662 214.814 231.837 214.337Z"
+                                            fill="white" stroke="#18191C" stroke-width="1.17937"
+                                            stroke-miterlimit="10" />
+                                        <path
+                                            d="M218.372 250.653C222.823 252.305 226.502 255.316 229.041 259.319C229.408 259.906 230.365 259.356 229.997 258.768C227.312 254.508 223.375 251.351 218.666 249.588C217.967 249.331 217.71 250.396 218.372 250.653Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M194.681 257.887C190.303 258.621 186.771 261.559 185.189 265.671C184.932 266.332 185.999 266.626 186.256 265.965C187.691 262.22 191.002 259.613 194.975 258.952C195.674 258.841 195.38 257.777 194.681 257.887Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M199.831 261.559C198.249 262.513 196.778 263.615 195.38 264.79C194.46 265.598 193.43 266.553 193.651 267.875C194.203 271.363 198.396 270.592 200.677 269.711C201.34 269.454 201.045 268.389 200.383 268.646C199.39 269.013 198.286 269.49 197.219 269.454C195.49 269.38 193.945 267.728 195.417 266.222C196.815 264.753 198.654 263.578 200.383 262.477C200.972 262.11 200.42 261.155 199.831 261.559Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M266.16 169.135C264.284 169.759 261.892 170.714 259.207 172.036C258.434 172.403 256.485 173.394 254.388 174.753C251.15 176.809 248.796 178.976 246.11 181.693C242.689 185.181 239.231 188.67 235.111 194.251C231.653 198.951 226.282 206.332 222.419 217.164C220.874 221.461 219.991 225.169 219.476 227.813C221.499 226.638 223.339 226.051 224.773 225.72C233.051 223.847 240.997 228.033 248.538 231.962C251.371 233.431 253.615 234.863 255.16 235.855C255.969 231.889 256.779 227.887 257.588 223.921C258.287 220.579 258.949 217.201 259.648 213.86C260.715 212.942 262.15 211.583 263.732 209.82C266.712 206.442 272.634 199.722 273.444 190.395C274.437 179.637 268.036 171.411 266.16 169.135Z"
+                                            fill="var(--primary-500)" />
+                                        <path
+                                            d="M263.989 169.575C260.053 170.163 256.668 172.256 253.615 174.679C250.083 177.433 246.772 180.481 243.682 183.712C237.649 189.955 232.388 196.932 228.047 204.459C227.679 205.083 228.636 205.634 229.004 205.01C233.198 197.739 238.201 190.983 244.013 184.924C246.846 181.987 249.826 179.196 252.953 176.589C256.3 173.835 259.869 171.264 264.283 170.603C264.982 170.53 264.688 169.465 263.989 169.575Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M262.444 209.673C259.722 212.427 256.926 215.108 254.093 217.715C253.578 218.192 254.351 218.964 254.866 218.486C257.698 215.879 260.494 213.199 263.217 210.445C263.695 209.93 262.922 209.159 262.444 209.673Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M258.618 214.704C257.331 221.754 256.08 228.841 254.792 235.891C255.05 235.781 255.344 235.671 255.602 235.561C249.752 231.485 243.241 228.437 236.325 226.528C230.917 225.059 224.038 223.627 219.403 227.703C218.887 228.18 219.66 228.951 220.175 228.474C224.884 224.288 232.499 226.491 237.833 228.107C243.977 229.98 249.752 232.844 255.013 236.479C255.307 236.663 255.749 236.479 255.822 236.149C257.11 229.098 258.361 222.011 259.648 214.961C259.796 214.3 258.729 214.006 258.618 214.704Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M228.305 203.945C224.479 211.399 219.696 219.074 219.365 227.703C219.328 228.401 220.432 228.401 220.469 227.703C220.8 219.294 225.509 211.803 229.261 204.496C229.555 203.872 228.599 203.321 228.305 203.945Z"
+                                            fill="#18191C" />
+                                        <path opacity="0.4"
+                                            d="M261.01 190.065C254.425 203.137 250.856 214.153 248.759 221.864C245.706 233.174 244.639 242.097 236.73 249.515C235.442 250.726 231.653 254.215 225.693 256.381C213.185 260.898 203.915 254.802 196.042 261.265C195.159 261.999 192.547 263.835 192.842 265.928C193.136 267.911 195.858 268.939 196.263 269.123C199.5 270.371 202.848 269.086 207.042 267.397C211.787 265.488 211.272 264.827 213.406 264.46C217.894 263.688 219.954 266.516 225.914 268.389C228.452 269.16 235.957 271.51 241.365 268.389C245.338 266.075 246.552 261.742 248.465 254.435C249.789 249.478 251.15 242.244 250.93 233.137C252.401 234.276 253.873 235.414 255.344 236.552C257.257 221.057 259.133 205.561 261.01 190.065Z"
+                                            fill="#042852" />
+                                        <path opacity="0.38"
+                                            d="M258.802 205.965C253.762 215.475 251.297 223.517 249.973 228.951C247.324 239.857 248.17 244.998 244.565 252.673C240.702 261.008 234.449 266.296 230.108 269.307C232.536 269.857 238.385 270.886 242.615 267.581C245.595 265.267 246.368 261.963 247.508 256.565C248.943 249.919 250.451 242.354 251.923 234.056C253.063 234.79 254.204 235.524 255.344 236.259C256.521 226.197 257.662 216.063 258.802 205.965Z"
+                                            fill="#042852" />
+                                        <path
+                                            d="M265.387 168.4C264.063 177.029 262.775 185.732 261.524 194.471C256.668 228.364 252.475 261.669 248.943 294.423C249.016 295.525 249.311 297.287 250.414 299.05C251.518 300.849 252.99 301.767 253.688 302.244C260.384 307.018 263.732 309.441 267.116 311.057C283.339 318.878 301.292 317.96 301.292 317.96C305.081 317.777 312.623 317.3 320.716 314.068C321.157 313.885 324.247 312.452 330.428 309.552C336.02 306.945 337.013 306.43 338.374 305.182C341.611 302.208 342.862 298.536 343.708 295.929C345.511 290.384 345.327 285.684 345.253 284.545C345.253 284.545 344.885 275.402 344.628 222.011C344.591 211.142 345.658 195.169 351.397 175.45C345.437 172.55 339.846 169.869 333.113 166.638C328.478 164.398 324.174 162.341 317.994 161.607C316.228 161.387 314.646 161.313 312.291 161.35C302.727 161.423 294.854 162.892 291.47 163.48C284.885 164.545 275.982 166.16 265.387 168.4Z"
+                                            fill="var(--primary-500)" />
+                                        <path
+                                            d="M265.093 169.685C276.497 167.262 288.012 165.316 299.563 163.884C300.078 163.81 300.373 163.149 299.858 162.855C299.71 162.782 299.563 162.672 299.379 162.598C298.754 162.231 298.202 163.186 298.828 163.553C298.975 163.627 299.122 163.737 299.306 163.81C299.416 163.48 299.49 163.113 299.6 162.782C287.938 164.214 276.313 166.16 264.836 168.621C264.1 168.767 264.394 169.832 265.093 169.685Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M261.672 188.927C257.625 217.715 253.946 246.54 250.635 275.439C250.231 279.074 249.826 282.673 249.421 286.308C249.09 289.466 248.17 293.028 248.575 296.186C248.943 298.976 251.15 300.739 253.174 302.428C255.381 304.264 257.699 305.99 260.127 307.569C270.096 313.995 281.758 317.85 293.603 318.548C307.693 319.356 321.856 315.757 333.886 308.413C334.475 308.046 333.923 307.091 333.334 307.459C312.292 320.274 285.51 320.788 264.063 308.634C261.598 307.238 259.207 305.696 256.926 304.007C254.608 302.281 250.856 299.931 249.9 297.104C249.458 295.745 249.679 294.239 249.826 292.807C250.01 291.008 250.231 289.172 250.415 287.373C250.782 283.995 251.15 280.616 251.555 277.238C253.137 263.468 254.755 249.735 256.521 236.002C258.508 220.396 260.568 204.79 262.775 189.22C262.849 188.523 261.782 188.229 261.672 188.927Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M315.86 161.277C322.335 162.562 328.405 165.536 334.438 168.07C340.361 170.567 346.946 172.586 352.169 176.405C352.758 176.809 353.31 175.854 352.721 175.45C347.608 171.705 341.17 169.722 335.394 167.299C329.14 164.691 322.85 161.57 316.154 160.212C315.455 160.065 315.161 161.13 315.86 161.277Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M344.702 223.554C344.113 239.013 343.525 254.472 344.076 269.894C344.334 277.385 345.511 285.17 344.113 292.624C342.936 298.756 339.478 304.888 333.334 307.165C332.672 307.422 332.966 308.487 333.629 308.23C343.414 304.594 345.953 293.468 345.805 284.141C345.732 277.826 345.18 271.51 345.033 265.157C344.886 258.695 344.959 252.269 345.07 245.806C345.217 238.388 345.511 230.971 345.769 223.554C345.842 222.819 344.739 222.819 344.702 223.554Z"
+                                            fill="#18191C" />
+                                        <path opacity="0.38"
+                                            d="M339.404 214.851C337.454 221.534 334.401 228.841 329.692 236.112C308.613 268.462 270.022 274.925 260.163 276.283C273.407 277.679 286.797 279.184 300.335 280.8C315.271 282.563 330.023 284.435 344.554 286.345C343.635 269.931 343.635 256.418 343.855 246.761C344.26 226.785 345.695 210.628 343.083 210.114C342.457 209.967 341.354 210.665 339.404 214.851Z"
+                                            fill="#042852" />
+                                        <path opacity="0.42"
+                                            d="M343.929 226.858C342.605 230.751 340.581 236.259 337.602 242.611C333.408 251.608 329.398 260.273 324.211 265.598C309.716 280.469 281.39 274.043 281.316 275.072C281.279 275.659 291.654 277.312 344.039 282.122C344.039 263.688 344.003 245.292 343.929 226.858Z"
+                                            fill="#042852" />
+                                        <path
+                                            d="M409.926 378.255C274.915 360.262 139.867 342.269 4.85559 324.313C44.6968 301.253 84.5748 278.193 124.416 255.133C246.22 267.103 368.062 279.111 489.866 291.081C463.195 320.127 436.561 349.209 409.926 378.255Z"
+                                            fill="white" stroke="#18191C" stroke-width="1.17937"
+                                            stroke-miterlimit="10" />
+                                        <path d="M3.53125 327.434C138.874 345.354 274.216 363.273 409.522 381.192"
+                                            stroke="#E4E5E8" stroke-width="6.29" stroke-miterlimit="10" />
+                                        <path d="M406.946 382C435.31 352.073 463.673 322.11 492 292.183"
+                                            stroke="#E4E5E8" stroke-width="6.29" stroke-miterlimit="10" />
+                                        <path
+                                            d="M361.771 303.346C347.976 314.105 334.474 325.194 321.194 336.578C320.642 337.055 321.451 337.826 321.966 337.349C335.247 325.965 348.785 314.876 362.543 304.117C363.095 303.713 362.323 302.905 361.771 303.346Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M321.709 337.165C326.05 338.083 330.464 338.083 334.916 338.12C339.919 338.193 344.628 338.707 349.41 340.103C358.386 342.71 367.179 344.435 376.559 344.215C377.258 344.215 377.258 343.114 376.559 343.114C371.74 343.224 366.921 342.93 362.139 342.159C357.65 341.424 353.383 340.103 349.005 338.891C344.812 337.716 340.618 337.165 336.24 337.092C331.458 336.981 326.675 337.128 321.966 336.137C321.304 335.953 321.01 337.018 321.709 337.165Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M362.58 304.154C377.148 305.329 391.606 307.642 405.806 311.094C406.505 311.277 406.799 310.213 406.1 310.029C391.827 306.541 377.259 304.227 362.58 303.052C361.881 302.979 361.881 304.08 362.58 304.154Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M377.406 343.554C387.669 333.42 397.528 322.844 406.873 311.828C407.314 311.277 406.541 310.506 406.1 311.057C396.756 322.036 386.897 332.612 376.633 342.783C376.118 343.297 376.89 344.068 377.406 343.554Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M334.548 332.795C347.203 331.253 360.005 332.832 371.888 337.459C372.55 337.716 372.844 336.651 372.182 336.394C360.226 331.767 347.277 330.151 334.548 331.694C333.849 331.767 333.849 332.869 334.548 332.795Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M353.715 328.756C361.514 329.344 369.202 330.555 376.817 332.355C377.516 332.538 377.81 331.473 377.112 331.29C369.423 329.454 361.624 328.242 353.715 327.655C352.979 327.618 353.016 328.719 353.715 328.756Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M347.866 320.641C359.601 320.898 371.226 322.587 382.557 325.708C383.255 325.892 383.55 324.827 382.851 324.643C371.447 321.522 359.711 319.796 347.866 319.539C347.167 319.539 347.167 320.641 347.866 320.641Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M362.433 317.263C368.761 318.144 375.015 319.246 381.269 320.568C381.968 320.714 382.262 319.65 381.563 319.503C375.309 318.181 369.055 317.079 362.728 316.198C362.029 316.088 361.734 317.153 362.433 317.263Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M354.377 341.902C352.133 345.354 349.889 348.805 347.608 352.22C347.387 352.551 347.681 353.101 348.086 353.065C366.222 351.008 384.616 352.183 402.348 356.516C403.047 356.7 403.341 355.635 402.642 355.452C384.8 351.082 366.333 349.907 348.086 351.926C348.233 352.22 348.417 352.477 348.564 352.771C350.808 349.319 353.052 345.868 355.333 342.453C355.738 341.865 354.781 341.314 354.377 341.902Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M398.853 321.045C405.953 320.898 413.016 320.751 420.116 320.604C419.932 320.384 419.748 320.127 419.601 319.907C414.708 331.547 409.779 343.15 404.886 354.791C404.629 355.451 405.695 355.745 405.953 355.084C410.846 343.444 415.775 331.841 420.668 320.2C420.815 319.87 420.447 319.503 420.153 319.503C413.053 319.65 405.99 319.796 398.89 319.943C398.154 319.98 398.154 321.082 398.853 321.045Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M371.961 348.401C373.837 348.034 375.713 347.961 377.626 348.108C378.325 348.144 378.325 347.043 377.626 347.006C375.603 346.859 373.653 346.969 371.667 347.336C370.968 347.447 371.262 348.511 371.961 348.401Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M382.409 348.511C388.185 348.732 393.96 349.283 399.699 350.164C400.398 350.274 400.692 349.209 399.993 349.099C394.181 348.181 388.295 347.63 382.409 347.41C381.71 347.373 381.71 348.475 382.409 348.511Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M382.74 341.608C384.101 341.608 385.462 341.608 386.86 341.608C387.559 341.608 387.559 340.506 386.86 340.506C385.499 340.506 384.138 340.506 382.74 340.506C382.041 340.506 382.041 341.608 382.74 341.608Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M391.312 341.498C395.837 341.608 400.325 342.049 404.813 342.783C405.512 342.893 405.806 341.828 405.107 341.718C400.546 340.984 395.947 340.543 391.312 340.396C390.613 340.396 390.613 341.498 391.312 341.498Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M390.613 335.219C395.763 335.292 400.877 335.586 405.99 336.174C406.689 336.247 406.689 335.145 405.99 335.072C400.877 334.484 395.763 334.154 390.613 334.117C389.914 334.081 389.914 335.182 390.613 335.219Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M356.069 347.41C358.534 347.483 360.962 347.19 363.39 346.602C364.089 346.418 363.795 345.354 363.096 345.537C360.778 346.125 358.46 346.382 356.069 346.308C355.37 346.308 355.37 347.41 356.069 347.41Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M373.543 289.87C372.587 291.045 371.483 293.431 372.624 294.864C373.322 295.745 374.647 295.561 375.64 295.598C377.443 295.671 379.245 295.782 381.048 295.855C388.369 296.185 395.653 296.553 402.974 296.883C403.673 296.92 403.673 295.818 402.974 295.782C397.566 295.525 392.195 295.267 386.787 295.01C384.138 294.9 381.526 294.753 378.877 294.643C377.59 294.57 376.229 294.643 374.941 294.46C373.985 294.313 373.286 294.276 373.322 293.101C373.359 292.183 373.764 291.338 374.316 290.641C374.757 290.09 373.985 289.282 373.543 289.87Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M374.536 291.265C380.717 291.485 386.897 291.669 393.077 291.889C396.094 291.999 399.147 292.073 402.164 292.183C404.886 292.293 407.756 292.477 409.705 294.57C410.184 295.084 410.956 294.313 410.478 293.799C409.006 292.183 407.02 291.559 404.886 291.265C401.722 290.861 398.448 290.935 395.248 290.824C388.332 290.604 381.416 290.347 374.536 290.127C373.837 290.163 373.837 291.265 374.536 291.265Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M402.605 296.92C405.438 296.957 408.124 296.075 410.404 294.386C410.956 293.982 410.404 293.028 409.853 293.432C407.719 295.011 405.291 295.855 402.605 295.818C401.87 295.818 401.87 296.92 402.605 296.92Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M403.489 291.265C401.943 292.293 401.244 294.203 401.759 295.965C401.943 296.626 403.01 296.369 402.826 295.671C402.459 294.386 402.9 292.954 404.041 292.183C404.629 291.816 404.077 290.861 403.489 291.265Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M135.047 159.257C134.128 157.347 131.516 157.201 130.118 158.633C128.609 160.175 127.91 163.149 128.058 165.242C128.389 169.465 132.509 171.448 133.612 175.23C134.128 176.956 136.776 177.507 137.659 175.744C139.131 172.843 141.191 170.346 143.03 167.703C144.649 165.352 147.114 161.717 146.231 158.706C145.863 157.421 144.722 156.319 143.324 156.172C141.632 155.989 140.455 157.017 139.462 158.266C138.468 159.551 137.586 160.873 136.85 162.305C136.188 163.553 135.673 165.022 134.385 165.72C135.452 166.16 136.556 166.601 137.622 167.042C137.144 165.463 136.666 163.884 136.224 162.341C135.01 163.039 133.76 163.774 132.546 164.471C134.201 166.344 137.034 166.601 139.02 165.022C139.94 164.288 140.455 163.296 141.08 162.341C141.375 161.901 141.632 161.497 142.074 161.203C142.368 160.983 142.736 160.836 143.104 160.726C143.839 160.689 143.803 160.616 143.03 160.505C142.662 159.881 142.294 159.22 141.927 158.596C141.927 158.669 141.927 158.78 141.927 158.853C142.478 158.155 142.993 157.421 143.545 156.723C143.472 156.76 143.398 156.76 143.324 156.797C140.639 157.641 141.779 161.901 144.502 161.056C144.575 161.02 144.649 161.02 144.722 160.983C145.716 160.689 146.267 159.844 146.341 158.853C146.341 158.78 146.341 158.669 146.341 158.596C146.378 157.825 145.863 157.09 145.237 156.687C143.398 155.511 140.676 156.65 139.167 157.862C138.321 158.559 137.733 159.367 137.144 160.285C136.776 160.873 136.372 162.121 135.673 161.313C134.201 159.661 131.368 161.423 131.994 163.443C132.472 165.022 132.95 166.601 133.392 168.143C133.796 169.539 135.378 170.163 136.629 169.465C138.505 168.474 139.535 166.748 140.455 164.912C141.007 163.847 141.559 162.819 142.258 161.864C142.368 161.68 143.361 160.652 143.324 160.469C142.368 159.661 141.89 159.698 141.816 160.579C141.743 160.873 141.632 161.13 141.522 161.387C139.682 165.83 136.004 169.208 133.833 173.468C135.194 173.651 136.519 173.835 137.88 173.982C137.181 171.595 135.599 169.869 134.091 167.96C133.465 167.152 132.766 166.27 132.546 165.279C132.398 164.581 132.472 163.957 132.656 163.296C132.766 162.855 132.914 162.452 133.097 162.048C133.723 161.166 133.097 160.946 131.258 161.423C132.472 164.031 136.261 161.791 135.047 159.257Z"
+                                            fill="var(--primary-500)" />
+                                        <path
+                                            d="M137.439 171.301C140.676 167.409 143.509 163.259 145.863 158.816C147.187 156.319 143.361 154.079 142.037 156.576C139.867 160.726 137.328 164.618 134.312 168.18C132.509 170.346 135.599 173.468 137.439 171.301Z"
+                                            fill="var(--primary-500)" />
+                                        <path
+                                            d="M146.157 108.987C145.568 112.843 145.716 116.625 146.746 120.407C147.297 122.464 150.498 121.582 149.946 119.526C149.1 116.368 148.843 113.1 149.358 109.869C149.652 107.776 146.451 106.894 146.157 108.987Z"
+                                            fill="var(--primary-100)" />
+                                        <path
+                                            d="M147.408 110.676C151.455 112.402 154.692 109.024 154.839 105.058C154.839 104.691 154.619 103.7 154.766 103.369C154.692 103.369 154.619 103.369 154.582 103.369C154.913 103.479 155.17 103.663 155.318 103.993C155.906 104.728 156.201 105.683 156.826 106.417C158.113 107.923 159.879 108.143 161.755 108.253C162.675 108.29 163.779 108.18 164.331 109.061C164.882 109.905 164.588 111.337 164.515 112.292C164.441 113.614 164.331 114.973 164.22 116.295C164.183 116.625 163.852 117.874 164.331 117.396C164.036 117.727 162.822 117.8 162.418 117.91C159.99 118.461 157.488 118.681 155.023 118.535C153.736 118.461 151.786 118.608 151.05 117.47C150.388 116.405 150.351 114.789 150.535 113.577C149.542 113.724 148.512 113.834 147.519 113.981C148.402 115.927 149.248 117.874 150.131 119.856C150.719 121.142 152.853 120.774 153.147 119.453C154.03 115.487 152.816 111.337 154.067 107.445C153.147 107.702 152.227 107.922 151.308 108.18C152.375 109.465 152.117 112.219 152.375 113.798C152.669 115.634 153.184 117.323 154.03 118.938C154.803 120.334 157.231 119.746 157.12 118.094C156.826 113.688 156.532 109.244 156.274 104.838C155.207 104.985 154.104 105.132 153.037 105.279C154.582 109.428 154.803 113.761 153.589 118.02C154.398 117.69 155.207 117.36 156.017 117.029C153.956 115.45 152.411 113.394 151.345 111.044C150.646 109.538 148.181 110.309 148.254 111.888C148.328 113.357 148.365 114.826 148.438 116.295C149.542 116.295 150.646 116.295 151.749 116.295C151.676 114.459 151.749 112.659 152.117 110.86C152.264 110.236 152.411 109.575 152.595 108.951C152.706 108.547 152.853 108.106 153 107.702C153.478 107.115 153.405 106.894 152.779 107.041C154.545 109.538 154.766 113.284 154.471 116.184C155.502 115.891 156.532 115.634 157.562 115.34C156.716 113.614 156.164 111.778 155.943 109.869C155.833 108.877 155.796 107.886 155.869 106.894C155.869 106.747 156.053 105.719 155.98 105.646C155.722 105.683 155.465 105.683 155.207 105.719C155.354 106.013 155.502 106.27 155.649 106.564C157.341 110.016 157.856 113.908 157.451 117.727C158.481 117.433 159.511 117.176 160.541 116.882C159.879 115.45 159.364 113.945 159.07 112.402C158.96 111.741 158.886 111.08 158.96 110.419C158.996 110.052 159.07 109.685 159.18 109.318C159.585 108.877 159.622 108.694 159.291 108.804C158.849 108.73 158.445 108.694 158.003 108.62C158.592 108.914 158.96 111.815 159.07 112.476C159.291 114.055 159.254 115.707 159.033 117.286C160.1 117.286 161.167 117.286 162.234 117.286C161.829 116.111 161.535 114.899 161.351 113.688C161.167 112.512 161.277 111.301 160.909 110.162C161.719 112.696 161.572 115.377 160.836 117.874C161.829 117.727 162.859 117.617 163.852 117.47C163.411 116.515 163.043 115.487 162.859 114.422C162.749 113.908 162.712 113.394 162.675 112.88C162.675 112.659 162.638 112.439 162.675 112.219C162.786 111.705 162.528 111.668 161.939 112.072C161.608 111.815 161.277 111.558 160.946 111.301C163.043 114.899 158.849 118.902 155.281 118.388C155.685 118.902 156.09 119.453 156.495 119.967C156.458 119.306 156.237 118.351 156.458 117.727C156.201 118.057 155.943 118.388 155.685 118.718C155.06 119.122 158.408 118.645 157.01 118.498C155.097 118.314 154.803 121.252 156.568 121.729C158.334 122.207 159.953 123.161 161.829 122.941C163.448 122.757 164.662 121.803 165.324 120.371C166.023 118.865 166.17 117.102 165.949 115.45C165.839 114.532 165.618 113.688 165.25 112.88C165.103 112.512 164.919 112.145 164.735 111.778C164.625 111.558 164.478 111.337 164.331 111.117C164.183 110.787 164.11 110.86 164.183 111.337C165.214 111.631 166.244 111.888 167.274 112.182C167.31 111.484 167.384 110.823 167.421 110.126C166.354 110.273 165.25 110.419 164.183 110.566C164.809 112.402 164.698 114.091 163.963 115.891C163.153 117.874 166.354 118.718 167.163 116.772C168.083 114.459 168.157 112.035 167.384 109.685C166.795 107.886 164.257 108.253 164.147 110.126C164.11 110.823 164.036 111.484 164 112.182C163.889 113.798 166.391 114.495 167.09 113.027C167.899 111.264 167.678 108.987 165.802 107.996C164.183 107.151 162.013 107.886 161.24 109.538C160.174 111.815 162.565 113.834 162.786 116.038C162.896 117.066 162.896 119.122 161.755 119.636C160.652 120.114 158.555 118.828 157.525 118.535C157.378 119.599 157.231 120.701 157.083 121.766C160.431 122.06 160.505 117.653 158.187 116.221C157.047 115.524 155.502 114.973 154.288 115.707C152.779 116.625 153.221 118.461 153.257 119.93C153.294 120.591 153.736 121.435 154.471 121.509C160.358 122.353 165.729 117.653 164.588 111.521C164.367 110.309 163.889 108.951 162.528 108.694C161.388 108.473 160.247 109.134 159.769 110.162C158.555 112.77 159.99 116.625 161.093 119.012C161.719 120.371 163.742 119.893 164.11 118.608C164.846 116.148 165.066 113.614 164.625 111.08C164.294 109.171 163.705 106.674 161.314 106.601C155.98 106.49 158.187 115.23 159.107 117.984C159.585 119.379 162.013 119.71 162.307 117.984C162.749 115.156 162.712 112.329 161.976 109.538C161.535 107.886 160.652 104.654 158.261 105.499C156.348 106.197 155.759 108.951 155.759 110.75C155.759 113.394 156.716 116.001 157.819 118.314C158.592 119.967 160.762 118.938 160.909 117.47C161.24 114.385 160.983 111.264 160.1 108.29C159.475 106.197 158.334 101.974 155.538 102.084C152.816 102.157 152.669 105.646 152.669 107.629C152.669 110.823 153.478 113.908 154.876 116.809C155.649 118.424 157.819 117.433 157.966 115.964C158.261 113.357 158.003 110.713 157.194 108.216C156.605 106.38 155.649 103.736 153.441 103.479C151.013 103.222 150.167 106.013 149.616 107.812C148.806 110.456 148.549 113.247 148.659 116.038C148.769 118.167 152.043 118.167 151.97 116.038C151.896 114.569 151.86 113.1 151.786 111.631C150.756 111.925 149.726 112.182 148.696 112.476C150.02 115.377 152.043 117.727 154.545 119.636C155.428 120.297 156.716 119.563 156.973 118.645C158.371 113.871 158.187 108.804 156.421 104.14C155.796 102.525 153.037 102.598 153.184 104.581C153.478 108.987 153.773 113.43 154.03 117.837C155.06 117.543 156.09 117.286 157.12 116.992C155.207 113.43 156.495 108.694 153.883 105.536C153.037 104.508 151.455 105.168 151.124 106.27C149.836 110.199 151.087 114.312 150.204 118.278C151.197 118.131 152.227 118.02 153.221 117.874C152.338 115.927 151.492 113.981 150.609 111.998C150.057 110.75 147.813 111.044 147.592 112.402C147.188 114.973 147.371 118.571 149.616 120.334C150.646 121.142 152.007 121.215 153.294 121.362C155.023 121.546 156.789 121.619 158.555 121.509C160.247 121.399 161.903 121.142 163.558 120.774C164.662 120.517 166.133 120.334 166.906 119.453C167.899 118.388 167.715 116.662 167.825 115.303C167.936 113.688 168.12 112.109 168.157 110.493C168.193 107.849 167.126 105.536 164.404 104.875C163.301 104.618 162.16 104.765 161.02 104.581C159.254 104.324 159.07 102.818 158.113 101.57C156.899 99.9543 154.288 98.9261 152.632 100.505C151.565 101.533 151.786 102.855 151.823 104.177C151.86 105.352 151.271 108.326 149.395 107.519C147.151 107.005 145.458 109.869 147.408 110.676Z"
+                                            fill="var(--primary-100)" />
+                                        <path
+                                            d="M49.9204 128.963C52.4955 131.313 54.9235 133.847 57.0204 136.637C58.4184 138.473 59.8531 142.145 62.3547 142.66C63.8262 142.953 65.0034 142.182 66.1071 141.301C67.6154 140.089 69.0869 138.841 70.5952 137.592C72.1035 136.344 73.575 135.132 75.0833 133.883C76.1501 133.002 77.3641 132.194 77.4377 130.689C77.5113 129.257 76.5916 128.192 75.7455 127.127C74.5682 125.621 73.3543 124.116 72.177 122.61C70.9998 121.105 69.7858 119.599 68.6086 118.094C67.7257 116.992 66.9164 115.524 65.4449 115.193C64.1205 114.899 62.9065 115.67 61.8029 116.258C60.3314 117.029 58.8966 117.91 57.5355 118.828C54.85 120.664 52.3484 122.757 50.0675 125.107C49.3686 125.842 49.4422 127.2 50.3986 127.715C52.7898 128.926 55.0707 130.358 57.1308 132.121C58.0505 132.892 58.9334 133.737 59.7795 134.618C60.1842 135.059 60.5889 135.499 60.9935 135.977C61.251 136.27 61.5086 136.601 61.7661 136.895C62.0972 137.776 62.5754 137.739 63.164 136.711C63.3112 137.702 63.4215 138.73 63.5687 139.722C67.3946 137.409 70.8895 134.544 73.9061 131.24C75.1569 129.844 73.575 127.715 71.8827 128.633C69.3076 130.028 66.6589 131.166 63.8998 132.047C64.5252 132.855 65.1506 133.663 65.776 134.471C67.321 132.011 69.234 129.881 71.4781 128.008C70.5952 127.347 69.749 126.686 68.8661 125.989C66.8428 129 64.3044 131.644 61.3982 133.81C62.2075 134.434 63.0169 135.059 63.8262 135.683C64.7827 132.231 66.7324 129.183 69.6387 127.017C68.8661 126.246 68.1304 125.511 67.3578 124.74C65.7024 128.008 63.3848 130.799 60.4049 132.929C60.9568 132.929 61.5086 132.929 62.0604 132.929C62.1708 133.039 62.2443 133.186 62.3547 133.296C62.4283 133.002 62.5018 132.708 62.5754 132.451C62.6858 132.084 62.7961 131.717 62.9433 131.313C63.2744 130.322 63.7158 129.404 64.1941 128.486C65.1138 126.76 66.2542 125.254 67.6153 123.859C66.7324 123.198 65.8863 122.537 65.0034 121.839C63.0537 125.842 60.3681 129.33 56.9837 132.268C57.9401 132.672 58.8598 133.039 59.8163 133.443C60.221 129.11 62.0972 125.144 65.1506 122.023C64.2677 121.362 63.4215 120.701 62.5386 120.003C61.0303 122.941 58.8231 125.254 55.9536 126.907C56.7997 127.384 57.6091 127.861 58.4552 128.339C58.4184 127.017 58.6023 125.732 59.2277 124.557C59.4852 124.043 59.8163 123.565 60.1842 123.161C60.7728 122.464 61.8764 122.28 60.8464 121.619C60.3681 121.032 60.1106 121.068 60.0738 121.803C59.8899 122.17 59.7427 122.537 59.5588 122.904C59.2645 123.455 58.9702 123.969 58.6759 124.483C58.3448 124.997 58.0137 125.511 57.6458 125.989C57.3515 126.356 57.094 126.723 56.7629 127.09C56.2479 127.384 56.2111 127.604 56.6526 127.715C56.9101 128.045 57.1676 128.375 57.4251 128.706C57.0572 127.531 58.2712 125.328 58.8231 124.336C59.1541 123.785 61.0671 120.628 61.9132 120.811C62.3179 120.885 62.8697 122.941 63.0169 123.308C63.3112 124.116 63.5687 124.961 63.7526 125.805C63.9366 126.65 64.1573 127.531 64.1573 128.375C64.1573 129.367 64.1573 129.404 63.348 128.706C61.0303 126.723 60.7728 121.692 64.1941 120.554C65.9231 119.967 66.4381 122.17 66.8428 123.418C67.4314 125.218 67.9832 127.054 68.5718 128.89C69.4915 128.339 70.4112 127.825 71.3309 127.274C69.2708 125.254 68.1672 122.684 68.0936 119.783C67.3946 120.297 66.6956 120.848 65.9967 121.362C69.8594 122.831 70.4848 127.678 70.9998 131.203C71.2941 133.296 74.4947 132.415 74.2004 130.322C73.4646 125.328 72.1035 120.114 66.8796 118.167C65.8863 117.8 64.7459 118.755 64.7827 119.746C64.8563 123.492 66.3278 126.907 68.9765 129.551C70.1169 130.689 72.2506 129.551 71.7356 127.935C71.0734 125.842 70.4848 123.749 69.749 121.692C69.234 120.224 68.5718 118.681 67.2107 117.8C64.2677 115.854 60.8096 118.057 59.3013 120.738C57.5723 123.859 58.0137 127.751 60.3681 130.395C62.3179 132.562 66.107 133.737 67.1739 130.101C68.1304 126.87 66.4749 122.096 64.8563 119.306C62.649 115.56 59.007 118.388 57.1308 120.811C56.1375 122.096 55.365 123.492 54.8132 124.997C54.2981 126.393 53.452 128.669 54.4821 130.028C56.9101 133.186 60.4049 127.825 61.4718 126.062C62.3915 124.593 63.7158 122.574 63.4951 120.738C63.2744 119.012 61.6557 118.204 60.1106 118.865C56.7261 120.334 54.9971 124.85 55.1443 128.265C55.1811 129.514 56.5054 130.322 57.6458 129.697C60.9568 127.788 63.6423 124.997 65.4081 121.619C66.2542 120.003 64.1573 118.241 62.7961 119.599C59.1174 123.345 56.9837 128.118 56.5054 133.333C56.3583 134.875 58.3448 135.352 59.3381 134.508C62.9065 131.423 65.8127 127.641 67.8729 123.418C68.6454 121.803 66.6589 120.003 65.2609 121.399C63.1272 123.602 61.435 126.136 60.2578 128.963C59.4852 130.836 57.8666 134.398 60.3681 135.683C60.8832 135.94 61.5454 136.013 62.0236 135.683C65.4817 133.223 68.2775 130.101 70.1905 126.319C70.8527 124.997 69.3812 122.978 67.9097 124.043C64.3044 126.76 61.7661 130.358 60.5889 134.691C60.221 135.977 61.8029 137.445 63.0169 136.564C66.4381 134.067 69.3076 131.093 71.6988 127.568C72.8024 125.915 70.448 124.446 69.0869 125.548C66.6221 127.568 64.562 129.954 62.8697 132.672C62.0972 133.883 63.3847 135.536 64.7459 135.095C67.7993 134.141 70.7423 132.892 73.5382 131.35C72.876 130.469 72.2138 129.624 71.5149 128.743C68.6822 131.864 65.4449 134.544 61.8397 136.711C60.5153 137.519 60.9568 139.208 62.2443 139.722C63.7894 140.346 65.4449 139.098 65.5184 137.519C65.6288 135.609 63.6423 133.81 62.465 132.562C59.4852 129.33 55.9168 126.686 52.0173 124.74C52.1277 125.621 52.238 126.466 52.3484 127.347C54.0774 125.585 55.9168 123.969 57.8666 122.5C59.6324 121.178 61.8397 119.416 63.9366 118.718C64.562 118.498 64.5252 118.388 65.0402 118.902C65.5552 119.416 65.9599 120.04 66.3646 120.591C67.1739 121.619 68.02 122.684 68.8293 123.712C69.7123 124.85 70.6319 125.989 71.5149 127.127C71.9931 127.751 73.9429 129.624 73.7957 130.322C73.6486 131.129 71.6252 132.305 70.963 132.855C69.933 133.7 68.9029 134.544 67.8729 135.389C66.8428 136.234 65.8127 137.078 64.7827 137.923C64.3412 138.29 63.3848 139.355 62.6122 138.951C62.3179 138.804 61.8029 137.702 61.6189 137.445C58.9334 133.406 55.7329 129.771 52.1644 126.503C50.6929 125.218 48.3385 127.531 49.9204 128.963Z"
+                                            fill="var(--primary-100)" />
+                                        <path
+                                            d="M51.6862 126.025C53.0105 128.596 61.3246 142.917 64.8562 138.033C66.107 136.307 63.2375 134.655 61.9867 136.38C61.9132 136.454 61.8764 136.564 61.8028 136.637C62.281 136.38 62.7593 136.087 63.2375 135.83C62.6121 135.903 61.1038 133.81 60.6992 133.333C59.8898 132.415 59.0805 131.497 58.3448 130.505C56.91 128.559 55.6592 126.503 54.5556 124.373C53.5991 122.464 50.7297 124.153 51.6862 126.025Z"
+                                            fill="var(--primary-100)" />
+                                        <path
+                                            d="M117.499 80.6763C113.563 77.8121 112.055 71.9369 114.519 67.6407C115.733 65.511 117.941 63.7851 120.516 64.0789C123.164 64.3726 124.452 66.2821 124.636 68.779C124.746 70.1744 124.599 71.6065 124.562 73.0018C124.489 74.3237 124.636 75.866 124.268 77.1512C123.9 78.4364 122.576 79.1341 122.061 80.4192C121.619 81.5208 122.098 82.4756 120.81 82.8428C120.442 82.9529 119.927 82.9162 119.596 83.0264C119.007 82.9529 119.007 83.0631 119.596 83.3201C119.449 82.8428 119.339 82.4021 119.191 81.9248C118.713 80.3091 118.235 78.6567 117.757 77.041C116.947 74.3237 115.255 70.3213 117.389 67.7876C116.506 67.8978 115.623 68.0079 114.703 68.1181C115.991 69.0728 115.513 72.9651 115.586 74.287C115.697 77.041 115.807 79.795 115.917 82.549C116.028 85.4499 120.038 85.3397 120.332 82.549C120.626 79.6481 120.221 76.784 120.111 73.8464C120.038 72.5979 120.038 71.3127 120.221 70.0642C120.295 69.44 120.442 68.8525 120.626 68.2649C120.736 67.861 120.92 67.4571 121.104 67.0899C121.509 66.4657 121.509 66.3922 121.141 66.8696C120.589 66.943 120.001 67.0165 119.449 67.0899C119.339 67.0532 119.854 68.4118 119.927 68.7056C120.074 69.2564 120.148 69.8439 120.221 70.3947C120.369 71.9369 120.369 73.5159 120.295 75.0581C120.258 75.7558 120.185 76.4535 120.074 77.1879C120.001 77.6285 119.927 78.0692 119.854 78.5098C119.486 79.3911 120.111 79.6114 121.73 79.0606C121.877 78.7669 121.472 77.5918 121.435 77.2613C121.362 76.4902 121.325 75.6824 121.362 74.9113C121.399 73.4057 121.583 71.9737 121.95 70.5049C122.061 70.0642 122.171 69.6603 122.318 69.2197C122.87 68.265 122.282 67.9345 120.553 68.2649C120.405 68.522 120.994 69.9173 121.068 70.1744C121.399 71.7166 121.472 73.2956 121.325 74.8745C121.252 75.6089 121.178 77.9957 120.332 78.1793C117.573 78.8403 118.75 83.0998 121.509 82.4388C124.415 81.7412 125.225 78.8036 125.592 76.1965C125.997 73.112 125.85 69.6236 124.673 66.7227C123.532 63.932 120.185 63.8953 118.713 66.4657C117.242 69.0361 116.911 72.6713 116.947 75.5722C116.984 77.9223 117.021 81.9615 119.854 82.806C122.981 83.724 124.084 80.3458 124.415 77.9957C124.857 74.9113 124.967 71.7533 124.452 68.6689C124.084 66.3922 122.613 62.0226 119.486 62.8671C116.469 63.6382 115.881 68.8892 115.733 71.3861C115.549 75.1316 116.359 78.8403 115.991 82.5857C117.462 82.5857 118.934 82.5857 120.405 82.5857C120.258 78.877 120.111 75.1683 119.927 71.4596C119.817 68.6322 119.375 66.1352 116.984 64.3726C116.285 63.8218 114.887 64.0422 114.299 64.7031C111.871 67.5673 111.687 71.0924 112.533 74.6175C112.974 76.5269 113.6 78.4364 114.151 80.3091C114.667 82.0716 114.961 84.2014 115.917 85.7436C117.426 88.2406 121.619 87.6531 123.79 86.3679C124.93 85.7069 125.703 84.6053 125.997 83.3201C126.181 82.5123 126.108 82.1818 126.623 81.5208C127.211 80.7864 127.8 80.1989 128.168 79.3176C128.793 77.9223 128.83 76.3801 128.903 74.9113C128.977 73.0753 129.161 71.2026 129.124 69.3298C129.051 66.0618 127.984 62.9773 125.151 61.1046C119.706 57.506 112.864 60.8475 110.289 66.2821C107.272 72.7081 109.7 80.3091 115.329 84.4217C117.573 86.1476 119.78 82.3287 117.499 80.6763Z"
+                                            fill="var(--primary-500)" />
+                                        <path
+                                            d="M117.279 90.4071C118.015 91.5821 119.339 92.0227 120.663 91.6188C121.252 91.4352 121.767 91.1047 122.208 90.7008C122.319 90.5907 122.466 90.4805 122.576 90.3336C122.687 90.2235 122.65 90.2235 122.503 90.3703C123.202 90.0031 122.65 89.893 120.884 89.9664C121.767 90.7008 123.165 90.8844 124.011 89.9664C124.784 89.1586 124.931 87.6531 124.011 86.8452C122.944 85.9272 121.583 85.7804 120.332 86.5148C119.928 86.7351 119.523 87.0656 119.229 87.4327C118.971 87.7632 119.56 87.2124 119.155 87.5062C119.229 87.4695 119.302 87.4327 119.376 87.4327C118.603 87.6163 119.155 87.8734 121.031 88.2039C120.406 87.2124 119.045 86.7351 118.015 87.396C117.095 88.0203 116.617 89.3789 117.279 90.4071Z"
+                                            fill="var(--primary-500)" />
+                                        <path
+                                            d="M118.309 93.308C118.309 93.4181 118.309 93.5283 118.309 93.6384C118.309 94.1892 118.567 94.8135 118.971 95.1807C119.339 95.5479 119.965 95.8416 120.517 95.8416C121.105 95.8049 121.694 95.6213 122.062 95.1807C122.466 94.74 122.724 94.226 122.724 93.6384C122.724 93.5283 122.724 93.4181 122.724 93.308C122.724 92.7572 122.466 92.1329 122.062 91.7657C121.694 91.3985 121.068 91.1048 120.517 91.1048C119.928 91.1415 119.339 91.3251 118.971 91.7657C118.567 92.1696 118.309 92.6837 118.309 93.308Z"
+                                            fill="var(--primary-500)" />
+                                        <path
+                                            d="M96.4572 52.6957C106.132 41.2024 115.403 29.3785 124.306 17.2242C123.459 17.5547 122.65 17.8852 121.804 18.2524C122.65 18.5094 123.275 18.9501 123.901 19.5743C123.79 18.693 123.68 17.8118 123.57 16.8938C115.072 29.0113 106.611 41.0922 98.1126 53.2098C99.1059 52.9527 100.136 52.6957 101.129 52.4019C100.393 51.9613 99.6577 51.5207 98.9219 51.0433C99.1795 52.0347 99.437 53.0629 99.7313 54.0543C103.594 49.0237 107.126 43.8095 110.326 38.3382C111.761 35.878 107.935 33.6748 106.5 36.0983C103.3 41.5328 99.7681 46.7838 95.9054 51.8144C95.1696 52.7691 95.795 54.2747 96.7147 54.8255C97.4504 55.2661 98.1862 55.7067 98.9219 56.1841C99.9888 56.8451 101.276 56.3677 101.939 55.3763C110.437 43.2587 118.898 31.1778 127.396 19.0602C127.947 18.2524 127.69 17.0406 127.065 16.3797C125.924 15.2046 124.563 14.3968 123.018 13.9195C122.025 13.589 121.105 14.1398 120.516 14.9476C111.871 26.7714 102.821 38.3015 93.367 49.5011C91.5276 51.741 94.6546 54.8989 96.4572 52.6957Z"
+                                            fill="var(--primary-500)" />
+                                        <path
+                                            d="M71.6987 177.543C71.6987 177.433 71.6987 177.323 71.6987 177.213C71.6987 174.386 67.2842 174.386 67.2842 177.213C67.2842 177.323 67.2842 177.433 67.2842 177.543C67.2842 180.408 71.6987 180.408 71.6987 177.543C71.6987 177.433 71.6987 177.323 71.6987 177.213C71.6987 174.386 67.2842 174.386 67.2842 177.213C67.2842 177.323 67.2842 177.433 67.2842 177.543C67.2842 180.408 71.6987 180.408 71.6987 177.543Z"
+                                            fill="var(--primary-500)" />
+                                        <path
+                                            d="M36.456 146.809C39.2887 146.809 39.2887 142.403 36.456 142.403C33.6234 142.403 33.6234 146.809 36.456 146.809Z"
+                                            fill="var(--primary-500)" />
+                                        <path
+                                            d="M46.4257 148.755C48.5594 148.755 48.5594 145.45 46.4257 145.45C44.292 145.45 44.292 148.755 46.4257 148.755Z"
+                                            fill="var(--primary-100)" />
+                                        <path
+                                            d="M181.621 64.8133C183.755 64.8133 183.755 61.5085 181.621 61.5085C179.487 61.5085 179.487 64.8133 181.621 64.8133Z"
+                                            fill="var(--primary-100)" />
+                                        <path
+                                            d="M202.369 114.752C202.369 114.973 202.369 115.156 202.369 115.377C202.369 115.817 202.553 116.258 202.848 116.552C203.142 116.845 203.62 117.066 204.025 117.029C204.466 116.992 204.908 116.882 205.202 116.552C205.496 116.221 205.68 115.817 205.68 115.377C205.68 115.156 205.68 114.973 205.68 114.752C205.68 114.312 205.496 113.871 205.202 113.577C204.908 113.284 204.429 113.063 204.025 113.1C203.583 113.137 203.142 113.247 202.848 113.577C202.553 113.908 202.369 114.312 202.369 114.752Z"
+                                            fill="var(--primary-100)" />
+                                        <path
+                                            d="M189.015 88.5344C195.269 89.5258 204.025 92.4267 201.707 100.578C200.64 104.324 197.697 107.004 194.791 109.391C191.922 111.705 189.089 113.981 186.477 116.588C183.975 119.085 181.695 121.803 179.598 124.667C177.942 126.943 175.661 129.771 175.919 132.819C176.14 135.536 178.531 136.197 180.701 137.041C183.828 138.253 187.139 140.383 188.353 143.651C189.972 148.057 186.587 151.95 183.387 154.557C180.517 156.907 177.39 158.926 175.441 162.158C175.073 162.782 176.029 163.333 176.397 162.709C179.892 156.833 188.795 154.483 189.788 147.066C190.193 144.165 188.868 141.448 186.771 139.502C185.741 138.51 184.527 137.702 183.276 137.005C181.768 136.197 180.002 135.866 178.531 135.022C174.411 132.635 179.561 126.539 181.327 124.226C183.865 120.885 186.698 117.8 189.825 115.009C194.828 110.456 202.664 106.417 203.215 98.8159C203.767 91.1048 195.49 88.4976 189.383 87.5429C188.611 87.3593 188.316 88.4242 189.015 88.5344Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M80.3441 87.3593C73.7959 95.401 66.4015 102.708 58.2346 109.098C50.2149 115.377 41.4962 120.371 32.6303 125.328C24.4634 129.918 16.2229 134.618 9.23325 140.97C6.10628 143.798 2.64822 147.103 0.882409 151.032C-0.478741 154.079 -0.589104 158.045 2.90574 159.624C4.81871 160.469 7.06277 160.175 9.04931 159.844C12.2866 159.294 15.4872 158.596 18.6877 157.972C21.9618 157.347 25.2359 156.687 28.5101 156.062C31.637 155.475 37.4863 154.924 37.6334 159.587C37.6702 160.285 38.7739 160.285 38.7371 159.587C38.5899 155.254 33.9547 154.153 30.3862 154.594C24.9416 155.291 19.5706 156.65 14.1628 157.678C10.3737 158.412 0.257017 161.46 0.992773 154.226C1.47102 149.563 5.88555 145.524 9.08609 142.476C15.8551 136.087 23.9852 131.35 32.0785 126.797C40.5765 122.023 49.0377 117.323 56.8367 111.448C65.8129 104.654 73.943 96.7963 81.0431 88.0937C81.5581 87.5796 80.7856 86.8085 80.3441 87.3593Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M21.8149 162.782C18.5775 166.674 14.7884 171.264 15.377 176.662C15.8184 180.812 18.7983 184.704 23.2864 184.41C26.1558 184.227 28.6942 182.648 31.1957 181.436C34.3227 179.93 37.5233 178.572 40.8342 177.58C44.1083 176.625 47.5295 176.001 50.9508 175.928C53.6731 175.891 56.7633 176.075 59.0441 177.764C62.5022 180.261 60.3685 184.006 58.5291 186.797C56.7265 189.477 55.1446 192.231 53.7467 195.132C52.4959 197.776 51.3923 200.53 50.5093 203.321C49.8472 205.414 49.0746 207.874 50.6933 209.71C54.1513 213.713 59.412 210.298 62.3182 207.58C66.7696 203.431 71.5888 199.979 77.1437 197.409C83.3609 194.545 90.1298 192.856 96.9356 192.488C100.394 192.305 103.888 192.415 107.31 192.966C110.363 193.443 113.784 194.398 115.219 197.446C115.513 198.07 116.47 197.519 116.176 196.895C114.189 192.599 108.744 191.938 104.551 191.534C99.0693 191.02 93.4775 191.424 88.1065 192.599C82.7355 193.774 77.4748 195.757 72.6924 198.474C70.338 199.796 68.1307 201.301 65.997 202.954C63.6058 204.826 61.5825 207.14 59.1545 208.866C56.984 210.408 52.3487 211.546 51.0612 208.168C50.4358 206.515 51.2451 204.606 51.7601 202.99C52.312 201.301 52.9373 199.649 53.6363 198.033C54.8503 195.169 56.285 192.415 57.9037 189.771C59.3384 187.458 61.4721 185.108 61.9872 182.354C62.8333 177.874 58.4187 175.561 54.6296 175.01C49.0011 174.239 43.0414 175.524 37.744 177.433C34.5067 178.608 31.4533 180.114 28.3631 181.619C25.1625 183.198 21.1895 184.41 18.4672 181.289C13.3904 175.487 18.7247 168.18 22.5874 163.516C23.0656 163.002 22.2931 162.231 21.8149 162.782Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M42.9674 181.362C46.4254 180.261 49.4788 183.639 49.5524 186.907C49.626 190.359 47.3451 193.333 45.0643 195.683C44.5493 196.197 45.3586 196.968 45.8368 196.454C48.6327 193.59 51.539 189.514 50.4353 185.255C49.5524 181.913 46.1679 179.196 42.6731 180.298C42.0109 180.518 42.2684 181.583 42.9674 181.362Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M171.468 86.6249C173.16 88.0202 175.146 88.314 177.243 88.7546C179.524 89.232 181.511 90.1133 183.092 91.8758C186.072 95.2173 186.992 100.248 184.785 104.214C184.454 104.838 185.373 105.389 185.741 104.765C187.875 100.946 187.433 96.2455 185.079 92.647C183.975 90.9578 182.43 89.489 180.554 88.6078C177.905 87.3593 174.595 87.7632 172.24 85.8538C171.688 85.4131 170.916 86.1842 171.468 86.6249Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M36.5663 164.838C38.6632 170.457 45.3218 169.024 49.4052 166.821C52.0172 165.426 54.4452 163.627 56.5789 161.57C58.8597 159.33 60.6991 156.687 62.9432 154.41C65.4079 151.913 68.866 149.636 72.5816 150.261C75.9293 150.811 77.9526 153.786 80.0863 156.062C82.8822 159 88.5107 162.011 91.3434 157.348C91.7112 156.723 90.7548 156.172 90.3869 156.797C88.5843 159.734 84.7583 158.706 82.5511 156.944C80.5645 155.328 79.1298 153.125 77.18 151.472C73.5013 148.314 68.9028 148.608 65.0033 151.252C60.6991 154.153 58.0872 158.963 54.1509 162.305C51.8332 164.251 49.1477 166.05 46.2783 167.115C43.2249 168.253 38.9575 168.18 37.6331 164.581C37.3756 163.884 36.3088 164.177 36.5663 164.838Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M45.7634 130.615C50.4722 134.691 54.4085 139.538 57.4619 144.973C57.793 145.597 58.7495 145.046 58.4184 144.422C55.3282 138.877 51.3551 133.994 46.5359 129.844C46.0209 129.367 45.2116 130.175 45.7634 130.615Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M46.7199 129.44C50.693 124.189 56.3215 118.828 62.5755 116.442C63.5687 116.074 64.7091 115.744 65.776 116.001C67.1004 116.295 67.8729 117.433 68.6454 118.461C69.7491 119.893 70.8159 121.362 71.8828 122.831C73.9797 125.768 75.9662 128.816 77.8424 131.901C78.2103 132.488 79.1668 131.937 78.7989 131.35C76.4445 127.494 73.9061 123.712 71.2206 120.077C69.1973 117.323 67.3579 114.091 63.4216 115.009C60.0003 115.817 56.7262 118.314 54.0407 120.407C50.9137 122.868 48.1546 125.732 45.7266 128.89C45.3588 129.44 46.3153 129.991 46.7199 129.44Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M58.1239 145.45C65.6286 142.292 72.324 137.666 77.8789 131.717C78.3572 131.203 77.5846 130.432 77.1064 130.946C71.6986 136.748 65.1503 141.338 57.8296 144.385C57.1674 144.679 57.4617 145.744 58.1239 145.45Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M50.9878 130.175C55.1816 126.393 59.8537 123.271 65.004 120.885C65.6294 120.591 65.0776 119.636 64.4522 119.93C59.2283 122.353 54.4827 125.548 50.2153 129.404C49.6635 129.844 50.4728 130.652 50.9878 130.175Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M54.0406 132.011C56.3215 130.358 58.6023 128.743 60.8832 127.09C61.4718 126.686 60.9199 125.732 60.3313 126.136C58.0505 127.788 55.7697 129.404 53.4888 131.056C52.9002 131.497 53.452 132.451 54.0406 132.011Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M55.5858 134.544C59.4117 131.864 63.2377 129.147 67.0636 126.466C67.6522 126.062 67.1004 125.107 66.5118 125.511C62.6859 128.192 58.8599 130.909 55.034 133.59C54.4454 133.994 54.9972 134.948 55.5858 134.544Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M58.8233 137.556C61.1778 135.646 63.6425 133.957 66.2177 132.378C66.8431 132.011 66.2545 131.056 65.6659 131.423C62.9804 133.002 60.442 134.801 58.0508 136.748C57.499 137.225 58.2715 137.996 58.8233 137.556Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M60.5159 140.567C63.9739 137.739 67.7263 135.389 71.7361 133.443C72.3615 133.149 71.8097 132.194 71.1843 132.488C67.0641 134.471 63.2749 136.931 59.7433 139.795C59.1915 140.236 59.964 141.007 60.5159 140.567Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M136.151 163.627C137.954 161.35 135.82 158.559 133.429 157.898C130.56 157.091 127.286 158.449 125.851 161.02C124.232 163.884 124.894 167.629 126.991 170.053C129.677 173.211 136.667 175.12 135.416 180.334C135.232 181.032 136.299 181.326 136.483 180.628C137.917 174.679 130.744 172.843 127.764 169.282C125.667 166.748 125.299 162.488 127.948 160.175C129.015 159.257 130.523 158.706 131.921 158.78C133.576 158.853 137.145 160.652 135.416 162.892C134.937 163.406 135.71 164.177 136.151 163.627Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M136.74 163.406C137.034 161.423 137.954 159.661 139.426 158.302C140.125 157.641 140.934 157.127 141.817 156.723C142.258 156.54 142.736 156.356 143.215 156.246C144.245 156.026 144.465 156.026 145.312 156.76C146.158 157.531 146.194 157.751 146.158 158.816C146.158 159.22 146.084 159.624 146.047 159.991C145.937 160.726 145.716 161.423 145.459 162.121C144.907 163.627 144.061 165.022 143.178 166.344C140.014 171.044 135.489 175.34 135.232 181.326C135.195 182.023 136.299 182.023 136.335 181.326C136.666 173.284 145.017 168.657 146.93 161.166C147.298 159.734 147.592 157.898 146.967 156.503C146.194 154.887 144.502 154.814 142.957 155.181C139.205 156.062 136.335 159.33 135.747 163.113C135.563 163.81 136.63 164.141 136.74 163.406Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M142.994 107.959C142.331 111.521 142.184 115.266 142.994 118.828C143.766 122.243 146.231 121.509 149.064 121.692C155.501 122.133 164.036 126.209 168.267 118.938C168.635 118.314 167.678 117.763 167.31 118.388C163.705 124.593 156.127 121.546 150.609 120.774C149.321 120.591 148.107 120.591 146.82 120.628C144.833 120.628 144.244 119.673 143.95 117.91C143.398 114.716 143.472 111.484 144.097 108.29C144.171 107.555 143.104 107.262 142.994 107.959Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M143.141 109.722C145.128 108.51 146.857 108.29 149.101 107.922C150.057 107.776 150.683 107.408 150.83 106.417C151.235 103.92 150.168 101.35 152.154 99.2199C154.362 96.8331 157.341 98.9628 158.261 101.386C158.703 102.525 158.96 103.847 159.843 104.765C160.983 105.976 162.492 105.646 163.926 106.05C169.481 107.555 167.826 114.716 166.649 118.571C166.428 119.232 167.495 119.526 167.716 118.865C168.966 114.863 170.217 109.869 166.869 106.527C166.318 105.976 165.692 105.536 164.993 105.242C163.926 104.801 162.749 105.022 161.646 104.618C159.512 103.847 159.549 100.689 158.261 99.073C155.944 96.2088 151.97 96.6127 150.389 99.9543C149.947 100.872 149.8 101.827 149.726 102.818C149.653 103.993 150.205 106.344 148.954 106.821C148.071 107.188 146.71 107.041 145.753 107.335C144.613 107.665 143.583 108.18 142.59 108.767C142.001 109.171 142.553 110.126 143.141 109.722Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M147.519 108.583C146.967 112.916 147.703 117.213 149.616 121.142C149.91 121.766 150.866 121.215 150.572 120.591C148.733 116.845 148.07 112.733 148.622 108.583C148.733 107.886 147.629 107.886 147.519 108.583Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M112.129 84.1647C107.383 81.9615 104.551 76.8575 104.808 71.6432C105.102 66.3188 108.708 61.4718 113.306 58.9381C116.176 57.3592 119.229 56.8818 122.135 58.5709C124.784 60.0764 126.66 62.6836 127.727 65.4743C129.64 70.5416 128.941 76.3067 125.924 80.8232C125.52 81.4107 126.476 81.9615 126.881 81.374C131.884 73.9199 130.743 60.9577 121.583 57.1021C116.985 55.156 112.092 57.7631 108.781 60.9944C105.544 64.1524 103.447 68.6689 103.704 73.2222C103.999 78.2528 106.942 82.9897 111.54 85.1562C112.202 85.4132 112.754 84.4585 112.129 84.1647Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M111.614 85.4866C110.657 86.5148 110.915 88.0937 112.092 88.8648C114.005 90.1133 117.316 88.975 119.339 88.4976C121.51 87.9836 124.784 87.5062 126.255 85.5968C127.138 84.4217 127.138 82.8061 125.998 81.8146C125.446 81.374 124.673 82.1451 125.225 82.5857C126.917 84.0178 124.71 85.6702 123.386 86.1843C122.282 86.5882 121.142 86.9187 120.001 87.2124C118.934 87.4695 117.868 87.7265 116.801 87.9101C116.139 88.0203 115.403 88.2039 114.741 88.2406C113.784 88.2773 111.025 87.7632 112.423 86.2944C112.901 85.7436 112.129 84.9725 111.614 85.4866Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M113.747 89.4156C113.895 91.5821 115.734 92.9774 117.868 93.1243C120.811 93.3079 123.018 90.8477 124.747 88.8281C125.188 88.2773 124.416 87.5062 123.974 88.057C122.76 89.4891 121.399 91.1414 119.597 91.7657C117.757 92.4266 115.035 91.6922 114.888 89.4156C114.814 88.7179 113.711 88.7179 113.747 89.4156Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M116.727 93.5283C116.433 95.0338 117.353 96.6127 118.935 96.8698C120.553 97.1268 121.951 95.6947 121.988 94.1525C121.988 93.4548 120.884 93.4548 120.884 94.1525C120.884 95.0705 120.001 95.9885 119.008 95.7682C118.162 95.5846 117.61 94.6299 117.794 93.822C117.941 93.1243 116.874 92.8306 116.727 93.5283Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M109.186 70.2846C112.349 72.3042 114.777 75.1316 116.322 78.5466C116.617 79.2075 117.573 78.62 117.279 77.9958C115.66 74.3972 113.085 71.4596 109.737 69.3299C109.112 68.9627 108.56 69.9174 109.186 70.2846Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M114.851 67.604C115.55 72.8917 116.286 78.1793 116.985 83.4303C117.095 84.128 118.125 83.8342 118.052 83.1365C117.353 77.8489 116.617 72.5612 115.918 67.3102C115.808 66.6126 114.778 66.9063 114.851 67.604Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M116.764 76.6004C117.721 73.1487 119.928 70.358 123.055 68.5954C123.681 68.265 123.129 67.3102 122.503 67.6407C119.156 69.5134 116.728 72.5979 115.698 76.3066C115.514 77.0043 116.581 77.298 116.764 76.6004Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M76.6653 171.007C78.1368 174.202 79.7187 177.36 81.4845 180.408C82.3674 181.913 83.5446 184.777 85.7151 183.859C86.3773 183.566 85.7887 182.648 85.1633 182.905C83.7654 183.492 81.2638 177.8 80.7856 176.882C79.6451 174.789 78.6151 172.623 77.6218 170.457C77.3275 169.796 76.371 170.346 76.6653 171.007Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M77.6587 171.668C80.7856 169.245 83.839 166.748 87.0028 164.398C89.7618 162.305 92.7417 160.285 96.1261 159.33C99.7681 158.265 102.932 159.11 105.36 162.048C107.42 164.545 108.671 167.629 110.069 170.493C110.363 171.117 111.32 170.567 111.025 169.942C108.34 164.434 105.176 156.65 97.6344 157.862C93.8821 158.449 90.4976 160.505 87.4442 162.709C83.839 165.352 80.381 168.18 76.8493 170.934C76.3343 171.338 77.1068 172.109 77.6587 171.668Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M84.2068 183.969C93.8084 181.876 102.711 177.397 110.179 171.007C110.731 170.53 109.921 169.759 109.406 170.236C102.086 176.515 93.3302 180.848 83.9125 182.941C83.2135 183.088 83.5078 184.153 84.2068 183.969Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M93.1462 173.614C91.1965 173.137 89.5778 171.228 90.0561 169.135C90.4975 167.115 92.9623 165.646 94.9121 166.601C98.8484 168.584 96.1628 174.239 92.1162 172.807C91.454 172.586 91.1597 173.651 91.8219 173.871C94.1027 174.679 96.8618 173.578 97.7447 171.264C98.6276 168.988 97.1929 166.234 94.9488 165.426C92.5209 164.545 89.7618 166.197 89.0628 168.621C88.2535 171.338 90.24 174.018 92.8519 174.679C93.5509 174.863 93.8452 173.798 93.1462 173.614Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M112.754 145.744C112.312 141.815 112.276 137.335 116.948 136.27C119.302 135.719 121.252 135.022 122.613 132.855C124.011 130.652 123.827 128.596 123.275 126.172C122.87 124.263 122.907 122.61 124.452 121.178C125.703 120.04 127.359 119.599 128.977 120.114C129.639 120.334 129.934 119.269 129.272 119.049C126.917 118.314 124.452 119.232 122.944 121.178C120.626 124.226 123.349 127.311 122.429 130.579C121.877 132.525 120.369 134.177 118.419 134.838C116.837 135.352 115.145 135.316 113.821 136.417C111.025 138.694 111.282 142.549 111.65 145.744C111.724 146.442 112.827 146.442 112.754 145.744Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M103.778 125.181C102.637 124.263 103.557 122.207 105.029 122.978C105.617 123.271 105.985 123.969 105.654 124.593C105.323 125.218 104.477 125.548 103.851 125.218C103.226 124.887 102.674 125.842 103.299 126.172C104.44 126.723 105.838 126.319 106.537 125.291C107.273 124.189 106.794 122.794 105.727 122.133C104.661 121.472 103.226 121.656 102.527 122.757C101.902 123.786 102.049 125.218 103.005 125.989C103.557 126.393 104.33 125.622 103.778 125.181Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M154.104 68.265C153.441 67.2001 153.037 65.8415 153.441 64.6297C153.772 63.6015 154.803 62.9773 155.869 63.0875C157.047 63.1976 157.672 64.2992 157.047 65.3274C156.495 66.2821 155.354 66.7595 154.287 66.6126C153.589 66.5391 153.589 67.6407 154.287 67.7142C155.869 67.8978 157.598 66.9431 158.187 65.4375C158.739 64.0789 158.04 62.5734 156.642 62.1327C155.318 61.6921 153.699 62.2062 152.89 63.3445C151.676 64.9969 152.154 67.2368 153.147 68.8892C153.515 69.4033 154.471 68.8525 154.104 68.265Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M94.7648 113.284C96.7513 116.882 100.798 118.902 104.881 118.314C109.885 117.58 112.57 113.761 114.557 109.501C116.874 104.581 120.075 100.542 125.188 98.3753C129.824 96.4292 135.82 97.4206 139.646 93.7853C141.117 92.39 142.111 90.4438 141.78 88.3875C141.522 86.8085 140.566 85.4866 140.934 83.8342C141.375 82.035 142.773 80.713 144.539 80.3458C145.238 80.199 144.943 79.1341 144.244 79.281C142.111 79.7583 140.382 81.374 139.867 83.5405C139.572 84.7155 139.793 85.7804 140.161 86.9187C140.75 88.7547 140.97 90.2602 139.756 91.9493C137.623 94.9236 133.87 95.3276 130.523 95.8049C127.543 96.2456 124.747 97.0534 122.172 98.5956C119.891 99.9543 117.868 101.79 116.286 103.92C114.557 106.27 113.6 109.024 112.202 111.558C110.436 114.679 107.53 117.066 103.815 117.286C100.43 117.47 97.2663 115.67 95.6109 112.696C95.3902 112.109 94.4337 112.659 94.7648 113.284Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M87.0763 53.0629C86.4509 57.6529 85.8255 62.2429 85.2369 66.8329C85.1265 67.5306 86.1934 67.8243 86.3037 67.1266C86.9291 62.5367 87.5545 57.9467 88.1431 53.3567C88.2535 52.659 87.1866 52.3652 87.0763 53.0629Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M86.8924 67.4571C91.2334 64.3359 95.5744 61.2147 99.9153 58.0935C100.504 57.6896 99.9521 56.7349 99.3635 57.1388C95.0225 60.26 90.6816 63.3812 86.3406 66.5024C85.752 66.9063 86.3038 67.8611 86.8924 67.4571Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M87.7748 53.6872C98.664 39.1093 109.369 24.4214 119.891 9.58651C120.295 8.99899 119.339 8.44819 118.934 9.03571C108.413 23.8706 97.7076 38.5953 86.8184 53.1364C86.4137 53.6872 87.3702 54.238 87.7748 53.6872Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M101.276 56.4411C111.283 43.222 120.995 29.7825 130.412 16.1227C130.817 15.5351 129.86 14.9843 129.456 15.5719C120.038 29.195 110.326 42.6712 100.32 55.8904C99.8784 56.4411 100.835 56.9919 101.276 56.4411Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M119.56 9.5865C121.289 6.35514 123.312 2.42611 127.138 1.36123C130.927 0.296352 134.643 3.16051 134.717 7.08954C134.717 7.78722 135.82 7.78722 135.82 7.08954C135.783 3.30739 132.583 -0.107566 128.683 0.00259405C123.57 0.149474 120.7 5.03323 118.604 9.0357C118.272 9.65994 119.229 10.2107 119.56 9.5865Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M130.633 16.0125C132.509 13.2218 134.201 10.3576 135.71 7.34658C136.041 6.72234 135.084 6.17154 134.753 6.79578C133.245 9.80681 131.553 12.671 129.676 15.4617C129.308 16.0125 130.265 16.6 130.633 16.0125Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M118.75 11.3858C122.981 8.52161 128.462 10.0638 130.559 14.6906C130.853 15.3515 131.81 14.764 131.516 14.1398C129.161 8.96225 122.87 7.23641 118.198 10.431C117.61 10.835 118.162 11.7897 118.75 11.3858Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M116.801 14.6906C120.48 12.3405 125.887 13.8827 127.58 17.9954C127.837 18.6563 128.904 18.3626 128.647 17.7016C126.66 13.0015 120.59 10.9819 116.249 13.7359C115.66 14.1398 116.212 15.0945 116.801 14.6906Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M87.1127 54.2012C89.136 55.413 91.1594 52.7691 93.2563 52.8058C94.8381 52.8426 96.3097 53.5769 97.2293 54.8989C97.8915 55.8536 98.2226 56.7716 99.2895 57.3224C99.9149 57.6529 100.467 56.6981 99.8413 56.3677C98.5905 55.7067 98.2226 54.091 97.1558 53.173C96.42 52.5488 95.5371 52.1082 94.5806 51.8878C93.6241 51.6675 92.6309 51.6675 91.7112 51.8878C90.534 52.1816 88.8049 53.9074 87.7013 53.2465C87.0759 52.8793 86.5241 53.834 87.1127 54.2012Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M93.1462 52.2183C100.577 42.4508 108.045 32.6466 115.476 22.8791C115.918 22.3283 114.961 21.7775 114.52 22.3283C107.089 32.0958 99.6208 41.9 92.1897 51.6675C91.785 52.2183 92.7415 52.7691 93.1462 52.2183Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M104.808 44.8744C111.724 34.7397 119.044 24.9354 126.807 15.425C127.248 14.8742 126.476 14.1031 126.034 14.6539C118.235 24.2378 110.804 34.1154 103.851 44.3236C103.483 44.9111 104.44 45.4619 104.808 44.8744Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M86.6718 63.9687C87.3708 63.3812 88.4009 63.9687 88.2169 64.8867C88.0698 65.5844 89.1366 65.8782 89.2838 65.1805C89.4677 64.2992 89.1366 63.3812 88.3273 62.9038C87.518 62.4265 86.5615 62.6101 85.8625 63.1976C85.3475 63.6382 86.12 64.4094 86.6718 63.9687Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M87.0026 63.8219C86.8186 64.593 86.4876 65.2906 86.0093 65.9149C86.3036 66.0985 86.6347 66.2821 86.929 66.4657C87.1497 65.6578 87.5912 64.9602 88.2166 64.3727C87.9223 64.3359 87.628 64.2992 87.3337 64.2625C87.5176 64.6664 87.3705 65.107 87.0026 65.3274C87.2601 65.4375 87.5544 65.5477 87.8119 65.6579C87.6648 65.1438 87.7751 64.6664 88.1062 64.2625C87.8855 64.2992 87.6648 64.3359 87.444 64.3359C87.7383 64.4828 87.7015 64.8867 87.4072 65.0336C87.628 65.0703 87.8487 65.1071 88.0694 65.1071C87.8487 64.9235 87.6648 64.7031 87.5544 64.4461C87.5176 64.3359 87.4808 64.2258 87.444 64.0789C87.444 64.0055 87.3705 63.2343 87.2601 63.4547C86.929 64.0789 87.8855 64.6297 88.2166 64.0055C88.7316 63.0507 87.4072 62.2062 86.6715 62.9773C85.899 63.8219 86.5979 65.2172 87.3337 65.8415C87.5176 66.0251 87.7751 66.0618 87.9959 65.9149C89.0259 65.4008 89.0259 63.8586 88.0326 63.3078C87.8487 63.1976 87.5176 63.1976 87.3705 63.3812C86.7819 64.0789 86.5611 64.9602 86.7819 65.8415C86.8554 66.1719 87.2969 66.3555 87.5912 66.1719C88.5109 65.6211 88.7684 64.5195 88.3269 63.6015C88.1798 63.2711 87.7016 63.2711 87.444 63.4914C86.6715 64.189 86.1565 65.0703 85.899 66.0618C85.7518 66.5391 86.4508 67.0532 86.8186 66.6126C87.4072 65.8414 87.8487 64.9969 88.1062 64.0422C88.2534 63.4179 87.1865 63.1242 87.0026 63.8219Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M84.9427 69.5868C84.2069 73.5526 82.5515 77.1879 79.9396 80.2724C79.4981 80.8232 80.2706 81.5943 80.7121 81.0435C83.4344 77.7754 85.237 74.03 86.0095 69.8439C86.1199 69.1829 85.053 68.8892 84.9427 69.5868Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M77.2541 74.1769C73.4282 77.0043 69.3815 79.538 65.1877 81.7779C64.5623 82.1084 65.1141 83.0631 65.7395 82.7326C69.9333 80.4927 73.98 77.959 77.8059 75.1316C78.3945 74.6909 77.8427 73.7362 77.2541 74.1769Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M167.053 158.119C166.06 156.576 164.404 157.384 163.521 158.559C162.565 159.771 161.792 161.203 160.983 162.525C160.357 163.553 159.622 164.691 159.511 165.977C159.291 168.547 161.24 168.841 163.19 169.465C165.508 170.236 165.361 172.953 163.889 174.459C162.712 175.671 160.983 176.185 159.438 176.699C158.776 176.919 159.07 177.984 159.732 177.764C162.822 176.772 167.421 174.532 165.839 170.42C165.581 169.759 165.14 169.208 164.551 168.841C164.22 168.657 163.852 168.51 163.484 168.4C162.418 168.07 162.123 168.18 161.277 167.262C160.578 166.858 160.357 166.307 160.688 165.573C160.836 165.059 161.02 164.581 161.277 164.141C161.571 163.553 161.939 163.002 162.307 162.452C162.675 161.901 165.25 157.274 166.096 158.633C166.464 159.257 167.421 158.706 167.053 158.119Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M103.888 201.338C106.905 200.567 109.48 203.541 108.155 206.405C107.861 207.03 108.818 207.617 109.112 206.956C110.841 203.247 107.64 199.245 103.63 200.273C102.895 200.457 103.189 201.522 103.888 201.338Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M160.247 140.86C158.849 139.832 158.849 137.152 160.983 137.078C161.756 137.041 162.565 137.482 162.528 138.327C162.528 139.024 161.903 139.869 161.13 139.759C160.431 139.649 160.137 140.713 160.836 140.824C162.197 141.044 163.374 140.052 163.595 138.731C163.853 137.372 162.859 136.197 161.535 136.013C160.174 135.793 158.776 136.564 158.298 137.886C157.819 139.355 158.482 140.934 159.696 141.815C160.247 142.219 160.799 141.264 160.247 140.86Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M6.47419 136.307C6.98921 134.251 8.75503 133.076 10.4105 131.937C12.1395 130.726 13.9053 129.477 15.6711 128.265C19.166 125.805 22.6608 123.382 26.1557 120.921C26.7443 120.517 26.1925 119.563 25.6038 119.967C21.5204 122.831 17.437 125.658 13.3535 128.522C10.5944 130.432 6.29024 132.451 5.40734 136.013C5.2234 136.711 6.29025 137.005 6.47419 136.307Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M253.284 329.344C208.587 321.706 163.889 314.068 119.192 306.43C146.342 295.488 173.491 284.582 200.64 273.64C243.094 283.077 285.547 292.514 327.963 301.951C303.094 311.094 278.189 320.2 253.284 329.344Z"
+                                            fill="white" stroke="#18191C" stroke-width="1.17937"
+                                            stroke-miterlimit="10" />
+                                        <path
+                                            d="M251.444 329.894C251.592 330.335 251.702 330.812 251.849 331.253C252.033 331.841 252.916 331.73 252.916 331.106C252.916 330.739 252.916 330.409 252.916 330.041C252.916 329.344 251.812 329.344 251.812 330.041C251.812 330.482 251.739 330.886 251.555 331.29C251.923 331.29 252.254 331.29 252.622 331.29C252.474 330.812 252.438 330.372 252.548 329.858C252.217 329.895 251.886 329.931 251.555 330.005C251.665 330.115 251.665 330.188 251.592 330.298C251.923 330.335 252.254 330.372 252.585 330.445C252.511 330.188 252.548 329.968 252.695 329.748C252.364 329.637 251.996 329.564 251.665 329.454C251.592 330.041 251.518 330.592 251.444 331.18C251.408 331.473 251.739 331.731 251.996 331.731C252.327 331.731 252.511 331.473 252.548 331.18C252.622 330.592 252.695 330.041 252.769 329.454C252.842 328.903 251.996 328.756 251.739 329.16C251.444 329.637 251.371 330.188 251.518 330.739C251.628 331.216 252.291 331.253 252.511 330.886C252.806 330.445 252.806 329.895 252.474 329.491C252.217 329.16 251.555 329.123 251.481 329.637C251.334 330.298 251.371 330.996 251.555 331.657C251.739 332.208 252.438 332.134 252.622 331.657C252.806 331.143 252.916 330.629 252.916 330.115C252.548 330.115 252.18 330.115 251.812 330.115C251.812 330.482 251.812 330.813 251.812 331.18C252.18 331.143 252.548 331.07 252.879 331.033C252.732 330.592 252.622 330.115 252.474 329.674C252.327 328.903 251.26 329.197 251.444 329.894Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M252.29 332.538C258.213 329.491 264.688 327.875 271.052 326.076C274.179 325.194 277.269 324.24 280.249 322.991C283.119 321.816 285.878 320.347 288.71 319.025C295.001 316.088 301.807 314.178 308.392 312.012C315.234 309.735 322.04 307.459 328.883 305.219C329.545 304.998 329.25 303.933 328.588 304.154C321.746 306.43 314.94 308.707 308.098 310.947C301.623 313.077 294.964 314.986 288.747 317.814C285.51 319.282 282.346 321.008 279.035 322.293C276.019 323.468 272.928 324.386 269.801 325.268C263.658 327.03 257.441 328.646 251.702 331.584C251.113 331.914 251.665 332.869 252.29 332.538Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M252.806 332.318C278.226 323.542 303.573 314.656 328.92 305.623C330.906 304.925 330.06 301.73 328.037 302.428C302.727 311.461 277.343 320.347 251.923 329.123C249.936 329.821 250.782 333.016 252.806 332.318Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M249.936 296.847C254.718 297.324 258.802 300.225 263.511 301.143C264.21 301.29 264.504 300.225 263.805 300.078C259.022 299.123 254.865 296.222 249.936 295.745C249.237 295.708 249.237 296.81 249.936 296.847Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M263.842 300.629C266.748 299.05 269.47 297.177 271.935 294.974C272.45 294.497 271.678 293.725 271.163 294.203C268.735 296.333 266.123 298.168 263.29 299.674C262.665 300.041 263.216 300.996 263.842 300.629Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M251.077 294.753C253.394 293.101 255.786 291.522 258.25 290.053C258.876 289.686 258.287 288.731 257.699 289.099C255.234 290.567 252.843 292.11 250.525 293.799C249.936 294.239 250.488 295.194 251.077 294.753Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M258.434 290.237C262.628 291.816 266.822 293.358 271.052 294.937C271.715 295.194 272.009 294.129 271.347 293.872C267.153 292.293 262.959 290.751 258.729 289.172C258.066 288.952 257.772 290.017 258.434 290.237Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M246.625 301.033C257.698 304.448 268.624 308.377 279.329 312.82C279.991 313.077 280.286 312.012 279.624 311.755C268.918 307.312 257.992 303.383 246.919 299.968C246.22 299.748 245.926 300.812 246.625 301.033Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M247.692 309.588C254.571 312.893 261.524 316.014 268.551 319.062C269.213 319.356 269.765 318.401 269.102 318.107C262.076 315.096 255.123 311.938 248.244 308.634C247.618 308.34 247.066 309.295 247.692 309.588Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M248.685 319.025C252.437 320.935 256.19 322.881 259.942 324.79C260.568 325.121 261.119 324.166 260.494 323.836C256.742 321.926 252.989 319.98 249.237 318.071C248.611 317.74 248.06 318.695 248.685 319.025Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M250.819 319.356C256.006 314.949 261.451 310.91 267.116 307.165C267.705 306.761 267.153 305.806 266.564 306.21C260.825 309.992 255.307 314.142 250.046 318.585C249.495 319.062 250.267 319.833 250.819 319.356Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M249.458 311.828C252.401 309.772 255.344 307.716 258.287 305.623C258.876 305.219 258.324 304.264 257.735 304.668C254.792 306.724 251.849 308.781 248.906 310.874C248.354 311.278 248.906 312.232 249.458 311.828Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M251.297 331.877C205.055 324.019 158.813 316.161 112.57 308.303C108.229 275.512 103.852 242.758 99.5106 209.967C149.285 216.65 199.022 223.333 248.796 230.053C249.642 263.982 250.488 297.911 251.297 331.877Z"
+                                            fill="white" stroke="#18191C" stroke-width="1.17937"
+                                            stroke-miterlimit="10" />
+                                        <path
+                                            d="M168.893 275.145C164.883 273.897 162.712 270.518 162.381 266.442C162.05 262.293 162.859 258.291 166.722 256.124C170.143 254.215 174.227 254.766 177.28 257.079C180.334 259.392 183.056 264.129 180.591 267.764C180.186 268.352 181.143 268.903 181.548 268.315C184.196 264.423 181.695 259.282 178.457 256.602C175.11 253.848 170.585 253.003 166.648 254.949C162.087 257.189 160.91 261.742 161.277 266.479C161.645 271.069 164.073 274.851 168.598 276.247C169.26 276.43 169.555 275.365 168.893 275.145Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M169.923 275.549C168.231 272.758 168.782 268.866 171.505 266.92C174.227 264.974 178.126 265.782 180.187 268.278C180.628 268.829 181.401 268.058 180.959 267.507C178.531 264.606 173.969 263.799 170.806 266.039C167.642 268.315 166.98 272.868 168.966 276.1C169.334 276.687 170.291 276.136 169.923 275.549Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M173.712 277.091C171.983 275.255 172.24 271.84 174.558 270.518C176.839 269.196 179.929 270.702 180.665 273.125C180.885 273.786 181.952 273.529 181.731 272.832C180.775 269.747 176.912 267.911 174.006 269.6C171.1 271.289 170.732 275.549 172.939 277.899C173.417 278.376 174.19 277.605 173.712 277.091Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M176.544 279.662C177.979 280.176 179.635 279.331 180.186 277.972C180.775 276.614 180.002 275.145 178.715 274.557C177.427 273.97 175.882 274.3 175.183 275.549C174.521 276.761 174.742 278.413 175.845 279.294C176.397 279.735 177.17 278.964 176.618 278.523C175.146 277.385 176.177 274.704 178.126 275.512C178.972 275.843 179.561 276.724 179.156 277.642C178.752 278.523 177.722 278.964 176.839 278.633C176.177 278.376 175.882 279.441 176.544 279.662Z"
+                                            fill="#18191C" />
+                                        <path d="M248.796 230.016L252.033 331.18" stroke="#18191C"
+                                            stroke-width="1.17937" stroke-miterlimit="10" />
+                                        <path d="M249.017 229.943C250.01 263.211 251.003 296.479 251.997 329.748"
+                                            stroke="#18191C" stroke-width="1.17937" stroke-miterlimit="10" />
+                                        <path opacity="0.08"
+                                            d="M185.337 223.186C187.728 224.435 208.255 235.598 209.69 255.426C210.499 266.369 205.128 274.668 201.744 279.735C183.497 307.128 147.408 311.975 137.623 313.003C151.86 322.44 201.597 353.542 255.969 351.706C268.072 351.302 286.834 350.458 307.178 339.295C322.445 330.923 332.341 320.164 338.006 313.003C334.511 310.837 331.053 308.707 327.558 306.541C301.88 315.317 276.166 324.093 250.488 332.832C249.163 298.903 247.839 265.01 246.515 231.081C226.097 228.511 205.717 225.867 185.337 223.186Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M165.987 273.529C163.301 270.592 162.418 266.479 163.743 262.881C165.104 259.245 168.709 256.124 173.013 256.271C176.802 256.418 179.856 259.062 180.959 261.559C181.769 263.468 181.585 265.231 181.585 265.231C181.474 266.222 181.143 266.993 180.886 267.471C179.01 265.304 176.14 264.313 173.455 264.937C170.144 265.708 168.709 268.535 168.562 268.793C167.054 271.877 168.378 274.741 168.562 275.072C167.679 274.521 166.833 274.007 165.987 273.529Z"
+                                            fill="var(--primary-100)" />
+                                        <path
+                                            d="M352.133 227.042C350.146 228.511 348.012 230.494 346.063 233.101C338.815 242.832 339.809 254.251 340.324 257.96C333.886 256.638 323.07 255.353 310.305 258.291C302.69 260.053 296.583 262.807 292.095 265.304C292.794 265.745 293.75 266.259 294.964 266.589C301.844 268.462 309.091 262.697 309.312 263.101C309.532 263.468 301.218 267.36 301.66 270.739C301.954 273.015 306.038 274.227 310.268 275.512C313.837 276.577 317.221 277.605 321.746 277.091C327.963 276.394 332.267 273.272 334.18 271.657C336.02 272.575 338.742 273.786 342.163 274.851C348.454 276.761 357.136 279.405 362.912 275.806C366.664 273.456 367.804 267.948 369.938 257.005C372.66 242.978 374.021 235.965 370.269 231.522C365.303 225.61 355.333 226.601 352.133 227.042Z"
+                                            fill="white" stroke="#18191C" stroke-width="1.17937"
+                                            stroke-miterlimit="10" />
+                                        <path
+                                            d="M339.073 258.327C343.525 259.98 347.203 262.991 349.742 266.993C350.11 267.581 351.066 267.03 350.698 266.442C348.013 262.183 344.076 259.025 339.368 257.263C338.705 257.042 338.411 258.107 339.073 258.327Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M315.419 265.598C311.041 266.332 307.509 269.27 305.927 273.383C305.67 274.043 306.737 274.337 306.994 273.676C308.429 269.931 311.74 267.324 315.713 266.663C316.412 266.553 316.118 265.488 315.419 265.598Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M306.442 274.08C308.723 276.247 311.887 276.981 314.867 276.026C315.529 275.806 315.235 274.741 314.572 274.961C311.961 275.806 309.201 275.219 307.215 273.309C306.7 272.795 305.927 273.566 306.442 274.08Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M320.532 269.233C318.95 270.188 317.479 271.29 316.081 272.465C315.161 273.272 314.131 274.227 314.352 275.549C314.904 279.037 319.097 278.266 321.378 277.385C322.04 277.128 321.746 276.063 321.084 276.32C320.091 276.687 318.987 277.165 317.92 277.128C316.191 277.055 314.646 275.402 316.118 273.897C317.516 272.428 319.355 271.253 321.084 270.151C321.709 269.821 321.158 268.866 320.532 269.233Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M350.294 174.643C351.802 175.818 353.752 177.433 355.812 179.526C356.401 180.114 357.909 181.656 359.417 183.566C361.772 186.503 363.28 189.294 364.935 192.709C367.069 197.079 369.203 201.448 371.336 207.984C373.139 213.492 375.898 222.158 376.229 233.688C376.376 238.242 376.082 242.06 375.788 244.741C374.279 243.015 372.771 241.877 371.52 241.142C364.494 236.846 355.959 238.388 347.903 239.857C344.886 240.408 342.384 241.069 340.655 241.546C341.097 237.507 341.501 233.468 341.943 229.429C342.311 226.051 342.642 222.636 343.01 219.221C342.311 218.009 341.354 216.283 340.471 214.117C338.742 209.967 335.284 201.815 337.271 192.672C339.625 182.17 347.903 176.222 350.294 174.643Z"
+                                            fill="var(--primary-500)" />
+                                        <path
+                                            d="M351.581 176.662C355.26 178.572 357.724 181.876 359.858 185.291C362.065 188.816 364.052 192.452 365.818 196.197C369.423 203.835 372.072 211.913 373.801 220.175C373.948 220.873 375.015 220.579 374.868 219.882C373.102 211.289 370.306 202.954 366.48 195.022C364.604 191.13 362.544 187.348 360.189 183.712C358.092 180.481 355.628 177.47 352.17 175.671C351.507 175.377 350.955 176.332 351.581 176.662Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M340.103 214.006C341.795 217.458 343.561 220.836 345.401 224.215C345.732 224.839 346.688 224.288 346.357 223.664C344.518 220.285 342.752 216.907 341.06 213.456C340.728 212.795 339.772 213.345 340.103 214.006Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M342.715 220.322C341.795 227.446 340.876 234.57 339.993 241.693C339.956 242.06 340.397 242.317 340.692 242.207C346.946 240.224 353.457 239.27 360.005 239.49C365.192 239.674 372.072 240.151 374.978 245.218C375.346 245.843 376.266 245.292 375.935 244.668C373.175 239.821 367.142 238.829 362.066 238.499C354.745 237.985 347.387 238.939 340.434 241.142C340.655 241.326 340.912 241.51 341.133 241.657C342.053 234.533 342.973 227.409 343.855 220.285C343.929 219.625 342.825 219.625 342.715 220.322Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M373.727 219.625C375.015 227.703 377.111 236.259 374.941 244.374C374.757 245.072 375.824 245.365 376.008 244.668C378.215 236.369 376.118 227.63 374.794 219.331C374.683 218.633 373.617 218.927 373.727 219.625Z"
+                                            fill="#18191C" />
+                                        <path opacity="0.32"
+                                            d="M347.497 173.284C350.845 179.526 354.193 186.981 357.025 195.536C362.58 212.427 364.052 227.593 364.162 238.939C360.41 239.16 356.658 239.38 352.905 239.6C354.119 248.303 355.37 257.042 356.584 265.745C354.23 264.386 350.624 262.66 345.989 261.632C344.481 261.302 338.926 260.2 333.003 261.192C320.569 263.285 313.064 273.456 311.372 275.879C313.064 276.577 315.235 277.238 317.846 277.385C325.866 277.862 331.715 273.236 333.445 271.767C338.926 274.521 343.708 275.843 347.093 276.504C353.016 277.715 359.932 279.111 363.758 275.439C364.052 275.145 364.714 274.447 366.149 270.886C368.393 265.231 369.57 259.943 371.115 250.359C371.446 248.229 371.925 245.365 372.403 241.95C373.323 242.868 374.279 243.823 375.199 244.741C375.64 243.089 376.192 240.628 376.486 237.617C377.259 229.796 375.75 223.627 374.316 218.596C368.54 198.254 365.082 185.989 353.531 177.103C351.139 175.34 348.932 174.055 347.497 173.284Z"
+                                            fill="#042852" />
+                                        <path opacity="0.29"
+                                            d="M366.958 198.437C369.423 210.408 369.754 220.579 369.57 227.923C369.386 234.753 368.687 239.747 367.951 244.778C365.781 259.943 364.677 267.507 360.483 271.032C352.537 277.715 338.374 272.648 334.989 271.363C338.19 273.493 349.704 280.727 360.962 276.724C362.139 276.283 363.426 275.733 364.677 274.925C366.002 272.685 367.767 269.233 368.908 264.717C369.57 262.036 369.754 260.09 370.011 257.813C370.416 254.141 371.115 248.78 372.292 242.06C373.359 242.978 374.463 243.896 375.53 244.814C375.897 242.942 376.376 240.078 376.486 236.552C376.817 228.033 374.941 221.571 372.77 214.19C371.593 210.151 369.754 204.716 366.958 198.437Z"
+                                            fill="#042852" />
+                                        <path
+                                            d="M265.829 102.047C266.196 105.976 266.859 111.484 268.33 117.984C269.287 122.207 269.875 124.887 271.126 128.229C273.002 133.259 276.571 142.88 285.878 149.159C288.122 150.701 291.838 152.758 297.061 153.969C297.908 154.043 298.754 154.153 299.6 154.226C299.894 155.769 300.262 158.045 300.63 160.799C301.513 167.886 301.071 170.053 302.911 171.962C305.155 174.275 308.723 174.055 309.496 173.982C315.639 173.578 318.729 167.482 318.877 167.152C317.883 165.352 316.89 163.149 316.081 160.579C314.315 154.887 314.278 149.82 314.572 146.368C317.405 142.292 320.532 139.171 323.696 136.748C324.91 135.83 325.94 134.581 327.742 133.957C330.318 133.076 331.642 133.957 333.555 133.369C336.719 132.378 338.08 128.302 338.668 126.613C340.913 119.93 338.153 113.32 336.388 109.391C334.806 105.793 330.685 96.8698 320.642 89.893C310.305 82.6959 289.63 74.6909 275.945 85.0827C273.591 86.882 268.22 91.6923 265.829 102.047Z"
+                                            fill="white" />
+                                        <path
+                                            d="M267.374 117.176C265.019 116.772 259.06 115.377 255.197 110.273C249.311 102.525 252.475 91.6923 255.749 85.9639C260.899 76.9676 270.28 73.8464 282.052 69.9173C289.042 67.604 295.7 65.4008 304.75 65.768C309.753 65.9883 326.712 66.7227 336.866 79.3176C342.899 86.7718 343.561 94.7767 344.886 110.566C345.511 117.8 345.033 121.729 343.782 125.475C342.862 128.192 339.882 136.895 331.311 140.383C326.823 142.219 322.666 141.852 320.385 141.485C322.445 138.437 324.505 135.426 326.602 132.378C327.779 132.451 331.973 132.525 335.174 129.624C339.551 125.621 340.324 117.653 337.123 115.524C334.769 113.945 330.097 115.487 326.05 119.122C325.682 116.809 325.094 114.275 324.1 111.668C319.465 99.2198 309.385 92.3899 304.456 89.5625C302.506 92.0595 296.326 99.3667 285.363 102.268C276.681 104.544 269.47 102.929 266.27 101.974C266.638 107.041 267.006 112.109 267.374 117.176Z"
+                                            fill="#ADB2BA" />
+                                        <path
+                                            d="M265.534 103.002C267.042 114.348 268.624 126.136 274.179 136.344C278.741 144.716 286.098 151.876 295.553 154.263C296.252 154.447 296.546 153.382 295.847 153.198C286.503 150.811 279.293 143.614 274.878 135.279C269.618 125.364 268.109 113.981 266.638 103.002C266.527 102.304 265.424 102.304 265.534 103.002Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M295.553 154.41C302.212 154.41 309.202 150.848 314.425 147.029C319.686 143.174 323.99 138.216 327.08 132.488C327.411 131.864 326.455 131.313 326.124 131.937C323.144 137.519 318.987 142.366 313.874 146.074C308.76 149.82 301.991 153.308 295.553 153.308C294.818 153.308 294.818 154.41 295.553 154.41Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M314.388 146.148C313.653 153.565 315.087 160.983 318.472 167.629C318.803 168.253 319.759 167.703 319.428 167.078C316.117 160.579 314.793 153.382 315.492 146.148C315.566 145.45 314.462 145.45 314.388 146.148Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M298.386 154.226C299.6 158.412 300.593 162.672 301.329 166.968C301.807 169.832 301.991 173.064 305.192 174.129C309.974 175.744 317.037 172.88 318.877 168.143C319.134 167.482 318.067 167.188 317.81 167.849C316.78 170.53 314.205 171.999 311.556 172.77C309.349 173.394 306.001 174.055 304.125 172.256C303.021 171.191 302.874 169.502 302.653 168.07C302.396 166.564 302.138 165.059 301.844 163.553C301.182 160.322 300.409 157.09 299.489 153.933C299.269 153.272 298.202 153.565 298.386 154.226Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M299.968 158.78C306.516 157.935 310.82 152.941 313.984 147.58C314.352 146.956 313.395 146.405 313.027 147.029C310.121 152.023 306.074 156.907 299.968 157.678C299.269 157.788 299.269 158.89 299.968 158.78Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M299.71 155.034C304.824 154.447 309.422 152.06 312.843 148.204C313.322 147.69 312.549 146.882 312.071 147.433C308.87 151.068 304.529 153.382 299.71 153.933C299.048 154.006 299.011 155.108 299.71 155.034Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M299.894 154.226C304.014 153.639 307.73 151.95 310.894 149.269C311.445 148.792 310.636 148.021 310.121 148.498C307.104 151.068 303.536 152.647 299.6 153.198C298.901 153.272 299.195 154.336 299.894 154.226Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M299.673 155.144C299.857 156.026 299.821 157.788 300.924 158.082C301.991 158.376 303.61 157.127 304.456 156.613C307.362 154.851 309.79 152.464 311.703 149.673C312.108 149.086 311.151 148.535 310.747 149.122C309.385 151.142 307.73 152.941 305.78 154.41C304.861 155.108 303.904 155.695 302.911 156.246C302.506 156.466 301.586 157.09 301.182 156.833C300.924 156.687 300.814 155.108 300.777 154.851C300.593 154.153 299.526 154.447 299.673 155.144Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M300.188 156.173C303.352 154.887 306.332 153.272 309.127 151.325C309.716 150.922 309.164 149.967 308.576 150.371C305.853 152.28 302.984 153.859 299.894 155.108C299.232 155.365 299.526 156.43 300.188 156.173Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M300.74 157.274C304.272 156.026 307.362 154.079 309.937 151.362C310.415 150.848 309.643 150.077 309.164 150.591C306.7 153.125 303.793 155.034 300.446 156.209C299.783 156.466 300.078 157.531 300.74 157.274Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M301.329 156.687C303.941 155.548 306.332 154.006 308.392 152.023C308.907 151.546 308.135 150.775 307.62 151.252C305.596 153.161 303.315 154.63 300.777 155.732C300.115 156.026 300.667 156.98 301.329 156.687Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M271.273 130.909C265.277 128.779 263.29 120.958 263.879 115.303C264.504 109.097 270.096 102.341 276.939 105.242C280.213 106.637 281.427 110.236 282.31 113.43C283.229 116.809 283.634 120.554 282.751 124.006C281.978 127.054 280.102 129.954 277.159 131.276C274.216 132.598 270.721 131.864 268.735 129.33C268.293 128.779 267.521 129.551 267.962 130.101C271.31 134.398 277.601 133.553 280.985 129.771C285.289 124.96 284.848 117.653 283.009 111.888C282.162 109.208 281.059 106.417 278.594 104.875C276.46 103.516 273.738 103.186 271.347 103.81C265.755 105.315 262.849 111.227 262.738 116.625C262.628 122.537 264.946 129.844 271.053 131.974C271.641 132.194 271.935 131.129 271.273 130.909Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M284.002 119.93C287.607 117.763 291.985 117.543 295.737 119.416C296.362 119.746 296.914 118.792 296.289 118.461C292.169 116.405 287.386 116.588 283.413 118.975C282.861 119.342 283.413 120.297 284.002 119.93Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M301.586 127.751C297.429 123.749 295.7 117.543 297.319 111.962C299.011 106.16 304.824 101.166 311.078 103.222C317.994 105.499 318.362 115.377 316.559 121.178C315.492 124.593 313.358 128.008 309.827 129.257C306.295 130.505 303.242 128.633 300.409 126.65C299.821 126.246 299.269 127.2 299.857 127.604C302.175 129.257 304.677 130.909 307.62 130.799C310.415 130.689 312.954 129.147 314.683 127.054C318.582 122.353 319.355 115.193 317.736 109.465C316.265 104.25 311.924 100.872 306.369 101.79C301.071 102.635 297.172 107.408 295.995 112.402C294.633 118.167 296.473 124.41 300.74 128.522C301.329 129.036 302.101 128.229 301.586 127.751Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M274.621 115.67C274.253 117.984 274.657 120.224 275.908 122.207C276.166 122.61 276.754 122.537 276.902 122.06C277.784 119.526 276.534 117.029 275.283 114.863C275.025 114.385 274.253 114.606 274.253 115.156C274.29 117.102 274.694 119.012 275.43 120.811C275.688 121.472 276.754 121.178 276.497 120.517C275.798 118.792 275.393 117.029 275.356 115.156C275.025 115.266 274.657 115.34 274.326 115.45C275.467 117.396 276.644 119.526 275.835 121.803C276.166 121.766 276.497 121.729 276.828 121.656C275.724 119.93 275.32 117.984 275.651 115.964C275.798 115.266 274.731 114.973 274.621 115.67Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M307.178 114.642C307.178 114.165 307.141 114.055 306.921 113.651C306.663 113.173 305.891 113.394 305.891 113.945C305.927 116.221 306.111 118.681 307.877 120.297C308.245 120.628 308.76 120.371 308.834 119.893C309.128 117.176 308.319 114.642 306.626 112.512C306.259 112.072 305.596 112.549 305.707 113.063C306.148 114.863 306.7 116.625 307.362 118.314C307.62 118.975 308.686 118.681 308.429 118.02C307.73 116.295 307.178 114.569 306.774 112.77C306.479 112.953 306.148 113.137 305.854 113.32C307.362 115.23 307.988 117.506 307.73 119.93C308.061 119.783 308.355 119.673 308.686 119.526C307.105 118.094 307.031 115.927 306.994 113.945C306.663 114.055 306.295 114.128 305.964 114.238C306.001 114.385 306.038 114.532 306.075 114.679C306.075 115.34 307.178 115.34 307.178 114.642Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M287.68 121.876C286.945 124.079 286.319 126.319 285.915 128.596C285.694 129.808 284.921 132.084 285.473 133.296C286.577 135.756 291.47 134.251 293.162 133.443C293.787 133.149 293.235 132.194 292.61 132.488C291.249 133.149 289.777 133.48 288.269 133.369C287.386 133.296 286.687 133.149 286.503 132.158C286.393 131.607 286.761 130.175 286.871 129.551C287.312 127.017 287.975 124.557 288.784 122.133C288.968 121.509 287.901 121.215 287.68 121.876Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M293.235 143.063C295.994 142.696 298.385 140.934 299.599 138.4C299.894 137.776 298.937 137.188 298.643 137.849C297.539 140.163 295.479 141.668 292.941 141.999C292.242 142.109 292.573 143.174 293.235 143.063Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M272.303 112.512C273.002 111.668 274.29 111.521 275.173 112.255C275.724 112.733 276.497 111.925 275.945 111.484C274.658 110.383 272.671 110.456 271.531 111.741C271.052 112.255 271.825 113.027 272.303 112.512Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M303.867 110.456C305.007 109.465 306.736 109.465 307.877 110.419C308.429 110.86 309.201 110.089 308.649 109.648C307.031 108.253 304.676 108.29 303.058 109.685C302.543 110.162 303.352 110.934 303.867 110.456Z"
+                                            fill="#18191C" />
+                                        <path
+                                            d="M318.361 115.523C322.334 114.128 326.418 113.284 330.648 113.063C331.347 113.027 331.347 111.925 330.648 111.962C326.344 112.182 322.15 113.027 318.067 114.459C317.405 114.716 317.662 115.781 318.361 115.523Z"
+                                            fill="#18191C" />
+                                        <path opacity="0.4"
+                                            d="M323.843 69.7704C326.05 72.5979 334.548 84.2014 332.966 100.138C332.083 109.024 328.405 115.56 326.087 119.012C327.411 117.984 328.552 117.286 329.398 116.809C331.642 115.56 333.077 114.789 334.916 114.899C335.468 114.936 336.792 115.046 337.749 115.817C340.545 118.167 339.588 126.503 334.622 130.395C331.899 132.525 328.699 132.745 327.08 132.708C324.983 135.683 322.85 138.657 320.753 141.668C322.151 141.888 324.284 142.072 326.749 141.705C327.816 141.558 332.083 140.787 336.13 137.555C340.103 134.361 341.722 130.469 342.789 127.825C345.732 120.481 345.143 114.018 344.113 102.378C343.672 97.2003 343.414 94.5564 342.384 91.068C341.28 87.2859 339.551 81.7044 334.622 76.7105C331.09 73.0385 327.117 70.9822 323.843 69.7704Z"
+                                            fill="#042852" />
+                                        <path opacity="0.48"
+                                            d="M288.306 101.166C291.985 97.8979 296.105 93.7118 300.078 88.4976C302.543 85.2663 304.603 82.1451 306.295 79.2442C305.67 82.549 305.044 85.8538 304.456 89.1586C303.021 91.2149 300.63 94.1525 296.914 96.833C293.64 99.1464 290.55 100.432 288.306 101.166Z"
+                                            fill="#042852" />
+                                        <path opacity="0.27"
+                                            d="M314.462 96.9799C317.258 106.27 317.479 114.055 317.221 119.195C317.037 123.014 316.007 143.027 305.449 149.93C304.419 150.591 301.807 152.133 301.917 152.354C302.065 152.611 306.957 150.444 309.643 148.975C313.873 146.699 320.385 142.109 326.418 132.415C327.411 132.525 332.267 132.855 335.762 129.514C339.993 125.511 340.728 117.653 337.381 115.34C334.99 113.688 330.428 115.083 326.418 118.388C326.013 116.699 325.498 114.936 324.799 113.063C322.04 105.793 317.883 100.505 314.462 96.9799Z"
+                                            fill="#042852" />
+                                        <path opacity="0.36"
+                                            d="M305.596 152.06C306.552 154.997 307.509 157.935 308.465 160.909C309.79 164.949 311.077 169.024 312.365 173.064C313.101 172.917 314.903 172.403 316.485 170.787C318.067 169.171 318.582 167.409 318.766 166.674C317.331 163.847 315.639 159.551 315.05 154.116C314.756 151.289 314.83 148.792 315.05 146.699C311.923 148.498 308.76 150.297 305.596 152.06Z"
+                                            fill="#042852" />
+                                        <path opacity="0.43"
+                                            d="M287.239 123.161C285.4 127.09 283.56 130.983 281.721 134.912C284.737 134.838 287.717 134.801 290.734 134.728C288.968 134.177 287.165 133.626 285.4 133.076C285.988 129.771 286.614 126.466 287.239 123.161Z"
+                                            fill="#042852" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_1647_31253">
+                                            <rect width="492" height="382" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Counter Start -->
+    <div class="counter-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-lg-4 col-sm-6 mx-auto rt-mb-30">
+                    <div
+                        class="card jobcardStyle1 counterbox tw-bg-white hover:tw-shadow-[0px_12px_48px_rgba(0,44,109,0.1)]">
+                        <div class="card-body">
+                            <div class="rt-single-icon-box">
+                                <div class="icon-thumb">
+                                    <div class="icon-72">
+                                        <i class="ph-suitcase-simple"></i>
+                                    </div>
+                                </div>
+                                <div class="iconbox-content">
+                                    <div class="f-size-24 ft-wt-5">
+
+                                        <span class="counter">2</span>
+                                        <span>+</span>
+
+                                    </div>
+                                    <span class="text-gray-500 f-size-16">Live Jobs</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-sm-6 mx-auto rt-mb-30">
+                    <div
+                        class="card jobcardStyle1 counterbox tw-bg-white hover:tw-shadow-[0px_12px_48px_rgba(0,44,109,0.1)]">
+                        <div class="card-body">
+                            <div class="rt-single-icon-box">
+                                <div class="icon-thumb">
+                                    <div class="icon-72">
+                                        <i class="ph-buildings"></i>
+                                    </div>
+                                </div>
+                                <div class="iconbox-content">
+                                    <div class="f-size-24 ft-wt-5">
+
+                                        <span class="counter">14</span>
+                                        <span>+</span>
+
+                                    </div>
+                                    <span class="text-gray-500 f-size-16">Companies</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-sm-6 mx-auto rt-mb-30">
+                    <div
+                        class="card jobcardStyle1 counterbox tw-bg-white hover:tw-shadow-[0px_12px_48px_rgba(0,44,109,0.1)]">
+                        <div class="card-body">
+                            <div class="rt-single-icon-box">
+                                <div class="icon-thumb">
+                                    <div class="icon-72">
+                                        <i class="ph-users"></i>
+                                    </div>
+                                </div>
+
+                                <div class="iconbox-content">
+                                    <div class="f-size-24 ft-wt-5">
+                                        <span class="counter">31</span>
+                                        <span>+</span>
+                                    </div>
+                                    <span class="text-gray-500 f-size-16">Candidates</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-sm-6 mx-auto rt-mb-30">
+                    <div
+                        class="card jobcardStyle1 counterbox tw-bg-white hover:tw-shadow-[0px_12px_48px_rgba(0,44,109,0.1)]">
+                        <div class="card-body">
+                            <div class="rt-single-icon-box">
+                                <div class="icon-thumb">
+                                    <div class="icon-72">
+                                        <i class="ph-suitcase-simple"></i>
+                                    </div>
+                                </div>
+                                <div class="iconbox-content">
+                                    <div class="f-size-24 ft-wt-5">
+
+                                        <span class="counter">5</span>
+                                        <span>+</span>
+
+                                    </div>
+                                    <span class="text-gray-500 f-size-16">Total New Jobs</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- google adsense area -->
+    <!-- google adsense area end -->
+    <!-- Why choose us -->
+    <div class="working-process tw-bg-[#F1F2F4]">
+        <div class="rt-spacer-100 rt-spacer-md-50"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center text-h4 ft-wt-5">
+                    Why choose us
+                </div>
+            </div>
+            <div class="rt-spacer-50"></div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-6 rt-mb-24">
+                    <div class="rt-single-icon-box working-progress icon-center">
+                        <div class="icon-thumb rt-mb-24">
+                            <div class="icon-72">
+                                <i class="ph ph-handshake"></i>
+                            </div>
+                        </div>
+                        <div class="iconbox-content">
+                            <div class="body-font-2 rt-mb-12">Cost Effective</div>
+                            <div class="body-font-4 text-gray-700">
+                                Whether you choose to post your jobs directly or have them indexed automatically, our
+                                pricing model is highly competitive and cost-effective.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 rt-mb-24">
+                    <div class="rt-single-icon-box working-progress icon-center">
+                        <div class="icon-thumb rt-mb-24">
+                            <div class="icon-72">
+                                <i class="ph ph-check"></i>
+                            </div>
+                        </div>
+                        <div class="iconbox-content">
+                            <div class="body-font-2 rt-mb-12">Easy to Use</div>
+                            <div class="body-font-4 text-gray-700">
+                                We have created a streamlined user-interface so you can easily manage your jobs and
+                                candidates.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 rt-mb-24">
+                    <div class="rt-single-icon-box working-progress icon-center">
+                        <div class="icon-thumb rt-mb-24">
+                            <div class="icon-72">
+                                <i class="ph ph-user-list"></i>
+                            </div>
+                        </div>
+                        <div class="iconbox-content">
+                            <div class="body-font-2 rt-mb-12">Quality Candidate</div>
+                            <div class="body-font-4 text-gray-700">
+                                Irrespective of your organization&#039;s size, we have a large pool of candidates with
+                                diverse skill sets and experience levels.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 rt-mb-24 tw-text-center">
+                    <p class="body-font-3">Have a question ?</p>
+                    <a href="https://jobpilot.lomeyolabs.com/contact">Contact us</a>
+                </div>
+            </div>
+        </div>
+        <div class="rt-spacer-100 rt-spacer-md-50"></div>
+    </div>
+    <!-- google adsense area -->
+    <!-- google adsense area end -->
+    <div class="most-popular-area rt-pt-100 rt-pt-md-50">
+        <div class="container">
+            <h4>Most Popular Vacancies</h4>
+            <div class="rt-spacer-40 rt-spacer-md-20"></div>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <a href="https://jobpilot.lomeyolabs.com/jobs?job_role=6" class="most-popular-wrap">
+                        <div class="most-popular-item">
+                            <h3>Administrator</h3>
+                            <p>2 Open Positions</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <a href="https://jobpilot.lomeyolabs.com/jobs?job_role=1" class="most-popular-wrap">
+                        <div class="most-popular-item">
+                            <h3>Team Leader</h3>
+                            <p>0 Open Positions</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <a href="https://jobpilot.lomeyolabs.com/jobs?job_role=2" class="most-popular-wrap">
+                        <div class="most-popular-item">
+                            <h3>Manager</h3>
+                            <p>0 Open Positions</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <a href="https://jobpilot.lomeyolabs.com/jobs?job_role=3" class="most-popular-wrap">
+                        <div class="most-popular-item">
+                            <h3>Assistant Manager</h3>
+                            <p>0 Open Positions</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <a href="https://jobpilot.lomeyolabs.com/jobs?job_role=4" class="most-popular-wrap">
+                        <div class="most-popular-item">
+                            <h3>Executive</h3>
+                            <p>0 Open Positions</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <a href="https://jobpilot.lomeyolabs.com/jobs?job_role=5" class="most-popular-wrap">
+                        <div class="most-popular-item">
+                            <h3>Director</h3>
+                            <p>0 Open Positions</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <div class="rt-spacer-90 rt-spacer-md-50"></div>
+    </div>
+    <!-- google adsense area -->
+    <!-- google adsense area end -->
+    <!-- catagory  Start -->
+    <section class="catagory-area rt-pt-100 rt-pt-md-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex flex-wrap">
+                        <div class="flex-grow-1">
+                            <h4>Popular Category</h4>
+                        </div>
+                        <div class="flex-grow-0 rt-pt-md-10">
+                            <a href="https://jobpilot.lomeyolabs.com/jobs" class="btn btn-outline-primary">
+                                <span class="button-content-wrapper ">
+                                    <span class="button-icon align-icon-right">
+                                        <i class="ph-arrow-right"></i>
+                                    </span>
+                                    <span class="button-text">
+                                        View All Jobs
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rt-spacer-40 rt-spacer-md-20"></div>
+            <div class="row g-3">
+
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <a href="https://jobpilot.lomeyolabs.com/jobs/category/garmentstextile"
+                        class="popular-category-item">
+                        <div class="popular-category-icon">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <div class="popular-category-data">
+                            <h4>Garments/Textile</h4>
+                            <p>1 Open Positions</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <a href="https://jobpilot.lomeyolabs.com/jobs/category/hospitality-travel-tourism"
+                        class="popular-category-item">
+                        <div class="popular-category-icon">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <div class="popular-category-data">
+                            <h4>Hospitality/ Travel/ Tourism</h4>
+                            <p>1 Open Positions</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <a href="https://jobpilot.lomeyolabs.com/jobs/category/engineerarchitects"
+                        class="popular-category-item">
+                        <div class="popular-category-icon">
+                            <i class="fas fa-hammer"></i>
+                        </div>
+                        <div class="popular-category-data">
+                            <h4>Engineer/Architectssss</h4>
+                            <p>0 Open Positions</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <a href="https://jobpilot.lomeyolabs.com/jobs/category/designcreative"
+                        class="popular-category-item">
+                        <div class="popular-category-icon">
+                            <i class="fas fa-pen"></i>
+                        </div>
+                        <div class="popular-category-data">
+                            <h4>Design/Creative</h4>
+                            <p>0 Open Positions</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <a href="https://jobpilot.lomeyolabs.com/jobs/category/it-telecommunication"
+                        class="popular-category-item">
+                        <div class="popular-category-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <div class="popular-category-data">
+                            <h4>IT &amp; Telecommunication</h4>
+                            <p>0 Open Positions</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <a href="https://jobpilot.lomeyolabs.com/jobs/category/medicalpharma"
+                        class="popular-category-item">
+                        <div class="popular-category-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="popular-category-data">
+                            <h4>Medical/Pharma</h4>
+                            <p>0 Open Positions</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <a href="https://jobpilot.lomeyolabs.com/jobs/category/drivingmotor-technician"
+                        class="popular-category-item">
+                        <div class="popular-category-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="popular-category-data">
+                            <h4>Driving/Motor Technician</h4>
+                            <p>0 Open Positions</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <a href="https://jobpilot.lomeyolabs.com/jobs/category/lawlegal" class="popular-category-item">
+                        <div class="popular-category-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <div class="popular-category-data">
+                            <h4>Law/Legal</h4>
+                            <p>0 Open Positions</p>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        <div class="rt-spacer-100 rt-spacer-md-50"></div>
+    </section>
+    <!-- google adsense area end -->
+    <!-- Working Process  Start -->
+    <div class="working-process tw-bg-[#F1F2F4]">
+        <div class="rt-spacer-100 rt-spacer-md-50"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center text-h4 ft-wt-5">
+                    <span class="text-primary-500 has-title-shape">Jobpilot
+                        <img src="https://jobpilot.lomeyolabs.com/frontend/assets/images/all-img/title-shape.png"
+                            alt="Title Shape Image" loading="lazy">
+                    </span>
+                    Working Process
+                </div>
+            </div>
+            <div class="rt-spacer-50"></div>
+            <div class="row">
+                <div class="col-lg-3 col-sm-6 rt-mb-24 position-relative">
+                    <div class="has-arrow first">
+                        <img src="https://jobpilot.lomeyolabs.com/frontend/assets/images/all-img/arrow-1.png"
+                            alt="Enhanced Navigation Image" draggable="false" loading="lazy">
+                    </div>
+                    <div class="rt-single-icon-box working-progress icon-center">
+                        <div class="icon-thumb rt-mb-24">
+                            <div class="icon-72">
+                                <i class="ph-user-plus"></i>
+                            </div>
+                        </div>
+                        <div class="iconbox-content">
+                            <div class="body-font-2 rt-mb-12">Explore Opportunities</div>
+                            <div class="body-font-4 text-gray-700">
+                                Browse through a diverse range of job listings tailored to your interests and expertise
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 rt-mb-24 col-sm-6 position-relative">
+                    <div class="has-arrow middle">
+                        <img src="https://jobpilot.lomeyolabs.com/frontend/assets/images/all-img/arrow-2.png"
+                            alt="Middle Arrow Navigation" draggable="false" loading="lazy">
+                    </div>
+                    <div class="rt-single-icon-box working-progress icon-center">
+                        <div class="icon-thumb rt-mb-24">
+                            <div class="icon-72">
+                                <i class="ph-cloud-arrow-up"></i>
+                            </div>
+                        </div>
+                        <div class="iconbox-content">
+                            <div class="body-font-2 rt-mb-12">Create Your Profile</div>
+                            <div class="body-font-4 text-gray-700">
+                                Build a standout profile highlighting your skills, experience, and qualifications
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 rt-mb-24 col-sm-6 position-relative">
+                    <div class="has-arrow last">
+                        <img src="https://jobpilot.lomeyolabs.com/frontend/assets/images/all-img/arrow-1.png"
+                            alt="Last Arrow" draggable="false" loading="lazy">
+                    </div>
+                    <div class="rt-single-icon-box working-progress icon-center">
+                        <div class="icon-thumb rt-mb-24">
+                            <div class="icon-72">
+                                <i class="ph-magnifying-glass-plus"></i>
+                            </div>
+                        </div>
+                        <div class="iconbox-content">
+                            <div class="body-font-2 rt-mb-12">Apply with Ease</div>
+                            <div class="body-font-4 text-gray-700">
+                                Effortlessly apply to jobs that match your preferences with just a few clicks
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 rt-mb-24 col-sm-6">
+                    <div class="rt-single-icon-box working-progress icon-center">
+                        <div class="icon-thumb rt-mb-24">
+                            <div class="icon-72">
+                                <i class="ph-circle-wavy-check"></i>
+                            </div>
+                        </div>
+                        <div class="iconbox-content">
+                            <div class="body-font-2 rt-mb-12">Track Your Progress</div>
+                            <div class="body-font-4 text-gray-700">
+                                Stay informed on your applications and manage your job-seeking journey effectively
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="rt-spacer-100 rt-spacer-md-50"></div>
+    </div>
+    <!-- google adsense area -->
+    <!-- google adsense area end -->
+    <!-- feature Job Start -->
+    <section class="featurejob-area rt-pt-40 rt-pt-md-20">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex flex-wrap">
+                        <div class="flex-grow-1">
+                            <h4>Featured Job</h4>
+                        </div>
+                        <a href="https://jobpilot.lomeyolabs.com/jobs" class="flex-grow-0 rt-pt-md-10">
+                            <button class="btn btn-outline-primary">
+                                <span class="button-content-wrapper ">
+                                    <span class="button-icon align-icon-right">
+                                        <i class="ph-arrow-right"></i>
+                                    </span>
+                                    <span>
+                                        View All
+                                    </span>
+                                </span>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="rt-spacer-40 "></div>
+            <div class="row">
+                <div class="col-12">
+                    <ul class="rt-list">
+                        <li class="d-block fade-in-bottom  rt-mb-24">
+                            <div class="card iconxl-size jobcardStyle1 flex-wrap ">
+                                <div class="card-body">
+                                    <div class="rt-single-icon-box icb-clmn-lg ">
+                                        <a href="https://jobpilot.lomeyolabs.com/job/mern-stack-developer_1765771499_3015270277"
+                                            class="icon-thumb">
+                                            <img class="tw-rounded-lg tw-w-[56px] tw-h-[56px]"
+                                                src="https://jobpilot.lomeyolabs.com/dummy-data/images/companies/company-logo-01.jpg"
+                                                alt="logo" draggable="false">
+                                        </a>
+                                        <a href="https://jobpilot.lomeyolabs.com/job/mern-stack-developer_1765771499_3015270277"
+                                            class="iconbox-content">
+                                            <div class="post-info2">
+
+                                                <div class="post-main-title">
+                                                    MERN Stack Developer
+                                                    <span class="badge rounded-pill bg-primary-50 text-primary-500">
+                                                        Contractual
+                                                    </span>
+                                                </div>
+                                                <div class="body-font-4 text-gray-600 pt-2">
+                                                    <span class="info-tools">
+                                                        <svg width="22" height="22" viewBox="0 0 24 24"
+                                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z"
+                                                                stroke="#C5C9D6" stroke-width="1.5"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                            <path
+                                                                d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z"
+                                                                stroke="#C5C9D6" stroke-width="1.5"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+
+                                                        Aruba
+                                                    </span>
+                                                    <span class="info-tools">
+                                                        <svg width="22" height="22" viewBox="0 0 22 22"
+                                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M11 2.0625V19.9375" stroke="#C5C9D6"
+                                                                stroke-width="1.5" stroke-linecap="round"
+                                                                stroke-linejoin="round" />
+                                                            <path
+                                                                d="M15.8125 7.5625C15.8125 7.11108 15.7236 6.66408 15.5508 6.24703C15.3781 5.82997 15.1249 5.45102 14.8057 5.13182C14.4865 4.81262 14.1075 4.55941 13.6905 4.38666C13.2734 4.21391 12.8264 4.125 12.375 4.125H9.28125C8.36957 4.125 7.49523 4.48716 6.85057 5.13182C6.20591 5.77648 5.84375 6.65082 5.84375 7.5625C5.84375 8.47418 6.20591 9.34852 6.85057 9.99318C7.49523 10.6378 8.36957 11 9.28125 11H13.0625C13.9742 11 14.8485 11.3622 15.4932 12.0068C16.1378 12.6515 16.5 13.5258 16.5 14.4375C16.5 15.3492 16.1378 16.2235 15.4932 16.8682C14.8485 17.5128 13.9742 17.875 13.0625 17.875H8.9375C8.02582 17.875 7.15148 17.5128 6.50682 16.8682C5.86216 16.2235 5.5 15.3492 5.5 14.4375"
+                                                                stroke="#C5C9D6" stroke-width="1.5"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+
+                                                        Competitive
+                                                    </span>
+                                                    <span class="info-tools">
+                                                        <svg width="22" height="22" viewBox="0 0 22 22"
+                                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M17.875 3.4375H4.125C3.7453 3.4375 3.4375 3.7453 3.4375 4.125V17.875C3.4375 18.2547 3.7453 18.5625 4.125 18.5625H17.875C18.2547 18.5625 18.5625 18.2547 18.5625 17.875V4.125C18.5625 3.7453 18.2547 3.4375 17.875 3.4375Z"
+                                                                stroke="#C5C9D6" stroke-width="1.5"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                            <path d="M15.125 2.0625V4.8125" stroke="#C5C9D6"
+                                                                stroke-width="1.5" stroke-linecap="round"
+                                                                stroke-linejoin="round" />
+                                                            <path d="M6.875 2.0625V4.8125" stroke="#C5C9D6"
+                                                                stroke-width="1.5" stroke-linecap="round"
+                                                                stroke-linejoin="round" />
+                                                            <path d="M3.4375 7.5625H18.5625" stroke="#C5C9D6"
+                                                                stroke-width="1.5" stroke-linecap="round"
+                                                                stroke-linejoin="round" />
+                                                        </svg>
+
+                                                        <span>8h 52m Remaining</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="iconbox-extra align-self-center">
+                                            <div>
+                                                <button title="Bookmark" aria-label="Bookmark" type="button"
+                                                    class="text-primary-500 hoverbg-primary-50 plain-button icon-button login_required">
+                                                    <svg width="24" height="24" viewBox="0 0 24 24"
+                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M18 21L11.9993 17.25L6 21V4.5C6 4.30109 6.07902 4.11032 6.21967 3.96967C6.36032 3.82902 6.55109 3.75 6.75 3.75H17.25C17.4489 3.75 17.6397 3.82902 17.7803 3.96967C17.921 4.11032 18 4.30109 18 4.5V21Z"
+                                                            stroke="currentColor" stroke-width="1.5"
+                                                            stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
+
+                                                </button>
+                                            </div>
+                                            <a href="https://forms.gle/qhUeH3qte7N3rSJ5A" title="Apply Now"
+                                                target="_blank" class="btn btn-primary2-50">
+                                                <span class="button-content-wrapper ">
+                                                    <span class="button-icon align-icon-right"><i
+                                                            class="ph-arrow-right"></i></span>
+                                                    <span class="button-text">Apply Now</span>
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- google adsense area -->
+    <!-- google adsense area end -->
+    <!-- feature Job Start -->
+    <section class="featurejob-area rt-pt-100 rt-pt-md-50 mb-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex flex-wrap">
+                        <div class="flex-grow-1">
+                            <h4>Top <span class="text-primary-500 has-title-shape">Companies
+                                    <img src="https://jobpilot.lomeyolabs.com/frontend/assets/images/all-img/title-shape.png"
+                                        alt="Company Title Shape" loading="lazy">
+                                </span></h4>
+                        </div>
+                        <a href="https://jobpilot.lomeyolabs.com/employers" class="flex-grow-0 rt-pt-md-10">
+                            <button class="btn btn-outline-primary">
+                                <span class="button-content-wrapper ">
+                                    <span class="button-icon align-icon-right">
+                                        <i class="ph-arrow-right"></i>
+                                    </span>
+                                    <span>
+                                        View All
+                                    </span>
+                                </span>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="rt-spacer-40 "></div>
+            <div class="row">
+                <div class="col-xl-4 col-md-6 fade-in-bottom  condition_class rt-mb-24 tw-self-stretch">
+                    <a href="https://jobpilot.lomeyolabs.com/employer/digital-point"
+                        class="card jobcardStyle1 tw-relative tw-h-full">
+                        <div class="tw-p-6 !tw-pb-[72px]">
+                            <div class="rt-single-icon-box tw-gap-3">
+                                <div class="tw-w-14 tw-h-14">
+                                    <img class="tw-w-full tw-h-full tw-object-cover"
+                                        src="https://jobpilot.lomeyolabs.com/dummy-data/images/companies/company-logo-01.jpg"
+                                        alt="Company Logo" draggable="false" class="object-fit-contain"
+                                        loading="lazy">
+                                </div>
+                                <div class="iconbox-content">
+                                    <div class="">
+
+                                        <span
+                                            class="tw-text-[#191F33] tw-text-lg tw-font-medium  tw-inline-block">Digital
+                                            Point</span>
+                                    </div>
+                                    <span class="loacton text-gray-700 ">
+                                        <i class="ph-map-pin"></i>
+                                        Greenland
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="post-info">
+                                <div class="tw-flex tw-flex-wrap tw-gap-3">
+                                    <span
+                                        class="tw-px-3 tw-py-1 tw-inline-block tw-text-sm tw-font-medium tw-text-[#474C54] tw-rounded-[52px] ll-gray-border">
+                                        NGO/Development
+                                    </span>
+                                    <span
+                                        class="tw-px-3 tw-py-1 tw-inline-block tw-text-sm tw-font-medium tw-text-[#474C54] tw-rounded-[52px] ll-gray-border">2
+                                        Open Position</span>
+                                </div>
+                                <div
+                                    class="tw-absolute tw-bottom-6 tw-left-6 tw-text-base tw-font-semibold tw-capitalize tw-inline-flex tw-items-center tw-gap-1">
+                                    <span>View Profile</span>
+                                    <i class="ph-bold ph-arrow-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-4 col-md-6 fade-in-bottom  condition_class rt-mb-24 tw-self-stretch">
+                    <a href="https://jobpilot.lomeyolabs.com/employer/templatecookie"
+                        class="card jobcardStyle1 tw-relative tw-h-full">
+                        <div class="tw-p-6 !tw-pb-[72px]">
+                            <div class="rt-single-icon-box tw-gap-3">
+                                <div class="tw-w-14 tw-h-14">
+                                    <img class="tw-w-full tw-h-full tw-object-cover"
+                                        src="https://s3.envato.com/files/385317130/Templatecookie-favicon.png"
+                                        alt="Company Logo" draggable="false" class="object-fit-contain"
+                                        loading="lazy">
+                                </div>
+                                <div class="iconbox-content">
+                                    <div class="">
+
+                                        <span
+                                            class="tw-text-[#191F33] tw-text-lg tw-font-medium  tw-inline-block">Templatecookie</span>
+                                    </div>
+                                    <span class="loacton text-gray-700 ">
+                                        <i class="ph-map-pin"></i>
+                                        Bangladesh
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="post-info">
+                                <div class="tw-flex tw-flex-wrap tw-gap-3">
+                                    <span
+                                        class="tw-px-3 tw-py-1 tw-inline-block tw-text-sm tw-font-medium tw-text-[#474C54] tw-rounded-[52px] ll-gray-border">
+                                        Hotel/Restaurant
+                                    </span>
+                                    <span
+                                        class="tw-px-3 tw-py-1 tw-inline-block tw-text-sm tw-font-medium tw-text-[#474C54] tw-rounded-[52px] ll-gray-border">1
+                                        Open Position</span>
+                                </div>
+                                <div
+                                    class="tw-absolute tw-bottom-6 tw-left-6 tw-text-base tw-font-semibold tw-capitalize tw-inline-flex tw-items-center tw-gap-1">
+                                    <span>View Profile</span>
+                                    <i class="ph-bold ph-arrow-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-4 col-md-6 fade-in-bottom  condition_class rt-mb-24 tw-self-stretch">
+                    <a href="https://jobpilot.lomeyolabs.com/employer/nerdware"
+                        class="card jobcardStyle1 tw-relative tw-h-full">
+                        <div class="tw-p-6 !tw-pb-[72px]">
+                            <div class="rt-single-icon-box tw-gap-3">
+                                <div class="tw-w-14 tw-h-14">
+                                    <img class="tw-w-full tw-h-full tw-object-cover"
+                                        src="https://jobpilot.lomeyolabs.com/dummy-data/images/companies/company-logo-04.jpg"
+                                        alt="Company Logo" draggable="false" class="object-fit-contain"
+                                        loading="lazy">
+                                </div>
+                                <div class="iconbox-content">
+                                    <div class="">
+
+                                        <span
+                                            class="tw-text-[#191F33] tw-text-lg tw-font-medium  tw-inline-block">Nerdware</span>
+                                    </div>
+                                    <span class="loacton text-gray-700 ">
+                                        <i class="ph-map-pin"></i>
+                                        Australia
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="post-info">
+                                <div class="tw-flex tw-flex-wrap tw-gap-3">
+                                    <span
+                                        class="tw-px-3 tw-py-1 tw-inline-block tw-text-sm tw-font-medium tw-text-[#474C54] tw-rounded-[52px] ll-gray-border">
+                                        Hotel/Restaurant
+                                    </span>
+                                    <span
+                                        class="tw-px-3 tw-py-1 tw-inline-block tw-text-sm tw-font-medium tw-text-[#474C54] tw-rounded-[52px] ll-gray-border">1
+                                        Open Position</span>
+                                </div>
+                                <div
+                                    class="tw-absolute tw-bottom-6 tw-left-6 tw-text-base tw-font-semibold tw-capitalize tw-inline-flex tw-items-center tw-gap-1">
+                                    <span>View Profile</span>
+                                    <i class="ph-bold ph-arrow-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-4 col-md-6 fade-in-bottom  condition_class rt-mb-24 tw-self-stretch">
+                    <a href="https://jobpilot.lomeyolabs.com/employer/addtek-software-co"
+                        class="card jobcardStyle1 tw-relative tw-h-full">
+                        <div class="tw-p-6 !tw-pb-[72px]">
+                            <div class="rt-single-icon-box tw-gap-3">
+                                <div class="tw-w-14 tw-h-14">
+                                    <img class="tw-w-full tw-h-full tw-object-cover"
+                                        src="https://jobpilot.lomeyolabs.com/dummy-data/images/companies/company-logo-08.png"
+                                        alt="Company Logo" draggable="false" class="object-fit-contain"
+                                        loading="lazy">
+                                </div>
+                                <div class="iconbox-content">
+                                    <div class="">
+
+                                        <span
+                                            class="tw-text-[#191F33] tw-text-lg tw-font-medium  tw-inline-block">AddTek
+                                            Software Co.</span>
+                                    </div>
+                                    <span class="loacton text-gray-700 ">
+                                        <i class="ph-map-pin"></i>
+                                        Dominica
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="post-info">
+                                <div class="tw-flex tw-flex-wrap tw-gap-3">
+                                    <span
+                                        class="tw-px-3 tw-py-1 tw-inline-block tw-text-sm tw-font-medium tw-text-[#474C54] tw-rounded-[52px] ll-gray-border">
+                                        Information Technology
+                                    </span>
+                                    <span
+                                        class="tw-px-3 tw-py-1 tw-inline-block tw-text-sm tw-font-medium tw-text-[#474C54] tw-rounded-[52px] ll-gray-border">1
+                                        Open Position</span>
+                                </div>
+                                <div
+                                    class="tw-absolute tw-bottom-6 tw-left-6 tw-text-base tw-font-semibold tw-capitalize tw-inline-flex tw-items-center tw-gap-1">
+                                    <span>View Profile</span>
+                                    <i class="ph-bold ph-arrow-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-4 col-md-6 fade-in-bottom  condition_class rt-mb-24 tw-self-stretch">
+                    <a href="https://jobpilot.lomeyolabs.com/employer/quantum-comp-solutions"
+                        class="card jobcardStyle1 tw-relative tw-h-full">
+                        <div class="tw-p-6 !tw-pb-[72px]">
+                            <div class="rt-single-icon-box tw-gap-3">
+                                <div class="tw-w-14 tw-h-14">
+                                    <img class="tw-w-full tw-h-full tw-object-cover"
+                                        src="https://jobpilot.lomeyolabs.com/dummy-data/images/companies/company-logo-02.jpg"
+                                        alt="Company Logo" draggable="false" class="object-fit-contain"
+                                        loading="lazy">
+                                </div>
+                                <div class="iconbox-content">
+                                    <div class="">
+
+                                        <span
+                                            class="tw-text-[#191F33] tw-text-lg tw-font-medium  tw-inline-block">Quantum
+                                            Comp Solutions</span>
+                                    </div>
+                                    <span class="loacton text-gray-700 ">
+                                        <i class="ph-map-pin"></i>
+                                        Tanzania
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="post-info">
+                                <div class="tw-flex tw-flex-wrap tw-gap-3">
+                                    <span
+                                        class="tw-px-3 tw-py-1 tw-inline-block tw-text-sm tw-font-medium tw-text-[#474C54] tw-rounded-[52px] ll-gray-border">
+                                        Telecommunication
+                                    </span>
+                                    <span
+                                        class="tw-px-3 tw-py-1 tw-inline-block tw-text-sm tw-font-medium tw-text-[#474C54] tw-rounded-[52px] ll-gray-border">0
+                                        Open Position</span>
+                                </div>
+                                <div
+                                    class="tw-absolute tw-bottom-6 tw-left-6 tw-text-base tw-font-semibold tw-capitalize tw-inline-flex tw-items-center tw-gap-1">
+                                    <span>View Profile</span>
+                                    <i class="ph-bold ph-arrow-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-4 col-md-6 fade-in-bottom  condition_class rt-mb-24 tw-self-stretch">
+                    <a href="https://jobpilot.lomeyolabs.com/employer/tritech-international"
+                        class="card jobcardStyle1 tw-relative tw-h-full">
+                        <div class="tw-p-6 !tw-pb-[72px]">
+                            <div class="rt-single-icon-box tw-gap-3">
+                                <div class="tw-w-14 tw-h-14">
+                                    <img class="tw-w-full tw-h-full tw-object-cover"
+                                        src="https://jobpilot.lomeyolabs.com/dummy-data/images/companies/company-logo-03.jpg"
+                                        alt="Company Logo" draggable="false" class="object-fit-contain"
+                                        loading="lazy">
+                                </div>
+                                <div class="iconbox-content">
+                                    <div class="">
+
+                                        <span
+                                            class="tw-text-[#191F33] tw-text-lg tw-font-medium  tw-inline-block">TriTech
+                                            International</span>
+                                    </div>
+                                    <span class="loacton text-gray-700 ">
+                                        <i class="ph-map-pin"></i>
+                                        Belgium
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="post-info">
+                                <div class="tw-flex tw-flex-wrap tw-gap-3">
+                                    <span
+                                        class="tw-px-3 tw-py-1 tw-inline-block tw-text-sm tw-font-medium tw-text-[#474C54] tw-rounded-[52px] ll-gray-border">
+                                        Media/Advertising/Event Mgt.
+                                    </span>
+                                    <span
+                                        class="tw-px-3 tw-py-1 tw-inline-block tw-text-sm tw-font-medium tw-text-[#474C54] tw-rounded-[52px] ll-gray-border">0
+                                        Open Position</span>
+                                </div>
+                                <div
+                                    class="tw-absolute tw-bottom-6 tw-left-6 tw-text-base tw-font-semibold tw-capitalize tw-inline-flex tw-items-center tw-gap-1">
+                                    <span>View Profile</span>
+                                    <i class="ph-bold ph-arrow-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-4 col-md-6 fade-in-bottom  condition_class rt-mb-24 tw-self-stretch">
+                    <a href="https://jobpilot.lomeyolabs.com/employer/fiscal-analytics"
+                        class="card jobcardStyle1 tw-relative tw-h-full">
+                        <div class="tw-p-6 !tw-pb-[72px]">
+                            <div class="rt-single-icon-box tw-gap-3">
+                                <div class="tw-w-14 tw-h-14">
+                                    <img class="tw-w-full tw-h-full tw-object-cover"
+                                        src="https://jobpilot.lomeyolabs.com/dummy-data/images/companies/company-logo-05.jpg"
+                                        alt="Company Logo" draggable="false" class="object-fit-contain"
+                                        loading="lazy">
+                                </div>
+                                <div class="iconbox-content">
+                                    <div class="">
+
+                                        <span
+                                            class="tw-text-[#191F33] tw-text-lg tw-font-medium  tw-inline-block">Fiscal
+                                            Analytics</span>
+                                    </div>
+                                    <span class="loacton text-gray-700 ">
+                                        <i class="ph-map-pin"></i>
+                                        Syrian Arab Republic
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="post-info">
+                                <div class="tw-flex tw-flex-wrap tw-gap-3">
+                                    <span
+                                        class="tw-px-3 tw-py-1 tw-inline-block tw-text-sm tw-font-medium tw-text-[#474C54] tw-rounded-[52px] ll-gray-border">
+                                        Logistics/Transportation
+                                    </span>
+                                    <span
+                                        class="tw-px-3 tw-py-1 tw-inline-block tw-text-sm tw-font-medium tw-text-[#474C54] tw-rounded-[52px] ll-gray-border">0
+                                        Open Position</span>
+                                </div>
+                                <div
+                                    class="tw-absolute tw-bottom-6 tw-left-6 tw-text-base tw-font-semibold tw-capitalize tw-inline-flex tw-items-center tw-gap-1">
+                                    <span>View Profile</span>
+                                    <i class="ph-bold ph-arrow-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-4 col-md-6 fade-in-bottom  condition_class rt-mb-24 tw-self-stretch">
+                    <a href="https://jobpilot.lomeyolabs.com/employer/radiance-software"
+                        class="card jobcardStyle1 tw-relative tw-h-full">
+                        <div class="tw-p-6 !tw-pb-[72px]">
+                            <div class="rt-single-icon-box tw-gap-3">
+                                <div class="tw-w-14 tw-h-14">
+                                    <img class="tw-w-full tw-h-full tw-object-cover"
+                                        src="https://jobpilot.lomeyolabs.com/dummy-data/images/companies/company-logo-06.png"
+                                        alt="Company Logo" draggable="false" class="object-fit-contain"
+                                        loading="lazy">
+                                </div>
+                                <div class="iconbox-content">
+                                    <div class="">
+
+                                        <span
+                                            class="tw-text-[#191F33] tw-text-lg tw-font-medium  tw-inline-block">Radiance
+                                            Software</span>
+                                    </div>
+                                    <span class="loacton text-gray-700 ">
+                                        <i class="ph-map-pin"></i>
+                                        Jordan
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="post-info">
+                                <div class="tw-flex tw-flex-wrap tw-gap-3">
+                                    <span
+                                        class="tw-px-3 tw-py-1 tw-inline-block tw-text-sm tw-font-medium tw-text-[#474C54] tw-rounded-[52px] ll-gray-border">
+                                        Wholesale/Retail/Export-Import
+                                    </span>
+                                    <span
+                                        class="tw-px-3 tw-py-1 tw-inline-block tw-text-sm tw-font-medium tw-text-[#474C54] tw-rounded-[52px] ll-gray-border">0
+                                        Open Position</span>
+                                </div>
+                                <div
+                                    class="tw-absolute tw-bottom-6 tw-left-6 tw-text-base tw-font-semibold tw-capitalize tw-inline-flex tw-items-center tw-gap-1">
+                                    <span>View Profile</span>
+                                    <i class="ph-bold ph-arrow-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-4 col-md-6 fade-in-bottom  condition_class rt-mb-24 tw-self-stretch">
+                    <a href="https://jobpilot.lomeyolabs.com/employer/intelliware"
+                        class="card jobcardStyle1 tw-relative tw-h-full">
+                        <div class="tw-p-6 !tw-pb-[72px]">
+                            <div class="rt-single-icon-box tw-gap-3">
+                                <div class="tw-w-14 tw-h-14">
+                                    <img class="tw-w-full tw-h-full tw-object-cover"
+                                        src="https://jobpilot.lomeyolabs.com/dummy-data/images/companies/company-logo-07.png"
+                                        alt="Company Logo" draggable="false" class="object-fit-contain"
+                                        loading="lazy">
+                                </div>
+                                <div class="iconbox-content">
+                                    <div class="">
+
+                                        <span
+                                            class="tw-text-[#191F33] tw-text-lg tw-font-medium  tw-inline-block">IntelliWare</span>
+                                    </div>
+                                    <span class="loacton text-gray-700 ">
+                                        <i class="ph-map-pin"></i>
+                                        Isle of Man
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="post-info">
+                                <div class="tw-flex tw-flex-wrap tw-gap-3">
+                                    <span
+                                        class="tw-px-3 tw-py-1 tw-inline-block tw-text-sm tw-font-medium tw-text-[#474C54] tw-rounded-[52px] ll-gray-border">
+                                        Garments/Textile
+                                    </span>
+                                    <span
+                                        class="tw-px-3 tw-py-1 tw-inline-block tw-text-sm tw-font-medium tw-text-[#474C54] tw-rounded-[52px] ll-gray-border">0
+                                        Open Position</span>
+                                </div>
+                                <div
+                                    class="tw-absolute tw-bottom-6 tw-left-6 tw-text-base tw-font-semibold tw-capitalize tw-inline-flex tw-items-center tw-gap-1">
+                                    <span>View Profile</span>
+                                    <i class="ph-bold ph-arrow-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonail Start -->
+    <div class="rt-spacer-100 rt-spacer-md-50"></div>
+
+    <section class="testimoinals-area tw-bg-[#F1F2F4]">
+        <div class="rt-spacer-100 rt-spacer-md-50"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h4>What Our Clients Say</h4>
+                </div>
+            </div>
+            <div class="rt-spacer-40 rt-spacer-md-20"></div>
+            <div class="row">
+                <div class="col-12 position-parent">
+                    <div class="slick-btn-gorup">
+                        <button class="btn btn-light slickprev2 p-12">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19 12H5" stroke="var(--primary-500)" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M12 5L5 12L12 19" stroke="var(--primary-500)" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <button class="btn btn-light slicknext2 p-12">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12H19" stroke="var(--primary-500)" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M12 5L19 12L12 19" stroke="var(--primary-500)" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="testimonail_active slick-bullet deafult_style_dot">
+                        <div class="single-item col-xl-4 col-md-6" >
+                            <div class="testimonals-box">
+                                <div class="rt-mb-12">
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                </div>
+                                <div class="text-gray-600 body-font-3">
+                                    Jobpilot has been a game-changer for my job search. I found my dream job in no time,
+                                    thanks to their user-friendly interface and extensive job...
+                                </div>
+
+                                <div class="rt-single-icon-box">
+                                    <div class="icon-thumb rt-mr-12">
+                                        <div class="userimage">
+                                            <img src="https://via.placeholder.com/640x480.png/00cc11?text=excepturi"
+                                                alt="User Image" draggable="false" loading="lazy">
+                                        </div>
+                                    </div>
+                                    <div class="iconbox-content">
+                                        <div class="body-font-3">Emily Johnson</div>
+                                        <div class="body-font-4 text-gray-700">TechFusion Solutions
+                                        </div>
+                                    </div>
+                                    <div class="iconbox-extra">
+                                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M16 28C16 30.1217 15.1571 32.1566 13.6569 33.6569C12.1566 35.1571 10.1217 36 8 36C5.87827 36 3.84344 35.1571 2.34315 33.6569C0.842854 32.1566 0 30.1217 0 28C0 23.58 8 0 8 0H12L8 20C10.1217 20 12.1566 20.8429 13.6569 22.3431C15.1571 23.8434 16 25.8783 16 28ZM36 28C36 30.1217 35.1571 32.1566 33.6569 33.6569C32.1566 35.1571 30.1217 36 28 36C25.8783 36 23.8434 35.1571 22.3431 33.6569C20.8429 32.1566 20 30.1217 20 28C20 23.58 28 0 28 0H32L28 20C30.1217 20 32.1566 20.8429 33.6569 22.3431C35.1571 23.8434 36 25.8783 36 28Z"
+                                                fill="#DADDE6" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-item">
+                            <div class="testimonals-box">
+                                <div class="rt-mb-12">
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                </div>
+                                <div class="text-gray-600 body-font-3">
+                                    I can&#039;t thank Jobpilot enough for their exceptional services. Their
+                                    personalized job recommendations and application tracking made my job hunt a breeze.
+                                    I landed an...
+                                </div>
+
+                                <div class="rt-single-icon-box">
+                                    <div class="icon-thumb rt-mr-12">
+                                        <div class="userimage">
+                                            <img src="https://via.placeholder.com/640x480.png/0000cc?text=quia"
+                                                alt="User Image" draggable="false" loading="lazy">
+                                        </div>
+                                    </div>
+                                    <div class="iconbox-content">
+                                        <div class="body-font-3">David Rodriguez</div>
+                                        <div class="body-font-4 text-gray-700">InnovateX Services
+                                        </div>
+                                    </div>
+                                    <div class="iconbox-extra">
+                                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M16 28C16 30.1217 15.1571 32.1566 13.6569 33.6569C12.1566 35.1571 10.1217 36 8 36C5.87827 36 3.84344 35.1571 2.34315 33.6569C0.842854 32.1566 0 30.1217 0 28C0 23.58 8 0 8 0H12L8 20C10.1217 20 12.1566 20.8429 13.6569 22.3431C15.1571 23.8434 16 25.8783 16 28ZM36 28C36 30.1217 35.1571 32.1566 33.6569 33.6569C32.1566 35.1571 30.1217 36 28 36C25.8783 36 23.8434 35.1571 22.3431 33.6569C20.8429 32.1566 20 30.1217 20 28C20 23.58 28 0 28 0H32L28 20C30.1217 20 32.1566 20.8429 33.6569 22.3431C35.1571 23.8434 36 25.8783 36 28Z"
+                                                fill="#DADDE6" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-item">
+                            <div class="testimonals-box">
+                                <div class="rt-mb-12">
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                </div>
+                                <div class="text-gray-600 body-font-3">
+                                    Jobpilot truly understands job seekers&#039; needs. Their platform allowed me to
+                                    connect with top employers and secure multiple interview invitations. I&#039;m now
+                                    employed in a...
+                                </div>
+
+                                <div class="rt-single-icon-box">
+                                    <div class="icon-thumb rt-mr-12">
+                                        <div class="userimage">
+                                            <img src="https://via.placeholder.com/640x480.png/003388?text=ab"
+                                                alt="User Image" draggable="false" loading="lazy">
+                                        </div>
+                                    </div>
+                                    <div class="iconbox-content">
+                                        <div class="body-font-3">Sarah Williams</div>
+                                        <div class="body-font-4 text-gray-700">ProTech Industries
+                                        </div>
+                                    </div>
+                                    <div class="iconbox-extra">
+                                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M16 28C16 30.1217 15.1571 32.1566 13.6569 33.6569C12.1566 35.1571 10.1217 36 8 36C5.87827 36 3.84344 35.1571 2.34315 33.6569C0.842854 32.1566 0 30.1217 0 28C0 23.58 8 0 8 0H12L8 20C10.1217 20 12.1566 20.8429 13.6569 22.3431C15.1571 23.8434 16 25.8783 16 28ZM36 28C36 30.1217 35.1571 32.1566 33.6569 33.6569C32.1566 35.1571 30.1217 36 28 36C25.8783 36 23.8434 35.1571 22.3431 33.6569C20.8429 32.1566 20 30.1217 20 28C20 23.58 28 0 28 0H32L28 20C30.1217 20 32.1566 20.8429 33.6569 22.3431C35.1571 23.8434 36 25.8783 36 28Z"
+                                                fill="#DADDE6" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-item">
+                            <div class="testimonals-box">
+                                <div class="rt-mb-12">
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                </div>
+                                <div class="text-gray-600 body-font-3">
+                                    Jobpilot is the best job search platform I&#039;ve ever used. Their user-friendly
+                                    interface and extensive job listings made my job hunt a breeze. I&#039;m now...
+                                </div>
+
+                                <div class="rt-single-icon-box">
+                                    <div class="icon-thumb rt-mr-12">
+                                        <div class="userimage">
+                                            <img src="https://via.placeholder.com/640x480.png/0099ff?text=minima"
+                                                alt="User Image" draggable="false" loading="lazy">
+                                        </div>
+                                    </div>
+                                    <div class="iconbox-content">
+                                        <div class="body-font-3">James Anderson</div>
+                                        <div class="body-font-4 text-gray-700">InnovateX Services
+                                        </div>
+                                    </div>
+                                    <div class="iconbox-extra">
+                                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M16 28C16 30.1217 15.1571 32.1566 13.6569 33.6569C12.1566 35.1571 10.1217 36 8 36C5.87827 36 3.84344 35.1571 2.34315 33.6569C0.842854 32.1566 0 30.1217 0 28C0 23.58 8 0 8 0H12L8 20C10.1217 20 12.1566 20.8429 13.6569 22.3431C15.1571 23.8434 16 25.8783 16 28ZM36 28C36 30.1217 35.1571 32.1566 33.6569 33.6569C32.1566 35.1571 30.1217 36 28 36C25.8783 36 23.8434 35.1571 22.3431 33.6569C20.8429 32.1566 20 30.1217 20 28C20 23.58 28 0 28 0H32L28 20C30.1217 20 32.1566 20.8429 33.6569 22.3431C35.1571 23.8434 36 25.8783 36 28Z"
+                                                fill="#DADDE6" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-item">
+                            <div class="testimonals-box">
+                                <div class="rt-mb-12">
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                </div>
+                                <div class="text-gray-600 body-font-3">
+                                    As a recent graduate, I was struggling to find a job in my field. Jobpilot not only
+                                    helped me discover relevant job openings but also...
+                                </div>
+
+                                <div class="rt-single-icon-box">
+                                    <div class="icon-thumb rt-mr-12">
+                                        <div class="userimage">
+                                            <img src="https://via.placeholder.com/640x480.png/0099aa?text=alias"
+                                                alt="User Image" draggable="false" loading="lazy">
+                                        </div>
+                                    </div>
+                                    <div class="iconbox-content">
+                                        <div class="body-font-3">Laura Martinez</div>
+                                        <div class="body-font-4 text-gray-700">SwiftHire Solutions
+                                        </div>
+                                    </div>
+                                    <div class="iconbox-extra">
+                                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M16 28C16 30.1217 15.1571 32.1566 13.6569 33.6569C12.1566 35.1571 10.1217 36 8 36C5.87827 36 3.84344 35.1571 2.34315 33.6569C0.842854 32.1566 0 30.1217 0 28C0 23.58 8 0 8 0H12L8 20C10.1217 20 12.1566 20.8429 13.6569 22.3431C15.1571 23.8434 16 25.8783 16 28ZM36 28C36 30.1217 35.1571 32.1566 33.6569 33.6569C32.1566 35.1571 30.1217 36 28 36C25.8783 36 23.8434 35.1571 22.3431 33.6569C20.8429 32.1566 20 30.1217 20 28C20 23.58 28 0 28 0H32L28 20C30.1217 20 32.1566 20.8429 33.6569 22.3431C35.1571 23.8434 36 25.8783 36 28Z"
+                                                fill="#DADDE6" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-item">
+                            <div class="testimonals-box">
+                                <div class="rt-mb-12">
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                </div>
+                                <div class="text-gray-600 body-font-3">
+                                    Jobpilot made my job search efficient and productive. The platform&#039;s advanced
+                                    filters and regular job alerts simplified the process, and their application
+                                    tracking system helped...
+                                </div>
+
+                                <div class="rt-single-icon-box">
+                                    <div class="icon-thumb rt-mr-12">
+                                        <div class="userimage">
+                                            <img src="https://via.placeholder.com/640x480.png/0099bb?text=voluptatem"
+                                                alt="User Image" draggable="false" loading="lazy">
+                                        </div>
+                                    </div>
+                                    <div class="iconbox-content">
+                                        <div class="body-font-3">John Davis</div>
+                                        <div class="body-font-4 text-gray-700">TechNex Corporation
+                                        </div>
+                                    </div>
+                                    <div class="iconbox-extra">
+                                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M16 28C16 30.1217 15.1571 32.1566 13.6569 33.6569C12.1566 35.1571 10.1217 36 8 36C5.87827 36 3.84344 35.1571 2.34315 33.6569C0.842854 32.1566 0 30.1217 0 28C0 23.58 8 0 8 0H12L8 20C10.1217 20 12.1566 20.8429 13.6569 22.3431C15.1571 23.8434 16 25.8783 16 28ZM36 28C36 30.1217 35.1571 32.1566 33.6569 33.6569C32.1566 35.1571 30.1217 36 28 36C25.8783 36 23.8434 35.1571 22.3431 33.6569C20.8429 32.1566 20 30.1217 20 28C20 23.58 28 0 28 0H32L28 20C30.1217 20 32.1566 20.8429 33.6569 22.3431C35.1571 23.8434 36 25.8783 36 28Z"
+                                                fill="#DADDE6" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-item">
+                            <div class="testimonals-box">
+                                <div class="rt-mb-12">
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.9241 4.51321C13.3643 3.62141 14.636 3.62141 15.0762 4.51321L17.3262 9.07149C17.5009 9.42531 17.8383 9.67066 18.2287 9.72773L23.2623 10.4635C24.2462 10.6073 24.6383 11.8167 23.926 12.5105L20.2856 16.0562C20.0026 16.3319 19.8734 16.7292 19.9402 17.1187L20.7991 22.1264C20.9672 23.1068 19.9382 23.8543 19.0578 23.3913L14.5587 21.0253C14.209 20.8414 13.7913 20.8414 13.4416 21.0253L8.94252 23.3913C8.06217 23.8543 7.03311 23.1068 7.20125 22.1264L8.06013 17.1187C8.12693 16.7292 7.99773 16.3319 7.71468 16.0562L4.07431 12.5105C3.362 11.8167 3.75414 10.6073 4.73804 10.4635L9.7716 9.72773C10.162 9.67066 10.4995 9.42531 10.6741 9.07149L12.9241 4.51321Z"
+                                            fill="#FFAA00" />
+                                    </svg>
+                                </div>
+                                <div class="text-gray-600 body-font-3">
+                                    I was struggling to find a job that matched my skills and preferences.
+                                    Jobpilot&#039;s personalized job recommendations and application tracking system
+                                    helped me find the...
+                                </div>
+
+                                <div class="rt-single-icon-box">
+                                    <div class="icon-thumb rt-mr-12">
+                                        <div class="userimage">
+                                            <img src="https://via.placeholder.com/640x480.png/00bb00?text=quia"
+                                                alt="User Image" draggable="false" loading="lazy">
+                                        </div>
+                                    </div>
+                                    <div class="iconbox-content">
+                                        <div class="body-font-3">Mary Wilson</div>
+                                        <div class="body-font-4 text-gray-700">TechFusion Solutions
+                                        </div>
+                                    </div>
+                                    <div class="iconbox-extra">
+                                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M16 28C16 30.1217 15.1571 32.1566 13.6569 33.6569C12.1566 35.1571 10.1217 36 8 36C5.87827 36 3.84344 35.1571 2.34315 33.6569C0.842854 32.1566 0 30.1217 0 28C0 23.58 8 0 8 0H12L8 20C10.1217 20 12.1566 20.8429 13.6569 22.3431C15.1571 23.8434 16 25.8783 16 28ZM36 28C36 30.1217 35.1571 32.1566 33.6569 33.6569C32.1566 35.1571 30.1217 36 28 36C25.8783 36 23.8434 35.1571 22.3431 33.6569C20.8429 32.1566 20 30.1217 20 28C20 23.58 28 0 28 0H32L28 20C30.1217 20 32.1566 20.8429 33.6569 22.3431C35.1571 23.8434 36 25.8783 36 28Z"
+                                                fill="#DADDE6" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="rt-spacer-100 rt-spacer-md-50"></div>
+    </section>
+    <!-- google adsense area -->
+    <!-- google adsense area end -->
+    <!-- Call to action Start -->
+
+    <!-- google adsense area -->
+    <!-- google adsense area end -->
+    <section class="cta-area rt-pt-100 rt-mb-80 rt-pt-md-50 rt-mb-md-40">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 rt-mb-24">
+                    <div class="cta-1 ct-height bgprefix-cover"
+                        style="background-image: url(https://jobpilot.lomeyolabs.com/frontend/assets/images/all-img/cta-1.png">
+                        <h5 class="lg:tw-mb-4 tw-mb-1.5 tw-text-xl lg:tw-text-[28px] lg:tw-leading-[38px]">Join Our
+                            Talent Network</h5>
+                        <div class="body-font-4 rt-mb-24 text-gray-600 max-312">
+                            Unlock endless opportunities and connect with top employers. Let your skills shine and land
+                            your dream job.
+                        </div>
+                        <form action="https://jobpilot.lomeyolabs.com/register" method="GET">
+                            <input class="d-none" type="text" name="user" value="candidate"
+                                id="">
+                            <button type="submit" class="btn btn-light">
+                                <span class="button-content-wrapper ">
+                                    <span class="button-icon align-icon-right">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5 12H19" stroke="currentColor" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    <span class="button-text">
+                                        Register Now
+                                    </span>
+                                </span>
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+                <div class="col-xl-6 rt-mb-24">
+                    <div class="cta-1 ct-height bgprefix-cover"
+                        style="background-image: url(https://jobpilot.lomeyolabs.com/frontend/assets/images/all-img/cta-2.png">
+                        <h5
+                            class="lg:tw-mb-4 tw-mb-1.5 tw-text-xl lg:tw-text-[28px] lg:tw-leading-[38px] text-gray-10">
+                            Discover Your Perfect Team</h5>
+                        <div class="body-font-4 rt-mb-24 text-gray-10 max-312">
+                            Access a pool of skilled candidates and streamline your hiring process. Find the best talent
+                            for your company&#039;s success
+                        </div>
+                        <form action="https://jobpilot.lomeyolabs.com/register" method="GET">
+                            <input class="d-none" type="text" name="user" value="company"
+                                id="">
+                            <button type="submit" class="btn btn-light">
+                                <span class="button-content-wrapper ">
+                                    <span class="button-icon align-icon-right">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5 12H19" stroke="currentColor" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    <span class="button-text">
+                                        Register Now
+                                    </span>
+                                </span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <div class="rt-site-footer bg-gray-900 dark-footer">
+        <div class="footer-top  bg-gray-900">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-5 col-sm-6 rt-single-widget ">
+                        <a href="#" class="footer-logo">
+                            <img src="https://jobpilot.lomeyolabs.com/frontend/assets/images/logo/light_logo.svg"
+                                alt="logo" loading="lazy">
+                        </a>
+                        <address>
+                            <div class="body-font-2 text-gray-500">
+                                <div class="body-font-2 text-gray-500">
+                                    <span>Call Now:</span>
+                                    <a href="tel:319-555-0115" class="text-gray-10">
+                                        319-555-0115</a>
+                                </div>
+                                <div class="max-312 body-font-4 mt-2 text-gray-500">
+                                    Discover tailored opportunities for job seekers and top talent for employers
+                                </div>
+                            </div>
+                        </address>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-6 rt-single-widget ">
+                        <h2 class="footer-title">Company</h2>
+                        <ul class="rt-usefulllinks2">
+                            <li><a href="https://jobpilot.lomeyolabs.com/about">About</a></li>
+                            <li><a href="https://jobpilot.lomeyolabs.com/contact">Contact</a></li>
+                            <li><a href="https://jobpilot.lomeyolabs.com/plans">Pricing</a></li>
+                            <li><a href="https://jobpilot.lomeyolabs.com/posts">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-6 rt-single-widget ">
+                        <h2 class="footer-title">Candidate</h2>
+                        <ul class="rt-usefulllinks2">
+                            <li><a href="https://jobpilot.lomeyolabs.com/jobs">Browse Jobs</a></li>
+                            <li><a href="https://jobpilot.lomeyolabs.com/candidates">Browse Candidates</a></li>
+                            <li><a href="https://jobpilot.lomeyolabs.com/candidate/dashboard">Candidate Dashboard</a>
+                            </li>
+                            <li><a href="https://jobpilot.lomeyolabs.com/candidate/bookmarks">Saved Jobs</a></li>
+                            <li><a href="https://jobpilot.lomeyolabs.com/candidate/plan">Candidate plan</a></li>
+                            <li><a href="https://jobpilot.lomeyolabs.com/refund-policy">Refund Policy</a></li>
+                            <li><a href="https://jobpilot.lomeyolabs.com/terms-of-service">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 rt-single-widget ">
+                        <h2 class="footer-title">Employer</h2>
+                        <ul class="rt-usefulllinks2">
+                            <li><a href="https://jobpilot.lomeyolabs.com/company/create/job">Post a Job</a></li>
+                            <li><a href="https://jobpilot.lomeyolabs.com/employers">Browse Companies</a></li>
+                            <li><a href="https://jobpilot.lomeyolabs.com/company/dashboard">Companies Dashboard</a>
+                            </li>
+                            <li><a href="https://jobpilot.lomeyolabs.com/company/my-jobs">Applications</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 rt-single-widget ">
+                        <h2 class="footer-title">Support</h2>
+                        <ul class="rt-usefulllinks2">
+                            <li><a href="https://jobpilot.lomeyolabs.com/faq">FAQ</a></li>
+                            <li><a href="https://jobpilot.lomeyolabs.com/privacy-policy">Privacy &amp; Policy</a></li>
+                            <li><a href="https://jobpilot.lomeyolabs.com/terms-condition">Terms &amp; Conditions</a>
+                            </li>
+                            <li><a href="https://jobpilot.lomeyolabs.com/refund-policy">Refund Policy</a></li>
+                        </ul>
+                    </div>
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div><!-- /.footer-top -->
+        <div class="footer-bottom bg-gray-900">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 text-center text-lg-start f-size-14 text-gray-500">
+                        &copy; Jobpilot 2025 | All Rights Reserved
+                    </div><!-- /.col-lg-6 -->
+                    <div class="col-lg-6 text-center text-lg-end">
+                        <ul class="footer-social-links">
+                            <li>
+                                <a href="https://www.facebook.com/zakirsoft" title="facebook">
+                                    <svg width="20" height="20" viewBox="0 0 10 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M8.17403 3.32083H9.99986V0.140833C9.68486 0.0975 8.60153 0 7.33986 0C4.70736 0 2.90402 1.65583 2.90402 4.69917V7.5H-0.000976562V11.055H2.90402V20H6.46569V11.0558H9.25319L9.69569 7.50083H6.46486V5.05167C6.46569 4.02417 6.74236 3.32083 8.17403 3.32083Z"
+                                            fill="#767E94" />
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/zakirsoft" title="Instagram">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip01)">
+                                            <path
+                                                d="M19.9804 5.88005C19.9336 4.81738 19.7617 4.0868 19.5156 3.45374C19.2616 2.78176 18.8709 2.18014 18.359 1.68002C17.8589 1.1721 17.2533 0.777435 16.5891 0.527447C15.9524 0.281274 15.2256 0.109427 14.163 0.0625732C13.0923 0.0117516 12.7525 0 10.0371 0C7.32172 0 6.98185 0.0117516 5.9152 0.0586052C4.85253 0.105459 4.12195 0.277459 3.48904 0.523479C2.81692 0.777435 2.2153 1.16814 1.71517 1.68002C1.20726 2.18014 0.812742 2.78573 0.562602 3.44992C0.31643 4.0868 0.144583 4.81341 0.0977294 5.87609C0.0469078 6.9467 0.0351562 7.28658 0.0351562 10.002C0.0351562 12.7173 0.0469078 13.0572 0.0937614 14.1239C0.140615 15.1865 0.312615 15.9171 0.558787 16.5502C0.812742 17.2221 1.20726 17.8238 1.71517 18.3239C2.2153 18.8318 2.82088 19.2265 3.48507 19.4765C4.12195 19.7226 4.84856 19.8945 5.91139 19.9413C6.97788 19.9883 7.31791 19.9999 10.0333 19.9999C12.7486 19.9999 13.0885 19.9883 14.1552 19.9413C15.2178 19.8945 15.9484 19.7226 16.5813 19.4765C17.9254 18.9568 18.9881 17.8941 19.5078 16.5502C19.7538 15.9133 19.9258 15.1865 19.9726 14.1239C20.0195 13.0572 20.0312 12.7173 20.0312 10.002C20.0312 7.28658 20.0273 6.9467 19.9804 5.88005ZM18.1794 14.0457C18.1364 15.0225 17.9723 15.5499 17.8355 15.9015C17.4995 16.7728 16.808 17.4643 15.9367 17.8004C15.585 17.9372 15.0538 18.1012 14.0808 18.1441C13.026 18.1911 12.7096 18.2027 10.0411 18.2027C7.37255 18.2027 7.0522 18.1911 6.00113 18.1441C5.02437 18.1012 4.49693 17.9372 4.1453 17.8004C3.71171 17.6402 3.31704 17.3862 2.9967 17.0541C2.6646 16.7298 2.41065 16.3391 2.2504 15.9055C2.11365 15.5539 1.94959 15.0225 1.9067 14.0497C1.8597 12.9948 1.8481 12.6783 1.8481 10.0097C1.8481 7.34122 1.8597 7.02087 1.9067 5.96995C1.94959 4.99319 2.11365 4.46575 2.2504 4.11412C2.41065 3.68038 2.6646 3.28586 3.00067 2.96536C3.32483 2.63327 3.71553 2.37931 4.14927 2.21921C4.5009 2.08247 5.03231 1.9184 6.00509 1.87537C7.05999 1.82851 7.37651 1.81676 10.0449 1.81676C12.7174 1.81676 13.0337 1.82851 14.0848 1.87537C15.0616 1.9184 15.589 2.08247 15.9406 2.21921C16.3742 2.37931 16.7689 2.63327 17.0892 2.96536C17.4213 3.28967 17.6753 3.68038 17.8355 4.11412C17.9723 4.46575 18.1364 4.99701 18.1794 5.96995C18.2262 7.02484 18.238 7.34122 18.238 10.0097C18.238 12.6783 18.2262 12.9908 18.1794 14.0457Z"
+                                                fill="#767E94" />
+                                            <path
+                                                d="M10.0371 4.86401C7.20074 4.86401 4.89941 7.16518 4.89941 10.0017C4.89941 12.8383 7.20074 15.1395 10.0371 15.1395C12.8737 15.1395 15.1749 12.8383 15.1749 10.0017C15.1749 7.16518 12.8737 4.86401 10.0371 4.86401ZM10.0371 13.3344C8.19702 13.3344 6.70442 11.842 6.70442 10.0017C6.70442 8.16147 8.19702 6.66902 10.0371 6.66902C11.8774 6.66902 13.3698 8.16147 13.3698 10.0017C13.3698 11.842 11.8774 13.3344 10.0371 13.3344Z"
+                                                fill="#767E94" />
+                                            <path
+                                                d="M16.5777 4.6611C16.5777 5.32346 16.0407 5.86052 15.3781 5.86052C14.7158 5.86052 14.1787 5.32346 14.1787 4.6611C14.1787 3.99858 14.7158 3.46167 15.3781 3.46167C16.0407 3.46167 16.5777 3.99858 16.5777 4.6611Z"
+                                                fill="#767E94" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip033">
+                                                <rect width="20" height="20" fill="transparent" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.youtube.com/zakirsoft" title="YouTube">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip3)">
+                                            <path
+                                                d="M19.5879 5.19872C19.3574 4.34194 18.6819 3.66659 17.8252 3.43588C16.2602 3.00757 9.99981 3.00757 9.99981 3.00757C9.99981 3.00757 3.73961 3.00757 2.17452 3.41955C1.33438 3.65011 0.642392 4.3421 0.411833 5.19872C0 6.76366 0 10.0092 0 10.0092C0 10.0092 0 13.271 0.411833 14.8197C0.642545 15.6763 1.3179 16.3518 2.17467 16.5825C3.75609 17.0108 9.99996 17.0108 9.99996 17.0108C9.99996 17.0108 16.2602 17.0108 17.8252 16.5988C18.682 16.3683 19.3574 15.6928 19.5881 14.8361C19.9999 13.271 19.9999 10.0257 19.9999 10.0257C19.9999 10.0257 20.0164 6.76366 19.5879 5.19872Z"
+                                                fill="#767E94" />
+                                            <path class="facebook"
+                                                d="M8.00635 13.0077L13.2122 10.0093L8.00635 7.01099V13.0077Z"
+                                                fill="black" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip02">
+                                                <rect width="20" height="20" fill="transparent" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.twitter.com/zakirsoft" title="Twitter">
+                                    <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24" version="1.1">
+                                        <path
+                                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                                            fill="#727279"></path>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div><!-- /.col-lg-6 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div><!-- /.footer-bottom -->
+    </div><!-- /.rt-site-footer -->
+
+    <!-- scripts -->
+    <script src="https://jobpilot.lomeyolabs.com/frontend/assets/js/jquery-3.6.0.min.js"></script>
+    <script defer src="https://jobpilot.lomeyolabs.com/frontend/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="https://jobpilot.lomeyolabs.com/frontend/assets/js/jquery.counterup.min.js"></script>
+    <script async src="https://jobpilot.lomeyolabs.com/frontend/assets/js/jquery.scrollUp.min.js"></script>
+    <script src="https://jobpilot.lomeyolabs.com/frontend/assets/js/scrollax.min.js"></script>
+    <script async src="https://jobpilot.lomeyolabs.com/backend/plugins/select2/js/select2.min.js"></script>
+    <script src="https://jobpilot.lomeyolabs.com/frontend/assets/js/waypoints.min.js"></script>
+    <script async src="https://jobpilot.lomeyolabs.com/backend/plugins/toastr/toastr.min.js"></script>
+    <script async src="https://jobpilot.lomeyolabs.com/backend/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="https://jobpilot.lomeyolabs.com/frontend/assets/js/aos.js"></script>
+    <script src="https://jobpilot.lomeyolabs.com/frontend/assets/js/slick.min.js"></script>
+    <link rel="preload" as="style" href="https://jobpilot.lomeyolabs.com/build/assets/app.7c9c1c97.css" />
+    <link rel="preload" as="style" href="https://jobpilot.lomeyolabs.com/build/assets/app.0e75c4b0.css" />
+    <link rel="modulepreload" href="https://jobpilot.lomeyolabs.com/build/assets/app.2a1a5220.js" />
+    <link rel="modulepreload" href="https://jobpilot.lomeyolabs.com/build/assets/index.esm.d4482f2e.js" />
+    <link rel="modulepreload" href="https://jobpilot.lomeyolabs.com/build/assets/public.72fd9e14.js" />
+    <link rel="stylesheet" href="https://jobpilot.lomeyolabs.com/build/assets/app.7c9c1c97.css"
+        data-navigate-track="reload" />
+    <link rel="stylesheet" href="https://jobpilot.lomeyolabs.com/build/assets/app.0e75c4b0.css"
+        data-navigate-track="reload" />
+    <script type="module" src="https://jobpilot.lomeyolabs.com/build/assets/app.2a1a5220.js" data-navigate-track="reload">
+    </script>
+    <script type="module" src="https://jobpilot.lomeyolabs.com/build/assets/public.72fd9e14.js"
+        data-navigate-track="reload"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<script>
+$(document).ready(function () {
+    $('.testimonail_active').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 5000, // 5 seconds
+        speed: 800,
+        arrows: false,
+        dots: true,
+        infinite: true,
+        cssEase: 'ease-in-out',
+        responsive: [
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 2
+                }
+            },
+            {
+                breakpoint: 576,
+                settings: {
+                    slidesToShow: 1
+                }
+            }
+        ]
+    });
+});
+</script>
+
+    <script>
+            // Laravel routes
+    const loginUrl = "{{ route('login') }}";
+    const registerUrl = "{{ route('register') }}";
+
+    // Only attach to the specific button by ID
+    document.getElementById('loginBtn').addEventListener('click', function() {
+        window.location.href = loginUrl;
+    });
+
+    document.getElementById('signupBtn').addEventListener('click', function() {
+        window.location.href = registerUrl;
+    });
+
+        // autocomplete
+        var path = "https://jobpilot.lomeyolabs.com/job/autocomplete";
+
+        $('.global_header_search').keyup(function(e) {
+            var keyword = $(this).val();
+
+            if (keyword != '') {
+                $.ajax({
+                    url: path,
+                    type: 'GET',
+                    dataType: "json",
+                    data: {
+                        search: keyword
+                    },
+                    success: function(data) {
+                        $('#autocomplete_job_results').fadeIn();
+                        $('#autocomplete_job_results').html(data);
+                    }
+                });
+            } else {
+                $('#autocomplete_job_results').fadeOut();
+            }
+        });
+
+        $('#global_search').keypress(function(e) {
+            var key = e.which;
+
+            if (key == 13) {
+                $('#search-form').submit();
+            }
+        });
+
+        $("#searchIcon").click(function() {
+            $(".togglesearch").toggle();
+            $("input[type='text']").focus();
+        });
+
+        $("#mblSearchIcon").click(function() {
+            $(".mblTogglesearch").toggle();
+            $("input[type='text']").focus();
+        });
+
+
+        $('button.effect1').on('click', function() {
+            $(this).find('span').toggleClass('active');
+        });
+
+        $('.rt-mobile-menu-overlay').on('click', function() {
+            $('button.effect1').find('span').removeClass('active');
+        });
+    </script>
+
+    <script>
+        function initToaster() {
+
+
+
+
+            // toast config
+            toastr.options = {
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": true,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": true,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "hideMethod": "fadeOut"
+            }
+        }
+
+        // read notification by ajax
+        function ReadNotification() {
+            $.ajax({
+                url: "https://jobpilot.lomeyolabs.com/user/notification/read",
+                type: "POST",
+                data: {
+                    _token: 'hmNT5Cpygxkegg3eIxGAq5Z5N0BST9m3XeUYv1By'
+                },
+                dataType: 'json',
+                success: function(data) {
+                    $('#unNotifications').hide();
+                }
+            });
+        }
+        // read single notification by ajax
+        function readSingleNotification(url, id) {
+            $.ajax({
+                url: "https://jobpilot.lomeyolabs.com/markasread/single/notification",
+                type: "POST",
+                data: {
+                    id: id,
+                    _token: 'hmNT5Cpygxkegg3eIxGAq5Z5N0BST9m3XeUYv1By'
+                },
+                dataType: 'json',
+                success: function(data) {
+                    window.location.href = url;
+                }
+            });
+        }
+
+        function setLocationSession(form) {
+            $.ajax({
+                url: '/set/session',
+                type: 'POST',
+                data: form,
+                success: function(res) {
+                    // console.log(res);
+                    // toastr.success("Location Saved", 'Success!');
+                },
+                error: function(e) {
+                    toastr.error("Something Wrong", 'Error!');
+                }
+            });
+        }
+
+        // tab switch style
+        var style = localStorage.getItem("candidate_style") == null ? 'box' : localStorage.getItem("candidate_style");
+        setStyle(style);
+
+        function styleSwitch(style) {
+            localStorage.setItem("candidate_style", style);
+            setStyle(style);
+        }
+
+        function setStyle(style) {
+            if (style == 'box') {
+                $('#nav-home-tab').addClass('active');
+                $('#nav-home').addClass('show active');
+                $('#nav-profile-tab').removeClass('active');
+                $('#nav-profile').removeClass('show active');
+            } else {
+                $('#nav-home-tab').removeClass('active');
+                $('#nav-home').removeClass('show active');
+                $('#nav-profile-tab').addClass('active');
+                $('#nav-profile').addClass('show active');
+            }
+        }
+
+        $(document).ready(function() {
+            initToaster();
+
+            $(document).on('click', '.login_required', function(event) {
+                event.preventDefault();
+
+                Swal.fire({
+                    title: "Unauthenticated",
+                    text: "Performing this action requires logging into your account. Would you like to log in now",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: "Yes, I want to login",
+                    cancelButtonText: "Cancel",
+                }).then((result) => {
+                    if (result.value) {
+                        window.location.href = '/login';
+                    }
+                })
+            });
+
+            $('.no_permission').on('click', function(event) {
+                event.preventDefault();
+                Swal.fire({
+                    title: "Unauthorized Access",
+                    text: "You don't have permission to perform this action",
+                    icon: "warning",
+                    dangerMode: true,
+                })
+            });
+
+            $(".notification-icon a").off("click").on('click', function(e) {
+                e.stopImmediatePropagation();
+                return true;
+            });
+
+            // $('[data-toggle="tooltip"]').tooltip();
+            // about page testimonial
+            if ($(".testimonal2-active").length > 0) {
+                $(".testimonal2-active").slick({
+                    slidesToShow: 1,
+                    infinite: true,
+                    slidesToScroll: 1,
+                    dots: true,
+                    fade: false,
+                    prevArrow: $(".slickprev3"),
+                    nextArrow: $(".slicknext3")
+                });
+            }
+
+            // category wise search
+            const form = $("#job_search_form");
+            const radioButtons = form.find("input[aria-data-id='category']");
+
+            // Store the initial action attribute value
+            const defaultAction = form.attr("action");
+
+            // Function to update the form action based on the selected radio button
+            function updateFormAction(selectedRadioValue) {
+                const dataSlug = selectedRadioValue || '';
+                const actionUrl = selectedRadioValue ?
+                    "https://jobpilot.lomeyolabs.com/jobs/category/:slug".replace(':slug', dataSlug) :
+                    defaultAction;
+                form.attr("action", actionUrl);
+            }
+
+            // Initialize form action on page load
+            updateFormAction("");
+
+            // Update selected radio value when radio button changes
+            radioButtons.on("change", function() {
+                const selectedRadioValue = $(this).data('id');
+                updateFormAction(selectedRadioValue);
+            });
+        });
+    </script>
+
+    <script src="https://jobpilot.lomeyolabs.com/backend/js/autocomplete.min.js"></script>
+    <script>
+        new Autocomplete("leaflet_search", {
+            // default selects the first item in
+            // the list of results
+            selectFirst: true,
+
+            // The number of characters entered should start searching
+            howManyCharacters: 3,
+
+            // onSearch
+            onSearch: ({
+                currentValue
+            }) => {
+                // You can also use static files
+                // const api = '../static/search.json'
+                const countryName = "";
+                if (countryName) {
+                    var api =
+                        `https://nominatim.openstreetmap.org/search?format=geojson&limit=5&city=${encodeURI(currentValue)}&country=${encodeURI(countryName)}`;
+                } else {
+                    var api =
+                        `https://nominatim.openstreetmap.org/search?format=geojson&limit=5&city=${encodeURI(currentValue)}`;
+                }
+
+                return new Promise((resolve) => {
+                    fetch(api)
+                        .then((response) => response.json())
+                        .then((data) => {
+                            resolve(data.features);
+                        })
+                        .catch((error) => {
+                            console.error(error);
+                        });
+                });
+            },
+            // nominatim GeoJSON format parse this part turns json into the list of
+            // records that appears when you type.
+            onResults: ({
+                currentValue,
+                matches,
+                template
+            }) => {
+
+                const regex = new RegExp(currentValue, "gi");
+
+                // if the result returns 0 we
+                // show the no results element
+                return matches === 0 ?
+                    template :
+                    matches
+                    .map((element) => {
+
+                        let full_address = element.properties.display_name;
+
+                        let split_string = full_address.split(', ');
+                        let country = split_string.pop();
+
+                        return `
+               <li class="loupe">
+                   <p>
+                    ${element.properties.name} , ${country}
+                   </p>
+               </li> `;
+                    })
+                    .join("");
+            },
+
+            // we add an action to enter or click
+            onSubmit: ({
+                object
+            }) => {
+                // console.log(object)
+                // remove all layers from the map
+                leaflet_map.eachLayer(function(layer) {
+                    if (!!layer.toGeoJSON) {
+                        leaflet_map.removeLayer(layer);
+                    }
+                });
+
+                const {
+                    display_name
+                } = object.properties;
+                const [lng, lat] = object.geometry.coordinates;
+
+                //    const marker = L.marker([lat, lng], {
+                //         title: display_name,
+                //    });
+
+                //    marker.addTo(leaflet_map).bindPopup(display_name);
+
+                leaflet_map.setView([lat, lng], 8);
+            },
+
+            // get index and data from li element after
+            // hovering over li with the mouse or using
+            // arrow keys ↓ | ↑
+            onSelectedItem: ({
+                index,
+                element,
+                object
+            }) => {
+
+                //    console.log(object.properties)
+                //    console.log(object.geometry.coordinates)
+                let leaf_lon = object.geometry.coordinates[0]
+                let leaf_lat = object.geometry.coordinates[1]
+
+                let full_address = object.properties.display_name;
+                let city = object.properties.name;
+
+                $('.leaf_lon').val(leaf_lon);
+                $('.leaf_lat').val(leaf_lat);
+
+                let split_string = full_address.split(', ');
+                let country = split_string.pop();
+
+                $('.city').val(city);
+                $('.country').val(country);
+
+                // var form = new FormData();
+                // form.append('lat', leaf_lat);
+                // form.append('lng', leaf_lon);
+                // form.append('country', country);
+                // form.append('place', full_address);
+
+                // axios.post('/set/session', form)
+                // .then((res) => {
+                //     // alert()
+                //     // console.log(res.data);
+                //     // toastr.success("Location Saved", 'Success!');
+                // })
+                // .catch((e) => {
+                //     toastr.error("Something Wrong", 'Error!');
+                // });
+            },
+
+            // the method presents no results element
+            noResults: ({
+                    currentValue,
+                    template
+                }) =>
+                template(`<li>No results found: "${currentValue}"</li>`),
+        });
+    </script> <!-- ============== gooogle map ========== -->
+    <!-- ============== gooogle map ========== -->
+    <script>
+        // autocomplte
+        var path = "https://jobpilot.lomeyolabs.com/job/autocomplete";
+
+        $('#index_search').keyup(function(e) {
+            var keyword = $(this).val();
+
+            if (keyword != '') {
+                $.ajax({
+                    url: path,
+                    type: 'GET',
+                    dataType: "json",
+                    data: {
+                        search: keyword
+                    },
+                    success: function(data) {
+                        $('#autocomplete_index_job_results').fadeIn();
+                        $('#autocomplete_index_job_results').html(data);
+                    }
+                });
+            } else {
+                $('#autocomplete_index_job_results').fadeOut();
+            }
+        });
+
+        // Browser History and Scroll Position Restoration
+        document.addEventListener('DOMContentLoaded', function() {
+            // Store scroll position when leaving the page
+            let scrollPosition = 0;
+
+            // Save scroll position before page unload
+            window.addEventListener('beforeunload', function() {
+                scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+                sessionStorage.setItem('indexPageScrollPosition', scrollPosition);
+            });
+
+            // Handle browser back button and restore scroll position
+            window.addEventListener('popstate', function(event) {
+                // Check if we're on the index page
+                if (window.location.pathname === '/' || window.location.pathname === '/home') {
+                    const savedPosition = sessionStorage.getItem('indexPageScrollPosition');
+                    if (savedPosition) {
+                        setTimeout(function() {
+                            window.scrollTo({
+                                top: parseInt(savedPosition),
+                                behavior: 'smooth'
+                            });
+                        }, 100);
+                    } else {
+                        // If no saved position, scroll to banner section
+                        const bannerSection = document.querySelector('.banner-content5');
+                        if (bannerSection) {
+                            setTimeout(function() {
+                                bannerSection.scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'start'
+                                });
+                            }, 100);
+                        }
+                    }
+                }
+            });
+
+            // Handle page load and restore scroll position
+            if (window.location.pathname === '/' || window.location.pathname === '/home') {
+                const savedPosition = sessionStorage.getItem('indexPageScrollPosition');
+                if (savedPosition && savedPosition > 0) {
+                    setTimeout(function() {
+                        window.scrollTo({
+                            top: parseInt(savedPosition),
+                            behavior: 'smooth'
+                        });
+                    }, 100);
+                }
+            }
+
+            // Add smooth scrolling to anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Handle form submission and save scroll position
+            const jobSearchForm = document.getElementById('job_search_form');
+            if (jobSearchForm) {
+                jobSearchForm.addEventListener('submit', function() {
+                    sessionStorage.setItem('indexPageScrollPosition', window.pageYOffset || document
+                        .documentElement.scrollTop);
+                });
+            }
+        });
+
+        // Enable scroll restoration for better back button behavior
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+    </script>
+
+    <!-- Theme Switcher -->
+
+
+    <!-- Custom js -->
+
+
+    <link rel="stylesheet" href="https://jobpilot.lomeyolabs.com/frontend\plugins\cookieconsent\cookieconsent.css"
+        media="print" onload="this.media='all'">
+    <script async src="https://jobpilot.lomeyolabs.com/frontend/plugins/cookieconsent/cookieconsent.js"></script>
+    <script>
+        window.addEventListener('load', function() {
+            // obtain plugin
+            var cc = initCookieConsent();
+
+            // run plugin with your configuration
+            cc.run({
+                current_lang: '',
+                autoclear_cookies: true, // default: false
+                page_scripts: true, // default: false
+                force_consent: false, // default: false
+                cookie_name: 'gdpr_cookie', // default: 'cc_cookie'
+                cookie_expiration: 30, // default: 182 (days)
+                autorun: true, // default: true
+
+                onFirstAction: function(user_preferences, cookie) {
+                    // callback triggered only once on the first accept/reject action
+                },
+
+                onAccept: function(cookie) {
+                    // callback triggered on the first accept/reject action, and after each page load
+                },
+
+                onChange: function(cookie, changed_categories) {
+                    // callback triggered when user changes preferences after consent has already been given
+                },
+
+                gui_options: {
+                    consent_modal: {
+                        layout: 'cloud', // box/cloud/bar
+                        position: 'bottom right', // bottom/middle/top + left/right/center
+                        transition: 'slide', // zoom/slide
+                        swap_buttons: false // enable to invert buttons
+                    },
+                    settings_modal: {
+                        layout: 'box', // box/bar
+                        position: 'left', // left/right
+                        transition: 'slide' // zoom/slide
+                    }
+                },
+
+                languages: {
+                    'en': {
+                        consent_modal: {
+                            title: "We use cookies!",
+                            description: "We use cookies to provide our services and for analytics and marketing. To find out more about our use of cookies, please see our Privacy Policy. By continuing to browse our website, you agree to our use of cookies.",
+                            primary_btn: {
+                                text: "Allow all Cookies",
+                                role: 'accept_all'
+                            },
+                            secondary_btn: {
+                                text: "Reject all Cookies",
+                                role: 'accept_necessary'
+                            }
+                        },
+                        settings_modal: {
+                            title: 'Cookie preferences',
+                            save_settings_btn: 'Save settings',
+                            accept_all_btn: 'Accept all',
+                            reject_all_btn: 'Reject all',
+                            close_btn_label: 'Close',
+                            cookie_table_headers: [{
+                                    col1: 'Name'
+                                },
+                                {
+                                    col2: 'Domain'
+                                },
+                                {
+                                    col3: 'Expiration'
+                                },
+                                {
+                                    col4: 'Description'
+                                }
+                            ],
+                            blocks: [{
+                                title: 'Cookie usage 📢',
+                                description: 'I use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want. For more details relative to cookies and other sensitive data, please read the full <a href="#" class="cc-link">privacy policy</a>.'
+                            }, {
+                                title: 'Strictly necessary cookies',
+                                description: 'These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly',
+                                toggle: {
+                                    value: 'necessary',
+                                    enabled: true,
+                                    readonly: true // cookie categories with readonly=true are all treated as "necessary cookies"
+                                }
+                            }, {
+                                title: 'Performance and Analytics cookies',
+                                description: 'These cookies allow the website to remember the choices you have made in the past',
+                                toggle: {
+                                    value: 'analytics', // your cookie category
+                                    enabled: false,
+                                    readonly: false
+                                },
+                                cookie_table: [ // list of all expected cookies
+                                    {
+                                        col1: '^_ga', // match all cookies starting with "_ga"
+                                        col2: 'google.com',
+                                        col3: '2 years',
+                                        col4: 'description ...',
+                                        is_regex: true
+                                    },
+                                    {
+                                        col1: '_gid',
+                                        col2: 'google.com',
+                                        col3: '1 day',
+                                        col4: 'description ...',
+                                    }
+                                ]
+                            }, {
+                                title: 'Advertisement and Targeting cookies',
+                                description: 'These cookies collect information about how you use the website, which pages you visited and which links you clicked on. All of the data is anonymized and cannot be used to identify you',
+                                toggle: {
+                                    value: 'targeting',
+                                    enabled: false,
+                                    readonly: false
+                                }
+                            }, {
+                                title: 'More information',
+                                description: 'For any queries in relation to our policy on cookies and your choices, please <a class="cc-link" href="#yourcontactpage">contact us</a>.',
+                            }]
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            if (shouldShowPopup()) {
+                setTimeout(function() {
+                    document.getElementById("popup").classList.add("active");
+                    document.getElementsByTagName("body")[0].style.overflow = "hidden";
+                }, 30000);
+            }
+
+            var close = document.getElementById("close-popup");
+            close && close.addEventListener("click", () => {
+                document.getElementById("popup").classList.remove("active");
+                document.getElementsByTagName("body")[0].style.overflow = "auto";
+                setPopupClosedFlag();
+            });
+
+            var formBtn = document.getElementsByClassName("form-btn");
+            formBtn && formBtn[0] && formBtn[0].addEventListener("click", () => setFormSubmittedFlag());
+        });
+
+
+        function shouldShowPopup() {
+            const now = Date.now();
+            const lastClosed = localStorage.getItem("popupLastClosed");
+            const formSubmitted = localStorage.getItem("formSubmitted");
+
+            if (!formSubmitted && (!lastClosed || now - lastClosed > 3600000)) {
+                return true;
+            }
+
+            return false;
+        }
+
+        function setPopupClosedFlag() {
+            localStorage.setItem("popupLastClosed", Date.now());
+        }
+
+        function setFormSubmittedFlag() {
+            localStorage.setItem("formSubmitted", "true");
+        }
+    </script>
+
+
+
+
+    <script>
+        // Hide the preloader when loaded
+        var el = document.querySelector(".preloader");
+        el && window.addEventListener("load", () => el.style.display = "none");
+    </script>
+
+    <!-- PWA Script Start -->
+    <!-- PWA Script End -->
+    <div
+        class="floating-btn tw-z-[999] max-[767px]:tw-hidden tw-fixed tw-top-1/2 tw-right-0 -tw-translate-y-1/2 tw-rounded-s-xl">
+        <button class="btn tw-rounded-s-xl tw-rounded-e-none tw-p-2.5 tw-bg-white" type="button"
+            data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="tw-text-gray-900 tw-w-6 tw-h-6 loading">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 0 1 1.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.559.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.894.149c-.424.07-.764.383-.929.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 0 1-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.398.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 0 1-.12-1.45l.527-.737c.25-.35.272-.806.108-1.204-.165-.397-.506-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.108-1.204l-.526-.738a1.125 1.125 0 0 1 .12-1.45l.773-.773a1.125 1.125 0 0 1 1.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894Z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+        </button>
+        <a href="javascript:void(0)" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+            aria-controls="offcanvasRight">Theme Setting</a>
+    </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+        aria-labelledby="offcanvasRightLabel">
+        <div class="tw-flex tw-px-5 tw-py-3 tw-border-b tw-border-gray-100 tw-justify-between tw-items-center">
+            <h3 class="tw-text-xl tw-mb-0">Theme Settings</h3>
+            <button class="btn" data-bs-dismiss="offcanvas" aria-label="Close">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <div class="tw-px-5 tw-pb-6">
+            <div id="landing-pages">
+                <form action="https://jobpilot.lomeyolabs.com/landing-page" method="POST">
+                    <input type="hidden" name="_token" value="hmNT5Cpygxkegg3eIxGAq5Z5N0BST9m3XeUYv1By"
+                        autocomplete="off"> <input type="hidden" name="_method" value="PUT">
+                    <h2 class="tw-text-base tw-mb-4">Home Page</h2>
+                    <div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-6 tw-mb-6">
+                        <label for="home01"
+                            class="tw-cursor-pointer tw-shadow-md tw-rounded tw-overflow-hidden tw-border tw-border-gray-100">
+                            <div class="tw-flex tw-gap-2 tw-px-2 tw-py-3 tw-items-center">
+                                <input type="radio" value="1" name="current_theme" id="home01"
+                                    checked>
+                                <h4 class="tw-text-base tw-mb-0">Home 01</h4>
+                            </div>
+                        </label>
+                        <label for="home02"
+                            class="tw-cursor-pointer tw-shadow-md tw-rounded tw-overflow-hidden tw-border tw-border-gray-100">
+                            <div class="tw-flex tw-gap-2 tw-px-2 tw-py-3 tw-items-center">
+                                <input type="radio" value="2" name="current_theme" id="home02">
+                                <h4 class="tw-text-base tw-mb-0">Home 02</h4>
+                            </div>
+                        </label>
+                        <label for="home03"
+                            class="tw-cursor-pointer tw-shadow-md tw-rounded tw-overflow-hidden tw-border tw-border-gray-100">
+                            <div class="tw-flex tw-gap-2 tw-px-2 tw-py-3 tw-items-center">
+                                <input type="radio" value="3" name="current_theme" id="home03">
+                                <h4 class="tw-text-base tw-mb-0">Home 03</h4>
+                            </div>
+                        </label>
+                    </div>
+                </form>
+
+                <!-- color -->
+
+                <form action="https://jobpilot.lomeyolabs.com/app/set-theme-color" method="get"
+                    style="visibility: hidden" id="themeSwitcherForm">
+                    <input type="hidden" id="primaryColor" name="primaryColor" class="color-input"
+                        value="#0A65CC">
+                    <input type="hidden" id="secondaryColor" name="secondaryColor" class="color-input"
+                        value="#487CB8">
+                </form>
+            </div>
+            <!-- PWA Script Start -->
+            <ul class="tw-list-none tw-space-y-2.5 tw-p-0 tw-mt-6">
+                <li>
+                    <a class="tw-inline-flex tw-gap-2 tw-items-center tw-text-base"
+                        href="https://lomeyolabs.helpcenter.guide/collections/jobpilot-job-portal-83c890-051be"
+                        target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="tw-w-6 tw-h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25M9 16.5v.75m3-3v3M15 12v5.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                        </svg>
+                        <span>Documentation</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="tw-inline-flex tw-gap-2 tw-items-center tw-text-base"
+                        href="https://lomeyolabs.com/get-support" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="tw-w-6 tw-h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M16.712 4.33a9.027 9.027 0 0 1 1.652 1.306c.51.51.944 1.064 1.306 1.652M16.712 4.33l-3.448 4.138m3.448-4.138a9.014 9.014 0 0 0-9.424 0M19.67 7.288l-4.138 3.448m4.138-3.448a9.014 9.014 0 0 1 0 9.424m-4.138-5.976a3.736 3.736 0 0 0-.88-1.388 3.737 3.737 0 0 0-1.388-.88m2.268 2.268a3.765 3.765 0 0 1 0 2.528m-2.268-4.796a3.765 3.765 0 0 0-2.528 0m4.796 4.796c-.181.506-.475.982-.88 1.388a3.736 3.736 0 0 1-1.388.88m2.268-2.268 4.138 3.448m0 0a9.027 9.027 0 0 1-1.306 1.652c-.51.51-1.064.944-1.652 1.306m0 0-3.448-4.138m3.448 4.138a9.014 9.014 0 0 1-9.424 0m5.976-4.138a3.765 3.765 0 0 1-2.528 0m0 0a3.736 3.736 0 0 1-1.388-.88 3.737 3.737 0 0 1-.88-1.388m2.268 2.268L7.288 19.67m0 0a9.024 9.024 0 0 1-1.652-1.306 9.027 9.027 0 0 1-1.306-1.652m0 0 4.138-3.448M4.33 16.712a9.014 9.014 0 0 1 0-9.424m4.138 5.976a3.765 3.765 0 0 1 0-2.528m0 0c.181-.506.475-.982.88-1.388a3.736 3.736 0 0 1 1.388-.88m-2.268 2.268L4.33 7.288m6.406 1.18L7.288 4.33m0 0a9.024 9.024 0 0 0-1.652 1.306A9.025 9.025 0 0 0 4.33 7.288" />
+                        </svg>
+                        <span>Support</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="tw-inline-flex tw-gap-2 tw-items-center tw-text-base"
+                        href="https://go.templatecookie.com/jobpilot-regular" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="tw-w-5 tw-h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                        </svg>
+                        <span>Purchase Now</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <style>
+        .floating-btn {
+            box-shadow: 0px 2px 4px 0px #1C21260F;
+        }
+
+        .floating-btn button {
+            border: 1px solid var(--gray-100);
+        }
+
+        .floating-btn a {
+            visibility: hidden;
+            opacity: 0;
+            transform: translatex(-10px);
+            transition: all 0.4s ease-in-out;
+            white-space: nowrap;
+            position: absolute;
+            right: calc(100% + 10px);
+            top: 5px;
+            background: white;
+            color: black;
+            font-size: 14px;
+            line-height: 20px;
+            padding: 6px 10px;
+            border: 1px solid var(--gray-100);
+            border-radius: 8px;
+            z-index: 999;
+            box-shadow: 0px 2px 4px 0px #1C21260F;
+        }
+
+        .floating-btn:hover a {
+            transform: translatex(0);
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .wave-animation {
+            animation-name: wave-animation !important;
+            animation-duration: 3.5s !important;
+            animation-iteration-count: infinite !important;
+            transform-origin: 70% 70% !important;
+        }
+
+        .wave-animation:hover {
+            animation-name: unset !important
+        }
+
+        @keyframes wave-animation {
+            0% {
+                transform: rotate(0)
+            }
+
+            10% {
+                transform: rotate(12deg)
+            }
+
+            20% {
+                transform: rotate(-6deg)
+            }
+
+            30% {
+                transform: rotate(12deg)
+            }
+
+            40% {
+                transform: rotate(-2deg)
+            }
+
+            50% {
+                transform: rotate(8deg)
+            }
+
+            60% {
+                transform: rotate(0)
+            }
+
+            100% {
+                transform: rotate(0)
+            }
+        }
+
+        @keyframes rotation {
+            from {
+                -webkit-transform: rotate(0deg);
+            }
+
+            to {
+                -webkit-transform: rotate(359deg);
+            }
+        }
+
+        .loading {
+            animation: rotation 5s infinite linear;
+        }
+
+        /*=== Media Query ===*/
+        .panel-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .panel-group .panel-title {
+            position: relative;
+            margin-bottom: 12px;
+            z-index: 0;
+        }
+
+        .panel-group .panel-title .title {
+            display: inline-block;
+            padding-right: 10px;
+            color: #333;
+            font-size: 14px;
+            font-weight: 700;
+            background: #fff;
+            padding-bottom: 0;
+            margin-bottom: 0;
+            border-bottom: none;
+            margin-top: 0;
+        }
+
+        .panel-group .panel-title .title::after {
+            position: absolute;
+            content: "";
+            left: 0;
+            top: 10px;
+            height: 1px;
+            width: 100%;
+            background: #ebebeb;
+            z-index: -1;
+        }
+
+        .panel-group .color-skin {
+            display: flex;
+            flex-wrap: wrap;
+            margin: -7px -7px 0px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .panel-group .color-skin .color-item {
+            display: inline-block;
+            position: relative;
+            flex: 1 0 calc(15% - 14px);
+            margin: 7px;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        .panel-group .color-skin .color-item::before {
+            content: "";
+            display: block;
+            padding-bottom: 100%;
+        }
+
+        .panel-group .color-skin .color-item::after {
+            position: absolute;
+            content: "";
+            left: 50%;
+            top: calc(50% - 5px);
+            height: 7px;
+            width: 12px;
+            border: 2px solid #fff;
+            border-top: none;
+            border-right: none;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-50%) rotate(-45deg);
+        }
+
+        .panel-group .color-skin .color-item.active::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .buttons button:focus {
+            box-shadow: none;
+            outline: none;
+        }
+
+        .buttons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    </style>
+    <!-- Click Connector Widget -->
+
+    <!-- End Click Connector Widget -->
+
+    <!-- Tidio Chat Widget    -->
+    <script src="//code.tidio.co/nupcnf4jzm9la8auahqytgbc2iepfewv.js" async></script>
+    <!-- End Tidio Chat Widget -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const radioButtons = document.querySelectorAll('input[type="radio"][name="current_theme"]');
+            radioButtons.forEach(function(radio) {
+                radio.addEventListener("click", function() {
+                    this.closest("form").submit();
+                });
+            });
+        });
+    </script>
+    <script>
+        const colorVariables = [{
+                class: 'primary-color',
+                id: 'primaryColor',
+                variable: '--bs-primary-500',
+                title: "Primary color",
+                colors: [
+                    "#864AF9",
+                    "#FF4B00",
+                    "#F30CDC",
+                    "#226EDD",
+                    "#27D8CF",
+                    "#1CE342",
+                    "#8DE31C",
+                    "#F2B60D",
+                    "#F4610B",
+                    "#18191C",
+                    "#2DB24A",
+                    "#497174"
+                ]
+            },
+            {
+                class: 'secondary-color',
+                id: 'secondaryColor',
+                variable: '--bs-secondary-500',
+                title: "Secondary color",
+                colors: [
+                    "#FF5C5C",
+                    "#FF944D",
+                    "#FFD91A",
+                    "#8FCC14",
+                    "#2DB24A",
+                    "#0BBAE6",
+                    "#1777E5",
+                    "#3312FF",
+                    "#8A43FF",
+                    "#E543FF",
+                    "#132238",
+                    "#697484",
+                ]
+            },
+        ]
+        const themeSwitcher = false;
+
+        //Theme Switcher Panel
+        const themePanelInit = () => {
+            const dataTheme = $('body').attr('data-theme');
+            const defaultActive = dataTheme ? dataTheme : 'light';
+
+            $('#landing-pages').append(`
+                <div class="">
+                    ${colorVariables.map((item) => `
+                                            <div class="panel-group">
+                                                <div class="panel-title">
+                                                    <h6 class="title">${item.title}</h6>
+                                                </div>
+                                                <ul class="color-skin">
+                                                    ${item.colors.map((color) => `<li data-color="${color}" class="color-item ${item.class}"></li>`
+                                                    ).join("")}
+                                                </ul>
+                                            </div>`)
+                    .join("")}
+                </div>
+        `)
+
+            // window load set active color active class
+            colorVariables.forEach((color) => {
+                let colorInput = document.querySelector(`#${color.id}`);
+                let activeColorItem = document.querySelector(
+                    `.${color.class}[data-color="${colorInput.value}"]`);
+                if (activeColorItem) {
+                    activeColorItem.classList.add('active')
+                }
+            })
+        }
+
+        // Detect click from all colors and set the specefic color on form input/body
+        const changeThemeColor = () => {
+            const root = document.documentElement;
+            // Detect Click
+            colorVariables.forEach((color) => {
+                const colorSets = document.querySelectorAll(`.${color.class}`);
+                // loop through all colors
+                Array.from(colorSets).forEach((item) => {
+                    item.style.backgroundColor = item.dataset.color;
+
+                    item.addEventListener('click', (e) => {
+                        // remove active class from others;
+                        removeClassFromSiblings(colorSets);
+
+                        // set active color
+                        const clickedItem = e.target;
+                        clickedItem.classList.add('active');
+                        const clickedItemValue = clickedItem.dataset.color;
+
+                        // set variable color
+                        root.style.setProperty(color.variable, clickedItemValue);
+                        // localStorage.setItem(color.variable, clickedItemValue)
+                        setThemeColor(color.id, clickedItemValue)
+                    });
+                })
+            });
+
+            // remove a specefic class from other
+            function removeClassFromSiblings(colorSets) {
+                Array.from(colorSets).forEach((item) => {
+                    item.classList.remove('active');
+                })
+            }
+        }
+
+        // set theme color in form input and submit the form
+        const setThemeColor = (variable, color) => {
+            $(`#themeSwitcherForm #${variable}`).val(color);
+            $('#themeSwitcherForm').submit();
+        }
+
+        if (themeSwitcher) {
+            // client dark lite changer
+            const toggleSwitch = document.querySelector(".toggle-button");
+            const documentBody = document.body;
+
+            if (toggleSwitch) {
+                toggleSwitch.addEventListener("change", function(e) {
+                    const mode = e.target.checked === true ? 'dark' : 'light';
+                    documentBody.setAttribute("data-theme", mode);
+                });
+            }
+
+            window.addEventListener('load', () => {
+                const mode = localStorage.getItem('color_mode') ?? 'light';
+                document.body.setAttribute("data-theme", mode);
+            })
+
+            const observer = new MutationObserver(function() {
+                const mode = documentBody.getAttribute('data-theme');
+
+                localStorage.setItem('color_mode', mode);
+                toggleSwitch.checked = mode === 'dark' ? true : false;
+            });
+
+            observer.observe(documentBody, {
+                attributeFilter: ['data-theme']
+            });
+        }
+
+        // Initialize the color panel
+        $(function() {
+            themePanelInit();
+            // on click change variable color
+            changeThemeColor();
+        })
+    </script>
+    <!-- PWA Button End -->
+    <script src="https://jobpilot.lomeyolabs.com/sw.js"></script>
+    <script>
+        if (!navigator.serviceWorker) {
+            navigator.serviceWorker.register("/sw.js").then(function(reg) {
+                console.log("Service worker has been registered for scope: " + reg);
+            });
+        }
+
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            $('#installApp').removeClass('d-none');
+            deferredPrompt = e;
+        });
+
+        const installApp = document.getElementById('installApp');
+        if (installApp) {
+            installApp.addEventListener('click', async () => {
+                if (deferredPrompt !== null) {
+                    deferredPrompt.prompt();
+                    const {
+                        outcome
+                    } = await deferredPrompt.userChoice;
+                    if (outcome === 'accepted') {
+                        deferredPrompt = null;
+                    }
+                }
+            });
+        }
+    </script>
+
+
+</body>
+
 </html>
