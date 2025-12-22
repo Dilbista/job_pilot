@@ -13,5 +13,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::prefix('candidate')->group(function () {
     Route::get('/', [CandidateController::class, 'index'])->name('candidate.index');
+    Route::get('/appliedjobs', [CandidateController::class, 'appliedJobs'])->name('candidate.appliedjobs');
+    Route::get('/favoritejob', [CandidateController::class, 'favorites'])->name('candidate.favoritejob');
+    Route::get('/jobalert', [CandidateController::class, 'jobalert'])->name('candidate.jobalert');
+    Route::get('/messenger', [CandidateController::class, 'messenger'])->name('candidate.messenger');
+    Route::get('/billing', [CandidateController::class, 'billing'])->name('candidate.billing');
+    Route::get('/settings', [CandidateController::class, 'settings'])->name('candidate.settings');
     Route::get('/dashboard', [CandidateController::class, 'dashboard'])->name('candidate.dashboard');
 });

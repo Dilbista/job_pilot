@@ -3,967 +3,772 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jobpilot - Find Your Dream Job | Modern Job Search Platform</title>
+    <title>Jobpilot Clone</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'inter': ['Inter', 'sans-serif'],
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'slide-in': 'slideIn 0.5s ease-out',
-                        'bounce-slow': 'bounce 3s infinite',
-                        'gradient': 'gradient 8s ease infinite',
-                        'shimmer': 'shimmer 2s infinite linear',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        },
-                        slideIn: {
-                            '0%': { transform: 'translateY(20px)', opacity: '0' },
-                            '100%': { transform: 'translateY(0)', opacity: '1' },
-                        },
-                        gradient: {
-                            '0%, 100%': { backgroundPosition: '0% 50%' },
-                            '50%': { backgroundPosition: '100% 50%' },
-                        },
-                        shimmer: {
-                            '0%': { backgroundPosition: '-200px 0' },
-                            '100%': { backgroundPosition: '200px 0' },
-                        }
-                    },
-                    backgroundImage: {
-                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-                        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-                    }
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            font-family: 'Inter', sans-serif;
-        }
-        
-        body {
-            overflow-x: hidden;
-        }
-        
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .gradient-text {
-            background: linear-gradient(90deg, #0066FF, #00C6FF, #0066FF);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradient 8s ease infinite;
-        }
-        
-        .hero-gradient {
-            background: linear-gradient(-45deg, #0066FF, #00C6FF, #0066FF, #00C6FF);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
-        }
-        
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 102, 255, 0.15);
-        }
-        
-        .stagger-animation > * {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: slideIn 0.5s ease-out forwards;
-        }
-        
-        .stagger-animation > *:nth-child(1) { animation-delay: 0.1s; }
-        .stagger-animation > *:nth-child(2) { animation-delay: 0.2s; }
-        .stagger-animation > *:nth-child(3) { animation-delay: 0.3s; }
-        .stagger-animation > *:nth-child(4) { animation-delay: 0.4s; }
-        .stagger-animation > *:nth-child(5) { animation-delay: 0.5s; }
-        
-        .progress-ring {
-            transform: rotate(-90deg);
-        }
-        
-        .progress-ring-circle {
-            stroke-dasharray: 283;
-            stroke-dashoffset: 283;
-            transition: stroke-dashoffset 1s ease;
-        }
-        
-        .typewriter {
-            overflow: hidden;
-            border-right: 3px solid #0066FF;
-            white-space: nowrap;
-            margin: 0 auto;
-            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
-        }
-        
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-        
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: #0066FF }
-        }
-        
-        .parallax-bg {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        
-        .floating-icon {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        .floating-icon-delay {
-            animation: float 6s ease-in-out infinite 1s;
-        }
-        
-        .floating-icon-delay-2 {
-            animation: float 6s ease-in-out infinite 2s;
-        }
-        
-        .pulse-dot {
-            animation: pulse-slow 2s infinite;
-        }
-        
-        .shimmer-button {
-            background: linear-gradient(90deg, #0066FF 0%, #00C6FF 50%, #0066FF 100%);
-            background-size: 200% 100%;
-            transition: all 0.3s ease;
-        }
-        
-        .shimmer-button:hover {
-            background-position: 100% 0;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 102, 255, 0.3);
-        }
-        
-        .job-card {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .job-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.7s;
-        }
-        
-        .job-card:hover::before {
-            left: 100%;
-        }
-        
-        .curved-underline {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .curved-underline::after {
-            content: "";
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 100%;
-            height: 14px;
-            background: url("data:image/svg+xml,%3Csvg width='120' height='14' viewBox='0 0 120 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 10C40 -5 80 -5 119 10' stroke='url(%23underline-gradient)' stroke-width='2' stroke-linecap='round'/%3E%3Cdefs%3E%3ClinearGradient id='underline-gradient' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%230066FF'/%3E%3Cstop offset='100%25' stop-color='%2300C6FF'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E") no-repeat;
-            background-size: 100% 100%;
-        }
-        
-        .scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #0066FF, #00C6FF);
-            z-index: 9999;
-            transition: width 0.3s ease;
-        }
+        body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900 relative overflow-x-hidden">
-    
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress" id="scrollProgress"></div>
-    
-    <!-- Floating Background Elements -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
-        <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow animation-delay-2000"></div>
-        <div class="absolute top-3/4 left-1/3 w-64 h-64 bg-cyan-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow animation-delay-4000"></div>
+<body class="bg-gray-50">
+
+    <div class="bg-[#0a1d37] text-gray-300 py-2 px-4 md:px-16 text-sm flex justify-between items-center border-b border-gray-700">
+        <div class="flex space-x-6">
+            <a href="#" class="hover:text-white transition">Home</a>
+            <a href="#" class="hover:text-white transition">Find Job</a>
+            <a href="#" class="hover:text-white transition">Companies</a>
+            <a href="#" class="hover:text-white transition">Dashboard</a>
+            <a href="#" class="hover:text-white transition">Job Alert</a>
+        </div>
+        <div class="flex items-center space-x-4">
+            <span>📞 319-555-0115</span>
+            <div class="flex items-center cursor-pointer">
+                <span class="mr-1">🇺🇸 English</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+            <div class="flex items-center cursor-pointer">
+                <span class="mr-1">USD</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+        </div>
     </div>
 
-    <!-- Top Navigation -->
-    <nav class="bg-white/80 backdrop-blur-sm border-b border-gray-100 text-sm py-3 px-4 md:px-16 flex justify-between items-center text-gray-600 sticky top-0 z-40 glass-effect">
-        <div class="flex gap-6">
-            <a href="#" class="text-blue-600 font-semibold hover:text-blue-700 transition-all duration-300 relative group">
-                Home
-                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
-            </a>
-            <a href="#" class="hover:text-blue-600 transition-all duration-300 relative group">
-                Find Job
-                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
-            </a>
-            <a href="#" class="hover:text-blue-600 transition-all duration-300 relative group">
-                Companies
-                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
-            </a>
-            <a href="#" class="hover:text-blue-600 transition-all duration-300 relative group">
-                Dashboard
-                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
-            </a>
-            <a href="#" class="hover:text-blue-600 transition-all duration-300 relative group">
-                Job Alert
-                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
-            </a>
+    <nav class="bg-[#0066FF] py-4 px-4 md:px-16 flex justify-between items-center text-white">
+        <div class="flex items-center space-x-8 flex-1">
+            <div class="flex items-center space-x-2 text-2xl font-bold italic">
+                <div class="bg-white p-1 rounded text-[#0066FF]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
+                <span>Jobpilot</span>
+            </div>
+
+            <div class="hidden md:flex bg-white rounded-md overflow-hidden flex-1 max-w-md ml-8">
+                <select class="bg-gray-100 text-gray-700 px-4 py-2 border-r text-sm outline-none">
+                    <option>Jobs</option>
+                </select>
+                <div class="flex items-center px-3 text-gray-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    <input type="text" placeholder="Job Title, Keyword" class="px-3 py-2 text-gray-800 outline-none w-full text-sm">
+                </div>
+            </div>
         </div>
-        <div class="hidden md:flex gap-6 items-center">
-            <span class="flex items-center gap-2 hover:text-blue-600 transition cursor-pointer">
-                <i class="fas fa-phone-alt text-blue-500"></i> 319-555-0115
-            </span>
-            <div class="flex items-center gap-1 cursor-pointer hover:text-blue-600 transition">🇺🇸 English <i class="fas fa-chevron-down text-xs"></i></div>
-            <span class="cursor-pointer hover:text-blue-600 transition">USD <i class="fas fa-chevron-down text-xs"></i></span>
+
+        <div class="flex items-center space-x-6">
+            <div class="relative cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+                <span class="absolute -top-1 -right-1 bg-red-500 text-[10px] rounded-full w-4 h-4 flex items-center justify-center">1</span>
+            </div>
+            <div class="relative cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                <span class="absolute -top-1 -right-1 bg-red-500 text-[10px] rounded-full w-4 h-4 flex items-center justify-center">2</span>
+            </div>
+            <div class="relative">
+                <img src="https://i.pravatar.cc/150?u=fakeuser" alt="Profile" class="w-10 h-10 rounded-full border-2 border-white object-cover">
+                <div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></div>
+            </div>
         </div>
     </nav>
 
-    <!-- Main Header -->
-    <header class="hero-gradient py-4 px-4 md:px-16 sticky top-12 z-30 shadow-lg">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="bg-white p-2 rounded-xl shadow-lg hover:rotate-12 transition-transform duration-300">
-                    <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path d="M21 13V6a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h6M16 2l4 4-4 4"/>
-                    </svg>
-                </div>
-                <span class="text-2xl font-bold text-white">Jobpilot</span>
-            </div>
-            
-            <div class="flex-1 max-w-xl mx-8 hidden lg:block">
-                <div class="bg-white rounded-xl flex overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <select class="bg-gray-50 px-4 py-3 border-r border-gray-100 text-sm outline-none rounded-l-xl">
-                        <option>All Jobs</option>
-                        <option>Remote</option>
-                        <option>Full-time</option>
-                        <option>Part-time</option>
-                    </select>
-                    <input type="text" placeholder="Job Title, Keyword, or Company" class="flex-1 px-4 py-3 text-sm outline-none">
-                    <button class="bg-blue-600 text-white px-6 hover:bg-blue-700 transition">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </div>
-            
-            <div class="flex items-center gap-6 text-white">
-                <div class="relative cursor-pointer group">
-                    <div class="p-2 rounded-full bg-white/10 group-hover:bg-white/20 transition">
-                        <i class="fas fa-bell text-lg"></i>
-                    </div>
-                    <span class="absolute -top-1 -right-1 bg-red-500 w-3 h-3 rounded-full border-2 border-blue-600 pulse-dot"></span>
-                    <div class="absolute right-0 top-12 w-64 bg-white text-gray-800 rounded-xl shadow-2xl p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
-                        <p class="font-bold mb-2">Notifications</p>
-                        <div class="text-sm space-y-2">
-                            <p class="p-2 bg-blue-50 rounded">🎯 New job matches your profile</p>
-                            <p class="p-2">📅 Interview scheduled for tomorrow</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative group cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" class="w-10 h-10 rounded-full border-2 border-white/50 shadow-lg group-hover:scale-110 transition-transform duration-300" alt="Profile">
-                    <div class="absolute right-0 top-12 w-48 bg-white text-gray-800 rounded-xl shadow-2xl p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
-                        <div class="flex items-center gap-3 mb-3">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=50&q=50" class="w-10 h-10 rounded-full" alt="">
-                            <div>
-                                <p class="font-bold">Alex Morgan</p>
-                                <p class="text-xs text-gray-500">UI/UX Designer</p>
-                            </div>
-                        </div>
-                        <hr class="my-2">
-                        <div class="space-y-2 text-sm">
-                            <a href="#" class="block hover:text-blue-600"><i class="fas fa-user mr-2"></i> Profile</a>
-                            <a href="#" class="block hover:text-blue-600"><i class="fas fa-cog mr-2"></i> Settings</a>
-                            <a href="#" class="block hover:text-blue-600"><i class="fas fa-sign-out-alt mr-2"></i> Logout</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="py-20 px-4 md:px-16 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 relative z-10">
-        <div class="flex-1 stagger-animation">
-            <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">
-                Discover Your 
-                <span class="gradient-text">Perfect Job</span>
-                <br>
-                Matching Your 
-                <span class="typewriter">Passion & Skills</span>
+    <main class="px-4 md:px-16 py-16 flex flex-col md:flex-row items-center justify-between gap-12 max-w-7xl mx-auto">
+        <div class="w-full md:w-1/2">
+            <h1 class="text-5xl font-bold text-gray-900 leading-tight mb-4">
+                Discover Your Perfect Job:<br>
+                Matching Your Interests and Skills
             </h1>
-            <p class="text-gray-600 text-xl mb-10 leading-relaxed">Unlock Your Potential, Embrace Your Future with AI-powered job matching.</p>
-            
-            <div class="bg-white p-2 rounded-2xl shadow-2xl border border-gray-100 flex flex-col md:flex-row gap-2 mb-6 hover:shadow-3xl transition-shadow duration-500">
-                <div class="flex-1 flex items-center px-4 border-b md:border-b-0 md:border-r border-gray-100">
-                    <i class="fas fa-search text-gray-400 mr-3"></i>
-                    <input type="text" placeholder="Job Title, Keyword" class="w-full p-4 outline-none placeholder-gray-400">
+            <p class="text-gray-500 text-lg mb-10">Unlock Your Potential, Embrace Your Future.</p>
+
+            <div class="bg-white p-2 rounded-lg shadow-xl border border-gray-100 flex flex-col md:flex-row items-center gap-2">
+                <div class="flex items-center px-4 flex-1 border-r border-gray-200 w-full">
+                    <svg class="text-[#0066FF] mr-2" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    <input type="text" placeholder="Job Title, Keyword" class="py-3 w-full outline-none text-gray-700">
                 </div>
-                <div class="flex-1 flex items-center px-4">
-                    <i class="fas fa-map-marker-alt text-gray-400 mr-3"></i>
-                    <input type="text" placeholder="Enter Location or Remote" class="w-full p-4 outline-none placeholder-gray-400">
+                <div class="flex items-center px-4 flex-1 w-full">
+                    <svg class="text-[#0066FF] mr-2" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <input type="text" placeholder="Enter Location" class="py-3 w-full outline-none text-gray-700">
                 </div>
-                <button class="shimmer-button text-white px-10 py-4 rounded-xl font-bold transition-all duration-300">
-                    Find Job Now <i class="fas fa-arrow-right ml-2"></i>
+                <button class="bg-[#0066FF] text-white px-8 py-3 rounded-md font-semibold hover:bg-blue-700 transition w-full md:w-auto">
+                    Find Job Now
                 </button>
             </div>
             
-            <div class="flex flex-wrap gap-4">
-                <span class="bg-blue-50 text-blue-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-100 transition cursor-pointer">💻 Design</span>
-                <span class="bg-blue-50 text-blue-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-100 transition cursor-pointer">🔧 IT</span>
-                <span class="bg-blue-50 text-blue-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-100 transition cursor-pointer">🚗 Driving</span>
-                <span class="bg-blue-50 text-blue-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-100 transition cursor-pointer">🏨 Hospitality</span>
-                <span class="bg-blue-50 text-blue-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-100 transition cursor-pointer">📊 Marketing</span>
-            </div>
-        </div>
-        
-        <div class="flex-1 relative hidden lg:block">
-            <!-- Floating icons around hero image -->
-            <div class="absolute -top-6 -left-6 floating-icon">
-                <div class="w-16 h-16 bg-white rounded-2xl shadow-xl flex items-center justify-center text-blue-600 text-2xl">
-                    <i class="fas fa-briefcase"></i>
-                </div>
-            </div>
-            <div class="absolute top-1/3 -right-6 floating-icon-delay">
-                <div class="w-14 h-14 bg-blue-600 rounded-2xl shadow-xl flex items-center justify-center text-white text-xl">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-            </div>
-            <div class="absolute bottom-1/4 -left-8 floating-icon-delay-2">
-                <div class="w-12 h-12 bg-green-500 rounded-2xl shadow-xl flex items-center justify-center text-white text-lg">
-                    <i class="fas fa-check"></i>
-                </div>
-            </div>
-            
-            <!-- Main hero image -->
-            <div class="relative">
-                <img src="https://raw.githubusercontent.com/TemplateCookie/Jobpilot/main/public/frontend/assets/images/hero-img.png" alt="Hero Illustration" class="rounded-3xl shadow-2xl w-full">
-                <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-2xl w-64">
-                    <div class="flex items-center justify-between mb-3">
-                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 text-xl">
-                            <i class="fas fa-user-tie"></i>
-                        </div>
-                        <div class="text-right">
-                            <p class="text-2xl font-bold">85%</p>
-                            <p class="text-xs text-gray-500">Success Rate</p>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600">Job seekers find positions within 30 days</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="pb-20 px-4 md:px-16 max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-6 relative z-10 stagger-animation">
-        <div class="bg-white p-8 rounded-2xl border border-blue-50 flex items-center gap-6 card-hover hover:border-blue-100">
-            <div class="relative">
-                <div class="p-4 bg-gradient-to-br from-blue-50 to-blue-100 text-blue-600 rounded-xl">
-                    <i class="fas fa-briefcase text-2xl"></i>
-                </div>
-                <div class="absolute -top-2 -right-2 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs">
-                    <i class="fas fa-plus"></i>
-                </div>
-            </div>
-            <div>
-                <p class="text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">2K+</p>
-                <p class="text-gray-500 text-sm">Live Jobs</p>
-            </div>
-        </div>
-        
-        <div class="bg-white p-8 rounded-2xl border border-blue-50 flex items-center gap-6 card-hover hover:border-blue-100">
-            <div class="relative">
-                <div class="p-4 bg-gradient-to-br from-green-50 to-green-100 text-green-600 rounded-xl">
-                    <i class="fas fa-building text-2xl"></i>
-                </div>
-                <div class="absolute -top-2 -right-2 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-xs">
-                    <i class="fas fa-arrow-up"></i>
-                </div>
-            </div>
-            <div>
-                <p class="text-3xl font-bold bg-gradient-to-r from-green-600 to-emerald-500 bg-clip-text text-transparent">14K+</p>
-                <p class="text-gray-500 text-sm">Companies</p>
-            </div>
-        </div>
-        
-        <div class="bg-white p-8 rounded-2xl border border-blue-50 flex items-center gap-6 card-hover hover:border-blue-100">
-            <div class="relative">
-                <div class="p-4 bg-gradient-to-br from-purple-50 to-purple-100 text-purple-600 rounded-xl">
-                    <i class="fas fa-users text-2xl"></i>
-                </div>
-                <div class="absolute -top-2 -right-2 w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-xs">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-            </div>
-            <div>
-                <p class="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">31K+</p>
-                <p class="text-gray-500 text-sm">Candidates</p>
-            </div>
-        </div>
-        
-        <div class="bg-white p-8 rounded-2xl border border-blue-50 flex items-center gap-6 card-hover hover:border-blue-100">
-            <div class="relative">
-                <div class="p-4 bg-gradient-to-br from-amber-50 to-amber-100 text-amber-600 rounded-xl">
-                    <i class="fas fa-file-alt text-2xl"></i>
-                </div>
-                <div class="absolute -top-2 -right-2 w-6 h-6 bg-amber-500 rounded-full flex items-center justify-center text-white text-xs">
-                    <i class="fas fa-bolt"></i>
-                </div>
-            </div>
-            <div>
-                <p class="text-3xl font-bold bg-gradient-to-r from-amber-600 to-orange-500 bg-clip-text text-transparent">5K+</p>
-                <p class="text-gray-500 text-sm">New Jobs</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us Section -->
-    <section class="py-24 bg-gradient-to-b from-white to-blue-50 text-center px-4 md:px-16 relative overflow-hidden">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl font-bold mb-4">Why Choose <span class="gradient-text">Jobpilot</span></h2>
-            <p class="text-gray-600 mb-16 max-w-2xl mx-auto">We combine cutting-edge technology with human expertise to deliver the best job matching experience</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 relative z-10 stagger-animation">
-                <div class="flex flex-col items-center p-8 bg-white rounded-3xl shadow-lg card-hover">
-                    <div class="relative mb-8">
-                        <div class="w-24 h-24 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full flex items-center justify-center text-white text-3xl shadow-xl">
-                            <i class="fas fa-hand-holding-usd"></i>
-                        </div>
-                        <div class="absolute -top-2 -right-2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-blue-600">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Cost Effective</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Smart pricing models that scale with your needs. Whether you're posting one job or hundreds.</p>
-                    <div class="mt-6 w-full bg-gray-100 h-2 rounded-full overflow-hidden">
-                        <div class="bg-blue-500 h-full rounded-full w-3/4"></div>
-                    </div>
-                </div>
-                
-                <div class="flex flex-col items-center p-8 bg-white rounded-3xl shadow-lg card-hover">
-                    <div class="relative mb-8">
-                        <div class="w-24 h-24 bg-gradient-to-br from-green-500 to-emerald-400 rounded-full flex items-center justify-center text-white text-3xl shadow-xl">
-                            <i class="fas fa-mouse-pointer"></i>
-                        </div>
-                        <div class="absolute -top-2 -right-2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-green-600">
-                            <i class="fas fa-rocket"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Easy to Use</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Intuitive dashboard with drag-and-drop functionality. Manage applications in minutes, not hours.</p>
-                    <div class="mt-6 w-full bg-gray-100 h-2 rounded-full overflow-hidden">
-                        <div class="bg-green-500 h-full rounded-full w-9/10"></div>
-                    </div>
-                </div>
-                
-                <div class="flex flex-col items-center p-8 bg-white rounded-3xl shadow-lg card-hover">
-                    <div class="relative mb-8">
-                        <div class="w-24 h-24 bg-gradient-to-br from-purple-500 to-pink-400 rounded-full flex items-center justify-center text-white text-3xl shadow-xl">
-                            <i class="fas fa-user-graduate"></i>
-                        </div>
-                        <div class="absolute -top-2 -right-2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-purple-600">
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Quality Candidate</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">AI-powered matching connects you with the top 10% of candidates in your industry.</p>
-                    <div class="mt-6 w-full bg-gray-100 h-2 rounded-full overflow-hidden">
-                        <div class="bg-purple-500 h-full rounded-full w-4/5"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <p class="mt-16 text-gray-600">Have a question? 
-                <a href="#" class="text-blue-600 font-bold hover:underline inline-flex items-center gap-2">
-                    Contact us <i class="fas fa-arrow-right text-sm"></i>
-                </a>
+            <p class="mt-4 text-xs text-gray-400">
+                Suggestion: Design/Creative, Driving/Motor Technician, IT & Telecommunication, Hospitality/Travel/ Tourism
             </p>
         </div>
-        
-        <!-- Animated background elements -->
-        <div class="absolute top-1/4 left-10 floating-icon">
-            <div class="w-10 h-10 bg-blue-100 rounded-full"></div>
-        </div>
-        <div class="absolute bottom-1/4 right-10 floating-icon-delay">
-            <div class="w-12 h-12 bg-green-100 rounded-full"></div>
-        </div>
-    </section>
 
-    <!-- Popular Categories -->
-    <section class="py-24 px-4 md:px-16 max-w-7xl mx-auto">
-        <div class="flex justify-between items-end mb-16">
+        <div class="w-full md:w-1/2 flex justify-center">
+            <img src="https://raw.githubusercontent.com/Anmol-Baranwal/Modern-UI-UX-Job-Portal/main/public/assets/images/hero-img.png" alt="Illustration" class="w-full max-w-md">
+        </div>
+    </main>
+
+    <section class="px-4 md:px-16 pb-16 max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-center space-x-4">
+            <div class="bg-blue-50 p-3 rounded-lg text-blue-600">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
             <div>
-                <h2 class="text-4xl font-bold mb-4">Popular <span class="curved-underline">Categories</span></h2>
-                <p class="text-gray-600">Browse jobs by category that match your skills</p>
+                <p class="text-xl font-bold text-gray-900">2 +</p>
+                <p class="text-sm text-gray-500">Live Jobs</p>
             </div>
-            <a href="#" class="text-blue-600 font-semibold border border-blue-100 px-8 py-3 rounded-full hover:bg-blue-50 transition-all duration-300 hover:shadow-lg flex items-center gap-2">
-                View All Jobs <i class="fas fa-arrow-right"></i>
-            </a>
         </div>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 stagger-animation">
-            <div class="p-8 bg-white border border-gray-100 rounded-2xl hover:shadow-2xl transition-all duration-300 group cursor-pointer job-card flex items-center gap-6">
-                <div class="relative">
-                    <div class="w-16 h-16 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl flex items-center justify-center text-blue-600 text-2xl group-hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-tshirt"></i>
-                    </div>
-                    <div class="absolute -top-2 -right-2 bg-blue-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">
-                        1
-                    </div>
-                </div>
-                <div>
-                    <h3 class="font-bold text-lg mb-1">Garments/Textile</h3>
-                    <p class="text-gray-400 text-sm">Open Positions</p>
-                </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-center space-x-4">
+            <div class="bg-cyan-50 p-3 rounded-lg text-cyan-600">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M3 7v1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7H3"/><path d="M4 21V10"/><path d="M10 21V10"/><path d="M16 21V10"/><path d="M20 21V10"/></svg>
             </div>
-            
-            <div class="p-8 bg-gradient-to-br from-blue-50 to-cyan-50 border-2 border-blue-100 rounded-2xl shadow-xl shadow-blue-50 group cursor-pointer flex items-center gap-6 relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-24 h-24 bg-blue-100 rounded-full -translate-y-10 translate-x-10 opacity-50"></div>
-                <div class="relative">
-                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-xl flex items-center justify-center text-white text-2xl group-hover:rotate-12 transition-transform duration-300">
-                        <i class="fas fa-car"></i>
-                    </div>
-                    <div class="absolute -top-2 -right-2 bg-blue-600 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">
-                        0
-                    </div>
-                </div>
-                <div>
-                    <h3 class="font-bold text-lg mb-1 text-blue-600">Driving/Motor Technician</h3>
-                    <p class="text-gray-400 text-sm">Open Positions</p>
-                </div>
+            <div>
+                <p class="text-xl font-bold text-gray-900">14 +</p>
+                <p class="text-sm text-gray-500">Companies</p>
             </div>
-            
-            <!-- Additional categories -->
-            <div class="p-8 bg-white border border-gray-100 rounded-2xl hover:shadow-2xl transition-all duration-300 group cursor-pointer job-card flex items-center gap-6">
-                <div class="relative">
-                    <div class="w-16 h-16 bg-gradient-to-br from-green-50 to-green-100 rounded-xl flex items-center justify-center text-green-600 text-2xl group-hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <div class="absolute -top-2 -right-2 bg-green-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">
-                        24
-                    </div>
-                </div>
-                <div>
-                    <h3 class="font-bold text-lg mb-1">Software Development</h3>
-                    <p class="text-gray-400 text-sm">Open Positions</p>
-                </div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-center space-x-4">
+            <div class="bg-blue-50 p-3 rounded-lg text-blue-600">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             </div>
-            
-            <div class="p-8 bg-white border border-gray-100 rounded-2xl hover:shadow-2xl transition-all duration-300 group cursor-pointer job-card flex items-center gap-6">
-                <div class="relative">
-                    <div class="w-16 h-16 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl flex items-center justify-center text-purple-600 text-2xl group-hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-chart-bar"></i>
-                    </div>
-                    <div class="absolute -top-2 -right-2 bg-purple-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">
-                        12
-                    </div>
-                </div>
-                <div>
-                    <h3 class="font-bold text-lg mb-1">Marketing & Sales</h3>
-                    <p class="text-gray-400 text-sm">Open Positions</p>
-                </div>
+            <div>
+                <p class="text-xl font-bold text-gray-900">31 +</p>
+                <p class="text-sm text-gray-500">Candidates</p>
+            </div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-center space-x-4">
+            <div class="bg-blue-50 p-3 rounded-lg text-blue-600">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
+            <div>
+                <p class="text-xl font-bold text-gray-900">5 +</p>
+                <p class="text-sm text-gray-500">Total New Jobs</p>
             </div>
         </div>
     </section>
 
-    <!-- Working Process -->
-    <section class="py-24 bg-white text-center relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-4xl font-bold mb-4">
-                <span class="gradient-text">Jobpilot</span> Working Process
-            </h2>
-            <p class="text-gray-600 mb-20 max-w-2xl mx-auto">Four simple steps to land your dream job with our platform</p>
+    <div class="fixed bottom-6 right-6 flex items-center space-x-2">
+        <div class="bg-white px-4 py-2 rounded-full shadow-lg border text-sm font-medium">
+            Chat with us 👋
+        </div>
+        <div class="bg-blue-600 p-4 rounded-full text-white shadow-lg cursor-pointer hover:scale-110 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg>
+        </div>
+    </div>
+<section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 md:px-16 text-center">
+            <h2 class="text-4xl font-semibold text-gray-900 mb-16">Why choose us</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+                <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 rounded-full bg-white shadow-lg flex items-center justify-center mb-6 border border-gray-50">
+                        <svg class="text-blue-600 w-10 h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17 2 2 4-4"/><path d="m22 10-6-6H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V10Z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Cost Effective</h3>
+                    <p class="text-gray-500 leading-relaxed text-sm px-4">
+                        Whether you choose to post your jobs directly or have them indexed automatically, our pricing model is highly competitive and cost-effective.
+                    </p>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 rounded-full bg-white shadow-lg flex items-center justify-center mb-6 border border-gray-50">
+                        <svg class="text-blue-600 w-10 h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Easy to Use</h3>
+                    <p class="text-gray-500 leading-relaxed text-sm px-4">
+                        We have created a streamlined user-interface so you can easily manage your jobs and candidates.
+                    </p>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 rounded-full bg-white shadow-lg flex items-center justify-center mb-6 border border-gray-50">
+                        <svg class="text-blue-600 w-10 h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="22" y1="8" y2="8"/><line x1="19" x2="22" y1="12" y2="12"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Quality Candidate</h3>
+                    <p class="text-gray-500 leading-relaxed text-sm px-4">
+                        Irrespective of your organization's size, we have a large pool of candidates with diverse skill sets and experience levels.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-20">
+                <p class="text-gray-900 text-lg mb-2">Have a question ?</p>
+                <a href="#" class="text-blue-600 font-medium hover:underline">Contact us</a>
+            </div>
+        </div>
+    </section>
+    <section class="py-16 px-4 md:px-16 max-w-7xl mx-auto">
+    <h2 class="text-3xl font-semibold text-gray-900 mb-10">Most Popular Vacancies</h2>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-8 gap-x-12">
+        <div class="group cursor-pointer">
+            <h3 class="text-lg font-medium text-gray-900 group-hover:text-blue-600 transition">Administrator</h3>
+            <p class="text-gray-400 text-sm mt-1">2 Open Positions</p>
+        </div>
+
+        <div class="group cursor-pointer">
+            <h3 class="text-lg font-medium text-gray-900 group-hover:text-blue-600 transition">Team Leader</h3>
+            <p class="text-gray-400 text-sm mt-1">0 Open Positions</p>
+        </div>
+
+        <div class="group cursor-pointer">
+            <h3 class="text-lg font-medium text-gray-900 group-hover:text-blue-600 transition">Manager</h3>
+            <p class="text-gray-400 text-sm mt-1">0 Open Positions</p>
+        </div>
+
+        <div class="group cursor-pointer">
+            <h3 class="text-lg font-medium text-gray-900 group-hover:text-blue-600 transition">Assistant Manager</h3>
+            <p class="text-gray-400 text-sm mt-1">0 Open Positions</p>
+        </div>
+
+        <div class="group cursor-pointer">
+            <h3 class="text-lg font-medium text-gray-900 group-hover:text-blue-600 transition">Executive</h3>
+            <p class="text-gray-400 text-sm mt-1">0 Open Positions</p>
+        </div>
+
+        <div class="group cursor-pointer">
+            <h3 class="text-lg font-medium text-gray-900 group-hover:text-blue-600 transition">Director</h3>
+            <p class="text-gray-400 text-sm mt-1">0 Open Positions</p>
+        </div>
+    </div>
+</section>
+
+<section class="py-24 bg-gray-50/50">
+    <div class="max-w-7xl mx-auto px-4 md:px-16 text-center">
+        <h2 class="text-4xl font-semibold text-gray-900 mb-20">Why choose us</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+            <div class="flex flex-col items-center">
+                <div class="w-24 h-24 rounded-full bg-white shadow-sm flex items-center justify-center mb-8">
+                    <svg class="w-10 h-10 text-blue-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17 2 2 4-4"/><path d="m22 10-6-6H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V10Z"/></svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Cost Effective</h3>
+                <p class="text-gray-500 text-sm leading-relaxed max-w-xs">
+                    Whether you choose to post your jobs directly or have them indexed automatically, our pricing model is highly competitive and cost-effective.
+                </p>
+            </div>
+
+            <div class="flex flex-col items-center">
+                <div class="w-24 h-24 rounded-full bg-white shadow-sm flex items-center justify-center mb-8">
+                    <svg class="w-10 h-10 text-blue-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Easy to Use</h3>
+                <p class="text-gray-500 text-sm leading-relaxed max-w-xs">
+                    We have created a streamlined user-interface so you can easily manage your jobs and candidates.
+                </p>
+            </div>
+
+            <div class="flex flex-col items-center">
+                <div class="w-24 h-24 rounded-full bg-white shadow-sm flex items-center justify-center mb-8">
+                    <svg class="w-10 h-10 text-blue-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="22" y1="8" y2="8"/><line x1="19" x2="22" y1="12" y2="12"/></svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Quality Candidate</h3>
+                <p class="text-gray-500 text-sm leading-relaxed max-w-xs">
+                    Irrespective of your organization's size, we have a large pool of candidates with diverse skill sets and experience levels.
+                </p>
+            </div>
+        </div>
+
+        <div class="mt-20">
+            <p class="text-gray-800 text-lg">Have a question ?</p>
+            <a href="#" class="text-blue-600 font-medium hover:underline mt-2 inline-block">Contact us</a>
+        </div>
+    </div>
+</section>
+<section class="py-16 px-4 md:px-16 max-w-7xl mx-auto">
+    <div class="flex justify-between items-center mb-10">
+        <h2 class="text-3xl font-semibold text-gray-900">Popular Category</h2>
+        <a href="#" class="flex items-center text-blue-600 font-medium border border-blue-100 px-4 py-2 rounded-md hover:bg-blue-50 transition">
+            View All Jobs 
+            <svg class="ml-2 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="flex items-center p-6 bg-white border border-gray-100 rounded-lg hover:shadow-xl hover:border-blue-200 transition group cursor-pointer">
+            <div class="bg-blue-50 p-4 rounded-lg mr-4 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition">
+                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.62 1.96V21a1 1 0 001 1h18a1 1 0 001-1V5.42a2 2 0 00-1.62-1.96zM12 21V7"/></svg>
+            </div>
+            <div>
+                <h3 class="font-bold text-gray-900">Garments/Textile</h3>
+                <p class="text-gray-400 text-sm">1 Open Positions</p>
+            </div>
+        </div>
+
+        <div class="flex items-center p-6 bg-white border border-gray-100 rounded-lg hover:shadow-xl hover:border-blue-200 transition group cursor-pointer">
+            <div class="bg-blue-50 p-4 rounded-lg mr-4 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition">
+                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M3 21h18M3 7v1a3 3 0 006 0V7m0 1a3 3 0 006 0V7m0 1a3 3 0 006 0V7H3M4 21V10m6 11V10m6 11V10m4 11V10"/></svg>
+            </div>
+            <div>
+                <h3 class="font-bold text-gray-900">Hospitality/ Travel/ Tourism</h3>
+                <p class="text-gray-400 text-sm">1 Open Positions</p>
+            </div>
+        </div>
+
+        <div class="flex items-center p-6 bg-white border border-gray-100 rounded-lg hover:shadow-xl hover:border-blue-200 transition group cursor-pointer">
+            <div class="bg-blue-50 p-4 rounded-lg mr-4 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition">
+                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <div>
+                <h3 class="font-bold text-gray-900">Engineer/Architectssss</h3>
+                <p class="text-gray-400 text-sm">0 Open Positions</p>
+            </div>
+        </div>
+
+        <div class="flex items-center p-6 bg-white border border-gray-100 rounded-lg hover:shadow-xl hover:border-blue-200 transition group cursor-pointer">
+            <div class="bg-blue-50 p-4 rounded-lg mr-4 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition">
+                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3zM18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5zM2 2l5 2M2 2l2 5"/></svg>
+            </div>
+            <div>
+                <h3 class="font-bold text-gray-900">Design/Creative</h3>
+                <p class="text-gray-400 text-sm">0 Open Positions</p>
+            </div>
+        </div>
+
+        <div class="flex items-center p-6 bg-white border border-gray-100 rounded-lg hover:shadow-xl hover:border-blue-200 transition group cursor-pointer">
+            <div class="bg-blue-50 p-4 rounded-lg mr-4 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition">
+                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <div>
+                <h3 class="font-bold text-gray-900">IT & Telecommunication</h3>
+                <p class="text-gray-400 text-sm">0 Open Positions</p>
+            </div>
+        </div>
+
+        <div class="flex items-center p-6 bg-white border border-gray-100 rounded-lg hover:shadow-xl hover:border-blue-200 transition group cursor-pointer">
+            <div class="bg-blue-50 p-4 rounded-lg mr-4 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition">
+                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2M9 7a4 4 0 110-8 4 4 0 010 8zM19 8v6M16 11h6"/></svg>
+            </div>
+            <div>
+                <h3 class="font-bold text-gray-900">Medical/Pharma</h3>
+                <p class="text-gray-400 text-sm">0 Open Positions</p>
+            </div>
+        </div>
+
+        <div class="flex items-center p-6 bg-white border border-gray-100 rounded-lg shadow-2xl shadow-blue-100 border-blue-200 transition group cursor-pointer">
+            <div class="bg-blue-600 p-4 rounded-lg mr-4 text-white">
+                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 002 13.1V16c0 .6.4 1 1 1h2M7 17a2 2 0 100-4 2 2 0 000 4zm10 0a2 2 0 100-4 2 2 0 000 4z"/></svg>
+            </div>
+            <div>
+                <h3 class="font-bold text-blue-600">Driving/Motor Technician</h3>
+                <p class="text-gray-400 text-sm">0 Open Positions</p>
+            </div>
+        </div>
+
+        <div class="flex items-center p-6 bg-white border border-gray-100 rounded-lg hover:shadow-xl hover:border-blue-200 transition group cursor-pointer">
+            <div class="bg-blue-50 p-4 rounded-lg mr-4 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition">
+                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M14.5 9L12 4 9.5 9 4.5 11.5 9.5 14 12 19l2.5-5 5-2.5-5-2.5z"/></svg>
+            </div>
+            <div>
+                <h3 class="font-bold text-gray-900">Law/Legal</h3>
+                <p class="text-gray-400 text-sm">0 Open Positions</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+<section class="py-24 bg-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 md:px-16 text-center">
+        <h2 class="text-4xl font-semibold mb-20 text-gray-900">
+            <span class="text-blue-600">Jobpilot</span> Working Process
+        </h2>
+
+        <div class="relative flex flex-col md:flex-row justify-between items-start gap-12 md:gap-4">
             
-            <div class="flex flex-col md:flex-row justify-between items-start gap-12 relative">
-                <!-- Animated connecting line -->
-                <div class="absolute top-16 left-0 w-full hidden lg:block">
-                    <svg width="100%" height="120" viewBox="0 0 1200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path id="process-line" d="M100 60 C 300 20, 400 20, 600 60 C 800 100, 900 100, 1100 60" stroke="url(#line-gradient)" stroke-width="3" stroke-linecap="round" stroke-dasharray="10 10">
-                            <animate attributeName="stroke-dashoffset" from="1000" to="0" dur="3s" repeatCount="indefinite" />
-                        </path>
-                        <defs>
-                            <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" stop-color="#0066FF" />
-                                <stop offset="50%" stop-color="#00C6FF" />
-                                <stop offset="100%" stop-color="#0066FF" />
-                            </linearGradient>
-                        </defs>
+            <div class="hidden md:block absolute top-12 left-0 w-full">
+                <svg width="100%" height="100" viewBox="0 0 1000 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto opacity-40">
+                    <path d="M150 50 Q 275 -20 400 50" stroke="#0066FF" stroke-width="2" stroke-dasharray="8 8" fill="none" />
+                    <path d="M390 40 L 400 50 L 388 55" stroke="#0066FF" stroke-width="2" fill="none" />
+                    <path d="M420 50 Q 550 120 680 50" stroke="#0066FF" stroke-width="2" stroke-dasharray="8 8" fill="none" />
+                    <path d="M670 60 L 680 50 L 668 45" stroke="#0066FF" stroke-width="2" fill="none" />
+                    <path d="M700 50 Q 825 -20 950 50" stroke="#0066FF" stroke-width="2" stroke-dasharray="8 8" fill="none" />
+                    <path d="M940 40 L 950 50 L 938 55" stroke="#0066FF" stroke-width="2" fill="none" />
+                </svg>
+            </div>
+
+            <div class="relative z-10 flex flex-col items-center flex-1">
+                <div class="w-24 h-24 rounded-full bg-white shadow-xl flex items-center justify-center mb-8 border border-gray-50">
+                    <svg class="w-10 h-10 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM3 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 019.374 21c-2.331 0-4.512-.645-6.374-1.766z" />
                     </svg>
                 </div>
-                
-                <div class="flex-1 flex flex-col items-center relative z-10">
-                    <div class="w-28 h-28 rounded-full bg-white shadow-2xl flex items-center justify-center mb-8 border-4 border-blue-50 text-blue-600 text-4xl hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <div class="bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold absolute top-0 -mt-5">1</div>
-                    <h3 class="font-bold text-xl mb-3">Explore Opportunities</h3>
-                    <p class="text-gray-500 text-sm max-w-[200px]">Browse through a diverse range of job listings tailored to your skills.</p>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Explore Opportunities</h3>
+                <p class="text-gray-500 text-sm leading-relaxed max-w-[200px]">
+                    Browse through a diverse range of job listings tailored to your interests and expertise
+                </p>
+            </div>
+
+            <div class="relative z-10 flex flex-col items-center flex-1">
+                <div class="w-24 h-24 rounded-full bg-white shadow-xl flex items-center justify-center mb-8 border border-gray-50">
+                    <svg class="w-10 h-10 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Create Your Profile</h3>
+                <p class="text-gray-500 text-sm leading-relaxed max-w-[200px]">
+                    Build a standout profile highlighting your skills, experience, and qualifications
+                </p>
+            </div>
+
+            <div class="relative z-10 flex flex-col items-center flex-1">
+                <div class="w-24 h-24 rounded-full bg-white shadow-xl flex items-center justify-center mb-8 border border-gray-50">
+                    <svg class="w-10 h-10 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Apply with Ease</h3>
+                <p class="text-gray-500 text-sm leading-relaxed max-w-[200px]">
+                    Effortlessly apply to jobs that match your preferences with just a few clicks
+                </p>
+            </div>
+
+            <div class="relative z-10 flex flex-col items-center flex-1">
+                <div class="w-24 h-24 rounded-full bg-white shadow-xl flex items-center justify-center mb-8 border border-gray-50">
+                    <svg class="w-10 h-10 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Track Your Progress</h3>
+                <p class="text-gray-500 text-sm leading-relaxed max-w-[200px]">
+                    Stay informed on your applications and manage your job-seeking journey effectively
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section class="py-16 px-4 md:px-16 max-w-7xl mx-auto">
+    <div class="flex justify-between items-center mb-8">
+        <h2 class="text-3xl font-semibold text-gray-900">Featured Job</h2>
+        <a href="#" class="flex items-center text-blue-600 font-medium hover:underline">
+            View All 
+            <svg class="ml-2 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+
+    <div class="space-y-4">
+        <div class="bg-white border border-gray-100 rounded-xl p-6 flex flex-col md:flex-row items-center justify-between hover:shadow-lg transition-shadow">
+            <div class="flex items-center w-full md:w-auto">
+                <div class="w-16 h-16 bg-gray-50 rounded-lg flex items-center justify-center mr-6 border border-gray-100 p-2">
+                    <img src="https://logo.clearbit.com/digitalocean.com" alt="Company Logo" class="max-w-full max-h-full">
                 </div>
                 
-                <div class="flex-1 flex flex-col items-center relative z-10">
-                    <div class="w-28 h-28 rounded-full bg-white shadow-2xl flex items-center justify-center mb-8 border-4 border-blue-50 text-blue-600 text-4xl hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-user-edit"></i>
+                <div>
+                    <div class="flex items-center gap-3 mb-2">
+                        <h3 class="text-xl font-bold text-gray-900">MERN Stack Developer</h3>
+                        <span class="bg-blue-50 text-blue-600 text-xs font-semibold px-3 py-1 rounded-full">Contractual</span>
                     </div>
-                    <div class="bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold absolute top-0 -mt-5">2</div>
-                    <h3 class="font-bold text-xl mb-3">Create Your Profile</h3>
-                    <p class="text-gray-500 text-sm max-w-[200px]">Build a standout profile highlighting your skills, experience, and achievements.</p>
-                </div>
-                
-                <div class="flex-1 flex flex-col items-center relative z-10">
-                    <div class="w-28 h-28 rounded-full bg-white shadow-2xl flex items-center justify-center mb-8 border-4 border-blue-50 text-blue-600 text-4xl hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-paper-plane"></i>
+                    
+                    <div class="flex flex-wrap items-center gap-4 text-gray-400 text-sm">
+                        <div class="flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            Aruba
+                        </div>
+                        <div class="flex items-center">
+                            <span class="mr-1 text-lg leading-none">$</span>
+                            Competitive
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                            18h 56m Remaining
+                        </div>
                     </div>
-                    <div class="bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold absolute top-0 -mt-5">3</div>
-                    <h3 class="font-bold text-xl mb-3">Apply with Ease</h3>
-                    <p class="text-gray-500 text-sm max-w-[200px]">Effortlessly apply to jobs with just a few clicks using our smart application system.</p>
                 </div>
-                
-                <div class="flex-1 flex flex-col items-center relative z-10">
-                    <div class="w-28 h-28 rounded-full bg-white shadow-2xl flex items-center justify-center mb-8 border-4 border-blue-50 text-blue-600 text-4xl hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold absolute top-0 -mt-5">4</div>
-                    <h3 class="font-bold text-xl mb-3">Track Your Progress</h3>
-                    <p class="text-gray-500 text-sm max-w-[200px]">Stay informed on your applications with real-time tracking and updates.</p>
-                </div>
+            </div>
+
+            <div class="flex items-center space-x-4 mt-6 md:mt-0 w-full md:w-auto justify-end">
+                <button class="text-blue-500 hover:bg-blue-50 p-2 rounded-lg transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
+                </button>
+                <button class="bg-blue-50 text-blue-600 px-6 py-3 rounded-lg font-bold flex items-center hover:bg-blue-600 hover:text-white transition">
+                    Apply Now
+                    <svg class="ml-2 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </button>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+<section class="py-16 px-4 md:px-16 max-w-7xl mx-auto">
+    <div class="flex justify-between items-center mb-10">
+        <h2 class="text-3xl font-semibold text-gray-900">
+            Top <span class="relative inline-block">Companies
+                <svg class="absolute -bottom-2 left-0 w-full" height="8" viewBox="0 0 100 8" preserveAspectRatio="none">
+                    <path d="M0 7C30 2 70 2 100 7" stroke="#0066FF" stroke-width="2" fill="none" stroke-linecap="round"/>
+                </svg>
+            </span>
+        </h2>
+        <a href="#" class="flex items-center text-blue-600 font-medium border border-blue-100 px-4 py-2 rounded-md hover:bg-blue-50 transition">
+            View All 
+            <svg class="ml-2 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
 
-    <!-- Featured Job -->
-    <section class="py-16 px-4 md:px-16 max-w-7xl mx-auto">
-        <div class="flex justify-between items-center mb-12">
-            <div>
-                <h2 class="text-3xl font-bold mb-2">Featured <span class="gradient-text">Job</span></h2>
-                <p class="text-gray-600">Hand-picked opportunities from top companies</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <div class="bg-white border border-gray-100 p-6 rounded-xl hover:shadow-lg transition group cursor-pointer">
+            <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-gray-50 rounded-lg flex items-center justify-center mr-4 p-2">
+                    <img src="https://logo.clearbit.com/digitalocean.com" alt="Digital Point" class="max-h-full">
+                </div>
+                <div>
+                    <h3 class="font-bold text-gray-900">Digital Point</h3>
+                    <p class="text-gray-400 text-xs flex items-center">
+                        <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-width="2"/></svg>
+                        Greenland
+                    </p>
+                </div>
             </div>
-            <a href="#" class="text-blue-600 font-bold hover:underline flex items-center gap-2">
-                View All <i class="fas fa-arrow-right text-sm"></i>
+            <div class="flex gap-2 mb-6">
+                <span class="bg-gray-50 text-gray-500 text-[10px] px-3 py-1 rounded-full border border-gray-100">NGO/Development</span>
+                <span class="bg-gray-50 text-gray-500 text-[10px] px-3 py-1 rounded-full border border-gray-100">2 Open Position</span>
+            </div>
+            <a href="#" class="text-blue-600 text-sm font-semibold flex items-center group-hover:underline">
+                View Profile <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
         </div>
-        
-        <div class="p-8 bg-white border border-gray-100 rounded-3xl flex flex-col lg:flex-row items-center justify-between hover:shadow-2xl transition-all duration-500 group job-card">
-            <div class="flex items-center gap-8">
-                <div class="relative">
-                    <div class="w-20 h-20 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-4 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                        <img src="https://logo.clearbit.com/digitalocean.com" alt="DigitalOcean Logo" class="w-full">
-                    </div>
-                    <div class="absolute -top-2 -right-2 bg-green-500 text-white text-xs font-bold rounded-full w-8 h-8 flex items-center justify-center">
-                        <i class="fas fa-bolt"></i>
-                    </div>
+
+        <div class="bg-white border-2 border-blue-500 p-6 rounded-xl shadow-xl shadow-blue-50 transition group cursor-pointer relative">
+            <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-gray-900 rounded-lg flex items-center justify-center mr-4 p-2">
+                    <svg class="text-white w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 19h20L12 2zm0 3l7.5 13h-15L12 5z"/></svg>
                 </div>
                 <div>
-                    <div class="flex items-center gap-4 mb-3 flex-wrap">
-                        <h3 class="text-2xl font-bold">Senior MERN Stack Developer</h3>
-                        <span class="bg-blue-50 text-blue-600 text-sm font-bold px-4 py-1.5 rounded-full">Remote • Contractual</span>
-                    </div>
-                    <div class="flex flex-wrap gap-6 text-gray-500">
-                        <span class="flex items-center gap-2"><i class="fas fa-map-marker-alt"></i> Remote (Global)</span>
-                        <span class="flex items-center gap-2"><i class="fas fa-money-bill-wave"></i> $90K - $120K</span>
-                        <span class="flex items-center gap-2"><i class="fas fa-clock"></i> 18h Remaining</span>
-                        <span class="flex items-center gap-2"><i class="fas fa-briefcase"></i> 3-5 Years Experience</span>
-                    </div>
+                    <h3 class="font-bold text-gray-900">Templatecookie</h3>
+                    <p class="text-gray-400 text-xs flex items-center">
+                        <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+                        Bangladesh
+                    </p>
                 </div>
             </div>
-            <div class="flex items-center gap-6 mt-8 lg:mt-0">
-                <button class="text-blue-600 hover:text-blue-700 p-3 rounded-full hover:bg-blue-50 transition">
-                    <i class="far fa-bookmark text-xl"></i>
-                </button>
-                <button class="shimmer-button text-white px-10 py-4 rounded-xl font-bold transition-all duration-300 flex items-center gap-3">
-                    Apply Now <i class="fas fa-arrow-right"></i>
-                </button>
+            <div class="flex gap-2 mb-6">
+                <span class="bg-gray-50 text-gray-500 text-[10px] px-3 py-1 rounded-full border border-gray-100">Hotel/Restaurant</span>
+                <span class="bg-gray-50 text-gray-500 text-[10px] px-3 py-1 rounded-full border border-gray-100">1 Open Position</span>
             </div>
+            <a href="#" class="text-blue-600 text-sm font-semibold flex items-center hover:underline">
+                View Profile <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-width="2"/></svg>
+            </a>
         </div>
-    </section>
 
-    <!-- Top Companies -->
-    <section class="py-24 px-4 md:px-16 max-w-7xl mx-auto">
-        <h2 class="text-3xl font-bold mb-12">
-            Top <span class="curved-underline">Companies</span> Hiring Now
+        <div class="bg-white border border-gray-100 p-6 rounded-xl hover:shadow-lg transition group cursor-pointer">
+            <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mr-4 p-2">
+                    <img src="https://logo.clearbit.com/atlassian.com" alt="Nerdware" class="max-h-full">
+                </div>
+                <div>
+                    <h3 class="font-bold text-gray-900">Nerdware</h3>
+                    <p class="text-gray-400 text-xs flex items-center">
+                        <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+                        Australia
+                    </p>
+                </div>
+            </div>
+            <div class="flex gap-2 mb-6">
+                <span class="bg-gray-50 text-gray-500 text-[10px] px-3 py-1 rounded-full border border-gray-100">Hotel/Restaurant</span>
+                <span class="bg-gray-50 text-gray-500 text-[10px] px-3 py-1 rounded-full border border-gray-100">1 Open Position</span>
+            </div>
+            <a href="#" class="text-blue-600 text-sm font-semibold flex items-center group-hover:underline">
+                View Profile <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-width="2"/></svg>
+            </a>
+        </div>
+
+    </div>
+</section>
+<section class="py-16 px-4 md:px-16 max-w-7xl mx-auto">
+    <div class="flex justify-between items-center mb-10">
+        <h2 class="text-3xl font-semibold text-gray-900">
+            Top <span class="relative inline-block">Companies
+                <svg class="absolute -bottom-2 left-0 w-full" height="8" viewBox="0 0 100 8" preserveAspectRatio="none">
+                    <path d="M0 7C30 2 70 2 100 7" stroke="#0066FF" stroke-width="2" fill="none" stroke-linecap="round"/>
+                </svg>
+            </span>
         </h2>
+        <a href="#" class="flex items-center text-blue-600 font-medium border border-blue-100 px-4 py-2 rounded-md hover:bg-blue-50 transition">
+            View All 
+            <svg class="ml-2 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger-animation">
-            <div class="p-8 border-2 border-blue-500 rounded-3xl shadow-2xl shadow-blue-50 relative overflow-hidden group">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-blue-100 rounded-full -translate-y-16 translate-x-16 opacity-50 group-hover:scale-150 transition-transform duration-700"></div>
-                <div class="flex items-center gap-6 mb-8 relative z-10">
-                    <div class="w-16 h-16 bg-gradient-to-br from-gray-900 to-gray-700 rounded-2xl flex items-center justify-center text-white text-2xl font-bold shadow-lg">
-                        T
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-xl">Templatecookie</h3>
-                        <p class="text-sm text-gray-400 flex items-center gap-2"><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</p>
-                    </div>
+        <div class="bg-white border border-gray-100 p-6 rounded-xl hover:shadow-lg transition group cursor-pointer">
+            <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-gray-50 rounded-lg flex items-center justify-center mr-4 p-2">
+                    <img src="https://logo.clearbit.com/digitalocean.com" alt="Digital Point" class="max-h-full">
                 </div>
-                <div class="flex flex-wrap gap-2 mb-8 relative z-10">
-                    <span class="bg-gray-50 border border-gray-100 px-4 py-2 rounded-full text-xs text-gray-600 hover:bg-gray-100 transition cursor-pointer">Hotel/Restaurant</span>
-                    <span class="bg-blue-50 border border-blue-100 px-4 py-2 rounded-full text-xs text-blue-600 hover:bg-blue-100 transition cursor-pointer">1 Open Position</span>
-                    <span class="bg-green-50 border border-green-100 px-4 py-2 rounded-full text-xs text-green-600 hover:bg-green-100 transition cursor-pointer">⭐ 4.8 Rating</span>
+                <div>
+                    <h3 class="font-bold text-gray-900">Digital Point</h3>
+                    <p class="text-gray-400 text-xs flex items-center">
+                        <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-width="2"/></svg>
+                        Greenland
+                    </p>
                 </div>
-                <a href="#" class="text-blue-600 font-bold text-sm hover:underline inline-flex items-center gap-2 relative z-10">
-                    View Profile <i class="fas fa-arrow-right text-xs"></i>
-                </a>
             </div>
-            
-            <!-- Additional company cards -->
-            <div class="p-8 border border-gray-100 rounded-3xl bg-white hover:shadow-2xl transition-all duration-300 card-hover">
-                <div class="flex items-center gap-6 mb-8">
-                    <div class="w-16 h-16 bg-gradient-to-br from-red-50 to-red-100 rounded-2xl flex items-center justify-center text-red-600 text-2xl font-bold shadow-lg">
-                        <i class="fab fa-google"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-xl">Google</h3>
-                        <p class="text-sm text-gray-400 flex items-center gap-2"><i class="fas fa-map-marker-alt"></i> Mountain View, CA</p>
-                    </div>
-                </div>
-                <div class="flex flex-wrap gap-2 mb-8">
-                    <span class="bg-gray-50 border border-gray-100 px-4 py-2 rounded-full text-xs text-gray-600">Technology</span>
-                    <span class="bg-blue-50 border border-blue-100 px-4 py-2 rounded-full text-xs text-blue-600">24 Open Positions</span>
-                </div>
-                <a href="#" class="text-blue-600 font-bold text-sm hover:underline inline-flex items-center gap-2">
-                    View Profile <i class="fas fa-arrow-right text-xs"></i>
-                </a>
+            <div class="flex gap-2 mb-6">
+                <span class="bg-gray-50 text-gray-500 text-[10px] px-3 py-1 rounded-full border border-gray-100">NGO/Development</span>
+                <span class="bg-gray-50 text-gray-500 text-[10px] px-3 py-1 rounded-full border border-gray-100">2 Open Position</span>
             </div>
-            
-            <div class="p-8 border border-gray-100 rounded-3xl bg-white hover:shadow-2xl transition-all duration-300 card-hover">
-                <div class="flex items-center gap-6 mb-8">
-                    <div class="w-16 h-16 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl flex items-center justify-center text-blue-600 text-2xl font-bold shadow-lg">
-                        <i class="fab fa-microsoft"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-xl">Microsoft</h3>
-                        <p class="text-sm text-gray-400 flex items-center gap-2"><i class="fas fa-map-marker-alt"></i> Redmond, WA</p>
+            <a href="#" class="text-blue-600 text-sm font-semibold flex items-center group-hover:underline">
+                View Profile <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+        </div>
+
+        <div class="bg-white border-2 border-blue-500 p-6 rounded-xl shadow-xl shadow-blue-50 transition group cursor-pointer relative">
+            <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-gray-900 rounded-lg flex items-center justify-center mr-4 p-2">
+                    <svg class="text-white w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 19h20L12 2zm0 3l7.5 13h-15L12 5z"/></svg>
+                </div>
+                <div>
+                    <h3 class="font-bold text-gray-900">Templatecookie</h3>
+                    <p class="text-gray-400 text-xs flex items-center">
+                        <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+                        Bangladesh
+                    </p>
+                </div>
+            </div>
+            <div class="flex gap-2 mb-6">
+                <span class="bg-gray-50 text-gray-500 text-[10px] px-3 py-1 rounded-full border border-gray-100">Hotel/Restaurant</span>
+                <span class="bg-gray-50 text-gray-500 text-[10px] px-3 py-1 rounded-full border border-gray-100">1 Open Position</span>
+            </div>
+            <a href="#" class="text-blue-600 text-sm font-semibold flex items-center hover:underline">
+                View Profile <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-width="2"/></svg>
+            </a>
+        </div>
+
+        <div class="bg-white border border-gray-100 p-6 rounded-xl hover:shadow-lg transition group cursor-pointer">
+            <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mr-4 p-2">
+                    <img src="https://logo.clearbit.com/atlassian.com" alt="Nerdware" class="max-h-full">
+                </div>
+                <div>
+                    <h3 class="font-bold text-gray-900">Nerdware</h3>
+                    <p class="text-gray-400 text-xs flex items-center">
+                        <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+                        Australia
+                    </p>
+                </div>
+            </div>
+            <div class="flex gap-2 mb-6">
+                <span class="bg-gray-50 text-gray-500 text-[10px] px-3 py-1 rounded-full border border-gray-100">Hotel/Restaurant</span>
+                <span class="bg-gray-50 text-gray-500 text-[10px] px-3 py-1 rounded-full border border-gray-100">1 Open Position</span>
+            </div>
+            <a href="#" class="text-blue-600 text-sm font-semibold flex items-center group-hover:underline">
+                View Profile <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-width="2"/></svg>
+            </a>
+        </div>
+
+    </div>
+</section>
+<section class="py-24 bg-gray-50/50">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-16">What Our Clients Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm text-left relative">
+                    <div class="flex text-orange-400 mb-4">★★★★★</div>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-10">"Jobpilot has been a game-changer for my job search. I found my dream job in no time, thanks to their user-friendly interface..."</p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-gray-100 rounded-lg"></div>
+                            <div><h4 class="font-bold text-sm">Emily Johnson</h4><p class="text-xs text-gray-400">TechFusion Solutions</p></div>
+                        </div>
+                        <span class="text-gray-100 text-4xl font-serif">“</span>
                     </div>
                 </div>
-                <div class="flex flex-wrap gap-2 mb-8">
-                    <span class="bg-gray-50 border border-gray-100 px-4 py-2 rounded-full text-xs text-gray-600">Software</span>
-                    <span class="bg-blue-50 border border-blue-100 px-4 py-2 rounded-full text-xs text-blue-600">18 Open Positions</span>
+                <div class="bg-white p-8 rounded-2xl shadow-sm text-left">
+                    <div class="flex text-orange-400 mb-4">★★★★★</div>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-10">"I can't thank Jobpilot enough for their exceptional services. Their personalized job recommendations made my job hunt a breeze..."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-100 rounded-lg"></div>
+                        <div><h4 class="font-bold text-sm">David Rodriguez</h4><p class="text-xs text-gray-400">InnovateX Services</p></div>
+                    </div>
                 </div>
-                <a href="#" class="text-blue-600 font-bold text-sm hover:underline inline-flex items-center gap-2">
-                    View Profile <i class="fas fa-arrow-right text-xs"></i>
-                </a>
+                <div class="bg-white p-8 rounded-2xl shadow-sm text-left">
+                    <div class="flex text-orange-400 mb-4">★★★★★</div>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-10">"Jobpilot truly understands job seekers' needs. Their platform allowed me to connect with top employers and secure multiple invitations..."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-100 rounded-lg"></div>
+                        <div><h4 class="font-bold text-sm">Sarah Williams</h4><p class="text-xs text-gray-400">ProTech Industries</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center gap-2 mt-12">
+                <div class="w-6 h-2 bg-blue-600 rounded-full"></div>
+                <div class="w-2 h-2 bg-blue-200 rounded-full"></div>
+                <div class="w-2 h-2 bg-blue-200 rounded-full"></div>
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="bg-[#18191C] text-gray-400 py-24 px-4 md:px-16 relative overflow-hidden">
-        <!-- Animated elements in footer -->
-        <div class="absolute top-10 left-10 floating-icon opacity-20">
-            <div class="w-20 h-20 bg-blue-500 rounded-full"></div>
-        </div>
-        <div class="absolute bottom-10 right-10 floating-icon-delay opacity-20">
-            <div class="w-24 h-24 bg-cyan-500 rounded-full"></div>
-        </div>
-        
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 border-b border-gray-800 pb-20">
-                <div class="lg:col-span-1">
-                    <div class="flex items-center gap-3 mb-8 text-white">
-                        <div class="bg-gradient-to-br from-blue-600 to-cyan-500 p-3 rounded-xl">
-                            <i class="fas fa-briefcase text-xl"></i>
-                        </div>
-                        <span class="text-2xl font-bold">Jobpilot</span>
-                    </div>
-                    <p class="text-sm mb-6">Call Now: <span class="text-white font-semibold">319-555-0115</span></p>
-                    <p class="text-sm mb-8">Discover tailored opportunities for job seekers and connect employers with top talent.</p>
-                    <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-400 transition">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-700 transition">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-red-600 transition">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4 class="text-white font-bold text-lg mb-8">Candidate</h4>
-                    <ul class="space-y-4 text-sm">
-                        <li><a href="#" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-500"></i> Browse Jobs</a></li>
-                        <li><a href="#" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-500"></i> Saved Jobs</a></li>
-                        <li><a href="#" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-500"></i> Dashboard</a></li>
-                        <li><a href="#" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-500"></i> Application History</a></li>
-                        <li><a href="#" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-500"></i> Terms of Service</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-white font-bold text-lg mb-8">Employer</h4>
-                    <ul class="space-y-4 text-sm">
-                        <li><a href="#" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-500"></i> Post a Job</a></li>
-                        <li><a href="#" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-500"></i> Browse Candidates</a></li>
-                        <li><a href="#" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-500"></i> Applications</a></li>
-                        <li><a href="#" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-500"></i> Employer Dashboard</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-white font-bold text-lg mb-8">Support</h4>
-                    <ul class="space-y-4 text-sm">
-                        <li><a href="#" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-500"></i> FAQ</a></li>
-                        <li><a href="#" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-500"></i> Privacy Policy</a></li>
-                        <li><a href="#" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-500"></i> Contact Support</a></li>
-                        <li><a href="#" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-500"></i> Community Forum</a></li>
-                    </ul>
-                </div>
-                
-                <div class="lg:col-span-1">
-                    <h4 class="text-white font-bold text-lg mb-8">Newsletter</h4>
-                    <p class="text-sm mb-6">Subscribe to get the latest jobs and career tips</p>
-                    <div class="flex overflow-hidden rounded-lg">
-                        <input type="email" placeholder="Your email" class="flex-1 bg-gray-800 px-4 py-3 text-sm outline-none">
-                        <button class="bg-blue-600 text-white px-6 hover:bg-blue-700 transition">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
+<footer class="bg-[#18191C] text-gray-400 py-20 px-4 md:px-16">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
             
-            <div class="pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
-                <p>© Jobpilot 2025 | All Rights Reserved</p>
-                <div class="flex gap-8 mt-6 md:mt-0">
-                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
-                    <a href="#" class="hover:text-white transition">Terms of Service</a>
-                    <a href="#" class="hover:text-white transition">Cookie Policy</a>
+            <div class="lg:col-span-1">
+                <div class="flex items-center gap-2 mb-6">
+                    <div class="bg-blue-600 p-2 rounded-lg">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path d="M21 13V6a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h6M16 2l4 4-4 4"/></svg>
+                    </div>
+                    <span class="text-2xl font-bold text-white">Jobpilot</span>
                 </div>
+                <p class="text-sm mb-4">Call Now: <span class="text-white font-medium">319-555-0115</span></p>
+                <p class="text-sm leading-relaxed max-w-xs">
+                    Discover tailored opportunities for job seekers and top talent for employers
+                </p>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold mb-6">Company</h4>
+                <ul class="space-y-4 text-sm">
+                    <li><a href="#" class="hover:text-blue-500 transition">About</a></li>
+                    <li><a href="#" class="hover:text-blue-500 transition">Contact</a></li>
+                    <li><a href="#" class="hover:text-blue-500 transition">Blog</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold mb-6">Candidate</h4>
+                <ul class="space-y-4 text-sm">
+                    <li><a href="#" class="hover:text-blue-500 transition">Browse Jobs</a></li>
+                    <li><a href="#" class="hover:text-blue-500 transition">Candidate Dashboard</a></li>
+                    <li><a href="#" class="hover:text-blue-500 transition">Saved Jobs</a></li>
+                    <li><a href="#" class="hover:text-blue-500 transition">Candidate plan</a></li>
+                    <li><a href="#" class="hover:text-blue-500 transition">Refund Policy</a></li>
+                    <li><a href="#" class="hover:text-blue-500 transition">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold mb-6">Employer</h4>
+                <ul class="space-y-4 text-sm">
+                    <li><a href="#" class="hover:text-blue-500 transition">Post a Job</a></li>
+                    <li><a href="#" class="hover:text-blue-500 transition">Browse Companies</a></li>
+                    <li><a href="#" class="hover:text-blue-500 transition">Companies Dashboard</a></li>
+                    <li><a href="#" class="hover:text-blue-500 transition">Applications</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold mb-6">Support</h4>
+                <ul class="space-y-4 text-sm">
+                    <li><a href="#" class="hover:text-blue-500 transition">FAQ</a></li>
+                    <li><a href="#" class="hover:text-blue-500 transition">Privacy & Policy</a></li>
+                    <li><a href="#" class="hover:text-blue-500 transition">Terms & Conditions</a></li>
+                    <li><a href="#" class="hover:text-blue-500 transition">Refund Policy</a></li>
+                </ul>
             </div>
         </div>
-    </footer>
+        
 
-    <!-- JavaScript for interactivity -->
-    <script>
-        // Scroll progress bar
-        window.addEventListener('scroll', () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById('scrollProgress').style.width = scrolled + '%';
-        });
-        
-        // Stagger animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
-                }
-            });
-        }, observerOptions);
-        
-        // Observe all stagger-animation containers
-        document.querySelectorAll('.stagger-animation').forEach((el) => {
-            observer.observe(el);
-        });
-        
-        // Add hover effect to cards
-        document.querySelectorAll('.card-hover').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
-        
-        // Typewriter effect for hero text
-        const typewriterTexts = ["Passion & Skills", "Dream Career", "Future Goals", "True Potential"];
-        let currentTextIndex = 0;
-        const typewriterElement = document.querySelector('.typewriter');
-        
-        function changeTypewriterText() {
-            if (typewriterElement) {
-                typewriterElement.textContent = typewriterTexts[currentTextIndex];
-                typewriterElement.style.animation = 'none';
-                void typewriterElement.offsetWidth; // Trigger reflow
-                typewriterElement.style.animation = 'typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite';
-                
-                currentTextIndex = (currentTextIndex + 1) % typewriterTexts.length;
-            }
-        }
-        
-        // Change text every 4 seconds (after animation completes)
-        if (typewriterElement) {
-            setInterval(changeTypewriterText, 4000);
-        }
-        
-        // Add click effect to buttons
-        document.querySelectorAll('button').forEach(button => {
-            button.addEventListener('click', function() {
-                this.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    this.style.transform = '';
-                }, 150);
-            });
-        });
-        
-        // Initialize animations on page load
-        window.addEventListener('load', () => {
-            document.body.style.opacity = '1';
-        });
-        
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
+        <div class="mt-20 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-6">
+            <p class="text-sm">© Jobpilot 2025 | All Rights Reserved</p>
+            <div class="flex items-center gap-6">
+                <a href="#" class="hover:text-white transition">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z"/></svg>
+                </a>
+                <a href="#" class="hover:text-white transition">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4.162 4.162 0 110-8.324 4.162 4.162 0 010 8.324zM18.406 3.941a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
+                </a>
+                <a href="#" class="hover:text-white transition">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505a3.017 3.017 0 00-2.122 2.136C0 8.055 0 12 0 12s0 3.945.501 5.814a3.015 3.015 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.945 24 12 24 12s0-3.945-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+                <a href="#" class="hover:text-white transition">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
