@@ -4,18 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jobpilot - Home</title>
+    <title>Jobpilot - Find Your Dream Job</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="cdnjs.cloudflare.com">
-    <!DOCTYPE html>
-    <html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Jobpilot | Company</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <style>
             * {
                 margin: 0;
@@ -101,6 +94,8 @@
                 background-color: rgb(83, 22, 214);
                 padding: 15px 0;
                 box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                width: 100%;
+                height: 85px;
             }
 
             .header-container {
@@ -132,7 +127,8 @@
                 background: #fff;
                 border-radius: 6px;
                 padding: 6px 12px;
-                width: 520px;
+                width: 570px;
+                height: 50px;
                 max-width: 100%;
             }
 
@@ -153,8 +149,9 @@
             }
 
             .search-icon {
-                color: #888;
-                margin-right: 10px;
+                color: #1019c0;
+                margin-right: 20px;
+                padding: 10px;
             }
 
             .search-input-main {
@@ -208,6 +205,7 @@
                 transform: translateY(-50%);
                 color: #666;
                 font-size: 18px;
+                padding: 10px 20px;
             }
 
 
@@ -264,9 +262,10 @@
                 display: none;
                 z-index: 999;
             }
+
             .dropdown-menu.show {
-    display: block;
-}
+                display: block;
+            }
 
             .dropdown-menu li a {
                 display: block;
@@ -311,27 +310,28 @@
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
+                height: 450px;
                 /* background: linear-gradient(rgba(205, 230, 234, 0.4), rgba(140, 139, 139, 0.4)); */
             }
 
             .hero-container {
                 max-width: 1200px;
                 margin: 0 auto;
-                padding: 0 20px;
+                padding: 0 30px;
                 text-align: center;
             }
 
             .hero-title {
                 font-size: 48px;
                 font-weight: 700;
-                color: #333;
+                color: white;
                 margin-bottom: 20px;
                 line-height: 1.2;
             }
 
             .hero-subtitle {
                 font-size: 20px;
-                color: #666;
+                color: white;
                 margin-bottom: 40px;
                 max-width: 800px;
                 margin-left: auto;
@@ -342,11 +342,12 @@
             /* Hero Search */
             .hero-search {
                 background-color: white;
-                padding: 30px;
+                padding: 20px;
                 border-radius: 15px;
                 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-                max-width: 800px;
-                margin: 0 auto 40px;
+                max-width: 900px;
+                height: 90px;
+                margin: 0 auto 20px;
             }
 
             .search-form {
@@ -361,6 +362,7 @@
                 border-radius: 10px;
                 font-size: 16px;
                 outline: none;
+                height: 50px;
                 transition: border-color 0.3s;
             }
 
@@ -390,7 +392,7 @@
                 flex-wrap: wrap;
                 justify-content: center;
                 gap: 10px;
-                margin-top: 30px;
+                margin-bottom: 5px;
                 color: white;
             }
 
@@ -549,8 +551,7 @@
 
                     </ul>
                 </div>
+                <button class="post-job-btn">Post Job</button>
             </div>
-
-            <button class="post-job-btn">Post Job</button>
         </div>
     </header>
