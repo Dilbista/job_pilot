@@ -52,7 +52,9 @@
     </div>
     <style>
         .job-alerts {
-            max-width: 720px;
+            max-width: 725px;
+            /* box-shadow: 1px 0 12px rgba(37, 99, 235, 0.15); */
+            /* left shadow */
             margin: 3px auto;
             font-family: system-ui, sans-serif;
         }
@@ -64,7 +66,7 @@
         .alert-card {
             display: flex;
             gap: 14px;
-            padding: 16px 180px;
+            padding: 8px 196px;
             border: 1px solid #e5e7eb;
             border-radius: 10px;
             margin-bottom: 4px;

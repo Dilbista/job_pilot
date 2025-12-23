@@ -9,7 +9,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/candidate/index', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('candidate')->group(function () {
     Route::get('/', [CandidateController::class, 'index'])->name('candidate.index');
