@@ -61,5 +61,26 @@ class CompanyController extends Controller
     {
         //
     }
+
+
+    public function createJob()
+    {
+        return view('company.create_job');
+    }
+
+    public function myJobs()
+    {
+        return view('company.my_job');
+    }
+
+    public function candidates()
+    {
+        return view('company.candidate');
+    }
+
+    public function pricing()
+    {
+        return view('company.pricing_plan');
+    }
     
 }

@@ -561,24 +561,7 @@
         <!-- Dashboard Layout -->
         <div class="dashboard-layout">
             <!-- Sidebar -->
-            <div class="dashboard-sidebar">
-                <div class="sidebar-header">
-                    <h3>Company Dashboard</h3>
-                </div>
-                <ul class="sidebar-menu">
-                    <li><a href="#"><i class="fas fa-chart-pie"></i> Overview</a></li>
-                    <li><a href="#"><i class="fas fa-user"></i> My Profile</a></li>
-                    <li><a href="#"><i class="fas fa-briefcase"></i> My Jobs</a></li>
-                    <li><a href="#"><i class="fas fa-plus-circle"></i> Post a Job</a></li>
-                    <li><a href="#"><i class="fas fa-bookmark"></i> Saved Candidates</a></li>
-                    <li><a href="#"><i class="fas fa-question-circle"></i> Custom Questions</a></li>
-                    <li><a href="#"><i class="fas fa-credit-card"></i> Plans & Billing</a></li>
-                    <li><a href="#"><i class="fas fa-comments"></i> Messenger</a></li>
-                    <li><a href="#"><i class="fas fa-shield-alt"></i> Verify account</a></li>
-                    <li><a href="#" class="active"><i class="fas fa-cog"></i> Settings</a></li>
-                    <li><a href="#"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
-                </ul>
-            </div>
+            @include('layouts.sidebar')
             
             <!-- Main Content -->
             <div class="dashboard-content">
