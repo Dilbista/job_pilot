@@ -1,4 +1,6 @@
-@include('layouts.header')
+@extends('layouts.master')
+@section('content')
+
     <style>
         * {
             margin: 0;
@@ -452,7 +454,7 @@
         <!-- Pricing Hero Section -->
         <section class="pricing-hero">
             <div class="breadcrumb">
-                <a href="#">Home</a> / Pricing
+                <a href="{{ route('home') }}">Home</a> / Pricing
             </div>
             <h1>Unlock the Power of Premium Job Postings</h1>
             <p>Elevate your job postings with a premium subscription. Get expanded reach, targeted promotion, and advanced applicant filtering.</p>
@@ -581,7 +583,6 @@
         </section>
     </div>
 
-@include('layouts.footer')
     <script>
         // Interactive functionality
         document.querySelectorAll('.get-started-btn').forEach(button => {
@@ -638,5 +639,7 @@
             });
         });
     </script>
+
+    @endsection
 </body>
 </html>

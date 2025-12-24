@@ -7,9 +7,13 @@
     <title>Jobpilot - Find Your Dream Job</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"rel="stylesheet">
     <link rel="stylesheet" href="cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"crossorigin="anonymous"></script>
+
     <style>
         * {
             margin: 0;
@@ -228,6 +232,11 @@
             cursor: pointer;
             transition: background-color 0.3s, transform 0.2s;
         }
+
+        .post-job-btn a {
+            text-decoration: none;
+        }
+
 
         .post-job-btn:hover {
             color: black;
@@ -484,13 +493,14 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Top Navigation Bar -->
     <div class="top-nav">
         <div class="top-nav-container">
             <ul class="top-nav-links">
                 <li>
-                    <a href="{{ url('home') }}" class="{{ request()->is('/') ? 'active' : '' }}">
+                    <a href="{{ url('home') }}" class="{{ request()->is('/home') ? 'active' : '' }}">
                         Home
                     </a>
                 </li>
@@ -574,10 +584,10 @@
                     <img src="/images/profile.png" alt="Profile">
 
                     <ul class="dropdown-menu">
-                        <li><a href="#">Dashboard</a></li>
-                        <li><a href="#">My Jobs</a></li>
-                        <li><a href="#">Plans & Billing</a></li>
-                        <li><a href="#">Settings</a></li>
+                        <li><a href="{{ route('company.index') }}">Dashboard</a></li>
+                        <li><a href="{{ route('company.myJobs') }}">My Jobs</a></li>
+                        <li><a href="{{ route('dashboard.billing') }}">Plans & Billing</a></li>
+                        <li><a href="{{ route('dashboard.settings') }}">Settings</a></li>
                         <li>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
@@ -587,7 +597,7 @@
 
                     </ul>
                 </div>
-                <button class="post-job-btn">Post Job</button>
+                <button class="post-job-btn"><a href="{{ route('company.createJob') }}">Post Job</a></button>
             </div>
         </div>
     </header>

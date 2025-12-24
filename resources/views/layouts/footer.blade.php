@@ -204,7 +204,7 @@
                 <ul>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
-                    <li><a href="#">Pricing</a></li>
+                    <li><a href="{{ route('company.pricing') }}">Pricing</a></li>
                     <li><a href="#">Blog</a></li>
                 </ul>
             </div>
@@ -223,8 +223,8 @@
             <div class="footer-col">
                 <h3>Employer</h3>
                 <ul>
-                    <li><a href="#">Post a Job</a></li>
-                    <li><a href="#">Companies Dashboard</a></li>
+                    <li><a href="{{ route('company.createJob') }}">Post a Job</a></li>
+                    <li><a href="{{ route('company.index') }}">Companies Dashboard</a></li>
                     <li><a href="#">Applications</a></li>
                 </ul>
             </div>
@@ -241,18 +241,18 @@
         </div>
 
         <div class="copyright">
-            <p>© Jobpilot 2023 | All Rights Reserved</p>
+            <p>© DeepHub 2025 | All Rights Reserved</p>
             <div class="social-icons">
-                <a href="#" class="social-icon">
+                <a href="https://twitter.com" class="social-icon">
                     <i class="fab fa-twitter"></i>
                 </a>
-                <a href="#" class="social-icon">
+                <a href="https://facebook.com" class="social-icon">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <a href="#" class="social-icon">
+                <a href="https://linkedin.com" class="social-icon">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
-                <a href="#" class="social-icon">
+                <a href="https://instagram.com" class="social-icon">
                     <i class="fab fa-instagram"></i>
                 </a>
             </div>

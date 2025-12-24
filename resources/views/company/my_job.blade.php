@@ -17,6 +17,7 @@
         }
         
         .container {
+            max-width: 1300px;
             display: flex;
             min-height: 100vh;
         }
@@ -34,13 +35,19 @@
         .main-content {
             flex: 1;
             padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            /* margin-left: 30px; */
         }
+
         
         .page-title {
             font-size: 28px;
             font-weight: 700;
             color: #1a1a1a;
             margin-bottom: 25px;
+            padding: 20px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+            
         }
         
         /* Jobs Section */
@@ -56,6 +63,7 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
+            margin-left: 400px;
         }
         
         .filters-left {
@@ -177,7 +185,7 @@
             color: #e53935;
         }
         .status-pending {
-            background-color: #feefee;
+            background-color: #f2f4f0;
             color: #d0f02f;
         }
         
@@ -330,7 +338,7 @@
                 <table class="jobs-table">
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>Job</th>
                             <th>Status</th>
                             <th>Applications</th>
                             <th>Action</th>
@@ -387,7 +395,7 @@
                                 </div>
                             </td>
                             <td>
-                                <span class="job-status status-pending">Job Expire</span>
+                                <span class="job-status status-pending">Job Pending</span>
                             </td>
                             <td>
                                 <span class="applications-count">0 Applications</span>
@@ -425,7 +433,7 @@
                                 </div>
                             </td>
                             <td>
-                                <span class="job-status status-active">Job Expire</span>
+                                <span class="job-status status-active">Job Active</span>
                             </td>
                             <td>
                                 <span class="applications-count">3 Applications</span>
@@ -461,7 +469,7 @@
                                 </div>
                             </td>
                             <td>
-                                <span class="job-status status-active">Job Expire</span>
+                                <span class="job-status status-active">Job Active</span>
                             </td>
                             <td>
                                 <span class="applications-count">3 Applications</span>

@@ -37,7 +37,7 @@
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -559,6 +559,7 @@
                         </tr>
                     </tbody>
                 </table>
+                <a href="{{ route('company.myJobs') }}" style="margin-left:900px; text-decoration: none; color: rgb(50, 50, 251);"> View all →</a>
             </div>
         </div>
     </div>

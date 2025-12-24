@@ -1,4 +1,6 @@
-@include('layouts.header')
+@extends('layouts.master')
+@section('content')
+
 <style>
     * {
         margin: 0;
@@ -719,7 +721,6 @@
 
 </section>
     
-@include('layouts.footer')
 <script>
     // Interactive functionality
 
@@ -914,5 +915,8 @@
             }, 900);
         });
     </script>
+
+
+@endsection
 </body>
 </html>
