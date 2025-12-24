@@ -20,4 +20,5 @@ Route::prefix('candidate')->group(function () {
     Route::get('/billing', [CandidateController::class, 'billing'])->name('candidate.billing');
     Route::get('/settings', [CandidateController::class, 'settings'])->name('candidate.settings');
     Route::get('/dashboard', [CandidateController::class, 'dashboard'])->name('candidate.dashboard');
+    Route::get('/companies', [CandidateController::class, 'companies'])->name('candidate.companies');
 });

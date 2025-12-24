@@ -139,7 +139,7 @@
 
         .n-header--top,
         .n-header--bottom {
-            padding: 6px 0;
+            padding: 11px 0;
         }
 
         .d-flex {

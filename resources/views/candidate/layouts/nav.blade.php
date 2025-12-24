@@ -305,14 +305,22 @@
                             <!-- Desktop Navigation -->
                             <div class="container">
                                 <ul class="menu-active-classes">
-                                    <li class="menu-item"><a href="{{ route('candidate.dashboard') }}">Home</a></li>
-                                    <li class="menu-item"><a href="/jobs">Find Job</a></li>
-                                    <li class="menu-item"><a href="/employers">Companies</a></li>
-                                    <li class="menu-item"><a href={{ route('candidate.index') }}
-                                            class="text-primary active">Dashboard</a></li>
-                                    <li class="menu-item"><a href={{ route('candidate.jobalert') }}>Job Alert</a></li>
+                                    <li class="menu-item">
+                                        <a href="{{ route('candidate.dashboard') }}">Home</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="/jobs">Find Job</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="{{ route('candidate.companies') }}">Companies</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="{{ route('candidate.index') }}">Dashboard</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="{{ route('candidate.jobalert') }}">Job Alert</a>
+                                    </li>
                                 </ul>
-                                
                             </div>
                         </div>
                     </div>
@@ -699,10 +707,8 @@
                                             </span>
                                         </a>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item active"
-                                                href="candidate/index">Dashboard</a>
-                                            <a class="dropdown-item"
-                                                href="#">Settings</a>
+                                            <a class="dropdown-item active" href="candidate/index">Dashboard</a>
+                                            <a class="dropdown-item" href="#">Settings</a>
                                             <a class="dropdown-item" href="#">Log
                                                 Out</a>
                                         </div>
@@ -715,255 +721,95 @@
             </div>
         </div>
     </header>
-     <!-- JavaScript -->
- <script>
-     $(document).ready(function() {
-         // Search box toggle
-         $('#searchIcon, #mblSearchIcon').click(function() {
-             const searchBox = $(this).closest('.n-header--bottom__right, .mbl-top').find(
-                 '.togglesearch, .mblTogglesearch');
-             searchBox.slideToggle(300, function() {
-                 if ($(this).is(':visible')) {
-                     $(this).find('.search-input').focus().addClass('glow');
-                     setTimeout(() => {
-                         $(this).find('.search-input').removeClass('glow');
-                     }, 1000);
-                 }
-             });
-         });
+    <style>
+        .menu-active-classes {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-         // Mobile menu toggle
-         $('.menu-click button').click(function() {
-             $(this).find('span').toggleClass('active');
-             $('.main-menu').toggleClass('active');
-         });
+        .menu-item a {
+            position: relative;
+            text-decoration: none;
+            color: #111;
+            padding: 6px 0;
+            transition: color 0.3s ease;
+        }
 
-         // Notification handling
-         $('.notification-icon').click(function(e) {
-             e.stopPropagation();
-             $('.notification-bar').toggleClass('show');
-             if ($('.notification-bar').hasClass('show')) {
-                 $('.notification-bar').css({
-                     'opacity': '1',
-                     'visibility': 'visible',
-                     'transform': 'translateY(0)'
-                 });
-             } else {
-                 $('.notification-bar').css({
-                     'opacity': '0',
-                     'visibility': 'hidden',
-                     'transform': 'translateY(-10px)'
-                 });
-             }
-         });
+        .menu-item a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0;
+            height: 2px;
+            background: #0d6efd;
+            transition: width 0.3s ease;
+        }
 
-         // Close notification when clicking outside
-         $(document).click(function(e) {
-             if (!$(e.target).closest('.notification-bar, .notification-icon').length) {
-                 $('.notification-bar').removeClass('show').css({
-                     'opacity': '0',
-                     'visibility': 'hidden',
-                     'transform': 'translateY(-10px)'
-                 });
-             }
-         });
+        /* Hover underline */
+        .menu-item a:hover::after {
+            width: 100%;
+        }
 
-         // Mark all notifications as read
-         $('.notification-header p').click(function(e) {
-             e.preventDefault();
-             $('.notification-list li').each(function(index) {
-                 const item = $(this);
-                 setTimeout(() => {
-                     item.fadeOut(300, function() {
-                         $(this).remove();
-                         if (index === $('.notification-list li').length - 1) {
-                             $('#unNotifications').fadeOut(300);
-                         }
-                     });
-                 }, index * 100);
-             });
-         });
+        /* Active underline (clicked) */
+        .menu-item a.active::after {
+            width: 100%;
+        }
 
-         // Profile dropdown
-         $('.candidate-profile').click(function(e) {
-             e.preventDefault();
-             $(this).next('.dropdown-menu').toggle();
-         });
+        /* Optional active color */
+        .menu-item a.active {
+            color: #ebeef3;
+        }
+    </style>
+    <!-- JavaScript -->
+    <script>
+        // profile dropdown script
+        $(document).ready(function() {
 
-         // Close dropdowns when clicking outside
-         $(document).click(function(e) {
-             if (!$(e.target).closest('.dropdown, .candidate-profile').length) {
-                 $('.dropdown-menu').hide();
-             }
-         });
+            const $dropdown = $('.candidate-profile').next('.dropdown-menu');
 
-         // Table row hover effects
-         $('.db-job-card-table tbody tr').hover(
-             function() {
-                 $(this).addClass('hovered');
-                 $(this).find('.btn').addClass('pulse');
-             },
-             function() {
-                 $(this).removeClass('hovered');
-                 $(this).find('.btn').removeClass('pulse');
-             }
-         );
+            // FORCE close on page load
+            $dropdown.hide();
 
-         // View job details with animation
-         $('.db-job-btn-wrap .btn').click(function(e) {
-             e.preventDefault();
-             const $btn = $(this);
-             const url = $btn.attr('href');
+            // Profile dropdown toggle
+            $('.candidate-profile').on('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
 
-             // Add loading animation
-             $btn.addClass('loading').prop('disabled', true);
+                $dropdown.stop(true, true).toggle();
+            });
 
-             // Simulate loading and redirect
-             setTimeout(() => {
-                 window.location.href = url;
-             }, 500);
-         });
+            // Prevent click inside dropdown from closing it
+            $dropdown.on('click', function(e) {
+                e.stopPropagation();
+            });
 
-         // Sidebar toggle for mobile
-         $('.sidebar-open-nav').click(function() {
-             $('.d-sidebar').toggleClass('mobile-open');
-             $(this).toggleClass('open');
+            // Close when clicking outside
+            $(document).on('click', function() {
+                $dropdown.hide();
+            });
 
-             if ($(this).hasClass('open')) {
-                 $(this).html('<i class="ph-x">✕</i>');
-             } else {
-                 $(this).html('<i class="ph-list">≡</i>');
-             }
-         });
+        });
+        // navbar style effect on scroll
+        $(document).ready(function() {
 
-         // Auto-hide sidebar on mobile when clicking outside
-         $(document).click(function(e) {
-             if ($(window).width() <= 992) {
-                 if (!$(e.target).closest('.d-sidebar, .sidebar-open-nav').length &&
-                     $('.d-sidebar').hasClass('mobile-open')) {
-                     $('.d-sidebar').removeClass('mobile-open');
-                     $('.sidebar-open-nav').removeClass('open').html('<i class="ph-list">≡</i>');
-                 }
-             }
-         });
+            const currentUrl = window.location.href;
 
-         // Smooth scrolling
-         $('a[href^="#"]').click(function(e) {
-             const href = $(this).attr('href');
-             if (href !== '#' && href.startsWith('#')) {
-                 e.preventDefault();
-                 $('html, body').animate({
-                     scrollTop: $(href).offset().top - 100
-                 }, 600);
-             }
-         });
+            // Set active on page load based on URL
+            $('.menu-item a').each(function() {
+                if (this.href === currentUrl) {
+                    $(this).addClass('active');
+                }
+            });
 
-         // Form submission animations
-         $('form').submit(function(e) {
-             const $form = $(this);
-             const $submitBtn = $form.find('button[type="submit"], input[type="submit"]');
+            // Click behavior
+            $('.menu-item a').on('click', function() {
+                $('.menu-item a').removeClass('active');
+                $(this).addClass('active');
+            });
 
-             if ($submitBtn.length) {
-                 $submitBtn.addClass('loading').prop('disabled', true);
-                 $submitBtn.html('<span class="spinner">Loading...</span>');
-             }
-         });
-
-         // Add ripple effect to buttons
-         $('.btn').click(function(e) {
-             const $btn = $(this);
-             const x = e.pageX - $btn.offset().left;
-             const y = e.pageY - $btn.offset().top;
-
-             $btn.append('<span class="ripple"></span>');
-
-             const $ripple = $btn.find('.ripple').last();
-             $ripple.css({
-                 left: x + 'px',
-                 top: y + 'px'
-             });
-
-             setTimeout(() => {
-                 $ripple.remove();
-             }, 600);
-         });
-
-         // Counter animation
-         function animateCounter(element, target) {
-             const $element = $(element);
-             const current = parseInt($element.text());
-             const increment = target > current ? 1 : -1;
-
-             let timer = setInterval(function() {
-                 const newValue = parseInt($element.text()) + increment;
-                 $element.text(newValue);
-
-                 if (newValue === target) {
-                     clearInterval(timer);
-                 }
-             }, 20);
-         }
-
-         // Initialize dashboard animations
-         function initializeDashboard() {
-             // Animate dashboard cards with delay
-             $('.single-feature-box').each(function(index) {
-                 $(this).css({
-                     'animation-delay': (index * 0.1) + 's',
-                     'opacity': '0'
-                 }).animate({
-                     opacity: 1
-                 }, 500);
-             });
-
-             // Animate table rows
-             $('.db-job-card-table tbody tr').each(function(index) {
-                 $(this).css({
-                     'animation-delay': (index * 0.1) + 's',
-                     'opacity': '0'
-                 });
-             });
-
-             // Trigger animations
-             setTimeout(() => {
-                 $('.single-feature-box').addClass('animated');
-                 $('.db-job-card-table tbody tr').addClass('animated');
-             }, 100);
-         }
-
-         // Call initialization
-         initializeDashboard();
-
-         // Global notification functions
-         window.ReadNotification = function() {
-             $('.notification-list li').each(function(index) {
-                 const item = $(this);
-                 setTimeout(() => {
-                     item.fadeOut(300, function() {
-                         $(this).remove();
-                         if (index === $('.notification-list li').length - 1) {
-                             $('#unNotifications').fadeOut(300);
-                         }
-                     });
-                 }, index * 100);
-             });
-         }
-
-         window.readSingleNotification = function(url, id) {
-             const notificationItem = $('[onclick*="' + id + '"]').closest('li');
-
-             // Animation
-             notificationItem.fadeOut(300, function() {
-                 $(this).remove();
-                 if ($('.notification-list li').length === 0) {
-                     $('#unNotifications').fadeOut(300);
-                 }
-             });
-
-             // Redirect after animation
-             setTimeout(() => {
-                 window.location.href = url;
-             }, 300);
-         }
-     });
- </script>
+        });
+    </script>

@@ -62,7 +62,7 @@
 
         .messenger-wrapper {
             max-width: 1100px;
-            margin: -22px auto;
+            margin: 15px auto;
             font-family: system-ui, sans-serif;
         }
 

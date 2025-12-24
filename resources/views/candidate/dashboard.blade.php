@@ -14,6 +14,32 @@
                         body {
                             font-family: 'Inter', sans-serif;
                         }
+
+                        .vertical-shake {
+                            animation: vertical-shaking 5s infinite;
+                        }
+
+                        @keyframes vertical-shaking {
+                            0% {
+                                transform: translateY(0)
+                            }
+
+                            25% {
+                                transform: translateY(5px)
+                            }
+
+                            50% {
+                                transform: translateY(-5px)
+                            }
+
+                            75% {
+                                transform: translateY(5px)
+                            }
+
+                            100% {
+                                transform: translateY(0)
+                            }
+                        }
                     </style>
                     <main
                         class="px-4 md:px-16 py-16 flex flex-col md:flex-row items-center justify-between gap-12 max-w-7xl mx-auto">
@@ -59,7 +85,7 @@
                             </p>
                         </div>
 
-                        <div class="w-full md:w-1/2 flex justify-center" style="transition: all 0.3s ease;">
+                        <div class="vertical-shake w-full md:w-1/2 flex justify-center" style="transition: all 0.3s ease;">
                             <svg width="492" height="382" viewBox="0 0 492 382" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_1647_31253)">
@@ -1153,31 +1179,40 @@
 
                             <div class="relative flex flex-col md:flex-row justify-between items-start gap-12 md:gap-4">
 
-                                <!-- Connector lines -->
-                                <div class="hidden md:block absolute top-12 left-0 w-full">
-                                    <svg width="100%" height="90" viewBox="10 15 1000 100" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg" class="w-full h-auto opacity-40">
-                                        <path d="M150 50 Q 275 -20 400 50" stroke="#0066FF" stroke-width="2"
-                                            stroke-dasharray="8 8" />
-                                        <path d="M390 40 L 400 50 L 388 55" stroke="#0066FF" stroke-width="2" />
-                                        <path d="M420 50 Q 550 120 680 50" stroke="#0066FF" stroke-width="2"
-                                            stroke-dasharray="8 8" />
-                                        <path d="M670 60 L 680 50 L 668 45" stroke="#0066FF" stroke-width="2" />
-                                        <path d="M700 50 Q 825 -20 950 50" stroke="#0066FF" stroke-width="2"
-                                            stroke-dasharray="8 8" />
-                                        <path d="M940 40 L 950 50 L 938 55" stroke="#0066FF" stroke-width="2" />
+                                {{-- <!-- Connector lines -->
+                                <!-- Connector lines (desktop only) -->
+                                <div class="hidden md:block absolute top-1 left-0 w-full pointer-events-none">
+                                    <svg viewBox="0 0 1200 120" class="w-full h-auto opacity-60"
+                                        xmlns="http://www.w3.org/2000/svg" fill="none">
+
+                                        <!-- Step 1 → Step 2 -->
+                                        <path d="M150 40 C 260 -10, 340 -10, 450 60" stroke="#3B82F6" stroke-width="2"
+                                            stroke-dasharray="6 6" />
+                                        <path d="M440 52 L450 60 L438 68" stroke="#3B82F6" stroke-width="2" />
+
+                                        <!-- Step 2 → Step 3 -->
+                                        <path d="M470 40 C 580 130, 720 -60, 830 40" stroke="#3B82F6" stroke-width="2"
+                                            stroke-dasharray="6 6" />
+                                        <path d="M820 52 L830 60 L818 68" stroke="#3B82F6" stroke-width="2" />
+
+                                        <!-- Step 3 → Step 4 -->
+                                        <path d="M850 60 C 960 -10, 1040 -10, 1150 60" stroke="#3B82F6" stroke-width="2"
+                                            stroke-dasharray="6 6" />
+                                        <path d="M1140 52 L1150 60 L1138 68" stroke="#3B82F6" stroke-width="2" />
+
                                     </svg>
-                                </div>
+                                </div> --}}
+
 
                                 <!-- STEP 1 -->
                                 <div
                                     class="relative z-10 flex flex-col items-center flex-1 p-6 rounded-xl
-                       transition group cursor-pointer
-                       hover:-translate-y-2 hover:shadow-xl">
+                                        transition group cursor-pointer
+                                        hover:-translate-y-2 hover:shadow-xl">
 
                                     <div
                                         class="w-16 h-16  rounded-full bg-blue-50 flex items-center justify-center mb-8
-                           transition group-hover:bg-blue-600">
+                                     transition group-hover:bg-blue-600">
 
                                         <!-- default icon -->
                                         <svg class="w-10 h-10 text-blue-600 block group-hover:hidden transition"
@@ -1208,12 +1243,12 @@
                                 <!-- STEP 2 -->
                                 <div
                                     class="relative z-10 flex flex-col items-center flex-1 p-6 rounded-xl
-                       transition group cursor-pointer
-                       hover:-translate-y-2 hover:shadow-xl">
+                                transition group cursor-pointer
+                                hover:-translate-y-2 hover:shadow-xl">
 
                                     <div
                                         class="w-16 h-16  rounded-full bg-blue-50 flex items-center justify-center mb-8
-                           transition group-hover:bg-blue-600">
+                                    transition group-hover:bg-blue-600">
 
                                         <svg class="w-10 h-10 text-blue-600 block group-hover:hidden transition"
                                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -1241,12 +1276,12 @@
                                 <!-- STEP 3 -->
                                 <div
                                     class="relative z-10 flex flex-col items-center flex-1 p-6 rounded-xl
-                       transition group cursor-pointer
-                       hover:-translate-y-2 hover:shadow-xl">
+                                    transition group cursor-pointer
+                                    hover:-translate-y-2 hover:shadow-xl">
 
                                     <div
                                         class="w-16 h-16  rounded-full bg-blue-50 flex items-center justify-center mb-8
-                           transition group-hover:bg-blue-600">
+                                    transition group-hover:bg-blue-600">
 
                                         <svg class="w-10 h-10   text-blue-600 block group-hover:hidden transition"
                                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -1274,12 +1309,12 @@
                                 <!-- STEP 4 -->
                                 <div
                                     class="relative z-10 flex flex-col items-center flex-1 p-6 rounded-xl
-                       transition group cursor-pointer
-                       hover:-translate-y-2 hover:shadow-xl">
+                                    transition group cursor-pointer
+                                    hover:-translate-y-2 hover:shadow-xl">
 
                                     <div
                                         class="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mb-8
-                           transition group-hover:bg-blue-600">
+                                        transition group-hover:bg-blue-600">
 
                                         <svg class="w-16 h-16  text-blue-600 block group-hover:hidden transition"
                                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"

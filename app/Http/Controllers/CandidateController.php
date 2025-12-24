@@ -41,4 +41,8 @@ class CandidateController extends Controller
     {
         return view('candidate.settings'); // resources/views/candidate/settings.blade.php
     }
+    public function companies()
+    {
+        return view('candidate.companies'); // resources/views/candidate/companies.blade.php
+    }
 }
