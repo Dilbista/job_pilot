@@ -16,11 +16,28 @@
             line-height: 1.6;
         }
         
-        .container {
+         .container {
             max-width: 1300px;
-            display: flex;
-            min-height: 100vh;
+            margin: 0 auto;
+            padding: 20px;
         }
+        
+        /* Main Layout */
+        .dashboard-layout {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        /* Main Content */
+        .dashboard-content {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+        }
+        
         
         /* Header Styles */
        
@@ -303,11 +320,12 @@
 
     <!-- Main Container -->
     <div class="container">
+         <div class="dashboard-layout">
         <!-- Sidebar -->
         @include('layouts.sidebar')
         
         <!-- Main Content -->
-        <div class="main-content">
+        <div class="dashboard-content">
             <h1 class="page-title">My Jobs(<span>100</span>)</h1>
             
             <!-- Jobs Table Section -->
@@ -482,6 +500,7 @@
                 </table>
             </div>
         </div>
+    </div>
     </div>
     
     

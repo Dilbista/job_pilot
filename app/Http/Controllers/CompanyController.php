@@ -82,5 +82,12 @@ class CompanyController extends Controller
     {
         return view('company.pricing_plan');
     }
-    
+    public function pricePlanPayment()
+    {
+        return view('company.pricing_plan_payment');
+    }
+    public function termsCondition()
+    {
+        return view('company.terms_&_condition');
+    }
 }

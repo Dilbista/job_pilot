@@ -46,6 +46,10 @@ Route::prefix('company')->name('company.')->group(function () {
     Route::get('/candidates', [CompanyController::class, 'candidates'])->name('candidates');
 
     Route::get('/pricing', [CompanyController::class, 'pricing'])->name('pricing');
+
+    Route::get('/pricing-payment', [CompanyController::class, 'pricePlanPayment'])->name('pricePlanPayment');
+
+    Route::get('/terms-Condition', [CompanyController::class, 'termsCondition'])->name('termsCondition');
 });
 
 /*
@@ -69,4 +73,6 @@ Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(functi
     Route::get('/messenger', [DashboardController::class, 'messenger'])->name('messenger');
 
     Route::get('/custom-question', [DashboardController::class, 'customQuestion'])->name('customQuestion');
+    
+    Route::get('/invoice', [DashboardController::class, 'invoice'])->name('invoice');
 });

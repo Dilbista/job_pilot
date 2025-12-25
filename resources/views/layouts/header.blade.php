@@ -447,51 +447,403 @@
             transform: scale(1.1);
         }
 
-        /* Responsive */
-        @media (max-width: 992px) {
-            .nav-center {
-                flex-direction: column;
-                gap: 15px;
-            }
+    /* RESPONSIVE STYLES */
 
-            .search-container {
-                max-width: 100%;
-            }
-
-            .search-form {
-                flex-direction: column;
-            }
-
-            .hero-title {
-                font-size: 36px;
-            }
-
-            .dashboard-links {
-                overflow-x: auto;
-                padding-bottom: 10px;
-            }
+    /* Large devices (desktops, 1200px and up) */
+    @media (max-width: 1200px) {
+        .hero-container,
+        .header-container,
+        .top-nav-container {
+            max-width: 960px;
+            padding: 0 15px;
         }
-
-        @media (max-width: 768px) {
-            .top-nav-container {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .header-container {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .hero-title {
-                font-size: 28px;
-            }
-
-            .hero-subtitle {
-                font-size: 16px;
-            }
+        
+        .search-wrapper {
+            width: 450px;
         }
-    </style>
+        
+        .hero-title {
+            font-size: 42px;
+        }
+    }
+
+    /* Medium devices (tablets, 992px and up) */
+    @media (max-width: 992px) {
+        .header-container {
+            flex-direction: column;
+            gap: 15px;
+            height: auto;
+            padding: 15px 20px;
+        }
+        
+        .search-wrapper {
+            width: 100%;
+            max-width: 600px;
+            margin: 10px 0;
+        }
+        
+        .user-actions {
+            width: 100%;
+            justify-content: space-between;
+        }
+        
+        .hero-title {
+            font-size: 36px;
+        }
+        
+        .hero-subtitle {
+            font-size: 18px;
+            padding: 0 20px;
+        }
+        
+        .hero-search {
+            height: auto;
+            margin: 0 20px 20px;
+        }
+        
+        .search-form {
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .search-input,
+        .search-btn {
+            width: 100%;
+        }
+        
+        .top-nav-container {
+            flex-direction: column;
+            gap: 10px;
+            text-align: center;
+        }
+        
+        .top-nav-right {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+
+    /* Small devices (landscape phones, 768px and up) */
+    @media (max-width: 768px) {
+        .main-header {
+            height: auto;
+            padding: 10px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+        }
+        
+        .hero-section {
+            height: auto;
+            padding: 40px 0;
+        }
+        
+        .hero-title {
+            font-size: 32px;
+            padding: 0 15px;
+        }
+        
+        .hero-subtitle {
+            font-size: 16px;
+            padding: 0 15px;
+        }
+        
+        .hero-search {
+            padding: 15px;
+            margin: 0 15px 20px;
+        }
+        
+        .search-wrapper {
+            height: 45px;
+        }
+        
+        .user-actions {
+            gap: 20px;
+        }
+        
+        .post-job-btn {
+            padding: 10px 18px;
+            font-size: 14px;
+        }
+        
+        .top-nav-links {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .top-nav-links li {
+            margin: 0 5px;
+        }
+        
+        .phone-number {
+            font-size: 13px;
+        }
+        
+        .dropdown-select {
+            font-size: 13px;
+        }
+        
+        .profile-dropdown img {
+            width: 35px;
+            height: 35px;
+        }
+    }
+
+    /* Extra small devices (portrait phones, 576px and up) */
+    @media (max-width: 576px) {
+        .header-container {
+            padding: 10px 15px;
+        }
+        
+        .logo {
+            font-size: 22px;
+        }
+        
+        .logo i {
+            font-size: 20px;
+        }
+        
+        .search-wrapper {
+            padding: 5px 10px;
+            height: 40px;
+        }
+        
+        .search-select,
+        .search-input-main {
+            font-size: 14px;
+        }
+        
+        .search-divider {
+            margin: 0 8px;
+            height: 20px;
+        }
+        
+        .search-icon {
+            margin-right: 10px;
+            font-size: 14px;
+        }
+        
+        .user-actions {
+            gap: 15px;
+            font-size: 16px;
+        }
+        
+        .post-job-btn {
+            padding: 8px 15px;
+            font-size: 13px;
+        }
+        
+        .hero-title {
+            font-size: 28px;
+        }
+        
+        .hero-subtitle {
+            font-size: 15px;
+        }
+        
+        .search-form {
+            gap: 8px;
+        }
+        
+        .search-input {
+            padding: 12px 15px;
+            height: 45px;
+            font-size: 15px;
+        }
+        
+        .search-btn {
+            padding: 12px 15px;
+            font-size: 15px;
+        }
+        
+        .tags {
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .tag {
+            padding: 6px 12px;
+            font-size: 12px;
+        }
+        
+        .dropdown-menu {
+            width: 150px;
+            top: 45px;
+        }
+        
+        .dropdown-menu li a {
+            padding: 8px 15px;
+            font-size: 13px;
+        }
+        
+        .logout-btn {
+            padding: 8px 15px;
+            font-size: 13px;
+        }
+        
+        .top-nav-links {
+            gap: 10px;
+        }
+        
+        .top-nav-links a {
+            font-size: 12px;
+        }
+        
+        .top-nav-right {
+            gap: 10px;
+        }
+        
+        .chat-button {
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            bottom: 20px;
+            right: 20px;
+        }
+    }
+
+    /* Very small devices (phones less than 400px) */
+    @media (max-width: 400px) {
+        .header-container {
+            padding: 8px 10px;
+        }
+        
+        .logo {
+            font-size: 20px;
+        }
+        
+        .search-wrapper {
+            padding: 4px 8px;
+            height: 38px;
+        }
+        
+        .search-select,
+        .search-input-main {
+            font-size: 13px;
+        }
+        
+        .user-actions {
+            gap: 12px;
+            font-size: 15px;
+        }
+        
+        .profile-dropdown img {
+            width: 32px;
+            height: 32px;
+        }
+        
+        .post-job-btn {
+            padding: 6px 12px;
+            font-size: 12px;
+        }
+        
+        .hero-title {
+            font-size: 24px;
+        }
+        
+        .hero-subtitle {
+            font-size: 14px;
+        }
+        
+        .top-nav-links {
+            gap: 8px;
+        }
+        
+        .top-nav-links a {
+            font-size: 11px;
+        }
+        
+        .phone-number {
+            font-size: 12px;
+        }
+        
+        .dropdown-select {
+            font-size: 12px;
+        }
+    }
+
+    /* For devices in landscape mode */
+    @media (max-height: 500px) and (orientation: landscape) {
+        .hero-section {
+            height: auto;
+            padding: 30px 0;
+        }
+        
+        .hero-title {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+        
+        .hero-subtitle {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .hero-search {
+            height: auto;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+    }
+
+    /* For printing */
+    @media print {
+        .top-nav,
+        .main-header,
+        .chat-button {
+            display: none;
+        }
+        
+        body {
+            background-color: white;
+        }
+    }
+
+    /* Dark mode support (optional) */
+    @media (prefers-color-scheme: dark) {
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        
+        .top-nav {
+            background-color: #1e1e1e;
+            border-bottom: 1px solid #333;
+        }
+        
+        .top-nav-links a,
+        .phone-number,
+        .dropdown-select {
+            color: #e0e0e0;
+        }
+        
+        .search-wrapper,
+        .search-box,
+        .search-input,
+        .search-input-main {
+            background-color: #2d2d2d;
+            color: #e0e0e0;
+            border-color: #444;
+        }
+        
+        .dropdown-menu {
+            background-color: #2d2d2d;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .dropdown-menu li a,
+        .logout-btn {
+            color: #e0e0e0;
+        }
+        
+        .dropdown-menu li a:hover,
+        .logout-btn:hover {
+            background-color: #3a3a3a;
+        }
+    }
+</style>
 </head>
 
 <body>

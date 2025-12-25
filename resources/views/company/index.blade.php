@@ -238,8 +238,8 @@
         }
 
         .upgrade-btn {
-            background-color: var(--primary);
-            color: white;
+            background-color:#f8f9fa; ;
+            color: rgb(8, 8, 163);
             border: none;
             padding: 10px 20px;
             border-radius: 5px;
@@ -247,10 +247,14 @@
             cursor: pointer;
             transition: var(--transition);
             margin-top: 20px;
+            margin-left: 45px;
         }
 
         .upgrade-btn:hover {
-            background-color: #2a75ff;
+            color: #2a75ff;
+        }
+        button a{
+            text-decoration: none;
         }
 
         /* Jobs Table */
@@ -493,7 +497,7 @@
                         <div class="label">Profile View</div>
                     </div>
                 </div>
-                <button class="upgrade-btn">Upgrade Plan</button>
+                <button class="upgrade-btn"><a href="{{ route('company.pricing') }}">Upgrade Plan</a></button>
             </div>
             
             <!-- Recent Jobs Table -->

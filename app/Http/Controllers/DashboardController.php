@@ -44,4 +44,8 @@ class DashboardController extends Controller
     {
         return view('dashboard.custom_question');
     }
+    public function invoice()
+    {
+        return view('dashboard.invoice');
+    }
 }

@@ -204,8 +204,8 @@
         }
 
         .get-started-btn {
-            background-color: var(--primary);
-            color: white;
+            background-color:rgb(237, 243, 252);
+            color: rgb(10, 10, 145);
             border: none;
             padding: 15px 30px;
             border-radius: 30px;
@@ -217,11 +217,14 @@
         }
 
         .get-started-btn:hover {
-            background-color: #2a75ff;
+            background-color: rgb(194, 212, 240);
         }
 
         .pricing-card.recommended .get-started-btn {
-            background-color: var(--primary);
+            background-color: rgb(237, 243, 252);
+        }
+        .pricing-card.recommended .get-started-btn:hover {
+            background-color: rgb(194, 212, 240);
         }
 
         /* Pay Per Job Section */
@@ -245,6 +248,22 @@
             color: var(--gray);
             max-width: 700px;
             margin: 0 auto 30px;
+        }
+        .per-job-btn {
+            background-color:rgb(26, 26, 203);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .per-job-btn:hover {
+            background-color: blue;
         }
 
         .or-divider {
@@ -453,7 +472,7 @@
 
         <!-- Pricing Hero Section -->
         <section class="pricing-hero">
-            <div class="breadcrumb">
+            <div class="breadcrumb" style="margin-left: 500px;">
                 <a href="{{ route('home') }}">Home</a> / Pricing
             </div>
             <h1>Unlock the Power of Premium Job Postings</h1>
@@ -496,7 +515,7 @@
                     <li><i class="fas fa-check"></i> 10 Candidates Profile View</li>
                     <li><i class="fas fa-minus"></i> Ability to verify company profile</li>
                 </ul>
-                <button class="get-started-btn">Get Started →</button>
+                <button class="get-started-btn"><a href="{{ route('company.pricePlanPayment') }}" style="text-decoration: none;">Get Started →</a></button>
             </div>
 
             <!-- Standard Plan -->
@@ -512,7 +531,7 @@
                     <li><i class="fas fa-check"></i> 20 Candidates Profile View</li>
                     <li><i class="fas fa-check"></i> Ability to verify company profile</li>
                 </ul>
-                <button class="get-started-btn">Get Started →</button>
+                <button class="get-started-btn"><a href="{{ route('company.pricePlanPayment') }}" style="text-decoration: none;">Get Started →</a></button>
             </div>
         </div>
 
@@ -523,7 +542,7 @@
         <section class="pay-per-job">
             <h3>Pay Per Job</h3>
             <p>Pay only for individual job creations. Highlight or feature your postings to attract top talent</p>
-            <button class="get-started-btn">Create Pay Per Job →</button>
+            <button class="per-job-btn"><a href="{{ route('company.createJob') }}" style="color: white; text-decoration: none;">Create Pay Per Job →</a></button>
         </section>
 
         <!-- FAQ Section -->
