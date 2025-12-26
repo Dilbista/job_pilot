@@ -1,5 +1,14 @@
     <!-- Footer -->
-      <footer class="bg-[#18191C] text-gray-400 py-20 px-4 md:px-16">
+    <style>
+        a {
+            color: rgb(242, 246, 253);
+            text-decoration: none;
+        }
+        footer{
+            max-width: 100%;
+        }
+    </style>
+    <footer class="bg-[#18191C] text-gray-400 py-20 px-4 md:px-16">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
 

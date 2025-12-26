@@ -5,8 +5,8 @@
         <ul class="sidebar-menu">
             <!-- Overview -->
             <li class="menu-item">
-                <a href="{{ route('candidate.index') }}" 
-                   class="{{ request()->routeIs('candidate.index') ? 'active' : '' }}">
+                <a href="{{ route('candidate.index') }}"
+                    class="{{ request()->routeIs('candidate.index') ? 'active' : '' }}">
                     <span class="button-content-wrapper">
                         <span class="button-icon tw-flex tw-items-center">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -21,8 +21,8 @@
 
             <!-- Applied Jobs -->
             <li class="menu-item">
-                <a href="{{ route('candidate.appliedjobs') }}" 
-                   class="{{ request()->routeIs('candidate.appliedjobs') ? 'active' : '' }}">
+                <a href="{{ route('candidate.appliedjobs') }}"
+                    class="{{ request()->routeIs('candidate.appliedjobs') ? 'active' : '' }}">
                     <span class="button-content-wrapper">
                         <span class="button-icon tw-flex tw-items-center">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -39,8 +39,8 @@
 
             <!-- Favorite Jobs -->
             <li class="menu-item">
-                <a href="{{ route('candidate.favoritejob') }}" 
-                   class="{{ request()->routeIs('candidate.favoritejob') ? 'active' : '' }}">
+                <a href="{{ route('candidate.favoritejob') }}"
+                    class="{{ request()->routeIs('candidate.favoritejob') ? 'active' : '' }}">
                     <span class="button-content-wrapper">
                         <span class="button-icon tw-flex tw-items-center">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -56,8 +56,8 @@
 
             <!-- Job Alert -->
             <li class="menu-item">
-                <a href="{{ route('candidate.jobalert') }}" 
-                   class="{{ request()->routeIs('candidate.jobalert') ? 'active' : '' }}">
+                <a href="{{ route('candidate.jobalert') }}"
+                    class="{{ request()->routeIs('candidate.jobalert') ? 'active' : '' }}">
                     <span class="button-content-wrapper">
                         <span class="button-icon tw-flex tw-items-center">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -73,8 +73,8 @@
 
             <!-- Messenger -->
             <li class="menu-item">
-                <a href="{{ route('candidate.messenger') }}" 
-                   class="{{ request()->routeIs('candidate.messenger') ? 'active' : '' }}">
+                <a href="{{ route('candidate.messenger') }}"
+                    class="{{ request()->routeIs('candidate.messenger') ? 'active' : '' }}">
                     <span class="button-content-wrapper">
                         <span class="button-icon tw-flex tw-items-center">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -91,8 +91,8 @@
 
             <!-- Plans & Billing -->
             <li class="menu-item">
-                <a href="{{ route('candidate.billing') }}" 
-                   class="{{ request()->routeIs('candidate.billing') ? 'active' : '' }}">
+                <a href="{{ route('candidate.billing') }}"
+                    class="{{ request()->routeIs('candidate.billing') ? 'active' : '' }}">
                     <span class="button-content-wrapper">
                         <span class="button-icon tw-flex tw-items-center">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -108,8 +108,8 @@
 
             <!-- Settings -->
             <li class="menu-item">
-                <a href="{{ route('candidate.settings') }}" 
-                   class="{{ request()->routeIs('candidate.settings') ? 'active' : '' }}">
+                <a href="{{ route('candidate.settings') }}"
+                    class="{{ request()->routeIs('candidate.settings') ? 'active' : '' }}">
                     <span class="button-content-wrapper">
                         <span class="button-icon tw-flex tw-items-center">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -127,7 +127,7 @@
 
             <!-- Logout -->
             <li class="menu-item">
-                <a href="https://jobpilot.lomeyolabs.com/logout">
+                <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <span class="button-content-wrapper">
                         <span class="button-icon tw-flex tw-items-center">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -140,85 +140,90 @@
                         <span class="button-text">Log Out</span>
                     </span>
                 </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
             </li>
+
         </ul>
     </div>
 </div>
 <style>
     .sidebar-menu .menu-item a {
-    display: block;
-    padding: 12px 16px;
-    color: #333;
-    text-decoration: none;
-    border-radius: 8px;
-    margin-bottom: 4px;
-    transition: all 0.3s ease;
-}
+        display: block;
+        padding: 8px 12px;
+        color: #333;
+        text-decoration: none;
+        border-radius: 8px;
+        margin-bottom: 4px;
+        transition: all 0.3s ease;
+    }
 
-.sidebar-menu .menu-item a:hover {
-    background-color: #f5f5f5;
-    color: #007bff;
-}
+    .sidebar-menu .menu-item a:hover {
+        background-color: #f5f5f5;
+        color: #007bff;
+    }
 
-.sidebar-menu .menu-item a.active {
-    background-color: #007bff;
-    color: white;
-    font-weight: 500;
-    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
-}
+    .sidebar-menu .menu-item a.active {
+        background-color: #007bff;
+        color: white;
+        font-weight: 500;
+        box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+    }
 
-.sidebar-menu .menu-item a.active .button-icon svg {
-    stroke: white;
-}
+    .sidebar-menu .menu-item a.active .button-icon svg {
+        stroke: white;
+    }
 </style>
 <script>
-$(document).ready(function() {
-    const currentUrl = window.location.href;
-    
-    // Function to update active state
-    function updateActiveState() {
-        // Remove active class from all links
-        $('.sidebar-menu .menu-item a').removeClass('active');
-        
-        // Add active class to current page link
-        $('.sidebar-menu .menu-item a').each(function() {
-            // Check both exact URL match and route match
-            if (this.href === currentUrl || 
-                $(this).hasClass('active')) {
-                $(this).addClass('active');
-                return false; // Stop checking once found
-            }
-        });
-    }
-    
-    // Set active state on page load
-    updateActiveState();
-    
-    // Click behavior: toggle active class
-    $('.sidebar-menu .menu-item a').on('click', function(e) {
-        // Don't prevent default for logout or external links
-        if (this.href.includes('/logout')) {
-            return true;
+    $(document).ready(function() {
+        const currentUrl = window.location.href;
+
+        // Function to update active state
+        function updateActiveState() {
+            // Remove active class from all links
+            $('.sidebar-menu .menu-item a').removeClass('active');
+
+            // Add active class to current page link
+            $('.sidebar-menu .menu-item a').each(function() {
+                // Check both exact URL match and route match
+                if (this.href === currentUrl ||
+                    $(this).hasClass('active')) {
+                    $(this).addClass('active');
+                    return false; // Stop checking once found
+                }
+            });
         }
-        
-        // Remove active class from all links
-        $('.sidebar-menu .menu-item a').removeClass('active');
-        
-        // Add active class to clicked link
-        $(this).addClass('active');
-        
-        // If you want to prevent page reload and use AJAX navigation, uncomment below:
-        // e.preventDefault();
-        // const url = $(this).attr('href');
-        // window.history.pushState({}, '', url);
-        // loadContent(url); // You'd need to implement loadContent function
-        
-        return true;
+
+        // Set active state on page load
+        updateActiveState();
+
+        // Click behavior: toggle active class
+        $('.sidebar-menu .menu-item a').on('click', function(e) {
+            // Don't prevent default for logout or external links
+            if (this.href.includes('/logout')) {
+                return true;
+            }
+
+            // Remove active class from all links
+            $('.sidebar-menu .menu-item a').removeClass('active');
+
+            // Add active class to clicked link
+            $(this).addClass('active');
+
+            // If you want to prevent page reload and use AJAX navigation, uncomment below:
+            // e.preventDefault();
+            // const url = $(this).attr('href');
+            // window.history.pushState({}, '', url);
+            // loadContent(url); // You'd need to implement loadContent function
+
+            return true;
+        });
+
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', function() {
+            setTimeout(updateActiveState, 100);
+        });
     });
-    
-    // Handle browser back/forward buttons
-    window.addEventListener('popstate', function() {
-        setTimeout(updateActiveState, 100);
-    });
-});
 </script>

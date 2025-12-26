@@ -6,7 +6,7 @@
                 <div class="row">
                     @include('candidate.layouts.sidebar')
 
-                    <div class="col-lg-9">
+                    <div class="col-lg-9" style="margin-top: 18px; ">
                         <div class="dashboard-right">
                             <div class="dashboard-right-header">
                                 <div class="left-text">

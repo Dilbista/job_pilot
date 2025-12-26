@@ -1,6 +1,6 @@
     <header class="header rt-fixed-top">
         <div class="n-header">
-            <div class="n-header--top relative" style="color: black">
+            <div class="n-header--top relative" style="color: black; background-color: white;">
                 <div class="container tw-px-0">
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="n-header--top__left main-menu">
@@ -303,25 +303,56 @@
                             </div>
 
                             <!-- Desktop Navigation -->
-                            <div class="container">
-                                <ul class="menu-active-classes">
-                                    <li class="menu-item">
-                                        <a href="{{ route('candidate.dashboard') }}">Home</a>
+                            <div class="container d-flex justify-content-between align-items-center">
+
+                                <!-- Left Menu -->
+                                <ul class="menu-active-classes d-flex align-items-center gap-4 mb-0">
+                                    <li class="menu-item"><a href="{{ route('candidate.dashboard') }}">Home</a></li>
+                                    <li class="menu-item"><a href="/jobs">Find Job</a></li>
+                                    <li class="menu-item"><a href="{{ route('candidate.companies') }}">Companies</a>
                                     </li>
-                                    <li class="menu-item">
-                                        <a href="/jobs">Find Job</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="{{ route('candidate.companies') }}">Companies</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="{{ route('candidate.index') }}">Dashboard</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="{{ route('candidate.jobalert') }}">Job Alert</a>
+                                    <li class="menu-item"><a href="{{ route('candidate.index') }}">Dashboard</a></li>
+                                    <li class="menu-item"><a href="{{ route('candidate.jobalert') }}">Job Alert</a>
                                     </li>
                                 </ul>
+
+                                <!-- Right Side -->
+                                <div class="d-flex align-items-center ms-auto gap-4" style="margin-left: 480px">
+
+                                    <!-- Contact -->
+                                    <div class="fw-medium">📞 +977 98XXXXXXXX</div>
+
+                                    <!-- Country -->
+                                    <div class="custom-dropdown">
+                                        <button class="dropdown-btn">
+                                            🇳🇵 Nepal
+                                            <span class="arrow">▾</span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li>🇳🇵 Nepal</li>
+                                            <li>🇮🇳 India</li>
+                                            <li>🇺🇸 USA</li>
+                                            <li>🇬🇧 UK</li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Language -->
+                                    <div class="custom-dropdown">
+                                        <button class="dropdown-btn">
+                                            EN
+                                            <span class="arrow">▾</span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li>English</li>
+                                            <li>नेपाली</li>
+                                            <li>Hindi</li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -666,8 +697,7 @@
                                                     </ul>
                                                 </div>
                                                 <div class="text-center bg-gray-50 p-2">
-                                                    <a
-                                                        href="https://jobpilot.lomeyolabs.com/company/all/notifications">
+                                                    <a href="https://jobpilot.lomeyolabs.com/candidate/notifications">
                                                         <span class="body-font-1 ft-wt-5 m-2 underCs">View All
                                                             Notifications</span>
                                                     </a>
@@ -676,7 +706,7 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <a href="https://jobpilot.lomeyolabs.com/candidate/messages"
+                                        <a href="{{ route('candidate.messenger') }}"
                                             class="tw-relative tw-text-white">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -707,10 +737,19 @@
                                             </span>
                                         </a>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item active" href="candidate/index">Dashboard</a>
-                                            <a class="dropdown-item" href="#">Settings</a>
-                                            <a class="dropdown-item" href="#">Log
-                                                Out</a>
+                                            <a class="dropdown-item active"
+                                                href="{{ route('candidate.index') }}">Dashboard</a>
+                                            <a class="dropdown-item"
+                                                href="{{ route('candidate.settings') }}">Settings</a>
+                                            <a class="dropdown-item" href="#"
+                                                onclick="event.preventDefault(); document.getElementById('dropdown-logout-form').submit();">
+                                                Log Out
+                                            </a>
+
+                                            <form id="dropdown-logout-form" action="{{ route('logout') }}"
+                                                method="POST" style="display: none;">
+                                                @csrf
+                                            </form>
                                         </div>
                                     </li>
                                 </ul>
@@ -722,6 +761,53 @@
         </div>
     </header>
     <style>
+        .custom-dropdown {
+            position: relative;
+        }
+
+        .dropdown-btn {
+            display: flex;
+            align-items: right;
+            gap: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .arrow {
+            font-size: 12px;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 120%;
+            right: 0;
+            background: #fcfbfd;
+            list-style: none;
+            padding: 6px 0;
+            margin: 0;
+            min-width: 150px;
+            border-radius: 6px;
+            box-shadow: 20 20px 20px rgba(0, 0, 0, 0.08);
+            display: none;
+            z-index: 1000;
+        }
+
+        .dropdown-menu li {
+            padding: 8px 14px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .dropdown-menu li:hover {
+            background: #1900f7;
+        }
+
+        .custom-dropdown.open .dropdown-menu {
+            display: block;
+        }
+
         .menu-active-classes {
             display: flex;
             gap: 24px;
@@ -761,9 +847,24 @@
 
         /* Optional active color */
         .menu-item a.active {
-            color: #ebeef3;
+            color: #0062ff;
         }
     </style>
+    <script>
+        document.addEventListener('click', function(e) {
+            const dropdowns = document.querySelectorAll('.custom-dropdown');
+
+            dropdowns.forEach(dropdown => {
+                if (dropdown.contains(e.target)) {
+                    dropdown.classList.toggle('open');
+                } else {
+                    dropdown.classList.remove('open');
+                }
+            });
+        });
+    </script>
+
+
     <!-- JavaScript -->
     <script>
         // profile dropdown script
