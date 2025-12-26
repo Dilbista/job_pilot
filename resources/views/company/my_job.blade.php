@@ -151,6 +151,7 @@
         
         .jobs-table tbody tr:hover {
             background-color: #f9f9f9;
+            border: 1.5px solid rgb(146, 172, 249);
         }
         
         .jobs-table td {
@@ -212,21 +213,107 @@
             font-size: 14px;
         }
         
-        .view-applications {
-            background-color: #1a73e8;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            font-size: 14px;
-        }
         
-        .view-applications:hover {
-            background-color: #0d5bb5;
+         .action-btn-table {
+            background-color:rgb(237, 243, 249); 
+            color: rgb(7, 7, 130);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
         }
+
+        .action-btn-table a {
+            color:rgb(7, 7, 130);
+            text-decoration: none;
+        }
+        .action-btn-table a:hover {
+            color:white;
+            text-decoration: none;
+        }
+
+        .action-btn-table:hover {
+            background-color: #2a75ff;
+            color: white;
+        }
+
+        /* Dropdown Menu Styles - FIXED */
+        .job-actions {
+            position: relative;
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        .actions-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .actions-btn {
+            background: none;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--secondary);
+            transition: all 0.3s;
+        }
+
+        .actions-btn:hover {
+            background-color: #f1f5f9;
+            color: var(--dark);
+        }
+
+        .dropdownmenu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            min-width: 200px;
+            z-index: 100;
+            display: none;
+            overflow: hidden;
+        }
+
+        .dropdownmenu.show {
+            display: block;
+        }
+
+        .dropdownitem {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1rem;
+            text-decoration: none;
+            color: var(--dark);
+            transition: background-color 0.3s;
+            border-bottom: 1px solid #f1f5f9;
+            cursor: pointer;
+        }
+
+        .dropdownitem:last-child {
+            border-bottom: none;
+        }
+
+        .dropdownitem:hover {
+            background-color: #f8fafc;
+        }
+
+        .dropdownitem i {
+            width: 20px;
+            margin-right: 0.8rem;
+            color: black;
+        }
+
         
         /* Responsive Styles */
         @media (max-width: 1200px) {
@@ -378,8 +465,34 @@
                             <td>
                                 <span class="applications-count">0 Application</span>
                             </td>
-                            <td>
-                                <button class="view-applications">View Applications</button>
+                           <td>
+                                <button class="action-btn-table">
+                                    <a href="{{ route('company.applicationView') }}">View Applications</a>
+                                </button>
+                                <div class="job-actions">
+                                    <div class="actions-dropdown">
+                                        <button class="actions-btn" onclick="toggleDropdown('dropdown1')">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </button>
+                                        <div class="dropdownmenu" id="dropdown1">
+                                            <a href="#" class="dropdownitem">
+                                            <i class="fas fa-eye"></i></i> View Details
+                                            </a>
+                                            <a href="#" class="dropdownitem">
+                                                <i class="fas fa-clock"></i> Make It Expire
+                                            </a>
+                                            <a href="{{ route('company.createJob') }}" class="dropdownitem">
+                                                <i class="fas fa-edit"></i> Edit
+                                            </a>
+                                            <a href="{{ route('company.promoteJob') }}" class="dropdownitem">
+                                                <i class="fas fa-bullhorn"></i> Promote
+                                            </a>
+                                            <a href="#" class="dropdownitem">
+                                                <i class="fas fa-copy"></i> Clone
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                         
@@ -399,7 +512,33 @@
                                 <span class="applications-count">0 Application</span>
                             </td>
                             <td>
-                                <button class="view-applications">View Applications</button>
+                                <button class="action-btn-table">
+                                    <a href="{{ route('company.applicationView') }}">View Applications</a>
+                                </button>
+                                <div class="job-actions">
+                                    <div class="actions-dropdown">
+                                        <button class="actions-btn" onclick="toggleDropdown('dropdown2')">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </button>
+                                        <div class="dropdownmenu" id="dropdown2">
+                                            <a href="#" class="dropdownitem">
+                                               <i class="fas fa-eye"></i></i> View Details
+                                            </a>
+                                            <a href="#" class="dropdownitem">
+                                                <i class="fas fa-clock"></i> Make It Expire
+                                            </a>
+                                            <a href="{{ route('company.createJob') }}" class="dropdownitem">
+                                                <i class="fas fa-edit"></i> Edit
+                                            </a>
+                                            <a href="{{ route('company.promoteJob') }}" class="dropdownitem">
+                                                <i class="fas fa-bullhorn"></i> Promote
+                                            </a>
+                                            <a href="#" class="dropdownitem">
+                                                <i class="fas fa-copy"></i> Clone
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                         
@@ -419,7 +558,33 @@
                                 <span class="applications-count">0 Applications</span>
                             </td>
                             <td>
-                                <button class="view-applications">View Applications</button>
+                                <button class="action-btn-table">
+                                    <a href="{{ route('company.applicationView') }}">View Applications</a>
+                                </button>
+                                <div class="job-actions">
+                                    <div class="actions-dropdown">
+                                        <button class="actions-btn" onclick="toggleDropdown('dropdown3')">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </button>
+                                        <div class="dropdownmenu" id="dropdown3">
+                                            <a href="#" class="dropdownitem">
+                                               <i class="fas fa-eye"></i></i> View Details
+                                            </a>
+                                            <a href="#" class="dropdownitem">
+                                                <i class="fas fa-clock"></i> Make It Expire
+                                            </a>
+                                            <a href="{{ route('company.createJob') }}" class="dropdownitem">
+                                                <i class="fas fa-edit"></i> Edit
+                                            </a>
+                                            <a href="{{ route('company.promoteJob') }}" class="dropdownitem">
+                                                <i class="fas fa-bullhorn"></i> Promote
+                                            </a>
+                                            <a href="#" class="dropdownitem">
+                                                <i class="fas fa-copy"></i> Clone
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                         
@@ -439,7 +604,33 @@
                                 <span class="applications-count">3 Applications</span>
                             </td>
                             <td>
-                                <button class="view-applications">View Applications</button>
+                                <button class="action-btn-table">
+                                    <a href="{{ route('company.applicationView') }}">View Applications</a>
+                                </button>
+                                <div class="job-actions">
+                                    <div class="actions-dropdown">
+                                        <button class="actions-btn" onclick="toggleDropdown('dropdown4')">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </button>
+                                        <div class="dropdownmenu" id="dropdown4">
+                                            <a href="#" class="dropdownitem">
+                                               <i class="fas fa-eye"></i></i> View Details
+                                            </a>
+                                            <a href="#" class="dropdownitem">
+                                                <i class="fas fa-clock"></i> Make It Expire
+                                            </a>
+                                            <a href="{{ route('company.createJob') }}" class="dropdownitem">
+                                                <i class="fas fa-edit"></i> Edit
+                                            </a>
+                                            <a href="{{ route('company.promoteJob') }}" class="dropdownitem">
+                                                <i class="fas fa-bullhorn"></i> Promote
+                                            </a>
+                                            <a href="#" class="dropdownitem">
+                                                <i class="fas fa-copy"></i> Clone
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -456,8 +647,34 @@
                             <td>
                                 <span class="applications-count">3 Applications</span>
                             </td>
-                            <td>
-                                <button class="view-applications">View Applications</button>
+                           <td>
+                                <button class="action-btn-table">
+                                    <a href="{{ route('company.applicationView') }}">View Applications</a>
+                                </button>
+                                <div class="job-actions">
+                                    <div class="actions-dropdown">
+                                        <button class="actions-btn" onclick="toggleDropdown('dropdown5')">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </button>
+                                        <div class="dropdownmenu" id="dropdown5">
+                                            <a href="#" class="dropdownitem">
+                                               <i class="fas fa-eye"></i></i> View Details
+                                            </a>
+                                            <a href="#" class="dropdownitem">
+                                                <i class="fas fa-clock"></i> Make It Expire
+                                            </a>
+                                            <a href="{{ route('company.createJob') }}" class="dropdownitem">
+                                                <i class="fas fa-edit"></i> Edit
+                                            </a>
+                                            <a href="{{ route('company.promoteJob') }}" class="dropdownitem">
+                                                <i class="fas fa-bullhorn"></i> Promote
+                                            </a>
+                                            <a href="#" class="dropdownitem">
+                                                <i class="fas fa-copy"></i> Clone
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -475,7 +692,33 @@
                                 <span class="applications-count">3 Applications</span>
                             </td>
                             <td>
-                                <button class="view-applications">View Applications</button>
+                                <button class="action-btn-table">
+                                    <a href="{{ route('company.applicationView') }}">View Applications</a>
+                                </button>
+                                <div class="job-actions">
+                                    <div class="actions-dropdown">
+                                        <button class="actions-btn" onclick="toggleDropdown('dropdown6')">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </button>
+                                        <div class="dropdownmenu" id="dropdown6">
+                                            <a href="#" class="dropdownitem">
+                                               <i class="fas fa-eye"></i></i> View Details
+                                            </a>
+                                            <a href="#" class="dropdownitem">
+                                                <i class="fas fa-clock"></i> Make It Expire
+                                            </a>
+                                            <a href="{{ route('company.createJob') }}" class="dropdownitem">
+                                                <i class="fas fa-edit"></i> Edit
+                                            </a>
+                                            <a href="{{ route('company.promoteJob') }}" class="dropdownitem">
+                                                <i class="fas fa-bullhorn"></i> Promote
+                                            </a>
+                                            <a href="#" class="dropdownitem">
+                                                <i class="fas fa-copy"></i> Clone
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -492,8 +735,34 @@
                             <td>
                                 <span class="applications-count">3 Applications</span>
                             </td>
-                            <td>
-                                <button class="view-applications">View Applications</button>
+                           <td>
+                                <button class="action-btn-table">
+                                    <a href="{{ route('company.applicationView') }}">View Applications</a>
+                                </button>
+                                <div class="job-actions">
+                                    <div class="actions-dropdown">
+                                        <button class="actions-btn" onclick="toggleDropdown('dropdown7')">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </button>
+                                        <div class="dropdownmenu" id="dropdown7">
+                                            <a href="#" class="dropdownitem">
+                                               <i class="fas fa-eye"></i></i> View Details
+                                            </a>
+                                            <a href="#" class="dropdownitem">
+                                                <i class="fas fa-clock"></i> Make It Expire
+                                            </a>
+                                            <a href="{{ route('company.createJob') }}" class="dropdownitem">
+                                                <i class="fas fa-edit"></i> Edit
+                                            </a>
+                                            <a href="{{ route('company.promoteJob') }}" class="dropdownitem">
+                                                <i class="fas fa-bullhorn"></i> Promote
+                                            </a>
+                                            <a href="#" class="dropdownitem">
+                                                <i class="fas fa-copy"></i> Clone
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                     </tbody>
@@ -548,6 +817,30 @@
                 console.log(`Filter changed: ${this.value}`);
             });
         });
+
+          // Toggle dropdown menus - FIXED
+        function toggleDropdown(dropdownId) {
+            const dropdown = document.getElementById(dropdownId);
+            const isVisible = dropdown.classList.contains('show');
+            
+            // Close all other dropdowns
+            document.querySelectorAll('.dropdownmenu').forEach(menu => {
+                menu.classList.remove('show');
+            });
+            
+            // Toggle current dropdown
+            if (!isVisible) {
+                dropdown.classList.add('show');
+            }
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function closeDropdown(e) {
+                if (!dropdown.contains(e.target) && !e.target.closest('.actions-btn')) {
+                    dropdown.classList.remove('show');
+                    document.removeEventListener('click', closeDropdown);
+                }
+            });
+        }
     </script>
 
     @endsection

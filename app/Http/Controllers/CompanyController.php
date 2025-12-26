@@ -90,4 +90,11 @@ class CompanyController extends Controller
     {
         return view('company.terms_&_condition');
     }
+     public function applicationView()
+    {
+        return view('company.view_application');
+    }
+    public function promoteJob(){
+        return view('company.promote_job');
+    }
 }

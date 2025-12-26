@@ -50,6 +50,10 @@ Route::prefix('company')->name('company.')->group(function () {
     Route::get('/pricing-payment', [CompanyController::class, 'pricePlanPayment'])->name('pricePlanPayment');
 
     Route::get('/terms-Condition', [CompanyController::class, 'termsCondition'])->name('termsCondition');
+
+    Route::get('/view-application',[CompanyController::class,'applicationView'])->name('applicationView');
+
+    Route::get('/promote-job',[CompanyController::class,'promoteJob'])->name('promoteJob');
 });
 
 /*
