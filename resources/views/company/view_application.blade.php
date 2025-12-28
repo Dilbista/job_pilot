@@ -28,7 +28,6 @@
             line-height: 1.6;
         }
 
-
         /* Breadcrumb */
         .breadcrumb {
             margin: 1rem auto 1rem;
@@ -116,24 +115,47 @@
             background-color: #f8fafc;
         }
 
-        /* Applications Board */
-        .applications-board {
-            display: flex;
-            /* grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
-            gap: 1.5rem;
+        .board-container {
+            width: 100%;
+            overflow-x: auto;
             margin-bottom: 2rem;
-            width: 2000px;
-            
+            padding-bottom: 10px;
+        }
+
+        .board-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .board-container::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 4px;
+        }
+
+        .board-container::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        .board-container::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        .applications-board {
+            display: inline-flex;
+            gap: 1.5rem;
+            padding: 0.5rem;
+            min-width: min-content;
         }
 
         .application-column {
             background-color: white;
             border-radius: 8px;
             box-shadow: var(--shadow);
-            display: inline-block;
-            /* width: 500px; */
+            display: flex;
             flex-direction: column;
-            max-height: 200vh;
+            width: 320px;
+            min-width: 320px;
+            max-height: 70vh;
             overflow: hidden;
         }
 
@@ -143,7 +165,17 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-shrink: 0;
         }
+
+        .candidates-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+            min-height: 200px;
+        }
+
+
 
         .column-title {
             font-weight: 600;
@@ -231,12 +263,6 @@
 
         .column-action-item.delete i {
             color: var(--danger);
-        }
-
-        .candidates-list {
-            flex: 1;
-            overflow-y: auto;
-            padding: 1rem;
         }
 
         /* Candidate Card */
@@ -536,36 +562,52 @@
             .nav-container {
                 padding: 1rem;
             }
-            
+
             .main-container {
                 padding: 0 1rem 2rem;
             }
-            
+
             .breadcrumb {
                 padding: 0 1rem;
             }
-            
+
             .page-header {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 1rem;
             }
-            
+
             .applications-board {
                 grid-template-columns: 1fr;
             }
-            
+
             .bottom-actions {
                 flex-direction: column;
                 gap: 1rem;
             }
-            
+
             .chat-widget {
                 bottom: 1rem;
                 right: 1rem;
                 width: 50px;
                 height: 50px;
                 font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .board-container {
+                margin: 0 -1rem;
+                padding: 0 1rem 10px;
+            }
+
+            .applications-board {
+                padding: 0.5rem 0;
+            }
+
+            .application-column {
+                width: 280px;
+                min-width: 280px;
             }
         }
     </style>
@@ -588,7 +630,7 @@
                 <h1>Applications</h1>
                 {{-- <p>Manage candidates for UI/UX Designer position</p> --}}
             </div>
-            
+
             <div class="header-actions">
                 <button class="btn btn-secondary" onclick="goBack()">
                     <i class="fas fa-arrow-left"></i> Back
@@ -598,434 +640,434 @@
                 </button>
             </div>
         </div>
-
-        <!-- Applications Board -->
-        <div class="applications-board">
-            <!-- No Group Column -->
-            <div class="application-column">
-                <div class="column-header">
-                    <div>
-                        <span class="column-title">No Group</span>
-                        <span class="column-count">1</span>
-                    </div>
-                    <div class="column-actions">
-                        <button class="column-actions-btn" onclick="toggleColumnMenu('no-group-menu')">
-                            <i class="fas fa-ellipsis-v"></i>
-                        </button>
-                        <div class="column-actions-menu" id="no-group-menu">
-                            <div class="column-action-item" onclick="editColumn('No Group')">
-                                <i class="fas fa-edit"></i> Edit
-                            </div>
-                            <div class="column-action-item delete" onclick="deleteColumn('No Group')">
-                                <i class="fas fa-trash"></i> Delete
-                            </div>
+        <div class="board-container">
+            <!-- Applications Board -->
+            <div class="applications-board">
+                <!-- No Group Column -->
+                <div class="application-column">
+                    <div class="column-header">
+                        <div>
+                            <span class="column-title">No Group</span>
+                            <span class="column-count">1</span>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="candidates-list">
-                    <!-- Candidate Card -->
-                    <div class="candidate-card">
-                        <div class="candidate-header">
-                            <div class="candidate-info">
-                                <div class="candidate-checkbox">
-                                    <input type="checkbox">
+                        <div class="column-actions">
+                            <button class="column-actions-btn" onclick="toggleColumnMenu('no-group-menu')">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <div class="column-actions-menu" id="no-group-menu">
+                                <div class="column-action-item" onclick="editColumn('No Group')">
+                                    <i class="fas fa-edit"></i> Edit
                                 </div>
-                                <div class="candidate-details">
-                                    <div class="candidate-name">Armaan Malik</div>
-                                    <div class="candidate-title">Pharmacist</div>
+                                <div class="column-action-item delete" onclick="deleteColumn('No Group')">
+                                    <i class="fas fa-trash"></i> Delete
                                 </div>
                             </div>
-                            <div class="candidate-actions">
-                                <button class="candidate-actions-btn" onclick="toggleCandidateMenu('candidate1-menu')">
-                                    <i class="fas fa-ellipsis-v"></i>
-                                </button>
-                                <div class="candidate-actions-menu" id="candidate1-menu">
-                                    <div class="column-action-item" onclick="editCandidate('Armaan Malik')">
-                                        <i class="fas fa-edit"></i> Edit
-                                    </div>
-                                    <div class="column-action-item delete" onclick="deleteCandidate('Armaan Malik')">
-                                        <i class="fas fa-trash"></i> Delete
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <ul class="candidate-details-list">
-                            <li>
-                                <i class="fas fa-briefcase"></i>
-                                <span>Experience: 2 Years</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-graduation-cap"></i>
-                                <span>Education: Master Degree</span>
-                            </li>
-                        </ul>
-                        
-                        <div class="candidate-actions-footer">
-                            <a href="#" class="download-cv-btn" onclick="downloadCV('Armaan Malik')">
-                                <i class="fas fa-download"></i> Download CV
-                            </a>
                         </div>
                     </div>
 
-                    <div class="candidate-card">
-                        <div class="candidate-header">
-                            <div class="candidate-info">
-                                <div class="candidate-checkbox">
-                                    <input type="checkbox">
-                                </div>
-                                <div class="candidate-details">
-                                    <div class="candidate-name">Armaan Malik</div>
-                                    <div class="candidate-title">Pharmacist</div>
-                                </div>
-                            </div>
-                            <div class="candidate-actions">
-                                <button class="candidate-actions-btn" onclick="toggleCandidateMenu('candidate1-menu')">
-                                    <i class="fas fa-ellipsis-v"></i>
-                                </button>
-                                <div class="candidate-actions-menu" id="candidate1-menu">
-                                    <div class="column-action-item" onclick="editCandidate('Armaan Malik')">
-                                        <i class="fas fa-edit"></i> Edit
+                    <div class="candidates-list">
+                        <!-- Candidate Card -->
+                        <div class="candidate-card">
+                            <div class="candidate-header">
+                                <div class="candidate-info">
+                                    <div class="candidate-checkbox">
+                                        <input type="checkbox">
                                     </div>
-                                    <div class="column-action-item delete" onclick="deleteCandidate('Armaan Malik')">
-                                        <i class="fas fa-trash"></i> Delete
+                                    <div class="candidate-details">
+                                        <div class="candidate-name">Armaan Malik</div>
+                                        <div class="candidate-title">Pharmacist</div>
                                     </div>
                                 </div>
+                                <div class="candidate-actions">
+                                    <button class="candidate-actions-btn" onclick="toggleCandidateMenu('candidate1-menu')">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <div class="candidate-actions-menu" id="candidate1-menu">
+                                        <div class="column-action-item" onclick="editCandidate('Armaan Malik')">
+                                            <i class="fas fa-edit"></i> Edit
+                                        </div>
+                                        <div class="column-action-item delete" onclick="deleteCandidate('Armaan Malik')">
+                                            <i class="fas fa-trash"></i> Delete
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        
-                        <ul class="candidate-details-list">
-                            <li>
-                                <i class="fas fa-briefcase"></i>
-                                <span>Experience: 2 Years</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-graduation-cap"></i>
-                                <span>Education: Master Degree</span>
-                            </li>
-                        </ul>
-                        
-                        <div class="candidate-actions-footer">
-                            <a href="#" class="download-cv-btn" onclick="downloadCV('Armaan Malik')">
-                                <i class="fas fa-download"></i> Download CV
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- All Applications Column -->
-            <div class="application-column">
-                <div class="column-header">
-                    <div>
-                        <span class="column-title">All Applications</span>
-                        <span class="column-count">1</span>
-                    </div>
-                    <div class="column-actions">
-                        <button class="column-actions-btn" onclick="toggleColumnMenu('all-applications-menu')">
-                            <i class="fas fa-ellipsis-v"></i>
-                        </button>
-                        <div class="column-actions-menu" id="all-applications-menu">
-                            <div class="column-action-item" onclick="editColumn('All Applications')">
-                                <i class="fas fa-edit"></i> Edit
-                            </div>
-                            <div class="column-action-item delete" onclick="deleteColumn('All Applications')">
-                                <i class="fas fa-trash"></i> Delete
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="candidates-list">
-                    <!-- Candidate Card -->
-                    <div class="candidate-card">
-                        <div class="candidate-header">
-                            <div class="candidate-info">
-                                <div class="candidate-checkbox">
-                                    <input type="checkbox">
-                                </div>
-                                <div class="candidate-details">
-                                    <div class="candidate-name">Jihadul Islam</div>
-                                    <div class="candidate-title">Electrician</div>
-                                </div>
-                            </div>
-                            <div class="candidate-actions">
-                                <button class="candidate-actions-btn" onclick="toggleCandidateMenu('candidate2-menu')">
-                                    <i class="fas fa-ellipsis-v"></i>
-                                </button>
-                                <div class="candidate-actions-menu" id="candidate2-menu">
-                                    <div class="column-action-item" onclick="editCandidate('Jihadul Islam')">
-                                        <i class="fas fa-edit"></i> Edit
-                                    </div>
-                                    <div class="column-action-item delete" onclick="deleteCandidate('Jihadul Islam')">
-                                        <i class="fas fa-trash"></i> Delete
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <ul class="candidate-details-list">
-                            <li>
-                                <i class="fas fa-briefcase"></i>
-                                <span>Experience: 2 Years</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-graduation-cap"></i>
-                                <span>Education: Master Degree</span>
-                            </li>
-                        </ul>
-                        
-                        <div class="candidate-actions-footer">
-                            <a href="#" class="download-cv-btn" onclick="downloadCV('Jihadul Islam')">
-                                <i class="fas fa-download"></i> Download CV
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                            <ul class="candidate-details-list">
+                                <li>
+                                    <i class="fas fa-briefcase"></i>
+                                    <span>Experience: 2 Years</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>Education: Master Degree</span>
+                                </li>
+                            </ul>
 
-            <!-- Shortlisted Column -->
-            <div class="application-column">
-                <div class="column-header">
-                    <div>
-                        <span class="column-title">Shortlisted</span>
-                        <span class="column-count">1</span>
-                    </div>
-                    <div class="column-actions">
-                        <button class="column-actions-btn" onclick="toggleColumnMenu('shortlisted-menu')">
-                            <i class="fas fa-ellipsis-v"></i>
-                        </button>
-                        <div class="column-actions-menu" id="shortlisted-menu">
-                            <div class="column-action-item" onclick="editColumn('Shortlisted')">
-                                <i class="fas fa-edit"></i> Edit
-                            </div>
-                            <div class="column-action-item delete" onclick="deleteColumn('Shortlisted')">
-                                <i class="fas fa-trash"></i> Delete
+                            <div class="candidate-actions-footer">
+                                <a href="#" class="download-cv-btn" onclick="downloadCV('Armaan Malik')">
+                                    <i class="fas fa-download"></i> Download CV
+                                </a>
                             </div>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="candidates-list">
-                    <!-- Candidate Card -->
-                    <div class="candidate-card">
-                        <div class="candidate-header">
-                            <div class="candidate-info">
-                                <div class="candidate-checkbox">
-                                    <input type="checkbox">
-                                </div>
-                                <div class="candidate-details">
-                                    <div class="candidate-name">Sheikh Rashed</div>
-                                    <div class="candidate-title">Accountant</div>
-                                </div>
-                            </div>
-                            <div class="candidate-actions">
-                                <button class="candidate-actions-btn" onclick="toggleCandidateMenu('candidate3-menu')">
-                                    <i class="fas fa-ellipsis-v"></i>
-                                </button>
-                                <div class="candidate-actions-menu" id="candidate3-menu">
-                                    <div class="column-action-item" onclick="editCandidate('Sheikh Rashed')">
-                                        <i class="fas fa-edit"></i> Edit
-                                    </div>
-                                    <div class="column-action-item delete" onclick="deleteCandidate('Sheikh Rashed')">
-                                        <i class="fas fa-trash"></i> Delete
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <ul class="candidate-details-list">
-                            <li>
-                                <i class="fas fa-briefcase"></i>
-                                <span>Experience: 1 Year</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-graduation-cap"></i>
-                                <span>Education: PhD</span>
-                            </li>
-                        </ul>
-                        
-                        <div class="candidate-actions-footer">
-                            <a href="#" class="download-cv-btn" onclick="downloadCV('Sheikh Rashed')">
-                                <i class="fas fa-download"></i> Download CV
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Interview Column -->
-            <div class="application-column">
-                <div class="column-header">
-                    <div>
-                        <span class="column-title">Interview</span>
-                        <span class="column-count">1</span>
-                    </div>
-                    <div class="column-actions">
-                        <button class="column-actions-btn" onclick="toggleColumnMenu('interview-menu')">
-                            <i class="fas fa-ellipsis-v"></i>
-                        </button>
-                        <div class="column-actions-menu" id="interview-menu">
-                            <div class="column-action-item" onclick="editColumn('Interview')">
-                                <i class="fas fa-edit"></i> Edit
-                            </div>
-                            <div class="column-action-item delete" onclick="deleteColumn('Interview')">
-                                <i class="fas fa-trash"></i> Delete
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="candidates-list">
-                    <!-- Candidate Card -->
-                    <div class="candidate-card">
-                        <div class="candidate-header">
-                            <div class="candidate-info">
-                                <div class="candidate-checkbox">
-                                    <input type="checkbox">
-                                </div>
-                                <div class="candidate-details">
-                                    <div class="candidate-name">Liton Das</div>
-                                    <div class="candidate-title">Labourer</div>
-                                </div>
-                            </div>
-                            <div class="candidate-actions">
-                                <button class="candidate-actions-btn" onclick="toggleCandidateMenu('candidate4-menu')">
-                                    <i class="fas fa-ellipsis-v"></i>
-                                </button>
-                                <div class="candidate-actions-menu" id="candidate4-menu">
-                                    <div class="column-action-item" onclick="editCandidate('Liton Das')">
-                                        <i class="fas fa-edit"></i> Edit
+                        <div class="candidate-card">
+                            <div class="candidate-header">
+                                <div class="candidate-info">
+                                    <div class="candidate-checkbox">
+                                        <input type="checkbox">
                                     </div>
-                                    <div class="column-action-item delete" onclick="deleteCandidate('Liton Das')">
-                                        <i class="fas fa-trash"></i> Delete
+                                    <div class="candidate-details">
+                                        <div class="candidate-name">Armaan Malik</div>
+                                        <div class="candidate-title">Pharmacist</div>
+                                    </div>
+                                </div>
+                                <div class="candidate-actions">
+                                    <button class="candidate-actions-btn" onclick="toggleCandidateMenu('candidate1-menu')">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <div class="candidate-actions-menu" id="candidate1-menu">
+                                        <div class="column-action-item" onclick="editCandidate('Armaan Malik')">
+                                            <i class="fas fa-edit"></i> Edit
+                                        </div>
+                                        <div class="column-action-item delete" onclick="deleteCandidate('Armaan Malik')">
+                                            <i class="fas fa-trash"></i> Delete
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <ul class="candidate-details-list">
-                            <li>
-                                <i class="fas fa-briefcase"></i>
-                                <span>Experience: 2 Years</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-graduation-cap"></i>
-                                <span>Education: Bachelor Degree</span>
-                            </li>
-                        </ul>
-                        
-                        <div class="candidate-actions-footer">
-                            <a href="#" class="download-cv-btn" onclick="downloadCV('Liton Das')">
-                                <i class="fas fa-download"></i> Download CV
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Rejected Column -->
-            <div class="application-column">
-                <div class="column-header">
-                    <div>
-                        <span class="column-title">Rejected</span>
-                        <span class="column-count">1</span>
-                    </div>
-                    <div class="column-actions">
-                        <button class="column-actions-btn" onclick="toggleColumnMenu('rejected-menu')">
-                            <i class="fas fa-ellipsis-v"></i>
-                        </button>
-                        <div class="column-actions-menu" id="rejected-menu">
-                            <div class="column-action-item" onclick="editColumn('Rejected')">
-                                <i class="fas fa-edit"></i> Edit
-                            </div>
-                            <div class="column-action-item delete" onclick="deleteColumn('Rejected')">
-                                <i class="fas fa-trash"></i> Delete
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="candidates-list">
-                    <!-- Candidate Card -->
-                    <div class="candidate-card">
-                        <div class="candidate-header">
-                            <div class="candidate-info">
-                                <div class="candidate-checkbox">
-                                    <input type="checkbox">
-                                </div>
-                                <div class="candidate-details">
-                                    <div class="candidate-name">John Doe</div>
-                                    <div class="candidate-title">Developer</div>
-                                </div>
-                            </div>
-                            <div class="candidate-actions">
-                                <button class="candidate-actions-btn" onclick="toggleCandidateMenu('candidate5-menu')">
-                                    <i class="fas fa-ellipsis-v"></i>
-                                </button>
-                                <div class="candidate-actions-menu" id="candidate5-menu">
-                                    <div class="column-action-item" onclick="editCandidate('John Doe')">
-                                        <i class="fas fa-edit"></i> Edit
-                                    </div>
-                                    <div class="column-action-item delete" onclick="deleteCandidate('John Doe')">
-                                        <i class="fas fa-trash"></i> Delete
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <ul class="candidate-details-list">
-                            <li>
-                                <i class="fas fa-briefcase"></i>
-                                <span>Experience: 5+ Years</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-graduation-cap"></i>
-                                <span>Education: Master Degree</span>
-                            </li>
-                        </ul>
-                        
-                        <div class="candidate-actions-footer">
-                            <a href="#" class="download-cv-btn" onclick="downloadCV('John Doe')">
-                                <i class="fas fa-download"></i> Download CV
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                            <ul class="candidate-details-list">
+                                <li>
+                                    <i class="fas fa-briefcase"></i>
+                                    <span>Experience: 2 Years</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>Education: Master Degree</span>
+                                </li>
+                            </ul>
 
-            <!-- Selected Column (Empty) -->
-            <div class="application-column">
-                <div class="column-header">
-                    <div>
-                        <span class="column-title">Selected</span>
-                        <span class="column-count">0</span>
-                    </div>
-                    <div class="column-actions">
-                        <button class="column-actions-btn" onclick="toggleColumnMenu('selected-menu')">
-                            <i class="fas fa-ellipsis-v"></i>
-                        </button>
-                        <div class="column-actions-menu" id="selected-menu">
-                            <div class="column-action-item" onclick="editColumn('Selected')">
-                                <i class="fas fa-edit"></i> Edit
-                            </div>
-                            <div class="column-action-item delete" onclick="deleteColumn('Selected')">
-                                <i class="fas fa-trash"></i> Delete
+                            <div class="candidate-actions-footer">
+                                <a href="#" class="download-cv-btn" onclick="downloadCV('Armaan Malik')">
+                                    <i class="fas fa-download"></i> Download CV
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="candidates-list">
-                    <div class="empty-column">
-                        <i class="fas fa-user-friends"></i>
-                        <p>No candidates in this group</p>
+
+                <!-- All Applications Column -->
+                <div class="application-column">
+                    <div class="column-header">
+                        <div>
+                            <span class="column-title">All Applications</span>
+                            <span class="column-count">1</span>
+                        </div>
+                        <div class="column-actions">
+                            <button class="column-actions-btn" onclick="toggleColumnMenu('all-applications-menu')">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <div class="column-actions-menu" id="all-applications-menu">
+                                <div class="column-action-item" onclick="editColumn('All Applications')">
+                                    <i class="fas fa-edit"></i> Edit
+                                </div>
+                                <div class="column-action-item delete" onclick="deleteColumn('All Applications')">
+                                    <i class="fas fa-trash"></i> Delete
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="candidates-list">
+                        <!-- Candidate Card -->
+                        <div class="candidate-card">
+                            <div class="candidate-header">
+                                <div class="candidate-info">
+                                    <div class="candidate-checkbox">
+                                        <input type="checkbox">
+                                    </div>
+                                    <div class="candidate-details">
+                                        <div class="candidate-name">Jihadul Islam</div>
+                                        <div class="candidate-title">Electrician</div>
+                                    </div>
+                                </div>
+                                <div class="candidate-actions">
+                                    <button class="candidate-actions-btn" onclick="toggleCandidateMenu('candidate2-menu')">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <div class="candidate-actions-menu" id="candidate2-menu">
+                                        <div class="column-action-item" onclick="editCandidate('Jihadul Islam')">
+                                            <i class="fas fa-edit"></i> Edit
+                                        </div>
+                                        <div class="column-action-item delete" onclick="deleteCandidate('Jihadul Islam')">
+                                            <i class="fas fa-trash"></i> Delete
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <ul class="candidate-details-list">
+                                <li>
+                                    <i class="fas fa-briefcase"></i>
+                                    <span>Experience: 2 Years</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>Education: Master Degree</span>
+                                </li>
+                            </ul>
+
+                            <div class="candidate-actions-footer">
+                                <a href="#" class="download-cv-btn" onclick="downloadCV('Jihadul Islam')">
+                                    <i class="fas fa-download"></i> Download CV
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shortlisted Column -->
+                <div class="application-column">
+                    <div class="column-header">
+                        <div>
+                            <span class="column-title">Shortlisted</span>
+                            <span class="column-count">1</span>
+                        </div>
+                        <div class="column-actions">
+                            <button class="column-actions-btn" onclick="toggleColumnMenu('shortlisted-menu')">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <div class="column-actions-menu" id="shortlisted-menu">
+                                <div class="column-action-item" onclick="editColumn('Shortlisted')">
+                                    <i class="fas fa-edit"></i> Edit
+                                </div>
+                                <div class="column-action-item delete" onclick="deleteColumn('Shortlisted')">
+                                    <i class="fas fa-trash"></i> Delete
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="candidates-list">
+                        <!-- Candidate Card -->
+                        <div class="candidate-card">
+                            <div class="candidate-header">
+                                <div class="candidate-info">
+                                    <div class="candidate-checkbox">
+                                        <input type="checkbox">
+                                    </div>
+                                    <div class="candidate-details">
+                                        <div class="candidate-name">Sheikh Rashed</div>
+                                        <div class="candidate-title">Accountant</div>
+                                    </div>
+                                </div>
+                                <div class="candidate-actions">
+                                    <button class="candidate-actions-btn" onclick="toggleCandidateMenu('candidate3-menu')">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <div class="candidate-actions-menu" id="candidate3-menu">
+                                        <div class="column-action-item" onclick="editCandidate('Sheikh Rashed')">
+                                            <i class="fas fa-edit"></i> Edit
+                                        </div>
+                                        <div class="column-action-item delete" onclick="deleteCandidate('Sheikh Rashed')">
+                                            <i class="fas fa-trash"></i> Delete
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <ul class="candidate-details-list">
+                                <li>
+                                    <i class="fas fa-briefcase"></i>
+                                    <span>Experience: 1 Year</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>Education: PhD</span>
+                                </li>
+                            </ul>
+
+                            <div class="candidate-actions-footer">
+                                <a href="#" class="download-cv-btn" onclick="downloadCV('Sheikh Rashed')">
+                                    <i class="fas fa-download"></i> Download CV
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interview Column -->
+                <div class="application-column">
+                    <div class="column-header">
+                        <div>
+                            <span class="column-title">Interview</span>
+                            <span class="column-count">1</span>
+                        </div>
+                        <div class="column-actions">
+                            <button class="column-actions-btn" onclick="toggleColumnMenu('interview-menu')">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <div class="column-actions-menu" id="interview-menu">
+                                <div class="column-action-item" onclick="editColumn('Interview')">
+                                    <i class="fas fa-edit"></i> Edit
+                                </div>
+                                <div class="column-action-item delete" onclick="deleteColumn('Interview')">
+                                    <i class="fas fa-trash"></i> Delete
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="candidates-list">
+                        <!-- Candidate Card -->
+                        <div class="candidate-card">
+                            <div class="candidate-header">
+                                <div class="candidate-info">
+                                    <div class="candidate-checkbox">
+                                        <input type="checkbox">
+                                    </div>
+                                    <div class="candidate-details">
+                                        <div class="candidate-name">Liton Das</div>
+                                        <div class="candidate-title">Labourer</div>
+                                    </div>
+                                </div>
+                                <div class="candidate-actions">
+                                    <button class="candidate-actions-btn" onclick="toggleCandidateMenu('candidate4-menu')">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <div class="candidate-actions-menu" id="candidate4-menu">
+                                        <div class="column-action-item" onclick="editCandidate('Liton Das')">
+                                            <i class="fas fa-edit"></i> Edit
+                                        </div>
+                                        <div class="column-action-item delete" onclick="deleteCandidate('Liton Das')">
+                                            <i class="fas fa-trash"></i> Delete
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <ul class="candidate-details-list">
+                                <li>
+                                    <i class="fas fa-briefcase"></i>
+                                    <span>Experience: 2 Years</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>Education: Bachelor Degree</span>
+                                </li>
+                            </ul>
+
+                            <div class="candidate-actions-footer">
+                                <a href="#" class="download-cv-btn" onclick="downloadCV('Liton Das')" download>
+                                    <i class="fas fa-download"></i> Download CV
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rejected Column -->
+                <div class="application-column">
+                    <div class="column-header">
+                        <div>
+                            <span class="column-title">Rejected</span>
+                            <span class="column-count">1</span>
+                        </div>
+                        <div class="column-actions">
+                            <button class="column-actions-btn" onclick="toggleColumnMenu('rejected-menu')">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <div class="column-actions-menu" id="rejected-menu">
+                                <div class="column-action-item" onclick="editColumn('Rejected')">
+                                    <i class="fas fa-edit"></i> Edit
+                                </div>
+                                <div class="column-action-item delete" onclick="deleteColumn('Rejected')">
+                                    <i class="fas fa-trash"></i> Delete
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="candidates-list">
+                        <!-- Candidate Card -->
+                        <div class="candidate-card">
+                            <div class="candidate-header">
+                                <div class="candidate-info">
+                                    <div class="candidate-checkbox">
+                                        <input type="checkbox">
+                                    </div>
+                                    <div class="candidate-details">
+                                        <div class="candidate-name">John Doe</div>
+                                        <div class="candidate-title">Developer</div>
+                                    </div>
+                                </div>
+                                <div class="candidate-actions">
+                                    <button class="candidate-actions-btn" onclick="toggleCandidateMenu('candidate5-menu')">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <div class="candidate-actions-menu" id="candidate5-menu">
+                                        <div class="column-action-item" onclick="editCandidate('John Doe')">
+                                            <i class="fas fa-edit"></i> Edit
+                                        </div>
+                                        <div class="column-action-item delete" onclick="deleteCandidate('John Doe')">
+                                            <i class="fas fa-trash"></i> Delete
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <ul class="candidate-details-list">
+                                <li>
+                                    <i class="fas fa-briefcase"></i>
+                                    <span>Experience: 5+ Years</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>Education: Master Degree</span>
+                                </li>
+                            </ul>
+
+                            <div class="candidate-actions-footer">
+                                <a href="#" class="download-cv-btn" onclick="downloadCV('John Doe')">
+                                    <i class="fas fa-download"></i> Download CV
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Selected Column (Empty) -->
+                <div class="application-column">
+                    <div class="column-header">
+                        <div>
+                            <span class="column-title">Selected</span>
+                            <span class="column-count">0</span>
+                        </div>
+                        <div class="column-actions">
+                            <button class="column-actions-btn" onclick="toggleColumnMenu('selected-menu')">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <div class="column-actions-menu" id="selected-menu">
+                                <div class="column-action-item" onclick="editColumn('Selected')">
+                                    <i class="fas fa-edit"></i> Edit
+                                </div>
+                                <div class="column-action-item delete" onclick="deleteColumn('Selected')">
+                                    <i class="fas fa-trash"></i> Delete
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="candidates-list">
+                        <div class="empty-column">
+                            <i class="fas fa-user-friends"></i>
+                            <p>No candidates in this group</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
         <!-- Bottom Actions -->
         <div class="bottom-actions">
             <button class="btn btn-secondary" onclick="goBack()">
@@ -1036,8 +1078,9 @@
             </button>
         </div>
     </div>
+    </div>
 
-    
+
 
     <!-- Create Group Modal -->
     <div class="modal" id="createGroupModal">
@@ -1065,22 +1108,24 @@
         </div>
     </div>
 
+
+
     <script>
         // Toggle column actions menu
         function toggleColumnMenu(menuId) {
             const menu = document.getElementById(menuId);
             const isVisible = menu.classList.contains('show');
-            
+
             // Close all other menus
             document.querySelectorAll('.column-actions-menu').forEach(m => {
                 m.classList.remove('show');
             });
-            
+
             // Toggle current menu
             if (!isVisible) {
                 menu.classList.add('show');
             }
-            
+
             // Close menu when clicking outside
             document.addEventListener('click', function closeMenu(e) {
                 if (!menu.contains(e.target) && !e.target.closest('.column-actions-btn')) {
@@ -1089,22 +1134,22 @@
                 }
             });
         }
-        
+
         // Toggle candidate actions menu
         function toggleCandidateMenu(menuId) {
             const menu = document.getElementById(menuId);
             const isVisible = menu.classList.contains('show');
-            
+
             // Close all other menus
             document.querySelectorAll('.candidate-actions-menu').forEach(m => {
                 m.classList.remove('show');
             });
-            
+
             // Toggle current menu
             if (!isVisible) {
                 menu.classList.add('show');
             }
-            
+
             // Close menu when clicking outside
             document.addEventListener('click', function closeMenu(e) {
                 if (!menu.contains(e.target) && !e.target.closest('.candidate-actions-btn')) {
@@ -1113,81 +1158,81 @@
                 }
             });
         }
-        
+
         // Modal functions
         function openCreateGroupModal() {
             document.getElementById('groupName').value = '';
             document.getElementById('createGroupModal').classList.add('show');
         }
-        
+
         function closeModal(modalId) {
             document.getElementById(modalId).classList.remove('show');
         }
-        
+
         // Create new group
         function createNewGroup() {
             const groupName = document.getElementById('groupName').value.trim();
-            
+
             if (!groupName) {
                 alert('Please enter a group name');
                 return;
             }
-            
+
             // Create new column
             const applicationsBoard = document.querySelector('.applications-board');
-            
+
             const newColumn = document.createElement('div');
             newColumn.className = 'application-column';
             newColumn.innerHTML = `
-                <div class="column-header">
-                    <div>
-                        <span class="column-title">${groupName}</span>
-                        <span class="column-count">0</span>
-                    </div>
-                    <div class="column-actions">
-                        <button class="column-actions-btn" onclick="toggleColumnMenu('${groupName.replace(/\s+/g, '-').toLowerCase()}-menu')">
-                            <i class="fas fa-ellipsis-v"></i>
-                        </button>
-                        <div class="column-actions-menu" id="${groupName.replace(/\s+/g, '-').toLowerCase()}-menu">
-                            <div class="column-action-item" onclick="editColumn('${groupName}')">
-                                <i class="fas fa-edit"></i> Edit
+                            <div class="column-header">
+                                <div>
+                                    <span class="column-title">${groupName}</span>
+                                    <span class="column-count">0</span>
+                                </div>
+                                <div class="column-actions">
+                                    <button class="column-actions-btn" onclick="toggleColumnMenu('${groupName.replace(/\s+/g, '-').toLowerCase()}-menu')">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <div class="column-actions-menu" id="${groupName.replace(/\s+/g, '-').toLowerCase()}-menu">
+                                        <div class="column-action-item" onclick="editColumn('${groupName}')">
+                                            <i class="fas fa-edit"></i> Edit
+                                        </div>
+                                        <div class="column-action-item delete" onclick="deleteColumn('${groupName}')">
+                                            <i class="fas fa-trash"></i> Delete
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="column-action-item delete" onclick="deleteColumn('${groupName}')">
-                                <i class="fas fa-trash"></i> Delete
+
+                            <div class="candidates-list">
+                                <div class="empty-column">
+                                    <i class="fas fa-user-friends"></i>
+                                    <p>No candidates in this group</p>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="candidates-list">
-                    <div class="empty-column">
-                        <i class="fas fa-user-friends"></i>
-                        <p>No candidates in this group</p>
-                    </div>
-                </div>
-            `;
-            
+                        `;
+
             applicationsBoard.appendChild(newColumn);
-            
+
             // Close modal and show success message
             closeModal('createGroupModal');
             alert(`Group "${groupName}" created successfully!`);
         }
-        
+
         // Edit column
         function editColumn(columnName) {
             const newName = prompt(`Edit group name for "${columnName}":`, columnName);
-            
+
             if (newName && newName.trim() !== columnName) {
                 // In a real application, you would update the column title here
                 alert(`Group renamed from "${columnName}" to "${newName}"`);
-                
+
                 // Find and update the column title in the DOM
                 const columns = document.querySelectorAll('.column-title');
                 columns.forEach(col => {
                     if (col.textContent === columnName) {
                         col.textContent = newName;
-                        
+
                         // Also update the menu ID
                         const menu = col.closest('.column-header').querySelector('.column-actions-menu');
                         if (menu) {
@@ -1197,13 +1242,13 @@
                 });
             }
         }
-        
+
         // Delete column
         function deleteColumn(columnName) {
             if (confirm(`Are you sure you want to delete the "${columnName}" group?`)) {
                 // In a real application, you would remove the column from the DOM and backend
                 alert(`Group "${columnName}" deleted successfully!`);
-                
+
                 // Find and remove the column from the DOM
                 const columns = document.querySelectorAll('.column-title');
                 columns.forEach(col => {
@@ -1213,13 +1258,13 @@
                 });
             }
         }
-        
+
         // Edit candidate
         function editCandidate(candidateName) {
             alert(`Edit functionality for "${candidateName}" would open here.`);
             // In a real application, this would open a modal with form to edit candidate details
         }
-        
+
         // Delete candidate
         function deleteCandidate(candidateName) {
             if (confirm(`Are you sure you want to delete "${candidateName}" from this group?`)) {
@@ -1227,33 +1272,33 @@
                 // In a real application, you would remove the candidate card from the DOM and backend
             }
         }
-        
+
         // Download CV
         function downloadCV(candidateName) {
             alert(`Downloading CV for "${candidateName}"...`);
             // In a real application, this would initiate a file download
         }
-        
+
         // Go back
         function goBack() {
             alert('Going back to previous page...');
             // In a real application, this would navigate back in history
         }
-        
+
         // Open chat
         function openChat() {
             alert('Chat with us feature would open here. For now, you can email: contact@templatecookie.com');
         }
-        
+
         // Close menus when clicking outside
-        document.addEventListener('click', function(e) {
+        document.addEventListener('click', function (e) {
             // Close column menus
             if (!e.target.closest('.column-actions')) {
                 document.querySelectorAll('.column-actions-menu').forEach(menu => {
                     menu.classList.remove('show');
                 });
             }
-            
+
             // Close candidate menus
             if (!e.target.closest('.candidate-actions')) {
                 document.querySelectorAll('.candidate-actions-menu').forEach(menu => {
@@ -1262,7 +1307,4 @@
             }
         });
     </script>
-    @endsection
-
-</body>
-</html>
+@endsection

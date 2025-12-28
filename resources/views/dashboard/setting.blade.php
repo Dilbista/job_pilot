@@ -1,4 +1,5 @@
-@include('layouts.header')
+@extends('layouts.master')
+@section('content')
     <style>
         * {
             margin: 0;
@@ -521,42 +522,6 @@
     </style>
 
     <div class="container">
-        <!-- Top Navigation Bar -->
-        {{-- <div class="top-nav">
-            <div class="top-nav-left">
-                <a href="#" class="active">Home</a>
-                <a href="#">Candidates</a>
-                <a href="#">Pricing</a>
-                <a href="#">Dashboard</a>
-                <a href="#">My Job</a>
-            </div>
-            <div class="top-nav-right">
-                <div class="phone-number">
-                    <i class="fas fa-phone-alt"></i>
-                    319-555-0115
-                </div>
-                <div class="language-selector">
-                    <i class="fas fa-globe"></i>
-                    English
-                </div>
-                <div class="currency-selector">
-                    <i class="fas fa-dollar-sign"></i>
-                    USD
-                </div>
-            </div>
-        </div>
-
-        <!-- Main Header -->
-        <div class="main-header">
-            <div class="logo">Jobpilot</div>
-            <div class="search-post-container">
-                <div class="search-container">
-                    <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Job Title, Keyword">
-                </div>
-                <button class="post-job-btn">Post Job</button>
-            </div>
-        </div> --}}
 
         <!-- Dashboard Layout -->
         <div class="dashboard-layout">
@@ -670,8 +635,6 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    @include('layouts.footer')
     {{-- <div class="footer">
         <div class="footer-top">
             <div class="footer-content">
@@ -942,5 +905,4 @@
             });
         });
     </script>
-</body>
-</html>
+@endsection

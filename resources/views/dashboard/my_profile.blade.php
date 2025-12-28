@@ -40,7 +40,7 @@
         /* Banner */
         .banner img {
             width: 100%;
-            height: 270px;
+            height: 300px;
             object-fit: cover;
         }
 
@@ -221,13 +221,13 @@
 
         <!-- Banner -->
         <div class="banner">
-            <img src="{{ asset('images/programming-languages.png') }}" alt="Banner">
+            <img src="{{ asset('images/Profile_Banner.jpg') }}" alt="Banner">
         </div>
 
         <!-- Company Card -->
         <div class="company-card">
             <div class="company-left">
-                <img src="{{ asset('images/profile.png') }}" class="company-logo">
+                <img src="{{ asset('images/logo.png') }}" class="company-logo">
                 <div>
                     <h2>Templatecookie</h2>
                     <p>Hotel/Restaurant</p>
@@ -334,6 +334,3 @@
     </script>
 
 @endsection
-</body>
-
-</html>

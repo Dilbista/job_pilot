@@ -1095,5 +1095,3 @@
         }
     </script>
     @endsection
-</body>
-</html>

@@ -844,5 +844,3 @@
     </script>
 
     @endsection
-</body>
-</html>

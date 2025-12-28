@@ -1444,6 +1444,3 @@
     </script>
 
 @endsection
-</body>
-
-</html>

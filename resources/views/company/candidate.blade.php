@@ -1,4 +1,5 @@
-@include('layouts.header')
+@extends('layouts.master')
+@section('content')
     <style>
         * {
             margin: 0;
@@ -535,8 +536,6 @@
         </section>
     </div>
 
-    @include('layouts.footer')
-
     <script>
         // Interactive functionality
         document.querySelector('.search-candidates-btn').addEventListener('click', function(e) {
@@ -597,5 +596,4 @@
             });
         });
     </script>
-</body>
-</html>
+@endsection

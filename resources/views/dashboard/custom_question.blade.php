@@ -717,5 +717,3 @@
     </script>
 
     @endsection
-</body>
-</html>

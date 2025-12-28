@@ -529,6 +529,7 @@
         }
     </style>
     <!-- Main Content -->
+       <div class="container">
     <div class="dashboard-layout">
         @include('layouts.sidebar')
         <!-- Dashboard Content -->
@@ -738,11 +739,11 @@
                     </tbody>
                 </table>
                 <a href="{{ route('company.myJobs') }}"
-                    style="margin-left:900px; text-decoration: none; color: rgb(50, 50, 251);"> View all →</a>
+                    style="margin-left:700px; text-decoration: none; color: rgb(50, 50, 251);"> View all →</a>
             </div>
         </div>
     </div>
-
+</div>
     <script>
         // Navigation between dashboard and post job
         document.querySelectorAll('.nav-link').forEach(link => {

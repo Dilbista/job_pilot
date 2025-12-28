@@ -660,5 +660,3 @@
     </script>
 
     @endsection
-</body>
-</html>

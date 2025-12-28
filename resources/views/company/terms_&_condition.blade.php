@@ -10,5 +10,3 @@
 </style>
 <div class="container"></div>
 @endsection
-</body>
-</html>

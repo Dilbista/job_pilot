@@ -490,7 +490,7 @@
         </div>
 
         <div class="copyright">
-            <p>© DeepHub 2025 | All Rights Reserved</p>
+            <p>&copy; DeepHub 2025 | All Rights Reserved</p>
             <div class="social-icons">
                 <a href="https://twitter.com" class="social-icon">
                     <i class="fab fa-twitter"></i>
@@ -618,4 +618,6 @@
         });
     });
 </script>
+</body>
+</html>
 

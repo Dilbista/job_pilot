@@ -1093,6 +1093,3 @@
         });
     </script>
 @endsection
-</body>
-
-</html>

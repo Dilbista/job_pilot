@@ -861,6 +861,3 @@
         });
     </script>
 @endsection
-</body>
-
-</html>

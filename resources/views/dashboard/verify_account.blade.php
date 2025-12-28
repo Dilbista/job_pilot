@@ -680,5 +680,3 @@
         });
     </script>
     @endsection
-</body>
-</html>

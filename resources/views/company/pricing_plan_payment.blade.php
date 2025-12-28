@@ -888,6 +888,3 @@
     </script>
 
 @endsection
-</body>
-
-</html>

@@ -82,17 +82,21 @@
         margin-top: 40px;
         position: relative;
         z-index: 2;
-        box-shadow: 0 10px 30px rgba(26, 115, 232, 0.2);
+        /* box-shadow: 0 10px 30px rgba(26, 115, 232, 0.2); */
     }
 
     .profile-section {
-        background-image: url("{{ asset('images/job_search.webp') }}");
+        background-image: url("{{ asset('images/profilesection.png') }}");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         padding: 40px;
         border-radius: 12px;
         height: 350px;
+        margin-left: 50px;
+        /* box-shadow: 0 10px 30px rgba(26, 115, 232, 0.2); */
+    }
+    .profile-section:hover{
         box-shadow: 0 10px 30px rgba(26, 115, 232, 0.2);
     }
 
@@ -616,7 +620,7 @@
     <div class="profile-section">
 
     </div>
-    <div>
+    <div class="profile-text">
         <h3 style="color: blue;">Create Profile</h3>
         <h2>Create Your Personal Account Profile</h3>
             <p>Work Profile is a personally assessment that measures an individual's work personality through their
