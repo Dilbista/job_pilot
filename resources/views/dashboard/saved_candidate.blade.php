@@ -8,19 +8,19 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
             background-color: #f5f7fa;
             color: #333;
             line-height: 1.6;
         }
-        
+
         .container {
             max-width: 1300px;
             margin: 0 auto;
             padding: 20px;
         }
-        
+
         /* Main Layout */
         .dashboard-layout {
             display: grid;
@@ -28,8 +28,8 @@
             gap: 30px;
             margin-bottom: 40px;
         }
-        
-        
+
+
         /* Main Content */
         .dashboard-content {
             background: white;
@@ -37,8 +37,18 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             padding: 30px;
         }
-        
-        
+        .btn-cat{
+             background-color: #f5f7fa;
+            border: none;
+            margin-left: 500px;
+            font-size: 20px;
+            height: 50px
+        }
+        .btn-cat a{
+            text-decoration: none;
+            padding: 30px;
+            margin: 5px;
+        }
         /* Main Content Area */
         .main-content {
             flex: 1;
@@ -50,7 +60,7 @@
             margin-bottom: 30px;
             color: #333;
         }
-        
+
         /* Candidates Grid */
         .candidates-grid {
             display: grid;
@@ -58,7 +68,7 @@
             gap: 25px;
             margin-bottom: 40px;
         }
-        
+
         .candidate-card {
             background-color: white;
             border-radius: 12px;
@@ -67,19 +77,19 @@
             transition: all 0.3s;
             border: 2px solid transparent;
         }
-        
+
         .candidate-card:hover {
             border-color: #3a86ff;
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
-        
+
         .candidate-header {
             display: flex;
             align-items: center;
             margin-bottom: 20px;
         }
-        
+
         .candidate-avatar {
             width: 70px;
             height: 70px;
@@ -93,32 +103,33 @@
             font-weight: 700;
             margin-right: 15px;
         }
-        
+
         .candidate-info h3 {
             font-size: 20px;
             margin-bottom: 5px;
             color: #333;
+            text-decoration: none;
         }
-        
+
         .candidate-info p {
             color: #777;
             font-size: 15px;
         }
-        
+
         .candidate-bio {
             margin-bottom: 20px;
             color: #666;
             line-height: 1.6;
             font-size: 15px;
         }
-        
+
         .candidate-skills {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
             margin-bottom: 20px;
         }
-        
+
         .skill-tag {
             background-color: #f0f7ff;
             color: #3a86ff;
@@ -127,13 +138,13 @@
             font-size: 13px;
             font-weight: 500;
         }
-        
+
         .candidate-actions {
             display: flex;
             justify-content: space-between;
             gap: 10px;
         }
-        
+
         .btn {
             padding: 10px 20px;
             border: none;
@@ -146,28 +157,28 @@
             justify-content: center;
             gap: 8px;
         }
-        
+
         .btn-primary {
             background-color: #3a86ff;
             color: white;
             flex: 1;
         }
-        
+
         .btn-primary:hover {
             background-color: #2a75f0;
         }
-        
+
         .btn-outline {
             background-color: white;
             color: #3a86ff;
             border: 1px solid #3a86ff;
             flex: 1;
         }
-        
+
         .btn-outline:hover {
             background-color: #f0f7ff;
         }
-        
+
         .btn-icon {
             background-color: #f8f9fa;
             color: #555;
@@ -176,11 +187,11 @@
             height: 40px;
             border-radius: 50%;
         }
-        
+
         .btn-icon:hover {
             background-color: #e9ecef;
         }
-        
+
         /* Filters */
         .filters {
             display: flex;
@@ -192,18 +203,18 @@
             border-radius: 12px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
-        
+
         .filter-group {
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        
+
         .filter-label {
             font-weight: 600;
             color: #555;
         }
-        
+
         .filter-select {
             padding: 10px 15px;
             border: 1px solid #ddd;
@@ -212,12 +223,12 @@
             font-size: 14px;
             min-width: 150px;
         }
-        
+
         .search-candidates {
             flex: 1;
             max-width: 400px;
         }
-        
+
         .search-input {
             width: 100%;
             padding: 10px 15px;
@@ -225,7 +236,7 @@
             border-radius: 6px;
             font-size: 14px;
         }
-        
+
         /* Profile Modal */
         .profile-modal {
             display: none;
@@ -241,7 +252,7 @@
             padding: 20px;
             overflow-y: auto;
         }
-        
+
         .modal-content {
             background-color: white;
             width: 90%;
@@ -251,7 +262,7 @@
             max-height: 90vh;
             overflow-y: auto;
         }
-        
+
         .modal-header {
             padding: 30px 30px 20px;
             border-bottom: 1px solid #eee;
@@ -259,18 +270,18 @@
             justify-content: space-between;
             align-items: flex-start;
         }
-        
+
         .modal-title {
             font-size: 24px;
             color: #333;
         }
-        
+
         .modal-subtitle {
             color: #777;
             font-size: 16px;
             margin-top: 5px;
         }
-        
+
         .close-modal {
             background: none;
             border: none;
@@ -279,18 +290,18 @@
             color: #777;
             line-height: 1;
         }
-        
+
         .modal-body {
             padding: 30px;
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 30px;
         }
-        
+
         .profile-section {
             margin-bottom: 30px;
         }
-        
+
         .section-title {
             font-size: 20px;
             margin-bottom: 20px;
@@ -298,63 +309,69 @@
             padding-bottom: 10px;
             border-bottom: 1px solid #eee;
         }
-        
+
         .section-subtitle {
             font-size: 18px;
             margin-bottom: 15px;
             color: #555;
         }
-        
+
         .about-text {
             color: #666;
             line-height: 1.7;
             margin-bottom: 25px;
         }
-        
-        .experience-item, .education-item {
+
+        .experience-item,
+        .education-item {
             margin-bottom: 25px;
             padding-bottom: 25px;
             border-bottom: 1px solid #f0f0f0;
         }
-        
-        .experience-item:last-child, .education-item:last-child {
+
+        .experience-item:last-child,
+        .education-item:last-child {
             border-bottom: none;
             margin-bottom: 0;
             padding-bottom: 0;
         }
-        
-        .exp-date, .edu-date {
+
+        .exp-date,
+        .edu-date {
             color: #777;
             font-size: 14px;
             margin-bottom: 5px;
         }
-        
-        .exp-title, .edu-title {
+
+        .exp-title,
+        .edu-title {
             font-weight: 700;
             font-size: 17px;
             margin-bottom: 5px;
             color: #333;
         }
-        
-        .exp-company, .edu-institution {
+
+        .exp-company,
+        .edu-institution {
             color: #3a86ff;
             margin-bottom: 10px;
             font-size: 15px;
         }
-        
-        .exp-description, .edu-description {
+
+        .exp-description,
+        .edu-description {
             color: #666;
             line-height: 1.6;
             font-size: 15px;
         }
-        
+
         .skills-list {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
             margin-top: 10px;
         }
-        
+
         .skill-item {
             background-color: #f0f7ff;
             padding: 8px 15px;
@@ -362,18 +379,18 @@
             font-size: 14px;
             color: #3a86ff;
         }
-        
+
         .personal-info {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
             margin-top: 20px;
         }
-        
+
         .info-item {
             margin-bottom: 15px;
         }
-        
+
         .info-label {
             font-size: 13px;
             color: #777;
@@ -381,22 +398,22 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        
+
         .info-value {
             font-weight: 600;
             color: #333;
         }
-        
+
         .contact-info {
             margin-top: 25px;
         }
-        
+
         .social-icons {
             display: flex;
             gap: 15px;
             margin-top: 20px;
         }
-        
+
         .social-icon {
             width: 40px;
             height: 40px;
@@ -409,19 +426,19 @@
             font-size: 18px;
             transition: all 0.3s;
         }
-        
+
         .social-icon:hover {
             background-color: #3a86ff;
             color: white;
         }
-        
+
         .chat-section {
             margin-top: 30px;
             text-align: center;
             padding-top: 20px;
             border-top: 1px solid #eee;
         }
-        
+
         .chat-btn {
             background-color: #f8f9fa;
             color: #333;
@@ -435,13 +452,13 @@
             gap: 10px;
             transition: all 0.3s;
         }
-        
+
         .chat-btn:hover {
             background-color: #3a86ff;
             color: white;
             border-color: #3a86ff;
         }
-        
+
         /* Footer */
         footer {
             background-color: white;
@@ -451,297 +468,310 @@
             border-top: 1px solid #eee;
             color: #777;
         }
-        
+
         /* Responsive */
         @media (max-width: 1024px) {
             .container {
                 flex-direction: column;
             }
-            
+
             .sidebar {
                 width: 100%;
                 padding: 20px;
             }
-            
+
             .sidebar-menu {
                 display: flex;
                 flex-wrap: wrap;
                 gap: 10px;
             }
-            
+
             .sidebar-menu li {
                 margin-bottom: 0;
             }
-            
+
             .sidebar-menu a {
                 padding: 10px 15px;
             }
-            
+
             .modal-body {
                 grid-template-columns: 1fr;
             }
         }
-        
+
         @media (max-width: 768px) {
             .top-nav {
                 flex-direction: column;
                 gap: 15px;
             }
-            
+
             .search-bar {
                 width: 100%;
             }
-            
+
             .candidates-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .filters {
                 flex-direction: column;
             }
-            
+
             .search-candidates {
                 max-width: 100%;
             }
-            
+
             .personal-info {
                 grid-template-columns: 1fr;
             }
         }
+
     </style>
 
-    
+
     <div class="container">
-         <div class="dashboard-layout">
-        <!-- Sidebar -->
-        @include('layouts.sidebar')
-        
-        <!-- Main Content -->
-        <div class="dashboard-content">
-            <h1 class="page-title">Saved Candidates</h1>
-            
-            <!-- Filters -->
-            <div class="filters">
-                <div class="filter-group">
-                    <span class="filter-label">Filter</span>
-                    <select class="filter-select">
-                        <option value="all">All</option>
-                        <option value="recent">Most Recent</option>
-                        <option value="experience">By Experience</option>
-                        <option value="education">By Education</option>
-                    </select>
-                </div>
+        <div class="dashboard-layout">
+            <!-- Sidebar -->
+            @include('layouts.sidebar')
+
+            <!-- Main Content -->
+            <div class="dashboard-content">
+                <h1 class="page-title">Saved Candidates <button class="btn-cat" ><a href="{{ route('dashboard.createCategory') }}">Category</a></button></h1>
                 
-                <div class="filter-group">
-                    <span class="filter-label">Category</span>
-                    <select class="filter-select">
-                        <option value="all">All Categories</option>
-                        <option value="developer">Developer</option>
-                        <option value="designer">Designer</option>
-                        <option value="marketing">Marketing</option>
-                        <option value="journalist">Journalist</option>
-                    </select>
-                </div>
-                
-                <div class="search-candidates">
-                    <input type="text" class="search-input" placeholder="Search candidates...">
-                </div>
-            </div>
-            
-            <!-- Candidates Grid -->
-            <div class="candidates-grid" id="candidatesGrid">
-                <!-- Candidate cards will be dynamically inserted here -->
-            </div>
-            
-            <!-- Chat Section -->
-            <div class="chat-section">
-                <button class="chat-btn">
-                    <i class="fas fa-comment-dots"></i> Chat with us
-                </button>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Profile Modal -->
-    <div class="profile-modal" id="profileModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div>
-                    <h2 class="modal-title" id="modalName">Ariful Islam</h2>
-                    <p class="modal-subtitle" id="modalTitle">Journalist</p>
-                </div>
-                <button class="close-modal" id="closeModalBtn">&times;</button>
-            </div>
-            
-            <div class="modal-body">
-                <!-- Left Column -->
-                <div class="profile-left">
-                    <!-- About Me -->
-                    <div class="profile-section">
-                        <h3 class="section-title">About Me</h3>
-                        
-                        <h4 class="section-subtitle">Biography</h4>
-                        <p class="about-text" id="modalBio">
-                            Fugit explicabo ex earum sed quia. Molestias incidunt quis distinctio doloribus. Repellat quaerat dicta nihil iste. Autem aliquid nam doloribus veritatis impedit voluptatibus.
-                        </p>
-                        
-                        <h4 class="section-subtitle">Experience</h4>
-                        
-                        <div class="experience-item">
-                            <div class="exp-date">01 Jun 2015</div>
-                            <div class="exp-title">Senior Software Engineer</div>
-                            <div class="exp-company">Twitter/Software</div>
-                            <p class="exp-description">
-                                Execute full software development life cycle (SDLC), Develop flowcharts, layouts and documentation to identify requirements and solutions, Write well-designed, testable code, Produce specifications and determine operational feasibility.
-                            </p>
-                        </div>
-                        
-                        <div class="experience-item">
-                            <div class="exp-date">01 Jan 2020</div>
-                            <div class="exp-title">Product Manager</div>
-                            <div class="exp-company">Facebook/Software</div>
-                            <p class="exp-description">
-                                Execute full software development life cycle (SDLC), Develop flowcharts, layouts and documentation to identify requirements and solutions, Write well-designed, testable code, Produce specifications and determine operational feasibility.
-                            </p>
-                        </div>
-                        
-                        <div class="experience-item">
-                            <div class="exp-date">01 Jan 2021</div>
-                            <div class="exp-title">Software Engineer</div>
-                            <div class="exp-company">Google/Software</div>
-                            <p class="exp-description">
-                                Execute full software development life cycle (SDLC), Develop flowcharts, layouts and documentation to identify requirements and solutions. Write well-designed, testable code, Produce specifications and determine operational feasibility.
-                            </p>
-                        </div>
+
+                <!-- Filters -->
+                <div class="filters">
+                    <div class="filter-group">
+                        <span class="filter-label">Filter</span>
+                        <select class="filter-select">
+                            <option value="all">All</option>
+                            <option value="recent">Most Recent</option>
+                            <option value="experience">By Experience</option>
+                            <option value="education">By Education</option>
+                        </select>
                     </div>
-                    
-                    <!-- Education -->
-                    <div class="profile-section">
-                        <h4 class="section-subtitle">Education</h4>
-                        
-                        <div class="education-item">
-                            <div class="edu-date">2010</div>
-                            <div class="edu-title">MSC</div>
-                            <div class="edu-institution">MSC / Masters</div>
-                            <p class="edu-description">
-                                Students who graduate with a master's degree should possess advanced knowledge of a specialized body of theoretical.
-                            </p>
-                        </div>
-                        
-                        <div class="education-item">
-                            <div class="edu-date">2004</div>
-                            <div class="edu-title">BSC</div>
-                            <div class="edu-institution">BSC / Graduation</div>
-                            <p class="edu-description">
-                                A graduate student is someone who has earned a bachelor's degree and is pursuing additional education in a specific field.
-                            </p>
-                        </div>
-                        
-                        <div class="education-item">
-                            <div class="edu-date">2002</div>
-                            <div class="edu-title">SSC</div>
-                            <div class="edu-institution">SSC / Secondary</div>
-                            <p class="edu-description">
-                                Secondary school is defined as schooling after elementary school, therefore in the U.S. that would be grades 6 through 12. However, once a student reaches grade 9, they are considered to be a high school student.
-                            </p>
-                        </div>
+
+                    <div class="filter-group">
+                        <span class="filter-label">Category</span>
+                        <select class="filter-select">
+                            <option value="all">All Categories</option>
+                            <option value="developer">Developer</option>
+                            <option value="designer">Designer</option>
+                            <option value="marketing">Marketing</option>
+                            <option value="journalist">Journalist</option>
+                        </select>
+                    </div>
+
+                    <div class="search-candidates">
+                        <input type="text" class="search-input" placeholder="Search candidates...">
                     </div>
                 </div>
-                
-                <!-- Right Column -->
-                <div class="profile-right">
-                    <!-- Skills -->
-                    <div class="profile-section">
-                        <h3 class="section-title">Skills</h3>
-                        <div class="skills-list">
-                            <span class="skill-item">Newsletters</span>
-                            <span class="skill-item">Pinia</span>
-                            <span class="skill-item">Languages</span>
-                            <span class="skill-item">Corsican</span>
-                            <span class="skill-item">Yoruba</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Personal Information -->
-                    <div class="profile-section">
-                        <h3 class="section-title">Personal Information</h3>
-                        <div class="personal-info">
-                            <div class="info-item">
-                                <div class="info-label">DATE OF BIRTH</div>
-                                <div class="info-value" id="modalDob">15 December, 2025</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-label">MARITAL STATUS</div>
-                                <div class="info-value" id="modalMarital">Single</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-label">COUNTRY</div>
-                                <div class="info-value" id="modalCountry">N/A</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-label">GENDER</div>
-                                <div class="info-value" id="modalGender">Other</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-label">EXPERIENCE</div>
-                                <div class="info-value">1 Year</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-label">EDUCATION</div>
-                                <div class="info-value">PhD</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Contact Information -->
-                    <div class="profile-section contact-info">
-                        <h3 class="section-title">Contact Information</h3>
-                        <div class="personal-info">
-                            <div class="info-item">
-                                <div class="info-label">WEBSITE</div>
-                                <div class="info-value" id="modalWebsite">http://www.altenwerth.net/</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-label">LOCATION</div>
-                                <div class="info-value" id="modalLocation">Angola</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-label">PHONE</div>
-                                <div class="info-value" id="modalPhone">N/A</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-label">SECONDARY PHONE</div>
-                                <div class="info-value">N/A</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-label">EMAIL ADDRESS</div>
-                                <div class="info-value" id="modalEmail">N/A</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Social Media -->
-                    <div class="profile-section">
-                        <h3 class="section-title">Follow Me Social Media</h3>
-                        <div class="social-icons">
-                            <a href="#" class="social-icon">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#" class="social-icon">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="#" class="social-icon">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="social-icon">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                        </div>
-                    </div>
+
+                <!-- Candidates Grid -->
+                <div class="candidates-grid" id="candidatesGrid">
+                    <!-- Candidate cards will be dynamically inserted here -->
+                </div>
+
+                <!-- Chat Section -->
+                <div class="chat-section">
+                    <button class="chat-btn">
+                        <i class="fas fa-comment-dots"></i> Chat with us
+                    </button>
                 </div>
             </div>
         </div>
-    </div>
+
+        <!-- Profile Modal -->
+        <div class="profile-modal" id="profileModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <h2 class="modal-title" id="modalName">Ariful Islam</h2>
+                        <p class="modal-subtitle" id="modalTitle">Journalist</p>
+                    </div>
+                    <button class="close-modal" id="closeModalBtn">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    <!-- Left Column -->
+                    <div class="profile-left">
+                        <!-- About Me -->
+                        <div class="profile-section">
+                            <h3 class="section-title">About Me</h3>
+
+                            <h4 class="section-subtitle">Biography</h4>
+                            <p class="about-text" id="modalBio">
+                                Fugit explicabo ex earum sed quia. Molestias incidunt quis distinctio doloribus. Repellat
+                                quaerat dicta nihil iste. Autem aliquid nam doloribus veritatis impedit voluptatibus.
+                            </p>
+
+                            <h4 class="section-subtitle">Experience</h4>
+
+                            <div class="experience-item">
+                                <div class="exp-date">01 Jun 2015</div>
+                                <div class="exp-title">Senior Software Engineer</div>
+                                <div class="exp-company">Twitter/Software</div>
+                                <p class="exp-description">
+                                    Execute full software development life cycle (SDLC), Develop flowcharts, layouts and
+                                    documentation to identify requirements and solutions, Write well-designed, testable
+                                    code, Produce specifications and determine operational feasibility.
+                                </p>
+                            </div>
+
+                            <div class="experience-item">
+                                <div class="exp-date">01 Jan 2020</div>
+                                <div class="exp-title">Product Manager</div>
+                                <div class="exp-company">Facebook/Software</div>
+                                <p class="exp-description">
+                                    Execute full software development life cycle (SDLC), Develop flowcharts, layouts and
+                                    documentation to identify requirements and solutions, Write well-designed, testable
+                                    code, Produce specifications and determine operational feasibility.
+                                </p>
+                            </div>
+
+                            <div class="experience-item">
+                                <div class="exp-date">01 Jan 2021</div>
+                                <div class="exp-title">Software Engineer</div>
+                                <div class="exp-company">Google/Software</div>
+                                <p class="exp-description">
+                                    Execute full software development life cycle (SDLC), Develop flowcharts, layouts and
+                                    documentation to identify requirements and solutions. Write well-designed, testable
+                                    code, Produce specifications and determine operational feasibility.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Education -->
+                        <div class="profile-section">
+                            <h4 class="section-subtitle">Education</h4>
+
+                            <div class="education-item">
+                                <div class="edu-date">2010</div>
+                                <div class="edu-title">MSC</div>
+                                <div class="edu-institution">MSC / Masters</div>
+                                <p class="edu-description">
+                                    Students who graduate with a master's degree should possess advanced knowledge of a
+                                    specialized body of theoretical.
+                                </p>
+                            </div>
+
+                            <div class="education-item">
+                                <div class="edu-date">2004</div>
+                                <div class="edu-title">BSC</div>
+                                <div class="edu-institution">BSC / Graduation</div>
+                                <p class="edu-description">
+                                    A graduate student is someone who has earned a bachelor's degree and is pursuing
+                                    additional education in a specific field.
+                                </p>
+                            </div>
+
+                            <div class="education-item">
+                                <div class="edu-date">2002</div>
+                                <div class="edu-title">SSC</div>
+                                <div class="edu-institution">SSC / Secondary</div>
+                                <p class="edu-description">
+                                    Secondary school is defined as schooling after elementary school, therefore in the U.S.
+                                    that would be grades 6 through 12. However, once a student reaches grade 9, they are
+                                    considered to be a high school student.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="profile-right">
+                        <!-- Skills -->
+                        <div class="profile-section">
+                            <h3 class="section-title">Skills</h3>
+                            <div class="skills-list">
+                                <span class="skill-item">Newsletters</span>
+                                <span class="skill-item">Pinia</span>
+                                <span class="skill-item">Languages</span>
+                                <span class="skill-item">Corsican</span>
+                                <span class="skill-item">Yoruba</span>
+                            </div>
+                        </div>
+
+                        <!-- Personal Information -->
+                        <div class="profile-section">
+                            <h3 class="section-title">Personal Information</h3>
+                            <div class="personal-info">
+                                <div class="info-item">
+                                    <div class="info-label">DATE OF BIRTH</div>
+                                    <div class="info-value" id="modalDob">15 December, 2025</div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-label">MARITAL STATUS</div>
+                                    <div class="info-value" id="modalMarital">Single</div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-label">COUNTRY</div>
+                                    <div class="info-value" id="modalCountry">N/A</div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-label">GENDER</div>
+                                    <div class="info-value" id="modalGender">Other</div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-label">EXPERIENCE</div>
+                                    <div class="info-value">1 Year</div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-label">EDUCATION</div>
+                                    <div class="info-value">PhD</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Information -->
+                        <div class="profile-section contact-info">
+                            <h3 class="section-title">Contact Information</h3>
+                            <div class="personal-info">
+                                <div class="info-item">
+                                    <div class="info-label">WEBSITE</div>
+                                    <div class="info-value" id="modalWebsite">http://www.altenwerth.net/</div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-label">LOCATION</div>
+                                    <div class="info-value" id="modalLocation">Angola</div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-label">PHONE</div>
+                                    <div class="info-value" id="modalPhone">N/A</div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-label">SECONDARY PHONE</div>
+                                    <div class="info-value">N/A</div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-label">EMAIL ADDRESS</div>
+                                    <div class="info-value" id="modalEmail">N/A</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Media -->
+                        <div class="profile-section">
+                            <h3 class="section-title">Follow Me Social Media</h3>
+                            <div class="social-icons">
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
     <script>
@@ -850,12 +880,12 @@
                 email: "emma@johnson.dev"
             }
         ];
-        
+
         // DOM Elements
         const candidatesGrid = document.getElementById('candidatesGrid');
         const profileModal = document.getElementById('profileModal');
         const closeModalBtn = document.getElementById('closeModalBtn');
-        
+
         // Modal elements
         const modalName = document.getElementById('modalName');
         const modalTitle = document.getElementById('modalTitle');
@@ -868,11 +898,11 @@
         const modalLocation = document.getElementById('modalLocation');
         const modalPhone = document.getElementById('modalPhone');
         const modalEmail = document.getElementById('modalEmail');
-        
+
         // Initialize the page
         function initializePage() {
             renderCandidates();
-            
+
             // Load from localStorage if available
             const savedCandidates = localStorage.getItem('jobpilotCandidates');
             if (savedCandidates) {
@@ -880,74 +910,74 @@
                 renderCandidates();
             }
         }
-        
+
         // Render candidates
         function renderCandidates() {
             candidatesGrid.innerHTML = '';
-            
+
             // Render each candidate
             candidatesData.forEach(candidate => {
                 const candidateCard = document.createElement('div');
                 candidateCard.className = 'candidate-card';
-                
+
                 // Get first letter for avatar
                 const firstLetter = candidate.name.charAt(0);
-                
+
                 // Limit bio to 100 characters for card view
-                const shortBio = candidate.bio.length > 100 
-                    ? candidate.bio.substring(0, 100) + '...' 
+                const shortBio = candidate.bio.length > 100
+                    ? candidate.bio.substring(0, 100) + '...'
                     : candidate.bio;
-                
+
                 candidateCard.innerHTML = `
-                    <div class="candidate-header">
-                        <div class="candidate-avatar">${firstLetter}</div>
-                        <div class="candidate-info">
-                            <h3>${candidate.name}</h3>
-                            <p>${candidate.title}</p>
+                        <div class="candidate-header">
+                            <div class="candidate-avatar">${firstLetter}</div>
+                            <div class="candidate-info">
+                                <h3>${candidate.name}</h3>
+                                <p>${candidate.title}</p>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="candidate-bio">
-                        ${shortBio}
-                    </div>
-                    
-                    <div class="candidate-skills">
-                        ${candidate.skills.slice(0, 3).map(skill => 
-                            `<span class="skill-tag">${skill}</span>`
-                        ).join('')}
-                        ${candidate.skills.length > 3 ? 
-                            `<span class="skill-tag">+${candidate.skills.length - 3} more</span>` : ''
-                        }
-                    </div>
-                    
-                    <div class="candidate-actions">
-                        <button class="btn btn-primary view-profile-btn" data-id="${candidate.id}">
-                            <i class="fas fa-eye"></i> View Profile
-                        </button>
-                        <button class="btn btn-outline">
-                            <i class="fas fa-envelope"></i> Message
-                        </button>
-                    </div>
-                `;
-                
+
+                        <div class="candidate-bio">
+                            ${shortBio}
+                        </div>
+
+                        <div class="candidate-skills">
+                            ${candidate.skills.slice(0, 3).map(skill =>
+                    `<span class="skill-tag">${skill}</span>`
+                ).join('')}
+                            ${candidate.skills.length > 3 ?
+                        `<span class="skill-tag">+${candidate.skills.length - 3} more</span>` : ''
+                    }
+                        </div>
+
+                        <div class="candidate-actions">
+                            <button class="btn btn-primary view-profile-btn" data-id="${candidate.id}">
+                                <i class="fas fa-eye"></i> View Profile
+                            </button>
+                            <button class="btn btn-outline">
+                                <i class="fas fa-envelope"></i> Message
+                            </button>
+                        </div>
+                    `;
+
                 candidatesGrid.appendChild(candidateCard);
             });
-            
+
             // Add event listeners to view profile buttons
             document.querySelectorAll('.view-profile-btn').forEach(button => {
-                button.addEventListener('click', function() {
+                button.addEventListener('click', function () {
                     const candidateId = parseInt(this.getAttribute('data-id'));
                     openProfileModal(candidateId);
                 });
             });
         }
-        
+
         // Open profile modal with candidate data
         function openProfileModal(candidateId) {
             const candidate = candidatesData.find(c => c.id === candidateId);
-            
+
             if (!candidate) return;
-            
+
             // Update modal content
             modalName.textContent = candidate.name;
             modalTitle.textContent = candidate.title;
@@ -960,138 +990,138 @@
             modalLocation.textContent = candidate.location;
             modalPhone.textContent = candidate.phone;
             modalEmail.textContent = candidate.email;
-            
+
             // Show modal
             profileModal.style.display = 'flex';
             document.body.style.overflow = 'hidden'; // Prevent scrolling
         }
-        
+
         // Close profile modal
         function closeProfileModal() {
             profileModal.style.display = 'none';
             document.body.style.overflow = 'auto'; // Re-enable scrolling
         }
-        
+
         // Event Listeners
         document.addEventListener('DOMContentLoaded', initializePage);
-        
+
         closeModalBtn.addEventListener('click', closeProfileModal);
-        
+
         // Close modal when clicking outside
         window.addEventListener('click', (event) => {
             if (event.target === profileModal) {
                 closeProfileModal();
             }
         });
-        
+
         // Search functionality
         const searchInput = document.querySelector('.search-input');
-        searchInput.addEventListener('input', function() {
+        searchInput.addEventListener('input', function () {
             const searchTerm = this.value.toLowerCase();
-            
+
             // Filter candidates
-            const filteredCandidates = candidatesData.filter(candidate => 
+            const filteredCandidates = candidatesData.filter(candidate =>
                 candidate.name.toLowerCase().includes(searchTerm) ||
                 candidate.title.toLowerCase().includes(searchTerm) ||
                 candidate.bio.toLowerCase().includes(searchTerm) ||
                 candidate.skills.some(skill => skill.toLowerCase().includes(searchTerm))
             );
-            
+
             // Update display
             renderFilteredCandidates(filteredCandidates);
         });
-        
+
         // Filter by category
         const categorySelect = document.querySelectorAll('.filter-select')[1];
-        categorySelect.addEventListener('change', function() {
+        categorySelect.addEventListener('change', function () {
             const category = this.value;
-            
+
             if (category === 'all') {
                 renderCandidates();
                 return;
             }
-            
+
             // Filter candidates by category (title)
-            const filteredCandidates = candidatesData.filter(candidate => 
+            const filteredCandidates = candidatesData.filter(candidate =>
                 candidate.title.toLowerCase().includes(category)
             );
-            
+
             // Update display
             renderFilteredCandidates(filteredCandidates);
         });
-        
+
         // Render filtered candidates
         function renderFilteredCandidates(filteredCandidates) {
             candidatesGrid.innerHTML = '';
-            
+
             if (filteredCandidates.length === 0) {
                 candidatesGrid.innerHTML = `
-                    <div class="empty-state" style="grid-column: 1 / -1; text-align: center; padding: 40px;">
-                        <div style="font-size: 60px; color: #ddd; margin-bottom: 20px;">
-                            <i class="fas fa-search"></i>
+                        <div class="empty-state" style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+                            <div style="font-size: 60px; color: #ddd; margin-bottom: 20px;">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div style="font-size: 18px; margin-bottom: 15px; color: #777;">No candidates found</div>
+                            <p>Try adjusting your search or filters</p>
                         </div>
-                        <div style="font-size: 18px; margin-bottom: 15px; color: #777;">No candidates found</div>
-                        <p>Try adjusting your search or filters</p>
-                    </div>
-                `;
+                    `;
                 return;
             }
-            
+
             // Render each filtered candidate
             filteredCandidates.forEach(candidate => {
                 const candidateCard = document.createElement('div');
                 candidateCard.className = 'candidate-card';
-                
+
                 // Get first letter for avatar
                 const firstLetter = candidate.name.charAt(0);
-                
+
                 // Limit bio to 100 characters for card view
-                const shortBio = candidate.bio.length > 100 
-                    ? candidate.bio.substring(0, 100) + '...' 
+                const shortBio = candidate.bio.length > 100
+                    ? candidate.bio.substring(0, 100) + '...'
                     : candidate.bio;
-                
+
                 candidateCard.innerHTML = `
-                    <div class="candidate-header">
-                        <div class="candidate-avatar">${firstLetter}</div>
-                        <div class="candidate-info">
-                            <h3>${candidate.name}</h3>
-                            <p>${candidate.title}</p>
+                        <div class="candidate-header">
+                            <div class="candidate-avatar">${firstLetter}</div>
+                            <div class="candidate-info">
+                                <h3>${candidate.name}</h3>
+                                <p>${candidate.title}</p>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="candidate-bio">
-                        ${shortBio}
-                    </div>
-                    
-                    <div class="candidate-skills">
-                        ${candidate.skills.slice(0, 3).map(skill => 
-                            `<span class="skill-tag">${skill}</span>`
-                        ).join('')}
-                        ${candidate.skills.length > 3 ? 
-                            `<span class="skill-tag">+${candidate.skills.length - 3} more</span>` : ''
-                        }
-                    </div>
-                    
-                    <div class="candidate-actions">
-                        <button class="btn btn-primary view-profile-btn" data-id="${candidate.id}">
-                            <i class="fas fa-eye"></i> View Profile
-                        </button>
-                        <button class="btn btn-outline">
-                            <i class="fas fa-envelope"></i> Message
-                        </button>
-                    </div>
-                `;
-                
+
+                        <div class="candidate-bio">
+                            ${shortBio}
+                        </div>
+
+                        <div class="candidate-skills">
+                            ${candidate.skills.slice(0, 3).map(skill =>
+                    `<span class="skill-tag">${skill}</span>`
+                ).join('')}
+                            ${candidate.skills.length > 3 ?
+                        `<span class="skill-tag">+${candidate.skills.length - 3} more</span>` : ''
+                    }
+                        </div>
+
+                        <div class="candidate-actions">
+                            <button class="btn btn-primary view-profile-btn" data-id="${candidate.id}">
+                                <i class="fas fa-eye"></i> View Profile
+                            </button>
+                            <button class="btn btn-outline">
+                                <i class="fas fa-envelope"></i> Message
+                            </button>
+                        </div>
+                    `;
+
                 candidatesGrid.appendChild(candidateCard);
             });
-            
+
             // Add event listeners to view profile buttons
             document.querySelectorAll('.view-profile-btn').forEach(button => {
-                button.addEventListener('click', function() {
+                button.addEventListener('click', function () {
                     const candidateId = parseInt(this.getAttribute('data-id'));
                     openProfileModal(candidateId);
                 });
             });
         }
     </script>
-    @endsection
+@endsection

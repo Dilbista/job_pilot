@@ -48,4 +48,7 @@ class DashboardController extends Controller
     {
         return view('dashboard.invoice');
     }
+    public function createCategory(){
+        return view('dashboard.category');
+    }
 }

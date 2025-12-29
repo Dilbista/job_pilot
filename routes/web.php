@@ -79,4 +79,6 @@ Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(functi
     Route::get('/custom-question', [DashboardController::class, 'customQuestion'])->name('customQuestion');
     
     Route::get('/invoice', [DashboardController::class, 'invoice'])->name('invoice');
+
+    Route::get('/category',[DashboardController::class,'createCategory'])->name('createCategory');
 });
