@@ -37,7 +37,7 @@
         }
 
         .container {
-            max-width: 1300px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -72,8 +72,6 @@
             color: #1e293b;
             font-weight: 700;
         }
-
-
 
         .badge {
             background-color: var(--primary);
@@ -527,6 +525,7 @@
                 grid-template-columns: 1fr;
             }
         }
+        
     </style>
     <!-- Main Content -->
        <div class="container">
@@ -634,7 +633,7 @@
                                             <i class="fas fa-ellipsis-v"></i>
                                         </button>
                                         <div class="dropdownmenu" id="dropdown1">
-                                            <a href="#" class="dropdownitem">
+                                            <a href="{{ route('company.viewDetails') }}" class="dropdownitem">
                                                 <i class="fas fa-eye"></i></i> View Details
                                             </a>
                                             <a href="#" class="dropdownitem">
@@ -675,7 +674,7 @@
                                             <i class="fas fa-ellipsis-v"></i>
                                         </button>
                                         <div class="dropdownmenu" id="dropdown2">
-                                            <a href="#" class="dropdownitem">
+                                            <a href="{{ route('company.viewDetails') }}" class="dropdownitem">
                                                 <i class="fas fa-eye"></i></i> View Details
                                             </a>
                                             <a href="#" class="dropdownitem">
@@ -716,7 +715,7 @@
                                             <i class="fas fa-ellipsis-v"></i>
                                         </button>
                                         <div class="dropdownmenu" id="dropdown3">
-                                            <a href="#" class="dropdownitem">
+                                            <a href="{{ route('company.viewDetails') }}" class="dropdownitem">
                                                 <i class="fas fa-eye"></i></i> View Details
                                             </a>
                                             <a href="#" class="dropdownitem">
@@ -739,7 +738,7 @@
                     </tbody>
                 </table>
                 <a href="{{ route('company.myJobs') }}"
-                    style="margin-left:700px; text-decoration: none; color: rgb(50, 50, 251);"> View all →</a>
+                    style="margin-left:780px; text-decoration: none; color: rgb(50, 50, 251);"> View all →</a>
             </div>
         </div>
     </div>

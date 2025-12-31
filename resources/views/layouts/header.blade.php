@@ -6,17 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jobpilot - Find Your Dream Job</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="cdnjs.cloudflare.com">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"crossorigin="anonymous"></script>
 
     <style>
         * {
@@ -111,11 +109,11 @@
             padding: 15px 0;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             width: 100%;
-            height: 85px;
+            height: 95px;
         }
 
         .header-container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
             padding: 0 20px;
             display: flex;
@@ -144,7 +142,7 @@
             border-radius: 6px;
             padding: 6px 12px;
             width: 570px;
-            height: 50px;
+            height: 60px;
             max-width: 100%;
         }
 
@@ -162,10 +160,9 @@
             cursor: pointer;
             background: transparent;
         }
-
         .search-divider {
             width: 1px;
-            height: 25px;
+            height: 35px;
             background: #ddd;
             margin: 0 12px;
         }
@@ -248,7 +245,7 @@
         .user-actions {
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 40px;
             color: white;
             font-size: 18px;
         }
@@ -1301,11 +1298,7 @@
     <!-- Main Header -->
     <header class="main-header">
         <div class="header-container">
-            <a href="#" class="logo" style="color:white;">
-                <i class="fas fa-briefcase"></i>
-                Jobpilot
-            </a>
-
+            <img src="{{ asset('images/logo.svg') }}" class="logo" style="color:white;">
             <div class="search-wrapper">
                 <select class="search-select">
                     <option>Jobs</option>

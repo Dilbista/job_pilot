@@ -461,9 +461,9 @@
             <div class="footer-col">
                 <h3>Candidate</h3>
                 <ul>
-                    <li><a href="#">Browse Jobs</a></li>
-                    <li><a href="#">Browse Candidates</a></li>
-                    <li><a href="#">Candidate Dashboard</a></li>
+                    <li><a href="{{ route('dashboard.profile') }}">Browse Jobs</a></li>
+                    <li><a href="{{ route('company.candidates') }}">Browse Candidates</a></li>
+                    <li><a href="{{ route('company.index') }}">Candidate Dashboard</a></li>
                     <li><a href="#">Saved Jobs</a></li>
                     <li><a href="#">Candidate plan</a></li>
                 </ul>
@@ -474,7 +474,7 @@
                 <ul>
                     <li><a href="{{ route('company.createJob') }}">Post a Job</a></li>
                     <li><a href="{{ route('company.index') }}">Companies Dashboard</a></li>
-                    <li><a href="#">Applications</a></li>
+                    <li><a href="{{ route('company.myJobs') }}">Applications</a></li>
                 </ul>
             </div>
 
@@ -483,7 +483,7 @@
                 <ul>
                     <li><a href="#">FAQ</a></li>
                     <li><a href="#">Privacy & Policy</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="{{ route('company.termsCondition') }}">Terms & Conditions</a></li>
                     <li><a href="#">Refund Policy</a></li>
                 </ul>
             </div>
@@ -493,7 +493,7 @@
             <p>&copy; DeepHub 2025 | All Rights Reserved</p>
             <div class="social-icons">
                 <a href="https://twitter.com" class="social-icon">
-                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-x-twitter"></i>
                 </a>
                 <a href="https://facebook.com" class="social-icon">
                     <i class="fab fa-facebook-f"></i>

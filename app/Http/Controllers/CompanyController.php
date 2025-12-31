@@ -97,4 +97,7 @@ class CompanyController extends Controller
     public function promoteJob(){
         return view('company.promote_job');
     }
+     public function viewDetails(){
+        return view('company.detail_view_job');
+    }
 }

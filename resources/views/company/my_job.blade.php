@@ -475,7 +475,7 @@
                                             <i class="fas fa-ellipsis-v"></i>
                                         </button>
                                         <div class="dropdownmenu" id="dropdown1">
-                                            <a href="#" class="dropdownitem">
+                                            <a href="{{ route('company.viewDetails') }}" class="dropdownitem">
                                             <i class="fas fa-eye"></i></i> View Details
                                             </a>
                                             <a href="#" class="dropdownitem">
@@ -521,7 +521,7 @@
                                             <i class="fas fa-ellipsis-v"></i>
                                         </button>
                                         <div class="dropdownmenu" id="dropdown2">
-                                            <a href="#" class="dropdownitem">
+                                            <a href="{{ route('company.viewDetails') }}" class="dropdownitem">
                                                <i class="fas fa-eye"></i></i> View Details
                                             </a>
                                             <a href="#" class="dropdownitem">
@@ -567,7 +567,7 @@
                                             <i class="fas fa-ellipsis-v"></i>
                                         </button>
                                         <div class="dropdownmenu" id="dropdown3">
-                                            <a href="#" class="dropdownitem">
+                                            <a href="{{ route('company.viewDetails') }}" class="dropdownitem">
                                                <i class="fas fa-eye"></i></i> View Details
                                             </a>
                                             <a href="#" class="dropdownitem">
@@ -613,7 +613,7 @@
                                             <i class="fas fa-ellipsis-v"></i>
                                         </button>
                                         <div class="dropdownmenu" id="dropdown4">
-                                            <a href="#" class="dropdownitem">
+                                            <a href="{{ route('company.viewDetails') }}" class="dropdownitem">
                                                <i class="fas fa-eye"></i></i> View Details
                                             </a>
                                             <a href="#" class="dropdownitem">
@@ -657,7 +657,7 @@
                                             <i class="fas fa-ellipsis-v"></i>
                                         </button>
                                         <div class="dropdownmenu" id="dropdown5">
-                                            <a href="#" class="dropdownitem">
+                                            <a href="{{ route('company.viewDetails') }}" class="dropdownitem">
                                                <i class="fas fa-eye"></i></i> View Details
                                             </a>
                                             <a href="#" class="dropdownitem">
@@ -701,8 +701,8 @@
                                             <i class="fas fa-ellipsis-v"></i>
                                         </button>
                                         <div class="dropdownmenu" id="dropdown6">
-                                            <a href="#" class="dropdownitem">
-                                               <i class="fas fa-eye"></i></i> View Details
+                                            <a href="{{ route('company.viewDetails') }}" class="dropdownitem">
+                                            <i class="fas fa-eye"></i></i> View Details
                                             </a>
                                             <a href="#" class="dropdownitem">
                                                 <i class="fas fa-clock"></i> Make It Expire
@@ -745,7 +745,7 @@
                                             <i class="fas fa-ellipsis-v"></i>
                                         </button>
                                         <div class="dropdownmenu" id="dropdown7">
-                                            <a href="#" class="dropdownitem">
+                                            <a href="{{ route('company.viewDetails') }}" class="dropdownitem">
                                                <i class="fas fa-eye"></i></i> View Details
                                             </a>
                                             <a href="#" class="dropdownitem">

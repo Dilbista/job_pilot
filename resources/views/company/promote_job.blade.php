@@ -39,7 +39,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            height: 70px;
+            height: 80px;
             border-bottom: 1px solid rgb(196, 194, 194);
             border-top: 1px solid rgb(196, 194, 194);
         }
@@ -64,13 +64,13 @@
         }
 
         .job-info h2 {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 600;
             margin-bottom: 10px;
         }
 
         .job-info p {
-            font-size: 15px;
+            font-size: 18px;
             margin: 5px 0;
         }
 
@@ -80,7 +80,7 @@
             justify-content: center;
             gap: 40px;
             margin-bottom: 30px;
-            margin-top: 0px;
+            margin-top: 10px;
         }
 
         .promo-card {
@@ -110,7 +110,7 @@
         /* IMAGE FIT */
         .card-content img {
             width: 100%;
-            height: 180px;
+            height: 190px;
             object-fit: contain;
             background: #ffffff;
             border-radius: 8px;
@@ -140,6 +140,7 @@
             border-color: #2563eb;
             background-color: rgb(237, 239, 244);
         }
+
         .promo-card input:checked+.card-content .radio-text::before {
             border-color: #2563eb;
             background: radial-gradient(#2563eb 45%, transparent 46%);
@@ -175,10 +176,120 @@
         }
 
         .promote-btn:hover {
-            background: #1d4ed8;
+            background: #0344f7;
+        }
+
+        /* ============================= */
+        /* RESPONSIVE STYLES */
+        /* ============================= */
+
+        /* Large tablets / small laptops */
+        @media (max-width: 1024px) {
+            .page-wrapper {
+                max-width: 95%;
+            }
+
+            .promotion-options {
+                gap: 25px;
+            }
+
+            .card-content {
+                width: 320px;
+            }
+
+            .skip-link {
+                margin-left: 0;
+            }
+
+            .promote-btn {
+                margin-right: 0;
+            }
+        }
+
+        /* Tablets */
+        @media (max-width: 768px) {
+            .navbar {
+                height: auto;
+                padding: 10px 0;
+            }
+
+            .job-header h1 {
+                font-size: 22px;
+            }
+
+            .job-info h2 {
+                font-size: 20px;
+            }
+
+            .job-info p {
+                font-size: 16px;
+            }
+
+            .promotion-options {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .card-content {
+                width: 100%;
+                max-width: 420px;
+            }
+
+            .footer-actions {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .skip-link,
+            .promote-btn {
+                margin: 0;
+            }
+        }
+
+        /* Mobile phones */
+        @media (max-width: 480px) {
+            .page-wrapper {
+                margin: 20px auto;
+                padding: 10px;
+            }
+
+            .job-header h1 {
+                font-size: 20px;
+            }
+
+            .job-info h2 {
+                font-size: 18px;
+            }
+
+            .job-info p {
+                font-size: 15px;
+            }
+
+            .card-content {
+                padding: 16px;
+            }
+
+            .card-content img {
+                height: 160px;
+            }
+
+            .radio-text {
+                font-size: 14px;
+            }
+
+            .promote-btn {
+                width: 100%;
+                justify-content: center;
+                font-size: 15px;
+            }
+
+            .skip-link {
+                font-size: 14px;
+                padding: 8px;
+            }
         }
     </style>
-
 
 </head>
 
@@ -236,7 +347,8 @@
             <a href="{{ route('company.index') }}" class="skip-link">Skip Now</a>
 
             <button class="promote-btn">
-                Promote Job →
+                <a href="{{ route('company.viewDetails') }}" style="color: white; text-decoration: none;">Promote Job
+                    →</a>
             </button>
         </div>
 

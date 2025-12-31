@@ -54,6 +54,8 @@ Route::prefix('company')->name('company.')->group(function () {
     Route::get('/view-application',[CompanyController::class,'applicationView'])->name('applicationView');
 
     Route::get('/promote-job',[CompanyController::class,'promoteJob'])->name('promoteJob');
+
+    Route::get('/view-details',[CompanyController::class,'viewDetails'])->name('viewDetails');
 });
 
 /*
