@@ -19,6 +19,11 @@ class DashboardController extends Controller
     {
         return view('dashboard.setting');
     }
+    public function newSettings()
+    {
+        return view('dashboard.new_setting');
+    }
+
 
     public function savedCandidates()
     {

@@ -70,6 +70,8 @@ Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(functi
 
     Route::get('/settings', [DashboardController::class, 'settings'])->name('settings');
 
+    Route::get('/new-setting',[DashboardController::class,'newSettings'])->name('newSettings');
+
     Route::get('/saved-candidates', [DashboardController::class, 'savedCandidates'])->name('savedCandidates');
 
     Route::get('/billing', [DashboardController::class, 'billing'])->name('billing');
