@@ -51,6 +51,12 @@ Route::prefix('company')->name('company.')->group(function () {
 
     Route::get('/terms-Condition', [CompanyController::class, 'termsCondition'])->name('termsCondition');
 
+    Route::get('/refound-policy', [CompanyController::class, 'refoundPolicy'])->name('refoundPolicy');
+
+    Route::get('/privacy-policy', [CompanyController::class, 'privacyPolicy'])->name('privacyPolicy');
+
+    Route::get('/faq', [CompanyController::class, 'faq'])->name('faq');
+
     Route::get('/view-application',[CompanyController::class,'applicationView'])->name('applicationView');
 
     Route::get('/promote-job',[CompanyController::class,'promoteJob'])->name('promoteJob');

@@ -481,10 +481,10 @@
             <div class="footer-col">
                 <h3>Support</h3>
                 <ul>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Privacy & Policy</a></li>
+                    <li><a href="{{ route('company.faq') }}">FAQ</a></li>
+                    <li><a href="{{ route('company.privacyPolicy') }}">Privacy & Policy</a></li>
                     <li><a href="{{ route('company.termsCondition') }}">Terms & Conditions</a></li>
-                    <li><a href="#">Refund Policy</a></li>
+                    <li><a href="{{ route('company.refoundPolicy') }}">Refund Policy</a></li>
                 </ul>
             </div>
         </div>

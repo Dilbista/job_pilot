@@ -137,7 +137,7 @@
     .process-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 30px;
+        gap: 50px;
         margin-top: 40px;
     }
 
@@ -175,15 +175,56 @@
         margin-bottom: 15px;
         color: #1a1a1a;
     }
+    .has-arrow {
+        position: absolute;
+        top: -35px;         
+        right: -55px;        
+        width: 160px;
+        pointer-events: none;
+        transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+    .has-arrow.middle {
+        position: absolute;
+        top: 70px;          
+        right: -35px;       
+        width: 150px;
+        pointer-events: none;
+        transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+    .has-arrow img {
+        width: 100%;
+        opacity: 0.7;
+    }
+    .has-arrow.first {
+        transform: rotate(0deg);
+    }
 
+    .has-arrow.middle {
+        transform: rotate(10deg);
+    }
+
+    .has-arrow.last {
+        transform: rotate(-5deg);
+    }
+    .process-card:last-child .has-arrow {
+        display: none;
+    }
+    .process-card:hover .has-arrow {
+        transform: translateX(10px) scale(1.05);
+        opacity: 1;
+    }
 
     /* Featured Jobs Section */
     .featured-jobs {
-        padding: 40px 0;
+        padding: 60px 0;
+        width: 100%;
+        margin-top: 50px;
+        background-color: rgb(236, 241, 252);
         text-align: center;
+        height: 200px;
     }
 
-    .view-art {
+    .view-all {
         display: inline-block;
         margin-top: 20px;
         color: #1a73e8;
@@ -192,22 +233,22 @@
         font-size: 18px;
     }
 
-     .view-all {
+    /* .view-all {
             color: white;
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s;
         }
-        
-        .view-all:hover {
+         */
+        /* .view-all:hover {
             text-decoration: underline;
-        }
+        } */
         .subscribe {
             /* max-width: 1200px; */
             width: 100%;
             color: white;
             text-align: center;
-            padding: 60px 40px;
+            padding: 40px 20px;
             background-color: rgb(13, 13, 121);
             border-radius: 20px;
             backdrop-filter: blur(10px);
@@ -216,7 +257,7 @@
             position: relative;
             overflow: hidden;
             box-align: center;
-            height: 500px;
+            height: 400px;
         }
         
         /* Animated background elements */
@@ -283,7 +324,7 @@
         .subtitle {
             font-size: 36px;
             font-weight: 600;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
             color: #ffeb3b;
             text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
@@ -388,7 +429,7 @@
         .back-home:hover {
             opacity: 1;
         }
-        
+
         /* Responsive styles */
         @media (max-width: 768px) {
             .subscribe {
@@ -445,7 +486,6 @@
             }
         }
 
-
     /* Animation for blue section */
     @keyframes floatAnimation {
 
@@ -483,6 +523,14 @@
 
         .location-box {
             width: 100%;
+        }
+
+        .process-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .has-arrow {
+            display: none;
         }
     }
 
@@ -525,6 +573,9 @@
 
         .section-title {
             font-size: 26px;
+        }
+        .process-grid {
+            grid-template-columns: 1fr;
         }
     }
 </style>
@@ -640,14 +691,21 @@
 
         <div class="process-grid">
             <div class="process-card">
+                <div class="has-arrow first">
+                    <img src="{{ asset('images/arrow-1.png') }}" alt="arrow-up"/>
+                </div>
                 <div class="process-icon">
                     <i class="fas fa-search"></i>
+                    {{-- <i class="ph-user-plus"></i> --}}
                 </div>
                 <h4>Explore Opportunities</h4>
                 <p>Browse through a diverse range of job listings tailored to your interests and expertise</p>
             </div>
 
             <div class="process-card">
+                <div class="has-arrow middle">
+                    <img src="{{ asset('images/arrow-2.png') }}" alt="arrow-up"/>
+                </div>
                 <div class="process-icon">
                     <i class="fas fa-user-circle"></i>
                 </div>
@@ -656,6 +714,9 @@
             </div>
 
             <div class="process-card">
+                <div class="has-arrow last">
+                    <img src="{{ asset('images/arrow-1.png') }}" alt="arrow-up" draggable="false" loading="lazy"/>
+                </div>
                 <div class="process-icon">
                     <i class="fas fa-paper-plane"></i>
                 </div>
@@ -671,12 +732,12 @@
                 <p>Stay informed on your applications and manage your job-seeking journey effectively</p>
             </div>
         </div>
-
-        <div class="featured-jobs">
-            <h3>Top Featured Job</h3>
-            <a href="#" class="view-art">view.art</a>
-        </div>
+       
     </div>
+     <div class="featured-jobs">
+            <h3>Top Featured Job</h3>
+            <a href="#" class="view-all">view all</a>
+        </div>
     
 <!-- Animated background circles -->
     <div class="bg-circle"></div>
@@ -922,5 +983,3 @@
 
 
 @endsection
-</body>
-</html>

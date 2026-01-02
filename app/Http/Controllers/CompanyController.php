@@ -90,6 +90,21 @@ class CompanyController extends Controller
     {
         return view('company.terms_&_condition');
     }
+    public function privacyPolicy()
+    {
+        return view('company.privacy_&_policy');
+    }
+
+    public function refoundPolicy()
+    {
+        return view('company.refound_policy');
+    }
+
+    public function faq()
+    {
+        return view('company.faq');
+    }
+
      public function applicationView()
     {
         return view('company.view_application');
