@@ -45,4 +45,8 @@ class CandidateController extends Controller
     {
         return view('candidate.companies'); // resources/views/candidate/companies.blade.php
     }
+    public function findjob()
+    {
+        return view('candidate.findjob'); // resources/views/candidate/findjob.blade.php
+    }
 }

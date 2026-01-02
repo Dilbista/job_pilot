@@ -308,9 +308,8 @@
                                 <!-- Left Menu -->
                                 <ul class="menu-active-classes d-flex align-items-center gap-4 mb-0">
                                     <li class="menu-item"><a href="{{ route('candidate.dashboard') }}">Home</a></li>
-                                    <li class="menu-item"><a href="/jobs">Find Job</a></li>
-                                    <li class="menu-item"><a href="{{ route('candidate.companies') }}">Companies</a>
-                                    </li>
+                                    <li class="menu-item"><a href="{{ route('candidate.findjob') }}">Find Job</a></li>
+                                    <li class="menu-item"><a href="{{ route('candidate.companies') }}">Companies</a></li>
                                     <li class="menu-item"><a href="{{ route('candidate.index') }}">Dashboard</a></li>
                                     <li class="menu-item"><a href="{{ route('candidate.jobalert') }}">Job Alert</a>
                                     </li>
@@ -419,7 +418,7 @@
                         </div>
 
                         <!-- Bottom Right Section -->
-                        <div class="n-header--bottom__right " style="margin: 0 auto;margin-right: 50px;">
+                        <div class="n-header--bottom__right " style="margin: 0 auto;margin-right: 50px;">   
                             <div class="d-flex align-items-center">
                                 <div class="search-icon tw-ml-2 d-lg-none !tw-cursor-pointer">
                                     <span>
