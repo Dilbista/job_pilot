@@ -69,7 +69,7 @@
 
         /* Unlock Premium Section */
         .unlock-premium {
-            background-color: white;
+            background-color: #f5f7fb;
             padding: 40px;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
@@ -118,7 +118,7 @@
         }
 
         .pricing-card {
-            background-color: white;
+            background-color: #f5f7fb;
             border-radius: var(--border-radius);
             padding: 40px 30px;
             box-shadow: var(--shadow);
@@ -232,7 +232,7 @@
             text-align: center;
             margin: 50px 0;
             padding: 30px;
-            background-color: white;
+            background-color: #f5f7fb;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
         }
@@ -284,14 +284,14 @@
         }
 
         /* FAQ Section */
-        .faq-section {
-            background-color: white;
+         .faq-section {
+            background-color: #f5f7fb;
             padding: 60px 40px;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
             margin: 50px 0;
         }
-
+/*
         .faq-section h2 {
             font-size: 36px;
             color: var(--dark);
@@ -326,7 +326,7 @@
         .faq-item p {
             color: var(--gray);
             line-height: 1.6;
-        }
+        } */
 
         /* Connect With Us Section */
         .connect-section {
@@ -335,7 +335,7 @@
             gap: 40px;
             margin: 50px 0;
             padding: 40px;
-            background-color: white;
+            background-color: #f5f7fb;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
         }
@@ -464,6 +464,141 @@
                 padding: 30px 20px;
             }
         }
+         /* FAQ Content */
+        .faq-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .faq-section-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: blue;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-section-title i {
+            margin-right: 10px;
+            color: #2563eb;
+        }
+
+        /* FAQ Items */
+        .faq-item {
+            margin-bottom: 10px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #f5f7fb;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.expanded {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-color: #2563eb;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f5f7fb;
+            transition: background-color 0.3s;
+        }
+
+        .faq-question:hover {
+            background-color: #f8fafc;
+        }
+
+        .faq-question h3 {
+            font-size: 16px;
+            font-weight: 500;
+            color: #1a1a1a;
+            margin: 0;
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-checkmark {
+            color: #10b981;
+            font-size: 18px;
+            margin-right: 15px;
+            min-width: 24px;
+        }
+
+        .faq-toggle {
+            width: 24px;
+            height: 24px;
+            background-color: #f5f7fb;
+            color: #475569;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            transition: all 0.3s;
+            margin-left: 10px;
+            flex-shrink: 0;
+        }
+
+        .faq-item.expanded .faq-toggle {
+            background-color: #2563eb;
+            color: white;
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s, padding 0.3s;
+            background-color: #f5f7fb;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .faq-item.expanded .faq-answer {
+            padding: 20px;
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            color: #475569;
+            line-height: 1.6;
+            margin: 0;
+            font-size: 15px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+
+            .faq-content {
+                padding: 20px;
+            }
+
+        }
+
+        @media (max-width: 576px) {
+            .faq-question {
+                padding: 15px;
+            }
+
+            .faq-answer {
+                padding: 0 15px;
+            }
+
+            .faq-item.expanded .faq-answer {
+                padding: 15px;
+            }
+
+            .faq-question h3 {
+                font-size: 15px;
+            }
+        }
     </style>
 
 
@@ -547,8 +682,8 @@
 
         <!-- FAQ Section -->
         <section class="faq-section">
-            <h2>FAQ</h2>
-            <div class="faq-grid">
+            {{-- <h2>FAQ</h2> --}}
+            {{-- <div class="faq-grid">
                 <div class="faq-item">
                     <h3>What is your product quality guarantee?</h3>
                     <p>We guarantee the quality of our products. If you encounter any issues, please contact our customer support for assistance.</p>
@@ -577,7 +712,120 @@
                     <h3>What is your policy on environmental sustainability?</h3>
                     <p>We're committed to environmental sustainability through eco-friendly packaging, carbon-neutral shipping, and responsible sourcing.</p>
                 </div>
+            </div> --}}
+
+            <div class="faq-content">
+            <h2 class="faq-section-title">
+                FAQ
+            </h2>
+
+            <!-- FAQ Items -->
+            <div class="faq-item" id="faq1">
+                <div class="faq-question" onclick="toggleFAQ('faq1')">
+                    <h3>
+
+                        What is your product quality guarantee?
+                    </h3>
+                    <div class="faq-toggle">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+                <div class="faq-answer">
+                    <p>We guarantee the quality of our products. If you encounter any issues, please contact our customer
+                        support for assistance.</p>
+                </div>
             </div>
+
+            <div class="faq-item" id="faq2">
+                <div class="faq-question" onclick="toggleFAQ('faq2')">
+                    <h3>
+
+                        Can I add multiple items to my cart?
+                    </h3>
+                    <div class="faq-toggle">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, you can add multiple items to your cart by clicking "Add to Cart" for each item you want to
+                        purchase.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" id="faq3">
+                <div class="faq-question" onclick="toggleFAQ('faq3')">
+                    <h3>
+
+                        How do I check the availability of a product in a specific size or color?
+                    </h3>
+                    <div class="faq-toggle">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+                <div class="faq-answer">
+                    <p>To check the availability of a specific size or color, select the product and use the dropdown menus on the product page.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" id="faq4">
+                <div class="faq-question" onclick="toggleFAQ('faq4')">
+                    <h3>
+
+                        What is your return shipping cost policy?
+                    </h3>
+                    <div class="faq-toggle">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+                <div class="faq-answer">
+                    <p>Return shipping costs may be covered by us for eligible returns. Contact our customer support for return instructions and shipping labels.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" id="faq5">
+                <div class="faq-question" onclick="toggleFAQ('faq5')">
+                    <h3>
+
+                        Do you offer technical support for your products?
+                    </h3>
+                    <div class="faq-toggle">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we offer technical support for our products. Contact our technical support team for assistance with product-related issues.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" id="faq6">
+                <div class="faq-question" onclick="toggleFAQ('faq6')">
+                    <h3>
+
+                        What is your product delivery guarantee?
+                    </h3>
+                    <div class="faq-toggle">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+                <div class="faq-answer">
+                    <p>We guarantee on-time product delivery. If your order is delayed, please contact our customer support for assistance.</p>
+                </div>
+            </div>
+            <div class="faq-item" id="faq7">
+                <div class="faq-question" onclick="toggleFAQ('faq7')">
+                    <h3>
+
+                        What is your policy on environmental sustainability?
+                    </h3>
+                    <div class="faq-toggle">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+                <div class="faq-answer">
+                    <p>We are committed to environmental sustainability and follow eco-friendly practices in our operations. Learn more on our sustainability page.</p>
+                </div>
+            </div>
+        </div>
         </section>
 
         <!-- Connect With Us Section -->
@@ -655,6 +903,34 @@
             item.addEventListener('click', function() {
                 const question = this.querySelector('h3').textContent;
                 alert(`FAQ: ${question}\n\nClick OK to view more details.`);
+            });
+        });
+    </script>
+<script>
+        // Toggle FAQ function
+        function toggleFAQ(id) {
+            const faqItem = document.getElementById(id);
+            const allFAQItems = document.querySelectorAll('.faq-item');
+
+            // Toggle the clicked item
+            faqItem.classList.toggle('expanded');
+        }
+
+        // Initialize the first FAQ as expanded
+        document.a+ddEventListener('DOMContentLoaded', function () {
+
+            // Add keyboard support for accessibility
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        const faqId = this.closest('.faq-item').id;
+                        toggleFAQ(faqId);
+                    }
+                });
+
+                // Make FAQ questions focusable for keyboard navigation
+                question.setAttribute('tabindex', '0');
             });
         });
     </script>
