@@ -16,7 +16,7 @@
         }
 
         .container {
-            max-width: 1300px;
+            max-width: auto;
             margin: 0 auto;
             padding: 20px;
         }
@@ -38,7 +38,7 @@
             padding: 30px;
         }
         .btn-cat{
-             background-color: #f5f7fa;
+            background-color: #f5f7fa;
             border: none;
             margin-left: 500px;
             font-size: 20px;
@@ -159,9 +159,10 @@
         }
 
         .btn-primary {
-            background-color: #3a86ff;
-            color: white;
+            background-color: white;
+            color: #3a86ff;
             flex: 1;
+            border: 1px solid #3a86ff;
         }
 
         .btn-primary:hover {
@@ -432,33 +433,6 @@
             color: white;
         }
 
-        .chat-section {
-            margin-top: 30px;
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-        }
-
-        .chat-btn {
-            background-color: #f8f9fa;
-            color: #333;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 12px 25px;
-            font-weight: 600;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s;
-        }
-
-        .chat-btn:hover {
-            background-color: #3a86ff;
-            color: white;
-            border-color: #3a86ff;
-        }
-
         /* Footer */
         footer {
             background-color: white;
@@ -570,13 +544,6 @@
                 <!-- Candidates Grid -->
                 <div class="candidates-grid" id="candidatesGrid">
                     <!-- Candidate cards will be dynamically inserted here -->
-                </div>
-
-                <!-- Chat Section -->
-                <div class="chat-section">
-                    <button class="chat-btn">
-                        <i class="fas fa-comment-dots"></i> Chat with us
-                    </button>
                 </div>
             </div>
         </div>
@@ -752,7 +719,7 @@
 
                         <!-- Social Media -->
                         <div class="profile-section">
-                            <h3 class="section-title">Follow Me Social Media</h3>
+                            <h3 class="section-title">Follow Me On Social Media</h3>
                             <div class="social-icons">
                                 <a href="#" class="social-icon">
                                     <i class="fab fa-facebook-f"></i>

@@ -502,7 +502,8 @@
     </div>
     <ul class="sidebar-menu" id="sidebarMenu">
         <li><a href="{{ route('company.index') }}" class="{{ request()->is('company/dashboard') ? 'active' : '' }}">
-                <i class="fas fa-chart-pie"></i> Overview</a></li>
+                {{-- <i class="fas fa-chart-pie"> --}}
+                    <i class="fas fa-layer-group"></i> Overview</a></li>
         <li><a href="{{ route('dashboard.profile') }}"
                 class="{{ request()->is('dashboard/profile') ? 'active' : '' }}"><i class="fas fa-user"></i> My
                 Profile</a></li>

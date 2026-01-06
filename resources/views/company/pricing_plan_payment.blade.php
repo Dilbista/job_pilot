@@ -19,16 +19,9 @@
 
         /* Main Content */
         .container {
-            display: flex;
-            min-height: calc(100vh - 130px);
-        }
-
-        /* Main Content Area */
-        .main-content {
-            flex: 1;
-            padding: 30px;
-            width: 100%;
-            background-color: #f5f7fa;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .payment-container {
@@ -40,7 +33,7 @@
         /* Payment Details */
         .payment-details {
             flex: 2;
-            background-color: white;
+            background-color: #f5f7fa;
             border-radius: 12px;
             padding: 30px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -68,12 +61,17 @@
 
         /* Coupon Section */
         .coupon-section {
-            background-color: white;
+            background-color: #f5f7fa;
             border-radius: 12px;
-            width: 50%;
-            margin-bottom: 40px;
+            width: 60%;
+            margin: 40px 0;
+
             padding: 25px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        .coupon-section:hover {
+            border: 1px solid rgb(75, 75, 244);
+
         }
 
         .section-title {
@@ -89,13 +87,13 @@
         }
 
         .coupon-input {
-            flex: 1;
+            /* transition: border-color 0.3s; */ 
             padding: 12px 15px;
             border: 1px solid #ddd;
+            background-color: #f5f7fa;
             border-radius: 8px;
-            font-size: 15px;
-            color: #333;
-            transition: border-color 0.3s;
+            font-size: 16px;
+            width: 100%
         }
 
         .coupon-input:focus {
@@ -144,7 +142,7 @@
         }
 
         .gateway-item {
-            background-color: #f8f9fa;
+            background-color: #f5f7fa;
             border-radius: 10px;
             padding: 20px;
             /* width: 400px; */
@@ -172,7 +170,7 @@
         }
 
         .gateway-manual-item {
-             background-color: #f8f9fa;
+            background-color: #f5f7fa;
             border-radius: 10px;
             padding: 20px;
             width: 100%;
@@ -184,7 +182,7 @@
             border: 2px solid transparent;
             cursor: pointer;
         }
-         .gateway-manual-item:hover {
+        .gateway-manual-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
             border-color: #3a86ff;
@@ -233,7 +231,7 @@
         }
 
         .stripe-modal-content {
-            background-color: white;
+            background-color: #f5f7fa;
             width: 400px;
             border-radius: 12px;
             padding: 30px;
@@ -277,7 +275,7 @@
             color: #555;
         }
 
-        .form-group input {
+        .stripe-form input {
             padding: 12px 15px;
             border: 1px solid #ddd;
             border-radius: 8px;
@@ -314,7 +312,7 @@
         /* Plan Info Sidebar */
         .plan-info {
             flex: 1;
-            background-color: white;
+            background-color: #f5f7fa;
             border-radius: 12px;
             padding: 30px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -322,7 +320,7 @@
         }
 
         .plan-card {
-            background-color: #f0f7ff;
+            background-color: #f5f7fa;
             border-radius: 10px;
             padding: 25px;
             margin-bottom: 30px;
@@ -428,35 +426,9 @@
                 flex-direction: column;
             }
 
-            .sidebar {
-                width: 100%;
-                padding: 20px;
-            }
-
-            .sidebar-menu {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 10px;
-            }
-
-            .sidebar-menu li {
-                margin-bottom: 0;
-            }
-
-            .sidebar-menu a {
-                padding: 10px 15px;
-            }
         }
 
         @media (max-width: 768px) {
-            .top-nav {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .search-bar {
-                width: 100%;
-            }
 
             .gateways-grid {
                 grid-template-columns: 1fr;
@@ -465,6 +437,10 @@
             .stripe-modal-content {
                 width: 90%;
             }
+            .coupon-section {
+                width: 100%
+
+            }
         }
     </style>
 
@@ -472,7 +448,6 @@
     <div class="container">
 
         <!-- Main Content -->
-        <div class="main-content">
             <div class="coupon-section">
                 <h2 class="section-title">Have a coupon?</h2>
                 <div class="coupon-form">
@@ -609,7 +584,7 @@
                     </div>
                 </div> --}}
             </div>
-        </div>
+
     </div>
 
     <!-- Stripe Payment Modal -->

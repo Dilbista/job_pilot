@@ -269,57 +269,6 @@
             line-height: 1.6;
         }
         
-        /* Chat Section */
-        .chat-section {
-            text-align: center;
-            padding: 30px 20px;
-            background: #f0f7ff;
-            border-radius: 10px;
-            border: 2px dashed #93c5fd;
-        }
-        
-        .chat-icon {
-            font-size: 40px;
-            color: #2563eb;
-            margin-bottom: 15px;
-        }
-        
-        .chat-title {
-            font-size: 18px;
-            color: #1e293b;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-        
-        .chat-description {
-            color: #64748b;
-            margin-bottom: 20px;
-            font-size: 15px;
-        }
-        
-        .chat-btn {
-            display: inline-flex;
-            align-items: center;
-            background: #10b981;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        
-        .chat-btn:hover {
-            background: #0da271;
-        }
-        
-        .chat-btn i {
-            margin-right: 8px;
-        }
-        
-        
-        
         .contact-call {
             display: flex;
             align-items: center;
@@ -476,18 +425,6 @@
                         Our verification team will process your submission within 24-48 hours. 
                         You will receive a notification once the verification is complete.
                     </div>
-                </div>
-                
-                <!-- Chat Section -->
-                <div class="chat-section">
-                    <div class="chat-icon">
-                        <i class="fas fa-comment-dots"></i>
-                    </div>
-                    <div class="chat-title">Chat with us</div>
-                    <div class="chat-description">Need help with verification? Our support team is here to assist you.</div>
-                    <button class="chat-btn">
-                        <i class="fas fa-comment-dots"></i> Chat with us
-                    </button>
                 </div>
             </div>
         </div>

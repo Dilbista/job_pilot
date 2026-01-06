@@ -15,7 +15,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         * {
             margin: 0;
@@ -1431,14 +1431,14 @@
                     <img src="{{ asset('images/logo.png') }}" alt="Profile">
 
                     <ul class="dropdown-menu">
-                        <li><a href="{{ route('company.index') }}">Dashboard</a></li>
-                        <li><a href="{{ route('company.myJobs') }}">My Jobs</a></li>
-                        <li><a href="{{ route('dashboard.billing') }}">Plans & Billing</a></li>
-                        <li><a href="{{ route('dashboard.settings') }}">Settings</a></li>
+                        <li><a href="{{ route('company.index') }}"><i class="fas fa-layer-group"></i> Dashboard</a></li>
+                        <li><a href="{{ route('company.myJobs') }}"><i class="fas fa-briefcase"></i> My Jobs</a></li>
+                        <li><a href="{{ route('dashboard.billing') }}"><i class="fas fa-credit-card"></i> Plans & Billing</a></li>
+                        <li><a href="{{ route('dashboard.settings') }}"><i class="fas fa-cog"></i> Settings</a></li>
                         <li>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                <button type="submit" class="logout-btn">Log Out</button>
+                                <button type="submit" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Log Out</button>
                             </form>
                         </li>
                     </ul>

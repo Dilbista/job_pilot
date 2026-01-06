@@ -17,7 +17,7 @@
         }
         
          .container {
-            max-width: 1300px;
+            max-width: auto;
             margin: 0 auto;
             padding: 20px;
         }
@@ -82,6 +82,7 @@
             margin-bottom: 20px;
             margin-left: 400px;
         }
+
         
         .filters-left {
             display: flex;
@@ -214,7 +215,7 @@
         }
         
         
-         .action-btn-table {
+        .action-btn-table {
             background-color:rgb(237, 243, 249); 
             color: rgb(7, 7, 130);
             border: none;
@@ -413,10 +414,10 @@
         
         <!-- Main Content -->
         <div class="dashboard-content">
-            <h1 class="page-title">My Jobs(<span>100</span>)</h1>
-            
+            {{-- <h1 class="page-title">My Jobs(<span>100</span>)</h1> --}}
             <!-- Jobs Table Section -->
             <div class="jobs-section">
+                <h4>My Jobs(<span>100</span>)</h4>
                 <div class="filters-section">
                     <div class="filters-left">
                         <div class="filter-label">Job Status</div>
