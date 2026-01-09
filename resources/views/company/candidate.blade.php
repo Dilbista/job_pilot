@@ -1692,4 +1692,5 @@
         // Initialize page when DOM is loaded
         document.addEventListener('DOMContentLoaded', initializePage);
     </script>
+    @include('layouts.sub_footer')
 @endsection

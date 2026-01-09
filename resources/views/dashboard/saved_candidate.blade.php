@@ -37,24 +37,27 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             padding: 30px;
         }
-        .btn-cat{
+
+        .btn-cat {
             background-color: #f5f7fa;
             border: none;
             margin-left: 500px;
             font-size: 20px;
             height: 50px
         }
-        .btn-cat a{
+
+        .btn-cat a {
             text-decoration: none;
             padding: 30px;
             margin: 5px;
         }
+
         /* Main Content Area */
         .main-content {
             flex: 1;
             padding: 40px;
         }
-        
+
         .page-title {
             font-size: 28px;
             margin-bottom: 30px;
@@ -76,6 +79,7 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: all 0.3s;
             border: 2px solid transparent;
+            position: relative;
         }
 
         .candidate-card:hover {
@@ -88,6 +92,7 @@
             display: flex;
             align-items: center;
             margin-bottom: 20px;
+            position: relative;
         }
 
         .candidate-avatar {
@@ -102,6 +107,14 @@
             font-size: 28px;
             font-weight: 700;
             margin-right: 15px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .candidate-avatar-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .candidate-info h3 {
@@ -193,6 +206,25 @@
             background-color: #e9ecef;
         }
 
+        /* Favorite Icon */
+        .favorite-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: #3a86ff;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 2;
+        }
+
+        .favorite-icon:hover {
+            color: #ff6b6b;
+            transform: scale(1.1);
+        }
+
         /* Filters */
         .filters {
             display: flex;
@@ -270,6 +302,34 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
+            position: relative;
+        }
+
+        .modal-profile-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .modal-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #3a86ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 42px;
+            font-weight: 700;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .modal-avatar-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .modal-title {
@@ -281,6 +341,16 @@
             color: #777;
             font-size: 16px;
             margin-top: 5px;
+        }
+
+        .modal-availability {
+            display: inline-block;
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-top: 10px;
         }
 
         .close-modal {
@@ -498,10 +568,22 @@
             .personal-info {
                 grid-template-columns: 1fr;
             }
-        }
 
+            .modal-profile-info {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .modal-avatar {
+                width: 80px;
+                height: 80px;
+                font-size: 32px;
+            }
+        }
     </style>
 
+    <!-- Add FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <div class="container">
         <div class="dashboard-layout">
@@ -510,8 +592,9 @@
 
             <!-- Main Content -->
             <div class="dashboard-content">
-                <h1 class="page-title">Saved Candidates <button class="btn-cat" ><a href="{{ route('dashboard.createCategory') }}">Category</a></button></h1>
-                
+                <h1 class="page-title">Saved Candidates <button class="btn-cat"><a
+                            href="{{ route('dashboard.createCategory') }}">Category</a></button></h1>
+
 
                 <!-- Filters -->
                 <div class="filters">
@@ -552,9 +635,15 @@
         <div class="profile-modal" id="profileModal">
             <div class="modal-content">
                 <div class="modal-header">
-                    <div>
-                        <h2 class="modal-title" id="modalName">Ariful Islam</h2>
-                        <p class="modal-subtitle" id="modalTitle">Journalist</p>
+                    <div class="modal-profile-info">
+                        <div class="modal-avatar" id="modalAvatar">
+                            <!-- Avatar will be inserted here -->
+                        </div>
+                        <div>
+                            <h2 class="modal-title" id="modalName">Ariful Islam</h2>
+                            <p class="modal-subtitle" id="modalTitle">Journalist</p>
+                            <span class="modal-availability" id="modalAvailability">I am available</span>
+                        </div>
                     </div>
                     <button class="close-modal" id="closeModalBtn">&times;</button>
                 </div>
@@ -741,13 +830,15 @@
         </div>
 
     </div>
+
     <script>
-        // Sample data for saved candidates
-        const candidatesData = [
+        // Sample data for saved candidates with images
+        let savedCandidates = JSON.parse(localStorage.getItem('jobpilotSavedCandidates')) || [
             {
                 id: 1,
                 name: "Ariful Islam",
                 title: "Journalist",
+                image: "/images/myprofile.png",
                 bio: "Fugit explicabo ex earum sed quia. Molestias incidunt quis distinctio doloribus. Repellat quaerat dicta nihil iste. Autem aliquid nam doloribus veritatis impedit voluptatibus.",
                 skills: ["Newsletters", "Pinia", "Languages", "Corsican", "Yoruba"],
                 experience: "1 Year",
@@ -759,12 +850,14 @@
                 website: "http://www.altenwerth.net/",
                 location: "Angola",
                 phone: "N/A",
-                email: "N/A"
+                email: "N/A",
+                availability: "I am available"
             },
             {
                 id: 2,
-                name: "Shelkh Rashed",
+                name: "Sheikh Rashed",
                 title: "Accountant",
+                image: null,
                 bio: "Experienced accountant with 5+ years in corporate finance and auditing. Specialized in tax planning and financial reporting.",
                 skills: ["Financial Analysis", "Tax Planning", "QuickBooks", "Excel", "Auditing"],
                 experience: "5 Years",
@@ -776,12 +869,14 @@
                 website: "http://www.example.com/",
                 location: "New York",
                 phone: "+1 (555) 123-4567",
-                email: "rashed@example.com"
+                email: "rashed@example.com",
+                availability: "Available for work"
             },
             {
                 id: 3,
                 name: "Jihadul Islam",
                 title: "Electrician",
+                image: "/images/profile_image_2.png",
                 bio: "Licensed electrician with expertise in residential and commercial electrical systems. Focus on safety and code compliance.",
                 skills: ["Wiring", "Electrical Systems", "Safety Compliance", "Troubleshooting", "Installation"],
                 experience: "8 Years",
@@ -793,12 +888,14 @@
                 website: "N/A",
                 location: "Toronto",
                 phone: "+1 (416) 555-7890",
-                email: "j.islam@example.com"
+                email: "j.islam@example.com",
+                availability: "Available immediately"
             },
             {
                 id: 4,
                 name: "Riyad Hossain",
                 title: "Chef",
+                image: null,
                 bio: "Award-winning chef with expertise in French and Asian fusion cuisine. Passionate about creating innovative culinary experiences.",
                 skills: ["French Cuisine", "Asian Fusion", "Menu Planning", "Food Safety", "Pastry"],
                 experience: "12 Years",
@@ -810,12 +907,14 @@
                 website: "http://www.riyadcuisine.com/",
                 location: "Paris",
                 phone: "+33 1 23 45 67 89",
-                email: "riyad@chef.com"
+                email: "riyad@chef.com",
+                availability: "Open to opportunities"
             },
             {
                 id: 5,
                 name: "Rakibul Islam",
                 title: "Pharmacist",
+                image: "/images/myprofile.png",
                 bio: "Clinical pharmacist with expertise in medication therapy management and patient counseling. Focus on optimizing drug regimens.",
                 skills: ["Medication Therapy", "Patient Counseling", "Pharmaceutical Care", "Drug Interactions", "Compounding"],
                 experience: "6 Years",
@@ -827,12 +926,14 @@
                 website: "N/A",
                 location: "London",
                 phone: "+44 20 7946 0958",
-                email: "r.islam@pharmacy.co.uk"
+                email: "r.islam@pharmacy.co.uk",
+                availability: "Available"
             },
             {
                 id: 6,
                 name: "Emma Johnson",
                 title: "Software Engineer",
+                image: "/images/profile_images.webp",
                 bio: "Full-stack developer with expertise in JavaScript frameworks and cloud technologies. Passionate about building scalable web applications.",
                 skills: ["JavaScript", "React", "Node.js", "AWS", "Python"],
                 experience: "4 Years",
@@ -844,14 +945,21 @@
                 website: "http://www.emmajohnson.dev/",
                 location: "San Francisco",
                 phone: "+1 (415) 555-2468",
-                email: "emma@johnson.dev"
+                email: "N/A",
+                availability: "Looking for new challenges"
             }
         ];
+
+        // Save to localStorage initially if not already saved
+        if (!localStorage.getItem('jobpilotSavedCandidates')) {
+            localStorage.setItem('jobpilotSavedCandidates', JSON.stringify(savedCandidates));
+        }
 
         // DOM Elements
         const candidatesGrid = document.getElementById('candidatesGrid');
         const profileModal = document.getElementById('profileModal');
         const closeModalBtn = document.getElementById('closeModalBtn');
+        const modalAvatar = document.getElementById('modalAvatar');
 
         // Modal elements
         const modalName = document.getElementById('modalName');
@@ -865,39 +973,95 @@
         const modalLocation = document.getElementById('modalLocation');
         const modalPhone = document.getElementById('modalPhone');
         const modalEmail = document.getElementById('modalEmail');
+        const modalAvailability = document.getElementById('modalAvailability');
 
         // Initialize the page
         function initializePage() {
             renderCandidates();
+            setupEventListeners();
+        }
 
-            // Load from localStorage if available
-            const savedCandidates = localStorage.getItem('jobpilotCandidates');
-            if (savedCandidates) {
-                candidatesData = JSON.parse(savedCandidates);
-                renderCandidates();
-            }
+        // Set up all event listeners
+        function setupEventListeners() {
+            // Close modal
+            closeModalBtn.addEventListener('click', closeProfileModal);
+
+            // Close modal when clicking outside
+            window.addEventListener('click', (event) => {
+                if (event.target === profileModal) {
+                    closeProfileModal();
+                }
+            });
+
+            // Search functionality
+            const searchInput = document.querySelector('.search-input');
+            searchInput.addEventListener('input', function () {
+                const searchTerm = this.value.toLowerCase();
+                filterCandidates(searchTerm, 'all');
+            });
+
+            // Filter by category
+            const categorySelect = document.querySelectorAll('.filter-select')[1];
+            categorySelect.addEventListener('change', function () {
+                const category = this.value;
+                const searchInput = document.querySelector('.search-input');
+                filterCandidates(searchInput.value.toLowerCase(), category);
+            });
+
+            // General filter
+            const filterSelect = document.querySelectorAll('.filter-select')[0];
+            filterSelect.addEventListener('change', function () {
+                const filterValue = this.value;
+                const searchInput = document.querySelector('.search-input');
+                applyAdvancedFilter(searchInput.value.toLowerCase(), filterValue);
+            });
         }
 
         // Render candidates
         function renderCandidates() {
             candidatesGrid.innerHTML = '';
 
-            // Render each candidate
-            candidatesData.forEach(candidate => {
+            if (savedCandidates.length === 0) {
+                candidatesGrid.innerHTML = `
+                        <div class="empty-state" style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+                            <div style="font-size: 60px; color: #ddd; margin-bottom: 20px;">
+                                <i class="fas fa-user-slash"></i>
+                            </div>
+                            <div style="font-size: 18px; margin-bottom: 15px; color: #777;">No saved candidates found</div>
+                            <p>You haven't saved any candidates yet.</p>
+                        </div>
+                    `;
+                return;
+            }
+
+            savedCandidates.forEach(candidate => {
                 const candidateCard = document.createElement('div');
                 candidateCard.className = 'candidate-card';
 
-                // Get first letter for avatar
                 const firstLetter = candidate.name.charAt(0);
 
-                // Limit bio to 100 characters for card view
+                // Create avatar HTML based on whether image exists
+                let avatarHTML;
+                if (candidate.image) {
+                    avatarHTML = `<div class="candidate-avatar"><img src="${candidate.image}" alt="${candidate.name}" class="candidate-avatar-img" onerror="this.onerror=null; this.parentElement.innerHTML='${firstLetter}';"></div>`;
+                } else {
+                    avatarHTML = `<div class="candidate-avatar">${firstLetter}</div>`;
+                }
+
                 const shortBio = candidate.bio.length > 100
                     ? candidate.bio.substring(0, 100) + '...'
                     : candidate.bio;
 
+                // Check if email is valid for the button
+                const hasValidEmail = isEmailValid(candidate.email);
+
                 candidateCard.innerHTML = `
+                        <button class="favorite-icon" data-id="${candidate.id}" title="Remove from favorites">
+                            <i class="fas fa-bookmark"></i>
+                        </button>
+
                         <div class="candidate-header">
-                            <div class="candidate-avatar">${firstLetter}</div>
+                            ${avatarHTML}
                             <div class="candidate-info">
                                 <h3>${candidate.name}</h3>
                                 <p>${candidate.title}</p>
@@ -921,8 +1085,8 @@
                             <button class="btn btn-primary view-profile-btn" data-id="${candidate.id}">
                                 <i class="fas fa-eye"></i> View Profile
                             </button>
-                            <button class="btn btn-outline">
-                                <i class="fas fa-envelope"></i> Message
+                            <button class="btn btn-outline send-email-btn" data-id="${candidate.id}" ${!hasValidEmail ? 'disabled style="opacity:0.6; cursor:not-allowed;"' : ''}>
+                                <i class="fas fa-envelope"></i> ${hasValidEmail ? 'Message' : 'No Email'}
                             </button>
                         </div>
                     `;
@@ -930,25 +1094,92 @@
                 candidatesGrid.appendChild(candidateCard);
             });
 
-            // Add event listeners to view profile buttons
+            // Add event listeners
             document.querySelectorAll('.view-profile-btn').forEach(button => {
                 button.addEventListener('click', function () {
                     const candidateId = parseInt(this.getAttribute('data-id'));
                     openProfileModal(candidateId);
                 });
             });
+
+            document.querySelectorAll('.favorite-icon').forEach(icon => {
+                icon.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    const candidateId = parseInt(this.getAttribute('data-id'));
+                    removeFromFavorites(candidateId);
+                });
+            });
+
+            // Add event listeners to email buttons (only enabled ones)
+            document.querySelectorAll('.send-email-btn:not([disabled])').forEach(button => {
+                button.addEventListener('click', function () {
+                    const candidateId = parseInt(this.getAttribute('data-id'));
+                    const candidate = savedCandidates.find(c => c.id === candidateId);
+                    if (candidate && isEmailValid(candidate.email)) {
+                        sendEmail(candidate.email, candidate.name);
+                    } else {
+                        showNotification('Email address not available', 'warning');
+                    }
+                });
+            });
+        }
+
+        // Check if email is valid
+        function isEmailValid(email) {
+            if (!email ||
+                typeof email !== 'string' ||
+                email.trim() === '' ||
+                email === 'N/A' ||
+                email.toLowerCase() === 'n/a' ||
+                email === 'null' ||
+                email === 'undefined' ||
+                !email.includes('@')) {
+                return false;
+            }
+
+            // Basic email format validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email.trim());
+        }
+
+        // Remove candidate from favorites
+        function removeFromFavorites(candidateId) {
+            // Find candidate name for notification
+            const candidate = savedCandidates.find(c => c.id === candidateId);
+            const candidateName = candidate ? candidate.name : 'Candidate';
+
+            // Remove from array
+            savedCandidates = savedCandidates.filter(candidate => candidate.id !== candidateId);
+
+            // Update localStorage
+            localStorage.setItem('jobpilotSavedCandidates', JSON.stringify(savedCandidates));
+
+            // Re-render grid
+            renderCandidates();
+
+            // Show notification
+            showNotification(`${candidateName} removed from favorites`, 'info');
         }
 
         // Open profile modal with candidate data
         function openProfileModal(candidateId) {
-            const candidate = candidatesData.find(c => c.id === candidateId);
+            const candidate = savedCandidates.find(c => c.id === candidateId);
 
             if (!candidate) return;
+
+            // Update modal avatar based on whether image exists
+            const firstLetter = candidate.name.charAt(0);
+            if (candidate.image) {
+                modalAvatar.innerHTML = `<img src="${candidate.image}" alt="${candidate.name}" class="modal-avatar-img" onerror="this.onerror=null; this.parentElement.innerHTML='${firstLetter}';">`;
+            } else {
+                modalAvatar.innerHTML = firstLetter;
+            }
 
             // Update modal content
             modalName.textContent = candidate.name;
             modalTitle.textContent = candidate.title;
             modalBio.textContent = candidate.bio;
+            modalAvailability.textContent = candidate.availability || "Available";
             modalDob.textContent = candidate.dob;
             modalMarital.textContent = candidate.maritalStatus;
             modalCountry.textContent = candidate.country;
@@ -956,66 +1187,107 @@
             modalWebsite.textContent = candidate.website;
             modalLocation.textContent = candidate.location;
             modalPhone.textContent = candidate.phone;
-            modalEmail.textContent = candidate.email;
+            modalEmail.textContent = candidate.email; // This will show "N/A" if email is "N/A"
 
             // Show modal
             profileModal.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
+            document.body.style.overflow = 'hidden';
         }
 
         // Close profile modal
         function closeProfileModal() {
             profileModal.style.display = 'none';
-            document.body.style.overflow = 'auto'; // Re-enable scrolling
+            document.body.style.overflow = 'auto';
         }
 
-        // Event Listeners
-        document.addEventListener('DOMContentLoaded', initializePage);
-
-        closeModalBtn.addEventListener('click', closeProfileModal);
-
-        // Close modal when clicking outside
-        window.addEventListener('click', (event) => {
-            if (event.target === profileModal) {
-                closeProfileModal();
-            }
-        });
-
-        // Search functionality
-        const searchInput = document.querySelector('.search-input');
-        searchInput.addEventListener('input', function () {
-            const searchTerm = this.value.toLowerCase();
-
-            // Filter candidates
-            const filteredCandidates = candidatesData.filter(candidate =>
-                candidate.name.toLowerCase().includes(searchTerm) ||
-                candidate.title.toLowerCase().includes(searchTerm) ||
-                candidate.bio.toLowerCase().includes(searchTerm) ||
-                candidate.skills.some(skill => skill.toLowerCase().includes(searchTerm))
-            );
-
-            // Update display
-            renderFilteredCandidates(filteredCandidates);
-        });
-
-        // Filter by category
-        const categorySelect = document.querySelectorAll('.filter-select')[1];
-        categorySelect.addEventListener('change', function () {
-            const category = this.value;
-
-            if (category === 'all') {
-                renderCandidates();
+        // Send email function
+        function sendEmail(email, name = '') {
+            if (!isEmailValid(email)) {
+                showNotification(`${name ? name + ' has' : 'Candidate has'} no valid email address`, 'warning');
                 return;
             }
 
-            // Filter candidates by category (title)
-            const filteredCandidates = candidatesData.filter(candidate =>
-                candidate.title.toLowerCase().includes(category)
-            );
+            // Open email client
+            window.location.href = `mailto:${email.trim()}?subject=Regarding your application&body=Dear ${name || 'Candidate'},%0D%0A%0D%0A`;
+        }
 
-            // Update display
-            renderFilteredCandidates(filteredCandidates);
-        });
+        // Filter candidates based on search term and category
+        function filterCandidates(searchTerm, category) {
+            let filtered = savedCandidates;
+
+            // Filter by search term
+            if (searchTerm) {
+                filtered = filtered.filter(candidate =>
+                    candidate.name.toLowerCase().includes(searchTerm) ||
+                    candidate.title.toLowerCase().includes(searchTerm) ||
+                    candidate.bio.toLowerCase().includes(searchTerm) ||
+                    candidate.skills.some(skill => skill.toLowerCase().includes(searchTerm))
+                );
+            }
+
+            // Filter by category
+            if (category !== 'all') {
+                filtered = filtered.filter(candidate =>
+                    candidate.title.toLowerCase().includes(category)
+                );
+            }
+
+            // Render filtered candidates
+            renderFilteredCandidates(filtered);
+        }
+
+        // Apply advanced filter
+        function applyAdvancedFilter(searchTerm, filterType) {
+            let filtered = savedCandidates;
+
+            // Filter by search term first
+            if (searchTerm) {
+                filtered = filtered.filter(candidate =>
+                    candidate.name.toLowerCase().includes(searchTerm) ||
+                    candidate.title.toLowerCase().includes(searchTerm) ||
+                    candidate.bio.toLowerCase().includes(searchTerm) ||
+                    candidate.skills.some(skill => skill.toLowerCase().includes(searchTerm))
+                );
+            }
+
+            // Apply advanced filter
+            switch (filterType) {
+                case 'recent':
+                    // Sort by ID (assuming higher ID = more recent)
+                    filtered.sort((a, b) => b.id - a.id);
+                    break;
+                case 'experience':
+                    // Sort by experience (assuming experience is in format "X Years")
+                    filtered.sort((a, b) => {
+                        const expA = parseInt(a.experience) || 0;
+                        const expB = parseInt(b.experience) || 0;
+                        return expB - expA;
+                    });
+                    break;
+                case 'education':
+                    // Sort by education level (simplified)
+                    const educationOrder = {
+                        'PhD': 4,
+                        'MSc': 3,
+                        'MCom': 3,
+                        'BSC': 2,
+                        'Diploma': 1,
+                        'SSC': 0
+                    };
+                    filtered.sort((a, b) => {
+                        const eduA = educationOrder[a.education] || 0;
+                        const eduB = educationOrder[b.education] || 0;
+                        return eduB - eduA;
+                    });
+                    break;
+                default:
+                    // 'all' - no additional filtering
+                    break;
+            }
+
+            // Render filtered candidates
+            renderFilteredCandidates(filtered);
+        }
 
         // Render filtered candidates
         function renderFilteredCandidates(filteredCandidates) {
@@ -1034,22 +1306,34 @@
                 return;
             }
 
-            // Render each filtered candidate
             filteredCandidates.forEach(candidate => {
                 const candidateCard = document.createElement('div');
                 candidateCard.className = 'candidate-card';
 
-                // Get first letter for avatar
                 const firstLetter = candidate.name.charAt(0);
 
-                // Limit bio to 100 characters for card view
+                // Create avatar HTML based on whether image exists
+                let avatarHTML;
+                if (candidate.image) {
+                    avatarHTML = `<div class="candidate-avatar"><img src="${candidate.image}" alt="${candidate.name}" class="candidate-avatar-img" onerror="this.onerror=null; this.parentElement.innerHTML='${firstLetter}';"></div>`;
+                } else {
+                    avatarHTML = `<div class="candidate-avatar">${firstLetter}</div>`;
+                }
+
                 const shortBio = candidate.bio.length > 100
                     ? candidate.bio.substring(0, 100) + '...'
                     : candidate.bio;
 
+                // Check if email is valid for the button
+                const hasValidEmail = isEmailValid(candidate.email);
+
                 candidateCard.innerHTML = `
+                        <button class="favorite-icon" data-id="${candidate.id}" title="Remove from favorites">
+                            <i class="fas fa-bookmark"></i>
+                        </button>
+
                         <div class="candidate-header">
-                            <div class="candidate-avatar">${firstLetter}</div>
+                            ${avatarHTML}
                             <div class="candidate-info">
                                 <h3>${candidate.name}</h3>
                                 <p>${candidate.title}</p>
@@ -1073,8 +1357,8 @@
                             <button class="btn btn-primary view-profile-btn" data-id="${candidate.id}">
                                 <i class="fas fa-eye"></i> View Profile
                             </button>
-                            <button class="btn btn-outline">
-                                <i class="fas fa-envelope"></i> Message
+                            <button class="btn btn-outline send-email-btn" data-id="${candidate.id}" ${!hasValidEmail ? 'disabled style="opacity:0.6; cursor:not-allowed;"' : ''}>
+                                <i class="fas fa-envelope"></i> ${hasValidEmail ? 'Message' : 'No Email'}
                             </button>
                         </div>
                     `;
@@ -1082,13 +1366,122 @@
                 candidatesGrid.appendChild(candidateCard);
             });
 
-            // Add event listeners to view profile buttons
+            // Add event listeners
             document.querySelectorAll('.view-profile-btn').forEach(button => {
                 button.addEventListener('click', function () {
                     const candidateId = parseInt(this.getAttribute('data-id'));
                     openProfileModal(candidateId);
                 });
             });
+
+            document.querySelectorAll('.favorite-icon').forEach(icon => {
+                icon.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    const candidateId = parseInt(this.getAttribute('data-id'));
+                    removeFromFavorites(candidateId);
+                });
+            });
+
+            // Add event listeners to email buttons (only enabled ones)
+            document.querySelectorAll('.send-email-btn:not([disabled])').forEach(button => {
+                button.addEventListener('click', function () {
+                    const candidateId = parseInt(this.getAttribute('data-id'));
+                    const candidate = filteredCandidates.find(c => c.id === candidateId);
+                    if (candidate && isEmailValid(candidate.email)) {
+                        sendEmail(candidate.email, candidate.name);
+                    } else {
+                        showNotification('Email address not available', 'warning');
+                    }
+                });
+            });
         }
+
+        // Show notification
+        function showNotification(message, type = 'info') {
+            // Remove any existing notification
+            const existingNotification = document.querySelector('.custom-notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = 'custom-notification';
+            notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    padding: 15px 20px;
+                    border-radius: 8px;
+                    color: white;
+                    font-weight: 600;
+                    z-index: 9999;
+                    animation: slideIn 0.3s ease;
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                `;
+
+            // Set background color based on type
+            if (type === 'info') {
+                notification.style.backgroundColor = '#3a86ff';
+            } else if (type === 'warning') {
+                notification.style.backgroundColor = '#ff9900';
+            } else if (type === 'success') {
+                notification.style.backgroundColor = '#2e7d32';
+            }
+
+            // Add icon based on type
+            let icon = 'fa-info-circle';
+            if (type === 'warning') icon = 'fa-exclamation-triangle';
+            if (type === 'success') icon = 'fa-check-circle';
+
+            notification.innerHTML = `
+                    <i class="fas ${icon}"></i>
+                    <span>${message}</span>
+                `;
+
+            document.body.appendChild(notification);
+
+            // Remove notification after 3 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 300);
+            }, 3000);
+        }
+
+        // Add CSS for animations
+        const style = document.createElement('style');
+        style.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                @keyframes slideOut {
+                    from { transform: translateX(0); opacity: 1; }
+                    to { transform: translateX(100%); opacity: 0; }
+                }
+
+                /* Style for disabled email button */
+                .send-email-btn[disabled] {
+                    opacity: 0.6;
+                    cursor: not-allowed !important;
+                }
+
+                .send-email-btn[disabled]:hover {
+                    background-color: white !important;
+                    color: #3a86ff !important;
+                    transform: none !important;
+                }
+            `;
+        document.head.appendChild(style);
+
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', initializePage);
     </script>
 @endsection

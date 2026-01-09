@@ -934,5 +934,5 @@
             });
         });
     </script>
-
+    @include('layouts.sub_footer')
     @endsection
